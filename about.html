@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Sofia — Empowered by Sofia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #0E0A0F;
+    --crimson: #6B1020;
+    --plum: #2E0D3A;
+    --gold: #C9943A;
+    --gold-light: #E8B85A;
+    --ivory: #F5EDD8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(14,10,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,148,58,0.2);
+  }
+
+  .nav-brand { display: flex; flex-direction: column; line-height: 1.1; text-decoration: none; }
+  .nav-brand .emp { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: var(--ivory); letter-spacing: 0.1em; }
+  .nav-brand .bysofia { font-family: 'Playfair Display', serif; font-style: italic; font-size: 13px; color: var(--gold); }
+
+  .nav-links { display: flex; align-items: center; gap: 12px; list-style: none; }
+  .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,237,216,0.7); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links .btn-nav { background: var(--gold); color: var(--obsidian); padding: 8px 18px; font-weight: 500; }
+  .nav-links .btn-nav:hover { background: var(--gold-light); color: var(--obsidian); }
+  .nav-divider { width: 1px; height: 16px; background: rgba(201,148,58,0.3); }
+
+  .page-hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(46,13,58,0.6) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .page-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 48px);
+    color: var(--ivory);
+    line-height: 1.2;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.4s;
+  }
+
+  .gold-divider { width: 60px; height: 1px; background: var(--gold); margin: 60px auto; opacity: 0.5; }
+
+  .story { padding: 0 24px 80px; max-width: 560px; margin: 0 auto; }
+
+  .story p {
+    color: rgba(245,237,216,0.75);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .story p strong { color: var(--ivory); font-weight: 500; }
+
+  .pull-quote {
+    font-style: italic;
+    font-size: clamp(18px, 3.5vw, 22px);
+    color: var(--gold);
+    line-height: 1.7;
+    border-left: 2px solid rgba(201,148,58,0.4);
+    padding-left: 24px;
+    margin: 40px 0;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .cta-section {
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,16,32,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner { max-width: 480px; margin: 0 auto; }
+
+  .cta-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 32px);
+    color: var(--ivory);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .cta-inner p { color: rgba(245,237,216,0.6); margin-bottom: 32px; font-size: 17px; line-height: 1.6; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--obsidian);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 40px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  footer {
+    border-top: 1px solid rgba(201,148,58,0.15);
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .footer-brand .emp { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--ivory); letter-spacing: 0.1em; display: block; }
+  .footer-brand .bysofia { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: var(--gold); display: block; margin-bottom: 20px; }
+  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; list-style: none; margin-bottom: 28px; }
+  .footer-nav a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,237,216,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: rgba(245,237,216,0.25); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 8px; }
+    .nav-links a { font-size: 11px; }
+    .nav-links .btn-nav { padding: 7px 12px; }
+    .story { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="emp">EMPOWERED</span>
+    <span class="bysofia">by Sofia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="eq-audit.html">EQ Audit</a></li>
+    <li class="nav-divider"></li>
+    <li><a href="organisations.html" class="btn-nav">For Organisations</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <p class="page-label">The Woman Behind the Work</p>
+  <h1>Sofia did not set out to become an emotional intelligence coach. She set out to survive.</h1>
+</section>
+
+<div class="gold-divider"></div>
+
+<article class="story">
+  <span class="section-label">Her Story</span>
+
+  <p>For years, Sofia was the woman who felt everything and understood none of it. She cried in meetings. She took everything personally. She kept repeating the same patterns in her relationships and her business — and she could not understand why.</p>
+
+  <p>Nobody had ever taught her what to do with her emotions. <strong>Not her family. Not school. Not the personal development books she devoured.</strong> They told her to think positive. To be grateful. To push through. None of it touched the real problem.</p>
+
+  <p class="pull-quote">"The problem was not my emotions. It was that I had never been given the tools to understand them. Once I had those tools, everything changed."</p>
+
+  <p>The change came when Sofia discovered the science of emotional intelligence — not as a corporate buzzword, but as a real, learnable set of skills. She trained. She studied. She applied every framework to her own life before she ever brought it to a client.</p>
+
+  <p>What she found was that emotional intelligence was not about becoming calmer or less reactive. It was about understanding what your emotions are telling you, and knowing what to do next. <strong>That distinction changed her life.</strong></p>
+
+  <span class="section-label" style="margin-top:40px;">Her Work</span>
+
+  <p>Today Sofia works with women who are at every stage of that journey — from the woman who has just started to notice something feels wrong, to the woman who is close to her breakthrough and needs someone to guide the final stretch.</p>
+
+  <p>She also brings that same work into schools, businesses, and organisations — because emotional intelligence is not a personal problem. It is a human one. And it can be taught.</p>
+
+  <p>Her approach is direct and warm. She does not use clinical language or self-help clichés. She speaks to the woman who is tired of being told to just breathe through it — and she shows her what else is possible.</p>
+</article>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>The best place to begin is with honest self-knowledge.</h2>
+    <p>The EQ Audit takes 10 minutes and shows you exactly where you are in your emotional intelligence journey — and what comes next.</p>
+    <a href="eq-audit.html" class="btn-primary">Take the Free EQ Audit</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <span class="emp">EMPOWERED</span>
+    <span class="bysofia">by Sofia</span>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="eq-audit.html">EQ Audit</a></li>
+    <li><a href="ebook.html">The Emotional Reset</a></li>
+    <li><a href="membership.html">The Reset Room</a></li>
+    <li><a href="apply.html">1:1 Coaching</a></li>
+    <li><a href="organisations.html">For Organisations</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Empowered by Sofia. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
