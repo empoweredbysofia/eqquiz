@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Emotional Reset — Empowered by Sofia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #0E0A0F;
+    --crimson:  #6B1020;
+    --plum:     #2E0D3A;
+    --gold:     #C9943A;
+    --gold-light:#E8B85A;
+    --ivory:    #F5EDD8;
+    --emerald:  #0D3D2E;
+    --emerald-bright:#1A6B4E;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    position: relative;
+    padding: 72px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .inner {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── GLOWS ── */
+  .glow-both {
+    background-color: var(--obsidian);
+    background-image:
+      radial-gradient(circle at top right,  rgba(46,13,58,0.6),  transparent 60%),
+      radial-gradient(circle at bottom left, rgba(107,16,32,0.5), transparent 60%);
+  }
+  .glow-plum {
+    background-color: var(--obsidian);
+    background-image: radial-gradient(circle at top right, rgba(46,13,58,0.65), transparent 60%);
+  }
+  .glow-crimson {
+    background-color: var(--obsidian);
+    background-image: radial-gradient(circle at bottom left, rgba(107,16,32,0.5), transparent 60%);
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .brand-logo { text-align:center; margin-bottom:6px; }
+  .brand-empowered {
+    font-family:'Playfair Display',serif; font-weight:700;
+    font-size:clamp(22px,5vw,34px); color:var(--ivory);
+    display:block; letter-spacing:0.08em;
+  }
+  .brand-bysofia {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:clamp(15px,3.5vw,22px); color:var(--gold); display:block;
+  }
+  .tagline {
+    font-size:11px; letter-spacing:0.25em; color:var(--gold);
+    text-transform:uppercase; margin-bottom:28px;
+  }
+  h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,7vw,52px);
+    color:var(--ivory); text-align:center; line-height:1.2;
+    margin-bottom:16px; font-weight:700;
+  }
+  h1 em { color:var(--gold); font-style:italic; }
+  h2 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(22px,5vw,36px);
+    color:var(--gold); text-align:center; line-height:1.3;
+    margin-bottom:16px;
+  }
+  h3 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(18px,4vw,26px);
+    color:var(--ivory); line-height:1.3; margin-bottom:10px;
+  }
+  .pinyon {
+    font-family:'Pinyon Script',cursive;
+    font-size:clamp(36px,8vw,60px);
+    color:var(--gold); line-height:1.1;
+    text-align:center; display:block; margin-bottom:12px;
+  }
+  p.body {
+    font-size:clamp(17px,3.2vw,20px);
+    color:var(--ivory); line-height:1.7;
+    text-align:center; max-width:520px;
+    margin-bottom:20px;
+  }
+  p.body-left {
+    font-size:clamp(16px,3vw,19px);
+    color:var(--ivory); line-height:1.7;
+    text-align:left; max-width:520px; margin-bottom:16px;
+  }
+  .sofia-quote {
+    font-style:italic; font-size:clamp(17px,3.5vw,22px);
+    color:var(--gold); text-align:center; line-height:1.65;
+    max-width:520px; margin-bottom:20px;
+  }
+  .attribution {
+    font-size:12px; letter-spacing:0.12em;
+    color:rgba(245,237,216,0.5); text-transform:uppercase;
+  }
+  .divider {
+    width:60px; height:1px; background:var(--gold);
+    opacity:0.4; margin:28px auto;
+  }
+  .section-label {
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+    color:rgba(245,237,216,0.4); margin-bottom:18px; text-align:center;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-gold {
+    background:var(--gold); color:var(--obsidian); border:none;
+    padding:18px 40px; font-family:'Cormorant Garamond',serif;
+    font-size:20px; font-weight:700; letter-spacing:0.05em;
+    cursor:pointer; width:100%; max-width:480px;
+    border-radius:2px; transition:background 0.2s, transform 0.15s;
+    text-decoration:none; display:block; text-align:center;
+  }
+  .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); }
+  .btn-outline {
+    background:transparent; color:var(--gold);
+    border:1.5px solid var(--gold); padding:16px 40px;
+    font-family:'Cormorant Garamond',serif; font-size:18px;
+    font-weight:500; cursor:pointer; width:100%; max-width:480px;
+    border-radius:2px; transition:all 0.2s;
+    text-decoration:none; display:block; text-align:center;
+  }
+  .btn-outline:hover { background:rgba(201,148,58,0.1); }
+
+  /* ── COVER SECTION ── */
+  .cover-price {
+    font-family:'Playfair Display',serif;
+    font-size:48px; color:var(--gold); font-weight:700;
+    margin-bottom:4px;
+  }
+  .cover-price-label {
+    font-size:13px; letter-spacing:0.1em;
+    color:rgba(245,237,216,0.5); text-transform:uppercase;
+    margin-bottom:28px;
+  }
+
+  /* ── COVER BOOK VISUAL ── */
+  .book-cover {
+    width:220px; height:300px;
+    background:linear-gradient(145deg, var(--plum) 0%, #1A0820 60%, var(--crimson) 100%);
+    border-radius:4px 10px 10px 4px;
+    box-shadow:
+      -6px 6px 20px rgba(0,0,0,0.6),
+       6px 6px 30px rgba(0,0,0,0.4),
+       inset -3px 0 8px rgba(0,0,0,0.4);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    padding:24px 20px; margin-bottom:32px;
+    position:relative; overflow:hidden;
+  }
+  .book-cover::before {
+    content:'';
+    position:absolute; left:0; top:0; width:8px; height:100%;
+    background:linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+    border-radius:4px 0 0 4px;
+  }
+  .book-cover::after {
+    content:'';
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    background:radial-gradient(circle at 40% 30%, rgba(201,148,58,0.12), transparent 60%);
+  }
+  .book-cover .book-title {
+    font-family:'Pinyon Script',cursive;
+    font-size:32px; color:var(--gold);
+    text-align:center; line-height:1.2;
+    position:relative; z-index:1;
+  }
+  .book-cover .book-subtitle {
+    font-family:'Cormorant Garamond',serif;
+    font-size:11px; letter-spacing:0.15em;
+    color:rgba(245,237,216,0.6); text-transform:uppercase;
+    text-align:center; margin-top:10px;
+    position:relative; z-index:1;
+  }
+  .book-cover .book-author {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:14px; color:var(--gold);
+    position:absolute; bottom:20px; z-index:1;
+  }
+
+  /* ── WHAT'S INSIDE CARDS ── */
+  .chapter-list {
+    width:100%; max-width:540px; display:flex;
+    flex-direction:column; gap:12px; margin-bottom:32px;
+  }
+  .chapter-card {
+    display:flex; align-items:flex-start; gap:16px;
+    background:rgba(46,13,58,0.35);
+    border:1px solid rgba(201,148,58,0.2);
+    border-left:3px solid var(--gold);
+    padding:16px 18px; border-radius:2px;
+  }
+  .chapter-num {
+    font-family:'Playfair Display',serif;
+    font-size:28px; color:var(--gold); line-height:1;
+    flex-shrink:0; min-width:32px;
+  }
+  .chapter-content h4 {
+    font-family:'Playfair Display',serif;
+    font-size:17px; color:var(--ivory); margin-bottom:4px;
+  }
+  .chapter-content p {
+    font-size:14px; color:rgba(245,237,216,0.6); line-height:1.45;
+  }
+
+  /* ── BENEFIT LIST ── */
+  .benefit-list {
+    width:100%; max-width:520px;
+    list-style:none; margin-bottom:32px;
+  }
+  .benefit-list li {
+    display:flex; align-items:flex-start; gap:12px;
+    padding:10px 0; border-bottom:1px solid rgba(245,237,216,0.07);
+    font-size:clamp(16px,3vw,19px); color:var(--ivory); line-height:1.5;
+  }
+  .benefit-list li:last-child { border-bottom:none; }
+  .benefit-list li::before {
+    content:'✦'; color:var(--gold); font-size:11px; margin-top:5px; flex-shrink:0;
+  }
+
+  /* ── FOR WHO CARDS ── */
+  .for-who-grid {
+    display:flex; flex-direction:column; gap:12px;
+    width:100%; max-width:520px; margin-bottom:32px;
+  }
+  .for-who-card {
+    background:rgba(46,13,58,0.3);
+    border:1px solid rgba(201,148,58,0.2);
+    padding:16px 20px; border-radius:2px;
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .for-who-icon { font-size:22px; flex-shrink:0; }
+  .for-who-text { font-size:clamp(15px,3vw,17px); color:var(--ivory); line-height:1.5; }
+  .for-who-text strong { color:var(--gold); }
+
+  /* ── TESTIMONIAL CARDS ── */
+  .testi-card {
+    border:1px solid rgba(201,148,58,0.25);
+    background:rgba(46,13,58,0.25);
+    padding:20px; border-radius:2px;
+    width:100%; max-width:520px; margin-bottom:14px;
+  }
+  .testi-header {
+    display:flex; justify-content:space-between;
+    align-items:center; margin-bottom:10px;
+  }
+  .testi-name { font-family:'Playfair Display',serif; font-size:16px; color:var(--ivory); }
+  .testi-tag {
+    font-size:11px; letter-spacing:0.1em; color:var(--gold);
+    text-transform:uppercase; background:rgba(201,148,58,0.1);
+    padding:3px 10px; border-radius:20px;
+  }
+  .testi-quote { font-style:italic; font-size:15px; color:rgba(245,237,216,0.85); line-height:1.55; margin-bottom:10px; }
+  .testi-stars { color:var(--gold); font-size:13px; letter-spacing:2px; }
+
+  /* ── STAGES PREVIEW ── */
+  .stages-list {
+    width:100%; max-width:480px; margin-bottom:28px;
+  }
+  .stage-row {
+    display:flex; align-items:center; gap:14px;
+    padding:12px 16px; border-bottom:1px solid rgba(245,237,216,0.07);
+  }
+  .stage-row:last-child { border-bottom:none; }
+  .stage-num {
+    width:28px; height:28px; border-radius:50%;
+    background:rgba(201,148,58,0.15); border:1px solid rgba(201,148,58,0.4);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display',serif; font-size:13px; color:var(--gold);
+    flex-shrink:0;
+  }
+  .stage-name {
+    font-family:'Pinyon Script',cursive; font-size:22px; color:var(--gold);
+  }
+  .stage-desc {
+    font-size:13px; color:rgba(245,237,216,0.5); line-height:1.4; margin-left:auto; max-width:160px; text-align:right;
+  }
+
+  /* ── MOTIF TRIO ── */
+  .motif-trio {
+    display:flex; align-items:center; gap:14px;
+    margin:20px 0; justify-content:center;
+  }
+  .motif-arrow { color:var(--gold); font-size:20px; }
+
+  /* ── FLOAT ANIM ── */
+  @keyframes float {
+    0%,100% { transform:translateY(0); }
+    50%      { transform:translateY(-10px); }
+  }
+  .butterfly-float { animation:float 3.5s ease-in-out infinite; display:inline-block; }
+
+  /* ── STICKY BUY BAR ── */
+  .sticky-bar {
+    position:fixed; bottom:0; left:0; right:0;
+    background:rgba(14,10,15,0.97);
+    border-top:1px solid rgba(201,148,58,0.3);
+    padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    z-index:1000; gap:12px;
+    backdrop-filter: blur(8px);
+  }
+  .sticky-bar-text { font-size:15px; color:var(--ivory); }
+  .sticky-bar-text strong { color:var(--gold); }
+  .sticky-bar a {
+    background:var(--gold); color:var(--obsidian);
+    padding:12px 28px; font-family:'Cormorant Garamond',serif;
+    font-size:17px; font-weight:700; border-radius:2px;
+    text-decoration:none; white-space:nowrap; flex-shrink:0;
+    transition:background 0.2s;
+  }
+  .sticky-bar a:hover { background:var(--gold-light); }
+
+  /* Bottom padding for sticky bar */
+  body { padding-bottom: 80px; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — COVER / HERO
+══════════════════════════════════════════════ -->
+<section class="glow-both" style="padding-top:52px; padding-bottom:60px;">
+  <div class="inner">
+
+    <div class="brand-logo">
+      <span class="brand-empowered">EMPOWERED</span>
+      <span class="brand-bysofia">by Sofia</span>
+    </div>
+    <p class="tagline">RESET INTERNALLY · RISE EXTERNALLY</p>
+
+    <!-- Animated book cover -->
+    <div class="book-cover">
+      <div class="book-title">The Emotional Reset</div>
+      <div class="book-subtitle">A guide to emotional freedom</div>
+      <!-- Butterfly motif on cover -->
+      <svg width="52" height="52" viewBox="0 0 60 60" overflow="visible" style="margin:12px 0;position:relative;z-index:1;">
+        <path d="M26 24 C18 18, 4 10, 2 18 C0 26, 10 34, 26 34Z" fill="#D93B5A"/>
+        <path d="M26 24 C21 20, 12 16, 11 21 C10 26, 16 31, 26 34Z" fill="#E8C870" opacity="0.32"/>
+        <line x1="26" y1="29" x2="8"  y2="14" stroke="#C9943A" stroke-width="0.9" opacity="0.7"/>
+        <line x1="26" y1="30" x2="4"  y2="22" stroke="#C9943A" stroke-width="0.9" opacity="0.6"/>
+        <path d="M26 24 C18 18, 4 10, 2 18 C0 26, 10 34, 26 34Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+        <path d="M34 24 C42 18, 56 10, 58 18 C60 26, 50 34, 34 34Z" fill="#D93B5A"/>
+        <path d="M34 24 C39 20, 48 16, 49 21 C50 26, 44 31, 34 34Z" fill="#E8C870" opacity="0.32"/>
+        <line x1="34" y1="29" x2="52" y2="14" stroke="#C9943A" stroke-width="0.9" opacity="0.7"/>
+        <line x1="34" y1="30" x2="56" y2="22" stroke="#C9943A" stroke-width="0.9" opacity="0.6"/>
+        <path d="M34 24 C42 18, 56 10, 58 18 C60 26, 50 34, 34 34Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+        <path d="M26 36 C18 38, 8 44, 10 52 C12 58, 22 58, 26 48 C27 43, 27 39, 26 36Z" fill="#D93B5A"/>
+        <path d="M26 36 C20 39, 13 44, 15 50 C16 54, 21 55, 26 47 C27 42, 27 38, 26 36Z" fill="#E8C870" opacity="0.25"/>
+        <path d="M26 36 C18 38, 8 44, 10 52 C12 58, 22 58, 26 48 C27 43, 27 39, 26 36Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+        <path d="M34 36 C42 38, 52 44, 50 52 C48 58, 38 58, 34 48 C33 43, 33 39, 34 36Z" fill="#D93B5A"/>
+        <path d="M34 36 C40 39, 47 44, 45 50 C44 54, 39 55, 34 47 C33 42, 33 38, 34 36Z" fill="#E8C870" opacity="0.25"/>
+        <path d="M34 36 C42 38, 52 44, 50 52 C48 58, 38 58, 34 48 C33 43, 33 39, 34 36Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+        <ellipse cx="30" cy="36" rx="4" ry="18" fill="#1A0820"/>
+        <ellipse cx="30" cy="36" rx="2.5" ry="16.5" fill="#8B5CC8"/>
+        <ellipse cx="30" cy="32" rx="1.5" ry="4" fill="#C9943A" opacity="0.45"/>
+        <circle cx="30" cy="19" r="5" fill="#C9943A"/>
+        <circle cx="30" cy="19" r="3.2" fill="#E8B85A"/>
+        <path d="M27.5 15 Q23 8 20 2" fill="none" stroke="#C9943A" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M32.5 15 Q37 8 40 2" fill="none" stroke="#C9943A" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="20" cy="2" r="2.5" fill="#C9943A"/>
+        <circle cx="40" cy="2" r="2.5" fill="#C9943A"/>
+      </svg>
+      <div class="book-author">Sofia</div>
+    </div>
+
+    <div class="cover-price">£12</div>
+    <div class="cover-price-label">Instant digital download</div>
+
+    <a href="#buy" class="btn-gold" style="margin-bottom:14px;">Begin your reset — £12</a>
+    <p style="font-size:13px;color:rgba(245,237,216,0.4);text-align:center;">Secure checkout · Instant access · No subscription</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — SOFIA'S VOICE
+══════════════════════════════════════════════ -->
+<section class="glow-plum">
+  <div class="inner">
+    <div class="divider"></div>
+    <p class="sofia-quote">"I used to think I was too emotional. Too much. Too reactive. Until I realised I wasn't broken — I was simply unguided. Nobody had ever taught me what to do with what I felt.<br><br>This book is what I wish someone had given me ten years ago."</p>
+    <p class="attribution">— Sofia</p>
+    <div class="divider"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3 — THE TRANSFORMATION JOURNEY
+══════════════════════════════════════════════ -->
+<section class="glow-both">
+  <div class="inner">
+    <p class="section-label">The journey inside this book</p>
+    <span class="pinyon">The Reset</span>
+    <p class="body">This is not a self-help book that tells you to think positive. This is a map. A real guide through the emotional patterns that are running your life — and a step-by-step way out of them.</p>
+
+    <!-- Motif trio -->
+    <div class="motif-trio">
+      <svg width="90" height="50" viewBox="0 0 120 44" overflow="visible">
+        <circle cx="14" cy="26" r="12" fill="#7B4FB5"/>
+        <circle cx="34" cy="26" r="12" fill="#8459C0"/>
+        <circle cx="54" cy="26" r="12" fill="#7B4FB5"/>
+        <circle cx="74" cy="26" r="12" fill="#8459C0"/>
+        <circle cx="94" cy="26" r="12" fill="#7B4FB5"/>
+        <circle cx="112" cy="22" r="13" fill="#D4547A"/>
+        <circle cx="116" cy="18" r="3.5" fill="#fff"/>
+        <circle cx="117" cy="17.5" r="1.8" fill="#1A0A22"/>
+        <line x1="112" y1="10" x2="106" y2="2" stroke="#D4547A" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="116" y1="9" x2="122" y2="2" stroke="#D4547A" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="106" cy="1.5" r="2.5" fill="#F07898"/>
+        <circle cx="122" cy="1.5" r="2.5" fill="#F07898"/>
+        <circle cx="14" cy="21" r="3.5" fill="#A87DD4" opacity="0.7"/>
+        <circle cx="34" cy="21" r="3.5" fill="#A87DD4" opacity="0.7"/>
+        <circle cx="54" cy="21" r="3.5" fill="#A87DD4" opacity="0.7"/>
+        <circle cx="74" cy="21" r="3.5" fill="#A87DD4" opacity="0.7"/>
+        <circle cx="94" cy="21" r="3.5" fill="#A87DD4" opacity="0.7"/>
+        <line x1="14" y1="36" x2="10" y2="43" stroke="#9B6FD5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="34" y1="36" x2="30" y2="43" stroke="#9B6FD5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="54" y1="36" x2="50" y2="43" stroke="#9B6FD5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="74" y1="36" x2="70" y2="43" stroke="#9B6FD5" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="94" y1="36" x2="90" y2="43" stroke="#9B6FD5" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="motif-arrow">→</span>
+      <svg width="40" height="58" viewBox="0 0 52 72">
+        <line x1="26" y1="0" x2="26" y2="8" stroke="#D4547A" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="26" cy="42" rx="21" ry="30" fill="#2E0D3A" stroke="#D4547A" stroke-width="2"/>
+        <ellipse cx="26" cy="42" rx="19" ry="28" fill="#7B4FB5"/>
+        <ellipse cx="26" cy="30" rx="18" ry="4" fill="none" stroke="#9B6FD5" stroke-width="2.5" opacity="0.6"/>
+        <ellipse cx="26" cy="38" rx="19" ry="4" fill="none" stroke="#9B6FD5" stroke-width="2.5" opacity="0.6"/>
+        <ellipse cx="26" cy="46" rx="19" ry="4" fill="none" stroke="#9B6FD5" stroke-width="2.5" opacity="0.6"/>
+        <ellipse cx="26" cy="54" rx="18" ry="4" fill="none" stroke="#9B6FD5" stroke-width="2.5" opacity="0.6"/>
+        <ellipse cx="26" cy="42" rx="10" ry="16" fill="#6B1020" opacity="0.45"/>
+      </svg>
+      <span class="motif-arrow">→</span>
+      <div class="butterfly-float">
+        <svg width="58" height="58" viewBox="0 0 60 60" overflow="visible">
+          <path d="M26 24 C18 18, 4 10, 2 18 C0 26, 10 34, 26 34Z" fill="#D93B5A"/>
+          <path d="M26 24 C21 20, 12 16, 11 21 C10 26, 16 31, 26 34Z" fill="#E8C870" opacity="0.32"/>
+          <line x1="26" y1="29" x2="8" y2="14" stroke="#C9943A" stroke-width="0.9" opacity="0.7"/>
+          <line x1="26" y1="30" x2="4" y2="22" stroke="#C9943A" stroke-width="0.9" opacity="0.6"/>
+          <path d="M26 24 C18 18, 4 10, 2 18 C0 26, 10 34, 26 34Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+          <path d="M34 24 C42 18, 56 10, 58 18 C60 26, 50 34, 34 34Z" fill="#D93B5A"/>
+          <path d="M34 24 C39 20, 48 16, 49 21 C50 26, 44 31, 34 34Z" fill="#E8C870" opacity="0.32"/>
+          <line x1="34" y1="29" x2="52" y2="14" stroke="#C9943A" stroke-width="0.9" opacity="0.7"/>
+          <line x1="34" y1="30" x2="56" y2="22" stroke="#C9943A" stroke-width="0.9" opacity="0.6"/>
+          <path d="M34 24 C42 18, 56 10, 58 18 C60 26, 50 34, 34 34Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+          <path d="M26 36 C18 38, 8 44, 10 52 C12 58, 22 58, 26 48 C27 43, 27 39, 26 36Z" fill="#D93B5A"/>
+          <path d="M26 36 C20 39, 13 44, 15 50 C16 54, 21 55, 26 47 C27 42, 27 38, 26 36Z" fill="#E8C870" opacity="0.25"/>
+          <path d="M26 36 C18 38, 8 44, 10 52 C12 58, 22 58, 26 48 C27 43, 27 39, 26 36Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+          <path d="M34 36 C42 38, 52 44, 50 52 C48 58, 38 58, 34 48 C33 43, 33 39, 34 36Z" fill="#D93B5A"/>
+          <path d="M34 36 C40 39, 47 44, 45 50 C44 54, 39 55, 34 47 C33 42, 33 38, 34 36Z" fill="#E8C870" opacity="0.25"/>
+          <path d="M34 36 C42 38, 52 44, 50 52 C48 58, 38 58, 34 48 C33 43, 33 39, 34 36Z" fill="none" stroke="#C9943A" stroke-width="1.5"/>
+          <ellipse cx="30" cy="36" rx="4" ry="18" fill="#1A0820"/>
+          <ellipse cx="30" cy="36" rx="2.5" ry="16.5" fill="#8B5CC8"/>
+          <ellipse cx="30" cy="32" rx="1.5" ry="4" fill="#C9943A" opacity="0.45"/>
+          <circle cx="30" cy="19" r="5" fill="#C9943A"/>
+          <circle cx="30" cy="19" r="3.2" fill="#E8B85A"/>
+          <path d="M27.5 15 Q23 8 20 2" fill="none" stroke="#C9943A" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M32.5 15 Q37 8 40 2" fill="none" stroke="#C9943A" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="20" cy="2" r="2.5" fill="#C9943A"/>
+          <circle cx="40" cy="2" r="2.5" fill="#C9943A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4 — THE FIVE EQ STAGES
+══════════════════════════════════════════════ -->
+<section class="glow-plum">
+  <div class="inner">
+    <p class="section-label">The five stages mapped inside</p>
+    <h2 style="margin-bottom:8px;">Where are you right now?</h2>
+    <p class="body" style="margin-bottom:24px;">Every chapter speaks directly to one of the five emotional stages. This book knows where you are and meets you there.</p>
+    <div class="stages-list">
+      <div class="stage-row"><div class="stage-num">1</div><div class="stage-name">The Still Beginning</div><div class="stage-desc">Not yet stirring</div></div>
+      <div class="stage-row"><div class="stage-num">2</div><div class="stage-name">The First Noticing</div><div class="stage-desc">Starting to see</div></div>
+      <div class="stage-row"><div class="stage-num">3</div><div class="stage-name">The Necessary Dark</div><div class="stage-desc">Falling open</div></div>
+      <div class="stage-row"><div class="stage-num">4</div><div class="stage-name">The Becoming</div><div class="stage-desc">Wings forming</div></div>
+      <div class="stage-row"><div class="stage-num">5</div><div class="stage-name">The Free Butterfly</div><div class="stage-desc">Risen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5 — WHAT'S INSIDE
+══════════════════════════════════════════════ -->
+<section class="glow-both">
+  <div class="inner">
+    <p class="section-label">Inside the book</p>
+    <h2 style="margin-bottom:24px;">What you will learn</h2>
+    <div class="chapter-list">
+      <div class="chapter-card"><div class="chapter-num">01</div><div class="chapter-content"><h4>Why You Are Not Broken</h4><p>Understanding why you feel too much — and why that is your greatest strength waiting to be activated.</p></div></div>
+      <div class="chapter-card"><div class="chapter-num">02</div><div class="chapter-content"><h4>The Nervous System Reset</h4><p>Practical tools to regulate your body before your mind can follow. The foundation everything else is built on.</p></div></div>
+      <div class="chapter-card"><div class="chapter-num">03</div><div class="chapter-content"><h4>Naming What Is Running You</h4><p>How to identify the emotional patterns behind your reactions — in your relationships, your work and your parenting.</p></div></div>
+      <div class="chapter-card"><div class="chapter-num">04</div><div class="chapter-content"><h4>The Trigger Map</h4><p>A guided process to trace your strongest emotional reactions back to their origin — and stop them at the root.</p></div></div>
+      <div class="chapter-card"><div class="chapter-num">05</div><div class="chapter-content"><h4>Responding Not Reacting</h4><p>The tools that separate regulated women from reactive ones. Real, applicable, immediately usable.</p></div></div>
+      <div class="chapter-card"><div class="chapter-num">06</div><div class="chapter-content"><h4>The Free Butterfly Protocol</h4><p>Your daily practice. The habits that hold the reset in place long after you finish reading.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6 — WHO IT IS FOR
+══════════════════════════════════════════════ -->
+<section class="glow-plum">
+  <div class="inner">
+    <p class="section-label">This book is for you if</p>
+    <h2 style="margin-bottom:24px;">You will recognise yourself here</h2>
+    <div class="for-who-grid">
+      <div class="for-who-card"><div class="for-who-icon">💼</div><div class="for-who-text"><strong>In your career or business</strong> — you know you are capable, but something keeps pulling you back. Self-doubt, people-pleasing, fear of being seen.</div></div>
+      <div class="for-who-card"><div class="for-who-icon">💍</div><div class="for-who-text"><strong>In your relationship</strong> — you keep having the same argument. You shut down or explode. You love deeply but cannot seem to connect the way you want to.</div></div>
+      <div class="for-who-card"><div class="for-who-icon">🌱</div><div class="for-who-text"><strong>As a parent</strong> — you react and then feel the guilt. You know your children deserve the regulated version of you. You are ready to become her.</div></div>
+      <div class="for-who-card"><div class="for-who-icon">📖</div><div class="for-who-text"><strong>In your studies</strong> — anxiety and self-doubt are louder than your ability. Your emotional world is getting in the way of your potential.</div></div>
+      <div class="for-who-card"><div class="for-who-icon">🏡</div><div class="for-who-text"><strong>In your home life</strong> — home is either nourishing or unbearable depending on your EQ stage. Right now it feels more like the latter. You want to change that.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7 — BENEFITS
+══════════════════════════════════════════════ -->
+<section class="glow-both">
+  <div class="inner">
+    <p class="section-label">What changes</p>
+    <h2 style="margin-bottom:24px;">After the reset</h2>
+    <ul class="benefit-list">
+      <li>You understand what is actually happening when you react — and you can stop it</li>
+      <li>Your nervous system has a reset practice that works in real time</li>
+      <li>You know your emotional stage and exactly what it takes to move forward</li>
+      <li>Your relationships change because you have changed</li>
+      <li>You show up in your career, business or studies from a regulated, grounded place</li>
+      <li>You parent from wholeness rather than wounds</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 8 — TESTIMONIALS
+══════════════════════════════════════════════ -->
+<section class="glow-plum">
+  <div class="inner">
+    <p class="section-label">Women who have read it</p>
+    <h2 style="margin-bottom:24px;">What they say</h2>
+    <div class="testi-card">
+      <div class="testi-header"><span class="testi-name">Nadia K.</span><span class="testi-tag">Business</span></div>
+      <p class="testi-quote">"I have read a lot of self-development books. This one was different. It did not tell me to manifest harder. It showed me the actual reason I kept self-sabotaging. Chapter three alone changed how I run my business."</p>
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-header"><span class="testi-name">Amira S.</span><span class="testi-tag">Marriage</span></div>
+      <p class="testi-quote">"I read it in one sitting. Then I read it again with a pen. My husband noticed the difference before I even told him I had been reading it. That is how much changed."</p>
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-header"><span class="testi-name">Zainab M.</span><span class="testi-tag">Parenting</span></div>
+      <p class="testi-quote">"The trigger map chapter made me cry. Not because it was hard — because it was the first time anyone had explained my reactions in a way that made sense. I finally understood myself."</p>
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 9 — BUY CTA
+══════════════════════════════════════════════ -->
+<section class="glow-both" id="buy">
+  <div class="inner">
+    <span class="pinyon">Begin.</span>
+    <p class="sofia-quote" style="margin-bottom:24px;">"You are not broken. You were never taught how to hold yourself. This book begins that teaching. It starts here."</p>
+    <p class="attribution" style="margin-bottom:32px;">— Sofia</p>
+
+    <div style="text-align:center;margin-bottom:8px;">
+      <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--gold);line-height:1;">£12</div>
+      <div style="font-size:13px;letter-spacing:0.1em;color:rgba(245,237,216,0.5);text-transform:uppercase;margin-bottom:20px;">Instant digital download · PDF &amp; ePub</div>
+    </div>
+
+    <a href="https://buy.stripe.com/00w4gy7ka20L6zygmS5c402" class="btn-gold" style="margin-bottom:14px;">Get The Emotional Reset — £12</a>
+    <p style="font-size:13px;color:rgba(245,237,216,0.38);text-align:center;margin-bottom:28px;">Secure payment · Instant access · No subscription ever</p>
+
+    <div class="divider"></div>
+
+    <p style="font-size:15px;color:rgba(245,237,216,0.6);text-align:center;margin-bottom:16px;">Or join 200+ women in the free community</p>
+    <a href="https://chat.whatsapp.com/D6qYf6tFUhMCrC1FkEu4Ce?mode=gi_t" target="_blank" style="text-decoration:none;display:block;width:100%;max-width:480px;">
+      <button class="btn-outline" style="display:flex;align-items:center;justify-content:center;gap:10px;"><span>💬</span> Join Sofia's WhatsApp Community — Free</button>
+    </a>
+
+    <div style="height:32px;"></div>
+    <p style="font-size:11px;letter-spacing:0.1em;color:rgba(245,237,216,0.3);text-align:center;">EMPOWERED BY SOFIA · RESET INTERNALLY · RISE EXTERNALLY</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     STICKY BUY BAR
+══════════════════════════════════════════════ -->
+<div class="sticky-bar">
+  <div class="sticky-bar-text">
+    <strong>The Emotional Reset</strong><br>
+    <span style="font-size:13px;opacity:0.6;">by Sofia · Instant download</span>
+  </div>
+  <a href="https://buy.stripe.com/00w4gy7ka20L6zygmS5c402">Get it — £12</a>
+</div>
+
+</body>
+</html>
