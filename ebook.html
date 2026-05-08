@@ -19,114 +19,202 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--obsidian); color: var(--ivory); font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.6; overflow-x: hidden; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(14,10,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,148,58,0.2); }
+  body {
+    background: var(--obsidian);
+    color: var(--ivory);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(14,10,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,148,58,0.2);
+  }
   .nav-brand { display: flex; flex-direction: column; line-height: 1.1; text-decoration: none; }
   .nav-brand .emp { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: var(--ivory); letter-spacing: 0.1em; }
   .nav-brand .bysofia { font-family: 'Playfair Display', serif; font-style: italic; font-size: 13px; color: var(--gold); }
   .nav-links { display: flex; align-items: center; gap: 12px; list-style: none; }
   .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,237,216,0.7); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
-  .nav-links .btn-nav { background: var(--gold); color: var(--obsidian); padding: 7px 16px; font-weight: 500; }
+  .nav-links .btn-nav { background: var(--gold); color: var(--obsidian); padding: 8px 18px; font-weight: 500; }
   .nav-links .btn-nav:hover { background: var(--gold-light); color: var(--obsidian); }
   .nav-divider { width: 1px; height: 16px; background: rgba(201,148,58,0.3); }
 
-  .page-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 44px; position: relative; overflow: hidden; }
-  .page-hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(46,13,58,0.65) 0%, transparent 70%); pointer-events: none; }
-  .page-hero::after { content: ''; position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(107,16,32,0.4) 0%, transparent 70%); pointer-events: none; }
+  /* HERO */
+  .page-hero {
+    min-height: 65vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 140px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(46,13,58,0.65) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero::after {
+    content: ''; position: absolute; bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,16,32,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-  .page-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; display: block; }
-  .page-hero h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(26px, 6vw, 46px); color: var(--ivory); line-height: 1.2; max-width: 560px; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
-  .page-hero-sub { font-size: clamp(16px, 3vw, 19px); color: rgba(245,237,216,0.65); max-width: 460px; line-height: 1.6; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s; }
-  .price-tag { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 18px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s; display: block; }
+  .page-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
 
-  .btn-primary { display: inline-block; background: var(--gold); color: var(--obsidian); font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; padding: 14px 36px; transition: background 0.2s, transform 0.2s; opacity: 0; animation: fadeUp 0.7s ease forwards 0.85s; }
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(28px, 6vw, 48px); color: var(--ivory);
+    line-height: 1.2; max-width: 580px; margin-bottom: 16px;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s;
+  }
+
+  .page-hero-sub {
+    font-size: clamp(17px, 3vw, 20px); color: rgba(245,237,216,0.65);
+    max-width: 480px; line-height: 1.65; margin-bottom: 32px;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s;
+  }
+
+  .price-tag {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s;
+  }
+
+  .btn-primary {
+    display: inline-block; background: var(--gold); color: var(--obsidian);
+    font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+    padding: 16px 40px; transition: background 0.2s, transform 0.2s;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.85s;
+  }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-primary-static { display: inline-block; background: var(--gold); color: var(--obsidian); font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; padding: 14px 36px; transition: background 0.2s, transform 0.2s; }
-  .btn-primary-static:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-  .gold-divider { width: 50px; height: 1px; background: var(--gold); margin: 24px auto; opacity: 0.5; }
+  .gold-divider { width: 60px; height: 1px; background: var(--gold); margin: 60px auto; opacity: 0.5; }
 
-  .about-book { padding: 0 24px 32px; max-width: 560px; margin: 0 auto; text-align: center; }
-  .about-book h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 5vw, 30px); color: var(--ivory); margin-bottom: 12px; line-height: 1.25; }
-  .about-book p { color: rgba(245,237,216,0.7); font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
+  /* ABOUT THE BOOK */
+  .about-book { padding: 0 24px 80px; max-width: 560px; margin: 0 auto; text-align: center; }
+  .about-book h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 32px); color: var(--ivory); margin-bottom: 20px; line-height: 1.3; }
+  .about-book p { color: rgba(245,237,216,0.7); font-size: 17px; line-height: 1.8; margin-bottom: 16px; }
   .about-book p strong { color: var(--ivory); font-weight: 500; }
-  .sofia-quote { font-style: italic; font-size: clamp(17px, 3.5vw, 20px); color: var(--gold); line-height: 1.6; margin: 20px 0 8px; }
-  .sofia-attribution { font-size: 12px; letter-spacing: 0.15em; color: rgba(245,237,216,0.45); text-transform: uppercase; display: block; }
 
-  .inside { padding: 32px 24px; position: relative; overflow: hidden; }
-  .inside::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(46,13,58,0.5) 0%, transparent 70%); pointer-events: none; }
+  .sofia-quote { font-style: italic; font-size: clamp(18px, 3.5vw, 21px); color: var(--gold); line-height: 1.7; margin: 32px 0 12px; }
+  .sofia-attribution { font-size: 12px; letter-spacing: 0.15em; color: rgba(245,237,216,0.45); text-transform: uppercase; }
+
+  /* WHAT'S INSIDE */
+  .inside { padding: 80px 24px; position: relative; overflow: hidden; }
+  .inside::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(46,13,58,0.5) 0%, transparent 70%);
+    pointer-events: none;
+  }
   .inside-inner { max-width: 560px; margin: 0 auto; text-align: center; }
-  .section-label { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
-  .inside h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 5vw, 30px); color: var(--ivory); margin-bottom: 6px; }
-  .inside-sub { color: rgba(245,237,216,0.6); margin-bottom: 20px; font-size: 16px; line-height: 1.55; }
+  .section-label { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+  .inside h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 32px); color: var(--ivory); margin-bottom: 12px; }
+  .inside-sub { color: rgba(245,237,216,0.6); margin-bottom: 40px; font-size: 17px; line-height: 1.6; }
 
-  .chapters { display: flex; flex-direction: column; gap: 2px; text-align: left; margin-bottom: 28px; }
-  .chapter { display: flex; gap: 16px; align-items: flex-start; padding: 16px 18px; background: rgba(46,13,58,0.2); border-left: 2px solid rgba(201,148,58,0.2); transition: border-color 0.2s, background 0.2s; }
+  .chapters { display: flex; flex-direction: column; gap: 2px; text-align: left; margin-bottom: 48px; }
+  .chapter {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px 20px;
+    background: rgba(46,13,58,0.2);
+    border-left: 2px solid rgba(201,148,58,0.2);
+    transition: border-color 0.2s, background 0.2s;
+  }
   .chapter:hover { border-left-color: var(--gold); background: rgba(46,13,58,0.35); }
-  .chapter-num { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); opacity: 0.45; min-width: 22px; line-height: 1; margin-top: 2px; }
-  .chapter-content h3 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); margin-bottom: 4px; font-weight: 700; }
-  .chapter-content p { color: rgba(245,237,216,0.6); font-size: 14px; line-height: 1.55; }
+  .chapter-num { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); opacity: 0.45; min-width: 28px; line-height: 1; margin-top: 3px; }
+  .chapter-content h3 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--gold); margin-bottom: 6px; font-weight: 700; }
+  .chapter-content p { color: rgba(245,237,216,0.6); font-size: 15px; line-height: 1.6; }
 
-  .for-who { padding: 32px 24px; position: relative; overflow: hidden; }
-  .for-who::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(107,16,32,0.35) 0%, transparent 70%); pointer-events: none; }
+  /* FOR WHO */
+  .for-who { padding: 80px 24px; position: relative; overflow: hidden; }
+  .for-who::after {
+    content: ''; position: absolute; bottom: -60px; left: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(107,16,32,0.35) 0%, transparent 70%);
+    pointer-events: none;
+  }
   .for-who-inner { max-width: 560px; margin: 0 auto; text-align: center; }
-  .for-who h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 5vw, 30px); color: var(--ivory); margin-bottom: 6px; }
-  .for-who-sub { color: rgba(245,237,216,0.6); margin-bottom: 16px; font-size: 16px; }
-  .truths { display: flex; flex-direction: column; gap: 2px; text-align: left; margin-bottom: 24px; }
-  .truth { padding: 12px 18px; background: rgba(46,13,58,0.2); border-left: 2px solid rgba(201,148,58,0.2); font-size: 15px; color: rgba(245,237,216,0.7); line-height: 1.55; }
+  .for-who h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 32px); color: var(--ivory); margin-bottom: 12px; }
+  .for-who-sub { color: rgba(245,237,216,0.6); margin-bottom: 40px; font-size: 17px; }
+
+  .truths { display: flex; flex-direction: column; gap: 2px; text-align: left; margin-bottom: 40px; }
+  .truth { padding: 18px 24px; background: rgba(46,13,58,0.2); border-left: 2px solid rgba(201,148,58,0.2); font-size: 16px; color: rgba(245,237,216,0.7); line-height: 1.6; }
   .truth::before { content: '— '; color: var(--gold); }
 
-  .reviews { padding: 32px 24px; }
+  /* REVIEWS */
+  .reviews { padding: 80px 24px; }
   .reviews-inner { max-width: 560px; margin: 0 auto; text-align: center; }
-  .reviews h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 5vw, 30px); color: var(--ivory); margin-bottom: 20px; }
-  .review-cards { display: flex; flex-direction: column; gap: 12px; }
-  .review { background: rgba(46,13,58,0.25); border: 1px solid rgba(201,148,58,0.15); padding: 20px 20px; text-align: left; }
-  .review-text { font-style: italic; font-size: 15px; color: rgba(245,237,216,0.85); line-height: 1.6; margin-bottom: 10px; }
+  .reviews h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 32px); color: var(--ivory); margin-bottom: 48px; }
+  .review-cards { display: flex; flex-direction: column; gap: 20px; }
+  .review { background: rgba(46,13,58,0.25); border: 1px solid rgba(201,148,58,0.15); padding: 28px 24px; text-align: left; }
+  .review-text { font-style: italic; font-size: 16px; color: rgba(245,237,216,0.85); line-height: 1.7; margin-bottom: 16px; }
   .review-author { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
-  .review-context { font-size: 12px; color: rgba(245,237,216,0.4); margin-top: 3px; }
+  .review-context { font-size: 12px; color: rgba(245,237,216,0.4); margin-top: 4px; }
 
-  .cta-section { padding: 32px 24px; text-align: center; position: relative; overflow: hidden; }
-  .cta-section::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(46,13,58,0.5) 0%, transparent 70%); pointer-events: none; }
-  .cta-inner { max-width: 440px; margin: 0 auto; }
-  .cta-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 5vw, 32px); color: var(--ivory); margin-bottom: 8px; line-height: 1.25; }
-  .cta-inner .cta-price { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); margin-bottom: 10px; display: block; }
-  .cta-inner p { color: rgba(245,237,216,0.6); margin-bottom: 20px; font-size: 15px; line-height: 1.55; }
+  /* CTA */
+  .cta-section { padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(46,13,58,0.5) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-inner { max-width: 480px; margin: 0 auto; }
+  .cta-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 34px); color: var(--ivory); margin-bottom: 12px; line-height: 1.3; }
+  .cta-inner .cta-price { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); margin-bottom: 16px; }
+  .cta-inner p { color: rgba(245,237,216,0.6); margin-bottom: 32px; font-size: 16px; line-height: 1.6; }
 
-  footer { border-top: 1px solid rgba(201,148,58,0.15); padding: 28px 24px; text-align: center; }
-  .footer-brand .emp { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: var(--ivory); letter-spacing: 0.1em; display: block; }
-  .footer-brand .bysofia { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: var(--gold); display: block; margin-bottom: 14px; }
-  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; list-style: none; margin-bottom: 16px; }
+  /* EMBED */
+  .embed-section { width: 100%; }
+  .ebook-frame { width: 100%; min-height: 100vh; border: none; display: block; }
+
+  footer { border-top: 1px solid rgba(201,148,58,0.15); padding: 48px 24px; text-align: center; }
+  .footer-brand .emp { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--ivory); letter-spacing: 0.1em; display: block; }
+  .footer-brand .bysofia { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: var(--gold); display: block; margin-bottom: 20px; }
+  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; list-style: none; margin-bottom: 28px; }
   .footer-nav a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,237,216,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-nav a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: rgba(245,237,216,0.25); }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 600px) { nav { padding: 14px 20px; } .nav-links a { font-size: 11px; } .nav-links .btn-nav { padding: 6px 12px; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .nav-links a { font-size: 11px; }
+    .nav-links .btn-nav { padding: 7px 12px; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/eqquiz/" class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <span class="emp">EMPOWERED</span>
     <span class="bysofia">by Sofia</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/eqquiz/about.html">About</a></li>
-    <li><a href="/eqquiz/eq-audit.html">EQ Audit</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="eq-audit.html">EQ Audit</a></li>
     <li class="nav-divider"></li>
-    <li><a href="/eqquiz/organisations.html" class="btn-nav">For Organisations</a></li>
+    <li><a href="organisations.html" class="btn-nav">For Organisations</a></li>
   </ul>
 </nav>
 
 <section class="page-hero">
-  <span class="page-label">Ebook</span>
+  <p class="page-label">Ebook</p>
   <h1>The Emotional Reset</h1>
   <p class="page-hero-sub">A practical, honest guide to understanding your emotions — written for the woman who feels too much and has never been taught what to do with it.</p>
-  <span class="price-tag">£12</span>
-  <a href="https://buy.stripe.com/00w4gy7ka20L6zygmS5c402" class="btn-primary" target="_blank" rel="noopener">Get the Ebook — £12</a>
+  <p class="price-tag">£12</p>
+  <a href="#get-it" class="btn-primary">Get the Ebook</a>
 </section>
 
 <div class="gold-divider"></div>
@@ -135,9 +223,10 @@
   <h2>This is not a self-help book.</h2>
   <p>It does not tell you to think positive. It does not ask you to be grateful for the hard things. It does not promise that everything happens for a reason.</p>
   <p>What it does is give you <strong>the language, the frameworks, and the practical tools</strong> to understand what your emotions are actually doing — and what to do next.</p>
-  <p>It is written for women who are tired of feeling like their emotions are a problem to be managed. Who have tried the breathing exercises, the journaling, the gratitude lists. Who know something deeper is needed.</p>
+  <p>It is written for women who are tired of feeling like their emotions are a problem to be managed. Who have tried the breathing exercises, the journaling, the gratitude lists. Who know something deeper is needed but have not had the words for it until now.</p>
+
   <p class="sofia-quote">"I wrote this book because nobody gave it to me when I needed it. Consider it the thing I wish someone had handed me ten years ago."</p>
-  <span class="sofia-attribution">— Sofia</span>
+  <p class="sofia-attribution">— Sofia</p>
 </section>
 
 <div class="gold-divider"></div>
@@ -209,6 +298,7 @@
     <span class="section-label">Is This for You?</span>
     <h2>This book is for you if...</h2>
     <p class="for-who-sub">You will know within the first chapter whether this is the right thing for you right now.</p>
+
     <div class="truths">
       <div class="truth">You have always been told you are "too sensitive" or "too emotional"</div>
       <div class="truth">You keep repeating the same patterns and you cannot understand why</div>
@@ -250,11 +340,19 @@
 <section class="cta-section" id="get-it">
   <div class="cta-inner">
     <h2>The Emotional Reset</h2>
-    <span class="cta-price">£12</span>
+    <p class="cta-price">£12</p>
     <p>Instant download. No subscription. No upsell. Just the book — and everything inside it.</p>
-    <a href="https://buy.stripe.com/00w4gy7ka20L6zygmS5c402" class="btn-primary-static" target="_blank" rel="noopener">Buy Now — £12</a>
   </div>
 </section>
+
+<div class="embed-section">
+  <iframe
+    src="https://empowered-by-sofia.netlify.app/ebook"
+    class="ebook-frame"
+    title="The Emotional Reset — Purchase"
+    loading="lazy"
+  ></iframe>
+</div>
 
 <footer>
   <div class="footer-brand">
@@ -262,12 +360,12 @@
     <span class="bysofia">by Sofia</span>
   </div>
   <ul class="footer-nav">
-    <li><a href="/eqquiz/">Home</a></li>
-    <li><a href="/eqquiz/about.html">About</a></li>
-    <li><a href="/eqquiz/eq-audit.html">EQ Audit</a></li>
-    <li><a href="/eqquiz/membership.html">The Reset Room</a></li>
-    <li><a href="/eqquiz/apply.html">1:1 Coaching</a></li>
-    <li><a href="/eqquiz/organisations.html">For Organisations</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="eq-audit.html">EQ Audit</a></li>
+    <li><a href="membership.html">The Reset Room</a></li>
+    <li><a href="apply.html">1:1 Coaching</a></li>
+    <li><a href="organisations.html">For Organisations</a></li>
   </ul>
   <p class="footer-copy">© 2026 Empowered by Sofia. All rights reserved.</p>
 </footer>

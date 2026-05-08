@@ -50,201 +50,51 @@
   .nav-links .btn-nav:hover { background: var(--gold-light); color: var(--obsidian); }
   .nav-divider { width: 1px; height: 16px; background: rgba(201,148,58,0.3); }
 
-  /* Atmospheric glows */
-  body::before {
+  .page-intro {
+    padding: 120px 24px 48px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .page-intro::before {
     content: '';
     position: fixed;
     top: -80px; right: -80px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(46,13,58,0.6), transparent 70%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(46,13,58,0.5) 0%, transparent 70%);
     pointer-events: none;
-    z-index: 0;
-  }
-  body::after {
-    content: '';
-    position: fixed;
-    bottom: -80px; left: -80px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(107,16,32,0.5), transparent 70%);
-    pointer-events: none;
-    z-index: 0;
   }
 
-  .page-hero {
-    padding: 160px 24px 80px;
-    text-align: center;
-    max-width: 620px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
+  .page-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s; }
 
-  .page-label {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-    display: block;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.2s;
-  }
-
-  .page-hero h1 {
+  .page-intro h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: clamp(28px, 5vw, 44px);
+    font-size: clamp(26px, 5vw, 40px);
     color: var(--ivory);
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1.25;
+    margin-bottom: 16px;
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 0.4s;
   }
 
-  .page-hero p {
-    color: rgba(245,237,216,0.65);
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 0;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.6s;
-  }
+  .page-intro p { color: rgba(245,237,216,0.65); font-size: 17px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s; }
 
   .gold-divider { width: 60px; height: 1px; background: var(--gold); margin: 40px auto; opacity: 0.4; }
 
-  /* What to expect section */
-  .expect-section {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 24px 60px;
-    position: relative;
-    z-index: 1;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 0.8s;
-  }
-
-  .expect-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 48px;
-  }
-
-  .expect-item {
-    text-align: center;
-    padding: 24px 16px;
-    border: 1px solid rgba(201,148,58,0.2);
-    background: rgba(46,13,58,0.2);
-  }
-
-  .expect-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--gold);
+  .audit-frame {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    border: none;
     display: block;
-    margin-bottom: 6px;
-  }
-
-  .expect-label {
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(245,237,216,0.55);
-  }
-
-  /* Main CTA */
-  .cta-block {
-    text-align: center;
-    padding: 0 24px 100px;
-    position: relative;
-    z-index: 1;
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards 1s;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--obsidian);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 18px 52px;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-  }
-
-  .cta-note {
-    margin-top: 16px;
-    font-size: 13px;
-    color: rgba(245,237,216,0.35);
-    letter-spacing: 0.05em;
-  }
-
-  /* Stages preview */
-  .stages-section {
-    border-top: 1px solid rgba(201,148,58,0.15);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 60px 24px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stages-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px, 3vw, 28px);
-    color: var(--ivory);
-    margin-bottom: 8px;
-    text-align: center;
-  }
-
-  .stages-section .sub {
-    text-align: center;
-    color: rgba(245,237,216,0.5);
-    font-size: 16px;
-    margin-bottom: 32px;
-  }
-
-  .stage-list { list-style: none; }
-
-  .stage-item {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(201,148,58,0.1);
-  }
-
-  .stage-item:last-child { border-bottom: none; }
-
-  .stage-num {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    opacity: 0.6;
-    min-width: 24px;
-  }
-
-  .stage-name {
-    font-family: 'Pinyon Script', cursive;
-    font-size: 22px;
-    color: var(--gold);
   }
 
   footer {
     border-top: 1px solid rgba(201,148,58,0.15);
-    padding: 40px 24px;
+    padding: 48px 24px;
     text-align: center;
-    position: relative;
-    z-index: 1;
   }
   .footer-brand .emp { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--ivory); letter-spacing: 0.1em; display: block; }
   .footer-brand .bysofia { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px; color: var(--gold); display: block; margin-bottom: 20px; }
@@ -254,31 +104,25 @@
   .footer-copy { font-size: 12px; color: rgba(245,237,216,0.25); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 600px) {
-    nav { padding: 16px 20px; }
-    .nav-links a { font-size: 11px; }
-    .nav-links .btn-nav { padding: 7px 12px; }
-    .expect-grid { grid-template-columns: 1fr; gap: 12px; }
-  }
+  @media (max-width: 600px) { nav { padding: 16px 20px; } .nav-links a { font-size: 11px; } .nav-links .btn-nav { padding: 7px 12px; } }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/eqquiz/" class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <span class="emp">EMPOWERED</span>
     <span class="bysofia">by Sofia</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/eqquiz/about.html">About</a></li>
-    <li><a href="/eqquiz/eq-audit.html">EQ Audit</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="eq-audit.html">EQ Audit</a></li>
     <li class="nav-divider"></li>
-    <li><a href="/eqquiz/organisations.html" class="btn-nav">For Organisations</a></li>
+    <li><a href="organisations.html" class="btn-nav">For Organisations</a></li>
   </ul>
 </nav>
 
-<div class="page-hero">
+<div class="page-intro">
   <span class="page-label">Free · 10 Minutes</span>
   <h1>Discover your emotional intelligence stage.</h1>
   <p>No fluff. No toxic positivity. Just an honest look at where you are — and what is possible from here.</p>
@@ -286,54 +130,12 @@
 
 <div class="gold-divider"></div>
 
-<div class="expect-section">
-  <div class="expect-grid">
-    <div class="expect-item">
-      <span class="expect-num">15</span>
-      <span class="expect-label">Questions</span>
-    </div>
-    <div class="expect-item">
-      <span class="expect-num">10</span>
-      <span class="expect-label">Minutes</span>
-    </div>
-    <div class="expect-item">
-      <span class="expect-num">5</span>
-      <span class="expect-label">EQ Stages</span>
-    </div>
-  </div>
-</div>
-
-<div class="cta-block">
-  <a href="eq-audit-v9.html" class="btn-primary">Begin the EQ Audit</a>
-  <p class="cta-note">Free. No account required.</p>
-</div>
-
-<div class="stages-section">
-  <h2>The five stages of emotional intelligence.</h2>
-  <p class="sub">Every woman is somewhere on this path. The audit reveals exactly where.</p>
-  <ul class="stage-list">
-    <li class="stage-item">
-      <span class="stage-num">01</span>
-      <span class="stage-name">The Still Beginning</span>
-    </li>
-    <li class="stage-item">
-      <span class="stage-num">02</span>
-      <span class="stage-name">The First Noticing</span>
-    </li>
-    <li class="stage-item">
-      <span class="stage-num">03</span>
-      <span class="stage-name">The Necessary Dark</span>
-    </li>
-    <li class="stage-item">
-      <span class="stage-num">04</span>
-      <span class="stage-name">The Becoming</span>
-    </li>
-    <li class="stage-item">
-      <span class="stage-num">05</span>
-      <span class="stage-name">The Free Butterfly</span>
-    </li>
-  </ul>
-</div>
+<iframe
+  src="https://empowered-by-sofia.netlify.app/"
+  class="audit-frame"
+  title="Empowered by Sofia EQ Audit"
+  loading="lazy"
+></iframe>
 
 <footer>
   <div class="footer-brand">
@@ -341,12 +143,12 @@
     <span class="bysofia">by Sofia</span>
   </div>
   <ul class="footer-nav">
-    <li><a href="/eqquiz/">Home</a></li>
-    <li><a href="/eqquiz/about.html">About</a></li>
-    <li><a href="/eqquiz/ebook.html">The Emotional Reset</a></li>
-    <li><a href="/eqquiz/membership.html">The Reset Room</a></li>
-    <li><a href="/eqquiz/apply.html">1:1 Coaching</a></li>
-    <li><a href="/eqquiz/organisations.html">For Organisations</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="ebook.html">The Emotional Reset</a></li>
+    <li><a href="membership.html">The Reset Room</a></li>
+    <li><a href="apply.html">1:1 Coaching</a></li>
+    <li><a href="organisations.html">For Organisations</a></li>
   </ul>
   <p class="footer-copy">© 2026 Empowered by Sofia. All rights reserved.</p>
 </footer>
