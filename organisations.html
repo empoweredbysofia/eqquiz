@@ -25,6 +25,18 @@
     --text-muted: #8888aa;
     --border: rgba(60,52,137,0.15);
     --white: #ffffff;
+    --slate-deep: #1C2B4A;
+    --slate-mid: #2E4270;
+    --slate-blue: #5B7EC9;
+    --slate-light: #B8C8E8;
+    --slate-pale: #E8EDF8;
+    --mauve-deep: #4A1942;
+    --mauve-mid: #7B3B6E;
+    --mauve-soft: #C47DB5;
+    --mauve-light: #E8C4E0;
+    --mauve-pale: #F5E8F3;
+    --gold: #D4A843;
+    --gold-pale: #F8F0D0;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -505,6 +517,7 @@
     .featured-grid { grid-template-columns: 1fr; }
     .cta-section { flex-direction: column; text-align: center; }
     .cta-btn { width: 100%; text-align: center; }
+    .prog-grid-2col { grid-template-columns: 1fr !important; }
   }
 </style>
 </head>
@@ -652,145 +665,325 @@
       </div>
     </div>
 
-    <!-- Programme A -->
-    <div class="section-label">Programme A — The Inner Compass</div>
-    <div class="prog-band" style="margin-bottom:1.25rem;">
-      <div class="prog-header">
+    <!-- Flagship Programmes — TOP -->
+    <div class="section-label">Flagship programmes</div>
+    <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.7;max-width:680px;">Two programmes tackling the most urgent and underserved issues in schools today — from both sides of the classroom door. These are the star of the show.</p>
+
+    <!-- EmpowerED Teacher -->
+    <div class="prog-band" style="margin-bottom:1rem;border-left:4px solid var(--slate-deep);">
+      <div class="prog-header" style="background:var(--slate-deep);">
         <div class="prog-header-left">
-          <div class="prog-name" style="color:var(--teal-deep);">The Inner Compass</div>
-          <div class="prog-tagline">Student, young people &amp; community-facing · Years 6–13</div>
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-light);margin-bottom:4px;">Flagship · CPD Certified · B2B · Teachers</div>
+          <div class="prog-name" style="color:#FFFFFF;font-size:1.35rem;">The EmpowerED Teacher</div>
+          <div class="prog-tagline" style="color:var(--slate-light);font-style:italic;">Because the teacher in the room changes everything</div>
         </div>
-        <div class="prog-badge" style="background:var(--teal-pale);color:var(--teal-deep);">Yrs 6 – 13</div>
+        <div class="prog-badge" style="background:var(--slate-blue);color:#FFFFFF;">CPD certified</div>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:var(--slate-mid);display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="font-size:0.7rem;font-weight:500;color:var(--slate-light);">Most suitable for:</span>
+        <span style="font-size:0.7rem;color:#FFFFFF;">All schools · Secondary focus · MATs · NQTs · PGCE programmes · College &amp; FE</span>
+      </div>
+      <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
+        <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;font-style:italic;">"There's one student who makes me so mad — I dread it every day." Teachers are not failing because they do not care. They are failing because nobody ever taught them how to navigate the emotional world of a young person. The EmpowerED Teacher is the only programme in the UK that tackles this directly.</p>
       </div>
       <div class="prog-body">
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Compass Session</div>
-            <div class="prog-item-desc">1 workshop · 90 mins · up to 30 young people</div>
-          </div>
-          <div class="prog-price" style="color:var(--teal-deep);">£350</div>
+          <div><div class="prog-item-name">CPD Day — Sofia delivers</div><div class="prog-item-desc">Full day · up to 30 teachers · in-person · Midlands</div></div>
+          <div class="prog-price" style="color:var(--slate-deep);">£1,800</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Compass Programme</div>
-            <div class="prog-item-desc">6-week series · weekly sessions</div>
-          </div>
-          <div class="prog-price" style="color:var(--teal-deep);">£1,200</div>
+          <div><div class="prog-item-name">CPD Day — certified facilitator</div><div class="prog-item-desc">Full day · up to 30 teachers · nationally available</div></div>
+          <div class="prog-price" style="color:var(--slate-deep);">£1,500</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Community Group Session</div>
-            <div class="prog-item-desc">Youth clubs, faith groups, charities · 90 mins</div>
-          </div>
-          <div class="prog-price" style="color:var(--teal-deep);">£300</div>
+          <div><div class="prog-item-name">CPD Half Day — taster</div><div class="prog-item-desc">Up to 30 teachers · ideal for INSET intro</div></div>
+          <div class="prog-price" style="color:var(--slate-deep);">£700</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Parent Reset Workshop</div>
-            <div class="prog-item-desc">Half day · up to 30 parents</div>
-          </div>
-          <div class="prog-price" style="color:var(--teal-deep);">£600</div>
+          <div><div class="prog-item-name">Certification Programme — online</div><div class="prog-item-desc">Self-paced · 6 modules · CPD hours · career credential · upsell from CPD day</div></div>
+          <div class="prog-price" style="color:var(--coral);">£297/teacher</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Online Annual Licence</div>
-            <div class="prog-item-desc">Self-paced access for students &amp; parents · delivered anywhere in the UK</div>
-          </div>
-          <div class="prog-price" style="color:var(--teal-deep);">£499/yr</div>
+          <div><div class="prog-item-name">School certification licence</div><div class="prog-item-desc">Up to 20 staff · annual · CPD tracking</div></div>
+          <div class="prog-price" style="color:var(--slate-deep);">£2,500/yr</div>
+        </div>
+        <div class="prog-row">
+          <div><div class="prog-item-name">MAT licence</div><div class="prog-item-desc">Up to 5 schools · trust-wide access</div></div>
+          <div class="prog-price" style="color:var(--slate-deep);">£6,000/yr</div>
+        </div>
+        <div class="prog-row">
+          <div><div class="prog-item-name">PGCE / teacher training provider</div><div class="prog-item-desc">Embed into initial teacher training · annual recurring</div></div>
+          <div class="prog-price" style="color:var(--coral);">£3,500/yr</div>
         </div>
       </div>
-      <div class="prog-tags">
-        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">emotional reset</span>
-        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">confidence</span>
-        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">gratitude</span>
-        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">values</span>
-        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">in-person &amp; online</span>
-        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">schools &amp; community</span>
+      <div class="prog-tags" style="background:var(--slate-pale);">
+        <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">relationship intelligence</span>
+        <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">teacher wellbeing</span>
+        <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">classroom culture</span>
+        <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">CPD certified</span>
+        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">online upsell</span>
+        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">PGCE</span>
       </div>
     </div>
 
-    <!-- Programme B -->
-    <div class="section-label">Programme B — EmpowerED Training</div>
-    <div class="prog-band" style="margin-bottom:1.75rem;">
-      <div class="prog-header">
+    <!-- Girl Code Compass -->
+    <div class="prog-band" style="margin-bottom:2rem;border-left:4px solid var(--mauve-deep);">
+      <div class="prog-header" style="background:var(--mauve-deep);">
         <div class="prog-header-left">
-          <div class="prog-name" style="color:var(--purple-mid);">EmpowerED Training</div>
-          <div class="prog-tagline">Staff, teachers, managers &amp; organisation leaders</div>
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mauve-light);margin-bottom:4px;">Flagship · Girls · Yrs 11–18 · Group Programme</div>
+          <div class="prog-name" style="color:#FFFFFF;font-size:1.35rem;">The Girl Code Compass</div>
+          <div class="prog-tagline" style="color:var(--mauve-light);font-style:italic;">She already knows. She just needs to remember.</div>
         </div>
-        <div class="prog-badge" style="background:var(--purple-pale);color:var(--purple-mid);">CPD certified</div>
+        <div class="prog-badge" style="background:var(--mauve-soft);color:#FFFFFF;">Yrs 11–18</div>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:var(--mauve-mid);display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="font-size:0.7rem;font-weight:500;color:var(--mauve-light);">Most suitable for:</span>
+        <span style="font-size:0.7rem;color:#FFFFFF;">Secondary schools · Girls pastoral groups · SEND girls · Youth clubs · Faith groups · Community orgs</span>
+      </div>
+      <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
+        <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;font-style:italic;">Girls who are not heard do not go quiet. They scream — through their behaviour, through their relationships, through seeking validation in places that cannot give them what they are really looking for. The Girl Code Compass gives them back something that was always theirs: a compass. A code. Themselves.</p>
       </div>
       <div class="prog-body">
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Staff Wellbeing Session</div>
-            <div class="prog-item-desc">Half day · up to 20 staff · any organisation</div>
-          </div>
-          <div class="prog-price" style="color:var(--purple-mid);">£500</div>
+          <div><div class="prog-item-name">6-week group programme — Sofia delivers</div><div class="prog-item-desc">Up to 12 girls · closed safe circle · in-person</div></div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£1,400</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Teacher Training CPD</div>
-            <div class="prog-item-desc">Full day · emotional intelligence in the classroom</div>
-          </div>
-          <div class="prog-price" style="color:var(--purple-mid);">£1,500</div>
+          <div><div class="prog-item-name">6-week programme — certified facilitator</div><div class="prog-item-desc">Nationally available · facilitator trained by Sofia</div></div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£1,200</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Corporate Wellbeing Workshop</div>
-            <div class="prog-item-desc">Half to full day · teams &amp; managers · online or in-person</div>
-          </div>
-          <div class="prog-price" style="color:var(--purple-mid);">£1,200</div>
+          <div><div class="prog-item-name">Single taster session</div><div class="prog-item-desc">90 mins · up to 20 girls · intro to the programme</div></div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£400</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Certified Facilitator Programme</div>
-            <div class="prog-item-desc">2-day train-the-trainer · licensed to deliver in your organisation</div>
-          </div>
-          <div class="prog-price" style="color:var(--purple-mid);">£1,200pp</div>
+          <div><div class="prog-item-name">School annual licence</div><div class="prog-item-desc">Run multiple cohorts in-house · certified staff deliver</div></div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£2,000/yr</div>
         </div>
         <div class="prog-row">
-          <div>
-            <div class="prog-item-name">Annual Organisation Licence</div>
-            <div class="prog-item-desc">Your certified staff deliver the programme in-house</div>
-          </div>
-          <div class="prog-price" style="color:var(--purple-mid);">£2,000/yr</div>
+          <div><div class="prog-item-name">Online self-paced version</div><div class="prog-item-desc">For girls who cannot access the group · individual purchase</div></div>
+          <div class="prog-price" style="color:var(--gold);">£67</div>
+        </div>
+        <div class="prog-row">
+          <div><div class="prog-item-name">Girl Code Compass journal</div><div class="prog-item-desc">Branded physical take-home · sold per student</div></div>
+          <div class="prog-price" style="color:var(--gold);">£18/student</div>
         </div>
       </div>
-      <div class="prog-tags">
-        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">staff wellbeing</span>
-        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">teacher CPD</span>
-        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">corporate</span>
-        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">train-the-trainer</span>
-        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">in-person &amp; online</span>
+      <div class="prog-tags" style="background:var(--mauve-pale);">
+        <span class="tag" style="background:var(--mauve-pale);color:var(--mauve-deep);">identity &amp; worth</span>
+        <span class="tag" style="background:var(--mauve-pale);color:var(--mauve-deep);">healthy relationships</span>
+        <span class="tag" style="background:var(--mauve-pale);color:var(--mauve-deep);">emotional regulation</span>
+        <span class="tag" style="background:var(--mauve-pale);color:var(--mauve-deep);">values</span>
+        <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">physical journal</span>
+        <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">girls circle</span>
       </div>
     </div>
 
-    <!-- Full Package -->
-    <div class="section-label">Complete school &amp; community partnership</div>
+    <!-- Programmes intro -->
+    <div class="section-label">All programmes</div>
+    <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7;max-width:680px;">All programmes are delivered by Sofia in the Midlands or by certified facilitators anywhere in the UK. Each is available in-person and online. Mix and match to build the right package for your organisation.</p>
+
+    <!-- Side by side grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+
+      <!-- Programme A — The Inner Compass -->
+      <div class="prog-band" style="margin-bottom:0;">
+        <div class="prog-header" style="background:#E1F5EE;">
+          <div class="prog-header-left">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#0F6E56;margin-bottom:4px;">Programme A</div>
+            <div class="prog-name" style="color:#085041;">The Inner Compass</div>
+            <div class="prog-tagline">Students &amp; young people · Yrs 6–13</div>
+          </div>
+          <div class="prog-badge" style="background:#9FE1CB;color:#085041;">Yrs 6–13</div>
+        </div>
+        <div style="padding:0.6rem 1.5rem;background:#085041;display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:0.7rem;font-weight:500;color:#9FE1CB;">Most suitable for:</span>
+          <span style="font-size:0.7rem;color:#E1F5EE;">Schools · Youth clubs · Community orgs · Faith groups</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-row">
+            <div><div class="prog-item-name">Compass Session</div><div class="prog-item-desc">1 workshop · 90 mins · up to 30</div></div>
+            <div class="prog-price" style="color:#085041;">£350</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Compass Programme</div><div class="prog-item-desc">6-week series · weekly sessions</div></div>
+            <div class="prog-price" style="color:#085041;">£1,200</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Community Group Session</div><div class="prog-item-desc">Youth clubs, faith groups · 90 mins</div></div>
+            <div class="prog-price" style="color:#085041;">£300</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Online Annual Licence</div><div class="prog-item-desc">Self-paced · students &amp; parents</div></div>
+            <div class="prog-price" style="color:#085041;">£499/yr</div>
+          </div>
+        </div>
+        <div class="prog-tags">
+          <span class="tag" style="background:#E1F5EE;color:#085041;">emotional reset</span>
+          <span class="tag" style="background:#E1F5EE;color:#085041;">confidence</span>
+          <span class="tag" style="background:#E1F5EE;color:#085041;">gratitude</span>
+          <span class="tag" style="background:#E1F5EE;color:#085041;">values</span>
+        </div>
+      </div>
+
+      <!-- Programme B — The Regulated Home -->
+      <div class="prog-band" style="margin-bottom:0;">
+        <div class="prog-header" style="background:#FAEEDA;">
+          <div class="prog-header-left">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#854F0B;margin-bottom:4px;">Programme B</div>
+            <div class="prog-name" style="color:#633806;">The Regulated Home</div>
+            <div class="prog-tagline">Parents &amp; families</div>
+          </div>
+          <div class="prog-badge" style="background:#FAC775;color:#633806;">Parents</div>
+        </div>
+        <div style="padding:0.6rem 1.5rem;background:#633806;display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:0.7rem;font-weight:500;color:#FAC775;">Most suitable for:</span>
+          <span style="font-size:0.7rem;color:#FAEEDA;">Schools · Community orgs · Faith groups · Housing associations</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-row">
+            <div><div class="prog-item-name">Parent Reset Workshop</div><div class="prog-item-desc">Half day · up to 30 parents</div></div>
+            <div class="prog-price" style="color:#633806;">£600</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Regulated Home Series</div><div class="prog-item-desc">4-week programme · weekly sessions</div></div>
+            <div class="prog-price" style="color:#633806;">£950</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Community Parent Group</div><div class="prog-item-desc">Charities, faith groups · 90 mins</div></div>
+            <div class="prog-price" style="color:#633806;">£300</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Online Annual Licence</div><div class="prog-item-desc">Self-paced · parents only</div></div>
+            <div class="prog-price" style="color:#633806;">£299/yr</div>
+          </div>
+        </div>
+        <div class="prog-tags">
+          <span class="tag" style="background:#FAEEDA;color:#633806;">respond not react</span>
+          <span class="tag" style="background:#FAEEDA;color:#633806;">regulation</span>
+          <span class="tag" style="background:#FAEEDA;color:#633806;">family wellbeing</span>
+        </div>
+      </div>
+
+      <!-- Programme C — EmpowerED Training -->
+      <div class="prog-band" style="margin-bottom:0;">
+        <div class="prog-header" style="background:#EEEDFE;">
+          <div class="prog-header-left">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#534AB7;margin-bottom:4px;">Programme C</div>
+            <div class="prog-name" style="color:#3C3489;">EmpowerED Training</div>
+            <div class="prog-tagline">Teachers &amp; school staff</div>
+          </div>
+          <div class="prog-badge" style="background:#CECBF6;color:#3C3489;">CPD certified</div>
+        </div>
+        <div style="padding:0.6rem 1.5rem;background:#3C3489;display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:0.7rem;font-weight:500;color:#CECBF6;">Most suitable for:</span>
+          <span style="font-size:0.7rem;color:#EEEDFE;">Schools · Multi-academy trusts · Community org staff · Train-the-trainer</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-row">
+            <div><div class="prog-item-name">Staff Wellbeing Session</div><div class="prog-item-desc">Half day · up to 20 staff</div></div>
+            <div class="prog-price" style="color:#3C3489;">£500</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Teacher Training CPD</div><div class="prog-item-desc">Full day · EQ in the classroom</div></div>
+            <div class="prog-price" style="color:#3C3489;">£1,500</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Certified Facilitator</div><div class="prog-item-desc">2-day train-the-trainer cert</div></div>
+            <div class="prog-price" style="color:#3C3489;">£1,200pp</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Annual Org Licence</div><div class="prog-item-desc">In-house delivery by your staff</div></div>
+            <div class="prog-price" style="color:#3C3489;">£2,000/yr</div>
+          </div>
+        </div>
+        <div class="prog-tags">
+          <span class="tag" style="background:#EEEDFE;color:#26215C;">teacher CPD</span>
+          <span class="tag" style="background:#EEEDFE;color:#26215C;">staff wellbeing</span>
+          <span class="tag" style="background:#EEEDFE;color:#26215C;">train-the-trainer</span>
+        </div>
+      </div>
+
+      <!-- Programme D — EmpowerED Wellbeing -->
+      <div class="prog-band" style="margin-bottom:0;">
+        <div class="prog-header" style="background:#E6F1FB;">
+          <div class="prog-header-left">
+            <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#185FA5;margin-bottom:4px;">Programme D</div>
+            <div class="prog-name" style="color:#0C447C;">EmpowerED Wellbeing</div>
+            <div class="prog-tagline">Employers &amp; organisations</div>
+          </div>
+          <div class="prog-badge" style="background:#B5D4F4;color:#0C447C;">Employers</div>
+        </div>
+        <div style="padding:0.6rem 1.5rem;background:#0C447C;display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-size:0.7rem;font-weight:500;color:#B5D4F4;">Most suitable for:</span>
+          <span style="font-size:0.7rem;color:#E6F1FB;">Corporates · NHS &amp; public sector · SMEs · Charities &amp; councils</span>
+        </div>
+        <div class="prog-body">
+          <div class="prog-row">
+            <div><div class="prog-item-name">Workplace Wellbeing Session</div><div class="prog-item-desc">Half day · teams &amp; managers</div></div>
+            <div class="prog-price" style="color:#0C447C;">£700</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">EQ at Work Programme</div><div class="prog-item-desc">4-week series · online or in-person</div></div>
+            <div class="prog-price" style="color:#0C447C;">£1,800</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Leadership &amp; EQ Workshop</div><div class="prog-item-desc">Full day · managers &amp; leaders</div></div>
+            <div class="prog-price" style="color:#0C447C;">£1,200</div>
+          </div>
+          <div class="prog-row">
+            <div><div class="prog-item-name">Annual Org Licence</div><div class="prog-item-desc">Organisation-wide access</div></div>
+            <div class="prog-price" style="color:#0C447C;">£3,000/yr</div>
+          </div>
+        </div>
+        <div class="prog-tags">
+          <span class="tag" style="background:#E6F1FB;color:#0C447C;">workplace EQ</span>
+          <span class="tag" style="background:#E6F1FB;color:#0C447C;">leadership</span>
+          <span class="tag" style="background:#E6F1FB;color:#0C447C;">NHS &amp; public sector</span>
+        </div>
+      </div>
+
+    </div>
+
+        <div class="section-label">Complete school transformation — all programmes combined</div>
     <div class="featured-package" style="margin-bottom:1.75rem;">
-      <div class="featured-ribbon">Most popular</div>
+      <div class="featured-ribbon">Most popular for schools</div>
       <div class="featured-body">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:0.5rem;">
           <div>
-            <div class="featured-title">The Full Partnership Package</div>
-            <div class="featured-sub">Both programmes combined · students + parents + staff</div>
+            <div class="featured-title">The Full School Transformation Package</div>
+            <div class="featured-sub">Students + parents + staff + teachers + girls — the whole school, from every direction</div>
           </div>
           <div>
-            <div class="featured-price">from £2,500</div>
+            <div class="featured-price">from £3,000</div>
             <div class="featured-price-note">per term</div>
           </div>
         </div>
-        <div class="featured-grid">
-          <div class="featured-box" style="background:var(--teal-pale);">
-            <div class="featured-box-title" style="color:var(--teal-deep);">The Inner Compass</div>
-            <div class="featured-box-sub" style="color:var(--teal-mid);">Yr 6–13 student programme</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;">
+          <div class="featured-box" style="background:#E1F5EE;">
+            <div class="featured-box-title" style="color:#085041;">The Inner Compass</div>
+            <div class="featured-box-sub" style="color:#0F6E56;">Yr 6–13 students</div>
           </div>
-          <div class="featured-box" style="background:var(--purple-pale);">
-            <div class="featured-box-title" style="color:var(--purple-mid);">EmpowerED Training</div>
-            <div class="featured-box-sub" style="color:var(--purple-soft);">CPD staff training included</div>
+          <div class="featured-box" style="background:#FAEEDA;">
+            <div class="featured-box-title" style="color:#633806;">The Regulated Home</div>
+            <div class="featured-box-sub" style="color:#854F0B;">Parent programme</div>
+          </div>
+          <div class="featured-box" style="background:#EEEDFE;">
+            <div class="featured-box-title" style="color:#3C3489;">EmpowerED Training</div>
+            <div class="featured-box-sub" style="color:#534AB7;">Staff CPD</div>
           </div>
         </div>
-        <div class="featured-desc">Includes student workshops, parent session, staff CPD day and termly review. Sofia delivers in person across the Midlands. Certified facilitators available nationally for all other locations.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
+          <div class="featured-box" style="background:#E8EDF8;">
+            <div class="featured-box-title" style="color:#1C2B4A;">The EmpowerED Teacher</div>
+            <div class="featured-box-sub" style="color:#2E4270;">Relationship intelligence CPD</div>
+          </div>
+          <div class="featured-box" style="background:#F5E8F3;">
+            <div class="featured-box-title" style="color:#4A1942;">The Girl Code Compass</div>
+            <div class="featured-box-sub" style="color:#7B3B6E;">Girls group programme</div>
+          </div>
+        </div>
+        <div class="featured-desc">The teacher sees students differently. Girls know their own worth. Parents respond rather than react. Staff are regulated. Students have tools. This is a whole school transformed — from every direction at once. Sofia delivers in person across the Midlands. Certified facilitators available nationally.</div>
       </div>
     </div>
 

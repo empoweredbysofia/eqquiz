@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Girl Code Compass · Session Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mauve-deep: #4A1942;
+    --mauve-mid: #7B3B6E;
+    --mauve-soft: #C47DB5;
+    --mauve-light: #E8C4E0;
+    --mauve-pale: #F5E8F3;
+    --mauve-cream: #FAF4F9;
+    --gold: #D4A843;
+    --gold-light: #F0D68A;
+    --gold-pale: #FBF4DC;
+    --rose: #E8708A;
+    --rose-pale: #FCEEF1;
+    --sage: #7BA68C;
+    --sage-pale: #EBF4EF;
+    --cream: #FDF9F7;
+    --text-dark: #2A1228;
+    --text-mid: #5C3A56;
+    --text-soft: #9B7494;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--mauve-deep);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 20%, rgba(196,125,181,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 80% 80%, rgba(212,168,67,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(123,59,110,0.3) 0%, transparent 70%);
+  }
+
+  /* Decorative floating shapes */
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  .shape-1 { width: 300px; height: 300px; background: var(--mauve-soft); top: -80px; right: -80px; }
+  .shape-2 { width: 200px; height: 200px; background: var(--gold); bottom: 60px; left: -60px; opacity: 0.08; }
+  .shape-3 { width: 120px; height: 120px; background: var(--rose); bottom: 200px; right: 10%; opacity: 0.15; }
+  .shape-4 { width: 80px; height: 80px; background: var(--gold-light); top: 30%; left: 5%; opacity: 0.2; }
+
+  /* Botanical illustration pure CSS */
+  .botanical {
+    position: absolute;
+    opacity: 0.07;
+  }
+  .botanical-tl { top: 20px; left: 20px; }
+  .botanical-br { bottom: 20px; right: 20px; transform: rotate(180deg); }
+
+  .cover-content {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .cover-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mauve-light);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .cover-compass {
+    width: 100px; height: 100px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .cover-tagline {
+    font-size: 1rem;
+    color: var(--mauve-light);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+
+  .cover-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .cover-pill {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--mauve-light);
+    letter-spacing: 0.04em;
+  }
+
+  .cover-promise {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── SESSION SLIDES ── */
+  .session-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    page-break-before: always;
+  }
+
+  .session-top {
+    padding: 2.5rem 3rem 2rem;
+    position: relative;
+  }
+
+  .session-num-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+  .session-num-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+  }
+  .session-num-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .session-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  .session-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .session-body {
+    flex: 1;
+    padding: 0 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .session-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.85;
+  }
+
+  .session-activities {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+  .activity-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .activity-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .activity-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+
+  .session-footer {
+    padding: 1.25rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+  .session-footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    opacity: 0.5;
+  }
+  .session-footer-session {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  /* ── DECORATIVE SVG ELEMENTS ── */
+  .deco-corner {
+    position: absolute;
+    opacity: 0.08;
+  }
+
+  /* ── ILLUSTRATION PANEL ── */
+  .illus-panel {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 38%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── CLOSING SLIDE ── */
+  .closing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--mauve-deep);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .session-top { padding: 2rem 1.5rem 1.5rem; }
+    .session-body { grid-template-columns: 1fr; padding: 0 1.5rem 2rem; }
+    .session-footer { padding: 1rem 1.5rem; }
+    .illus-panel { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════ COVER ══════ -->
+<div class="cover">
+  <div class="cover-bg"></div>
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+  <div class="shape shape-4"></div>
+
+  <!-- Botanical SVG top left -->
+  <svg class="botanical botanical-tl" width="160" height="160" viewBox="0 0 160 160" fill="none">
+    <path d="M20 140 Q40 80 80 60 Q60 100 20 140Z" fill="#E8C4E0"/>
+    <path d="M30 140 Q70 90 110 50 Q80 100 30 140Z" fill="#C47DB5" opacity="0.6"/>
+    <path d="M10 120 Q50 70 90 30" stroke="#E8C4E0" stroke-width="1.5" fill="none"/>
+    <ellipse cx="90" cy="30" rx="12" ry="18" fill="#D4A843" opacity="0.7" transform="rotate(-30 90 30)"/>
+    <ellipse cx="110" cy="50" rx="10" ry="15" fill="#E8C4E0" transform="rotate(-15 110 50)"/>
+    <circle cx="40" cy="100" r="4" fill="#D4A843" opacity="0.5"/>
+    <circle cx="60" cy="80" r="3" fill="#C47DB5" opacity="0.4"/>
+  </svg>
+
+  <!-- Botanical SVG bottom right -->
+  <svg class="botanical botanical-br" width="160" height="160" viewBox="0 0 160 160" fill="none">
+    <path d="M20 140 Q40 80 80 60 Q60 100 20 140Z" fill="#E8C4E0"/>
+    <path d="M30 140 Q70 90 110 50 Q80 100 30 140Z" fill="#C47DB5" opacity="0.6"/>
+    <path d="M10 120 Q50 70 90 30" stroke="#E8C4E0" stroke-width="1.5" fill="none"/>
+    <ellipse cx="90" cy="30" rx="12" ry="18" fill="#D4A843" opacity="0.7" transform="rotate(-30 90 30)"/>
+    <circle cx="40" cy="100" r="4" fill="#D4A843" opacity="0.5"/>
+  </svg>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">EmpowerED by Sofia</div>
+
+    <!-- Compass illustration -->
+    <div class="cover-compass">
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="#E8C4E0" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="50" cy="50" r="36" stroke="#C47DB5" stroke-width="1" opacity="0.5"/>
+        <circle cx="50" cy="50" r="6" fill="#D4A843"/>
+        <!-- N pointer -->
+        <path d="M50 44 L46 50 L50 16 L54 50 Z" fill="#FFFFFF"/>
+        <!-- S pointer -->
+        <path d="M50 56 L54 50 L50 84 L46 50 Z" fill="#C47DB5" opacity="0.7"/>
+        <!-- E pointer -->
+        <path d="M56 50 L50 46 L84 50 L50 54 Z" fill="#D4A843" opacity="0.8"/>
+        <!-- W pointer -->
+        <path d="M44 50 L50 54 L16 50 L50 46 Z" fill="#E8C4E0" opacity="0.6"/>
+        <!-- Dots at cardinal points -->
+        <circle cx="50" cy="10" r="2.5" fill="#FFFFFF"/>
+        <circle cx="90" cy="50" r="2" fill="#D4A843"/>
+        <circle cx="50" cy="90" r="2" fill="#C47DB5"/>
+        <circle cx="10" cy="50" r="2" fill="#E8C4E0"/>
+      </svg>
+    </div>
+
+    <h1 class="cover-title">The Girl<br><em>Code Compass</em></h1>
+    <p class="cover-tagline">A six-session circle for girls who are ready to find themselves</p>
+
+    <div class="cover-pills">
+      <div class="cover-pill">Years 11 to 18</div>
+      <div class="cover-pill">Closed circle · up to 12</div>
+      <div class="cover-pill">6 sessions · 90 mins each</div>
+      <div class="cover-pill">EmpowerED by Sofia</div>
+    </div>
+
+    <p class="cover-promise">"She already knows who she is. This circle gives her the space, the safety and the tools to remember."</p>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION 1 ══════ -->
+<div class="session-page" style="background:var(--mauve-cream);">
+  <div class="session-top" style="background:var(--mauve-deep);color:var(--white);">
+    <div class="session-num-badge">
+      <div class="session-num-circle" style="background:rgba(255,255,255,0.15);color:var(--gold-light);">1</div>
+      <div class="session-num-label" style="color:var(--mauve-light);">Session One</div>
+    </div>
+    <div class="session-title" style="color:var(--white);">This Is a Safe Circle</div>
+    <div class="session-subtitle" style="color:var(--mauve-light);">Who are we, really?: underneath the performance, the mask, the noise</div>
+
+    <!-- Decorative stars -->
+    <svg class="deco-corner" style="top:1rem;right:1.5rem;" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <circle cx="40" cy="40" r="38" stroke="white" stroke-width="0.5"/>
+      <path d="M40 8 L43 30 L65 20 L48 36 L72 40 L50 44 L62 64 L40 52 L18 64 L30 44 L8 40 L32 36 L15 20 L37 30 Z" fill="white" opacity="0.15"/>
+      <circle cx="40" cy="40" r="4" fill="#D4A843" opacity="0.6"/>
+    </svg>
+  </div>
+
+  <div class="session-body">
+    <div>
+      <p class="session-desc">The first session is about creating something most girls have never experienced: a space where they do not have to perform. No right answers. No judgement. No need to be anything other than exactly who they are right now.</p>
+      <br/>
+      <p class="session-desc">We establish the circle: its agreements, its boundaries and its promise. And then, gently, we begin. Girls introduce not who the world thinks they are, but who they actually are. This is often the first time they have been asked that question without an agenda.</p>
+      <br/>
+      <p class="session-desc" style="font-style:italic;opacity:0.7;">Each girl receives her Girl Code Compass journal, her companion for all six sessions and beyond.</p>
+    </div>
+
+    <div>
+      <div class="activity-label" style="color:var(--mauve-mid);">What we explore</div>
+      <div class="session-activities">
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">Circle agreements: what we say here, stays here</div>
+        </div>
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">Who am I really?: beneath the labels and the likes</div>
+        </div>
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">Introduction to values: the beginning of the code</div>
+        </div>
+        <div class="activity-item" style="background:var(--gold-pale);">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:var(--text-dark);">✦ Journal: My first page: who I am right now</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-footer">
+    <div class="session-footer-brand">The Girl Code Compass · EmpowerED by Sofia</div>
+    <div class="session-footer-session">Session 1 of 6</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION 2 ══════ -->
+<div class="session-page" style="background:var(--rose-pale);">
+  <div class="session-top" style="background:#8B2D4A;color:var(--white);">
+    <div class="session-num-badge">
+      <div class="session-num-circle" style="background:rgba(255,255,255,0.15);color:#FBBCCA;">2</div>
+      <div class="session-num-label" style="color:#FBBCCA;">Session Two</div>
+    </div>
+    <div class="session-title" style="color:var(--white);">My Story, My Feelings</div>
+    <div class="session-subtitle" style="color:#FBBCCA;">Not my shame. Understanding the emotions beneath the surface</div>
+
+    <svg class="deco-corner" style="top:1rem;right:1.5rem;" width="70" height="70" viewBox="0 0 70 70" fill="none">
+      <path d="M35 5 C35 5 55 20 60 35 C65 50 55 65 35 65 C15 65 5 50 10 35 C15 20 35 5 35 5Z" stroke="white" stroke-width="0.5" fill="none" opacity="0.3"/>
+      <path d="M35 15 C35 15 50 25 53 35 C56 45 50 55 35 55 C20 55 14 45 17 35 C20 25 35 15 35 15Z" fill="white" opacity="0.06"/>
+      <circle cx="35" cy="35" r="5" fill="white" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <div class="session-body">
+    <div>
+      <p class="session-desc">This is the session where girls are given permission: perhaps for the first time: to tell the truth about their inner world. Family breakdown. Absent fathers. Feeling invisible at home. Carrying too much, too young. Being the strong one when they needed someone to be strong for them.</p>
+      <br/>
+      <p class="session-desc">We hold all of it with gentleness and complete respect. We help girls understand that the anger, the withdrawal, the numbness: these are not character flaws. They are emotions in disguise. Shame that looks like attitude. Grief that looks like not caring. Overwhelm that looks like rebellion.</p>
+      <br/>
+      <p class="session-desc" style="font-style:italic;opacity:0.7;">What happened to you is not your identity. But understanding it is where freedom begins.</p>
+    </div>
+
+    <div>
+      <div class="activity-label" style="color:#8B2D4A;">What we explore</div>
+      <div class="session-activities">
+        <div class="activity-item" style="background:#FDE8ED;">
+          <div class="activity-dot" style="background:var(--rose);"></div>
+          <div class="activity-text" style="color:#5C1A2E;">My emotional history, mapping feelings to moments</div>
+        </div>
+        <div class="activity-item" style="background:#FDE8ED;">
+          <div class="activity-dot" style="background:var(--rose);"></div>
+          <div class="activity-text" style="color:#5C1A2E;">Emotions in disguise, anger, shame, grief &amp; overwhelm</div>
+        </div>
+        <div class="activity-item" style="background:#FDE8ED;">
+          <div class="activity-dot" style="background:var(--rose);"></div>
+          <div class="activity-text" style="color:#5C1A2E;">Emotional vocabulary, naming what lives inside us</div>
+        </div>
+        <div class="activity-item" style="background:var(--gold-pale);">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:var(--text-dark);">✦ Journal: A letter to the younger me (optional, private)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-footer">
+    <div class="session-footer-brand">The Girl Code Compass · EmpowerED by Sofia</div>
+    <div class="session-footer-session">Session 2 of 6</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION 3 ══════ -->
+<div class="session-page" style="background:var(--gold-pale);">
+  <div class="session-top" style="background:var(--teal-deep, #085041);color:#FFFFFF;">
+    <div class="session-num-badge">
+      <div class="session-num-circle" style="background:rgba(255,255,255,0.15);color:#9FE1CB;">3</div>
+      <div class="session-num-label" style="color:#9FE1CB;">Session Three</div>
+    </div>
+    <div class="session-title" style="color:var(--white);">My Code</div>
+    <div class="session-subtitle" style="color:#9FE1CB;">The values I live by. Discovering what is truly non-negotiable</div>
+
+    <svg class="deco-corner" style="top:1rem;right:1.5rem;" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <rect x="10" y="10" width="60" height="60" rx="4" stroke="#9FE1CB" stroke-width="0.5" fill="none" opacity="0.3"/>
+      <rect x="20" y="20" width="40" height="40" rx="3" stroke="#F0D68A" stroke-width="0.5" fill="none" opacity="0.2"/>
+      <path d="M40 15 L40 65 M15 40 L65 40" stroke="#F0D68A" stroke-width="0.5" opacity="0.2"/>
+      <circle cx="40" cy="40" r="6" fill="#F0D68A" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="session-body">
+    <div>
+      <p class="session-desc">A girl who knows her code is unshakeable. She does not need to borrow her identity from the group. She does not need approval to know her own worth. She does not compromise what matters to her because someone else wants her to.</p>
+      <br/>
+      <p class="session-desc">In this session, each girl creates her personal Girl Code: the values that are hers alone. Not what her parents want. Not what her friends expect. Not what social media tells her she should be. Her actual code. The one that lives in her chest when she is quiet enough to listen.</p>
+      <br/>
+      <p class="session-desc" style="font-style:italic;opacity:0.7;">This is the antidote to peer pressure. To the wrong friendship. To shrinking to fit somewhere she was never meant to stay.</p>
+    </div>
+
+    <div>
+      <div class="activity-label" style="color:#085041;">What we explore</div>
+      <div class="session-activities">
+        <div class="activity-item" style="background:#E1F5EE;">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:#085041;">Values deep dive, what truly matters to me</div>
+        </div>
+        <div class="activity-item" style="background:#E1F5EE;">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:#085041;">My non-negotiables, what I will and will not accept</div>
+        </div>
+        <div class="activity-item" style="background:#E1F5EE;">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:#085041;">When I betrayed my code, and what it cost me</div>
+        </div>
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">✦ Create: My Girl Code: designed in her journal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-footer">
+    <div class="session-footer-brand">The Girl Code Compass · EmpowerED by Sofia</div>
+    <div class="session-footer-session">Session 3 of 6</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION 4 ══════ -->
+<div class="session-page" style="background:var(--mauve-pale);">
+  <div class="session-top" style="background:var(--mauve-mid);color:var(--white);">
+    <div class="session-num-badge">
+      <div class="session-num-circle" style="background:rgba(255,255,255,0.15);color:var(--mauve-light);">4</div>
+      <div class="session-num-label" style="color:var(--mauve-light);">Session Four</div>
+    </div>
+    <div class="session-title" style="color:var(--white);">Relationships</div>
+    <div class="session-subtitle" style="color:var(--mauve-light);">What I deserve vs what I am settling for: knowing worth before seeking love</div>
+
+    <svg class="deco-corner" style="top:1rem;right:1.5rem;" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M40 60 C40 60 15 45 15 28 C15 18 23 12 32 16 C36 18 40 22 40 22 C40 22 44 18 48 16 C57 12 65 18 65 28 C65 45 40 60 40 60Z" stroke="white" stroke-width="1" fill="white" opacity="0.12"/>
+      <path d="M40 52 C40 52 22 40 22 28 C22 22 27 18 33 21 C36.5 22.5 40 26 40 26 C40 26 43.5 22.5 47 21 C53 18 58 22 58 28 C58 40 40 52 40 52Z" fill="white" opacity="0.08"/>
+    </svg>
+  </div>
+
+  <div class="session-body">
+    <div>
+      <p class="session-desc">This is the session held with the greatest gentleness: and the greatest honesty. We explore what girls are really looking for when they seek closeness: to be seen, to feel chosen, to not be alone, to feel worthy. These are real and beautiful needs.</p>
+      <br/>
+      <p class="session-desc">The conversation touches on the pull towards early romantic relationships: not to lecture, not to shame, but to help girls understand what they are truly looking for and whether that place can actually give it to them. A girl who knows her worth does not settle. A girl who understands her code does not give herself to someone who cannot honour it.</p>
+      <br/>
+      <p class="session-desc" style="font-style:italic;opacity:0.7;">We speak about the difference between choosing from fullness and clinging from emptiness: gently, honestly, without judgement.</p>
+    </div>
+
+    <div>
+      <div class="activity-label" style="color:var(--mauve-mid);">What we explore</div>
+      <div class="session-activities">
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">What am I really looking for?: beneath the attraction</div>
+        </div>
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">Healthy connection vs seeking validation: the difference</div>
+        </div>
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">Boundaries from worth: not from rules or fear</div>
+        </div>
+        <div class="activity-item" style="background:var(--gold-pale);">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:var(--text-dark);">✦ Journal: What I will and will not accept: from anyone</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-footer">
+    <div class="session-footer-brand">The Girl Code Compass · EmpowerED by Sofia</div>
+    <div class="session-footer-session">Session 4 of 6</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION 5 ══════ -->
+<div class="session-page" style="background:var(--sage-pale);">
+  <div class="session-top" style="background:#3C3489;color:#FFFFFF;">
+    <div class="session-num-badge">
+      <div class="session-num-circle" style="background:rgba(255,255,255,0.15);color:#CECBF6;">5</div>
+      <div class="session-num-label" style="color:#CECBF6;">Session Five</div>
+    </div>
+    <div class="session-title" style="color:var(--white);">My Reset</div>
+    <div class="session-subtitle" style="color:#CECBF6;">Tools for the hard days. A toolkit that is built for exactly who she is</div>
+
+    <svg class="deco-corner" style="top:0.5rem;right:1.5rem;" width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M40 10 Q55 25 70 40 Q55 55 40 70 Q25 55 10 40 Q25 25 40 10Z" stroke="#CECBF6" stroke-width="0.5" fill="none" opacity="0.3"/>
+      <path d="M40 22 Q50 32 58 40 Q50 48 40 58 Q30 48 22 40 Q30 32 40 22Z" fill="#CECBF6" opacity="0.08"/>
+      <circle cx="40" cy="40" r="5" fill="#CECBF6" opacity="0.3"/>
+      <circle cx="40" cy="10" r="2" fill="#CECBF6" opacity="0.4"/>
+      <circle cx="40" cy="70" r="2" fill="#CECBF6" opacity="0.4"/>
+      <circle cx="10" cy="40" r="2" fill="#CECBF6" opacity="0.4"/>
+      <circle cx="70" cy="40" r="2" fill="#CECBF6" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="session-body">
+    <div>
+      <p class="session-desc">By now, girls know more about themselves than when they walked into the first session. They know their values. They understand their emotions. They are beginning to see how their story shaped them without defining them.</p>
+      <br/>
+      <p class="session-desc">This session gives them the practical tools for when it gets hard: because it will get hard. The overwhelm will come. The family tension will flare. The friendship will hurt. The situation they thought they had handled will surface again.</p>
+      <br/>
+      <p class="session-desc">Sofia's emotional reset method is adapted here specifically for girls: not a generic breathing exercise, but a real toolkit each girl builds for herself. What works for her body, her mind, her life. What she reaches for first. Who she calls. What she does when she needs to come back to herself.</p>
+    </div>
+
+    <div>
+      <div class="activity-label" style="color:#3C3489;">What we explore</div>
+      <div class="session-activities">
+        <div class="activity-item" style="background:#EEEDFE;">
+          <div class="activity-dot" style="background:#534AB7;"></div>
+          <div class="activity-text" style="color:#26215C;">The reset method, personalised for her</div>
+        </div>
+        <div class="activity-item" style="background:#EEEDFE;">
+          <div class="activity-dot" style="background:#534AB7;"></div>
+          <div class="activity-text" style="color:#26215C;">My safe people, who I reach for and why</div>
+        </div>
+        <div class="activity-item" style="background:#EEEDFE;">
+          <div class="activity-dot" style="background:#534AB7;"></div>
+          <div class="activity-text" style="color:#26215C;">Regulation strategies that fit her life, not a textbook</div>
+        </div>
+        <div class="activity-item" style="background:var(--gold-pale);">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:var(--text-dark);">✦ Build: My personal reset toolkit card</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-footer">
+    <div class="session-footer-brand">The Girl Code Compass · EmpowerED by Sofia</div>
+    <div class="session-footer-session">Session 5 of 6</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION 6 ══════ -->
+<div class="session-page" style="background:var(--mauve-cream);">
+  <div class="session-top" style="background:linear-gradient(135deg, var(--mauve-deep) 0%, #7A3B6E 100%);color:var(--white);">
+    <div class="session-num-badge">
+      <div class="session-num-circle" style="background:rgba(255,255,255,0.15);color:var(--gold-light);">6</div>
+      <div class="session-num-label" style="color:var(--gold-light);">Session Six</div>
+    </div>
+    <div class="session-title" style="color:var(--white);">She Knows</div>
+    <div class="session-subtitle" style="color:var(--gold-light);">The Girl Code Compass ceremony: she takes her compass home</div>
+
+    <svg class="deco-corner" style="top:0.5rem;right:1.5rem;" width="90" height="90" viewBox="0 0 90 90" fill="none">
+      <circle cx="45" cy="45" r="42" stroke="#F0D68A" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="45" cy="45" r="8" fill="#F0D68A" opacity="0.2"/>
+      <path d="M45 10 L47.5 35 L70 20 L52 38 L78 45 L53 52 L66 72 L45 57 L24 72 L37 52 L12 45 L38 38 L20 20 L42.5 35 Z" fill="#F0D68A" opacity="0.15"/>
+      <circle cx="45" cy="45" r="3" fill="#F0D68A" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="session-body">
+    <div>
+      <p class="session-desc">The final session is not a lesson. It is a celebration. Six weeks ago, these girls walked into a room as strangers. They leave as a circle: with each other's stories held carefully, their own stories honoured, and something solid inside them that was not there before.</p>
+      <br/>
+      <p class="session-desc">Each girl shares one thing she knows about herself that she did not know six weeks ago. Then she receives her Girl Code Compass: a beautifully designed, physical take-home that holds her values, her code, her reset toolkit and her commitments to herself.</p>
+      <br/>
+      <p class="session-desc" style="font-style:italic;opacity:0.8;">This session is designed to move girls. Not to break them: to open them. To remind them of what they came here to find. And to send them back into the world with a compass that belongs only to them.</p>
+    </div>
+
+    <div>
+      <div class="activity-label" style="color:var(--mauve-mid);">What we celebrate</div>
+      <div class="session-activities">
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">One thing I know now that I didn't: shared in the circle</div>
+        </div>
+        <div class="activity-item" style="background:var(--mauve-pale);">
+          <div class="activity-dot" style="background:var(--mauve-soft);"></div>
+          <div class="activity-text" style="color:var(--text-mid);">Circle closing ritual: what this space gave us</div>
+        </div>
+        <div class="activity-item" style="background:var(--gold-pale);">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:var(--text-dark);">✦ Receive: The Girl Code Compass: her take-home</div>
+        </div>
+        <div class="activity-item" style="background:var(--gold-pale);">
+          <div class="activity-dot" style="background:var(--gold);"></div>
+          <div class="activity-text" style="color:var(--text-dark);">✦ Certificate of completion: presented with intention</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="session-footer">
+    <div class="session-footer-brand">The Girl Code Compass · EmpowerED by Sofia</div>
+    <div class="session-footer-session">Session 6 of 6</div>
+  </div>
+</div>
+
+
+<!-- ══════ CLOSING ══════ -->
+<div class="closing">
+  <div class="cover-bg"></div>
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+
+  <svg class="botanical botanical-tl" width="140" height="140" viewBox="0 0 160 160" fill="none">
+    <path d="M20 140 Q40 80 80 60 Q60 100 20 140Z" fill="#E8C4E0"/>
+    <path d="M30 140 Q70 90 110 50 Q80 100 30 140Z" fill="#C47DB5" opacity="0.6"/>
+    <ellipse cx="90" cy="30" rx="12" ry="18" fill="#D4A843" opacity="0.7" transform="rotate(-30 90 30)"/>
+    <circle cx="40" cy="100" r="4" fill="#D4A843" opacity="0.5"/>
+  </svg>
+
+  <div class="cover-content">
+    <div class="cover-compass" style="margin-bottom:1.5rem;">
+      <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="#E8C4E0" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="50" cy="50" r="6" fill="#D4A843"/>
+        <path d="M50 44 L46 50 L50 16 L54 50 Z" fill="#FFFFFF"/>
+        <path d="M50 56 L54 50 L50 84 L46 50 Z" fill="#C47DB5" opacity="0.7"/>
+        <path d="M56 50 L50 46 L84 50 L50 54 Z" fill="#D4A843" opacity="0.8"/>
+        <path d="M44 50 L50 54 L16 50 L50 46 Z" fill="#E8C4E0" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="cover-eyebrow" style="margin-bottom:1rem;">EmpowerED by Sofia</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--white);font-weight:400;margin-bottom:0.5rem;">She already knew.</h2>
+    <p style="font-size:1rem;color:var(--mauve-light);margin-bottom:2rem;font-style:italic;">She just needed to remember.</p>
+
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.75rem 2rem;max-width:480px;margin:0 auto 2rem;">
+      <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mauve-light);margin-bottom:1rem;">To bring The Girl Code Compass to your school or organisation</div>
+      <div style="font-size:0.9rem;color:var(--white);margin-bottom:0.5rem;">sofia@empoweredbysofia.com</div>
+      <div style="font-size:0.85rem;color:var(--mauve-light);">empoweredbysofia.github.io/eqquiz/organisations.html</div>
+    </div>
+
+    <div class="cover-pills">
+      <div class="cover-pill">6-week programme from £1,200</div>
+      <div class="cover-pill">Taster session from £400</div>
+      <div class="cover-pill">School licence £2,000/yr</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
