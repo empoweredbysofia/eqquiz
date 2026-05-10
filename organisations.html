@@ -600,6 +600,147 @@
     transform: translateY(-1px);
   }
 
+
+  /* ── ENQUIRY MODAL ── */
+  #enquiry-modal {
+    position: fixed; inset: 0; z-index: 3000;
+    background: rgba(20,16,50,0.88);
+    display: none; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+  }
+  #enquiry-modal.open { display: flex; }
+  .enquiry-box {
+    background: #FFFFFF;
+    border-radius: 18px;
+    width: 100%; max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  }
+  .enquiry-header {
+    background: var(--purple-deep);
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-radius: 18px 18px 0 0;
+    position: sticky; top: 0; z-index: 1;
+  }
+  .enquiry-header-top {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .enquiry-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 500;
+    color: #FFFFFF;
+  }
+  .enquiry-sub {
+    font-size: 0.8rem; color: var(--purple-light);
+    margin-top: 0.2rem;
+  }
+  .enquiry-close {
+    background: none; border: none;
+    font-size: 1.5rem; line-height: 1;
+    color: var(--purple-light); cursor: pointer;
+    padding: 0; flex-shrink: 0;
+  }
+  .enquiry-close:hover { color: #FFFFFF; }
+  .enquiry-body { padding: 1.5rem 1.75rem 1.75rem; }
+  .eq-row { margin-bottom: 1rem; }
+  .eq-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+  .eq-label {
+    display: block;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 0.35rem;
+  }
+  .eq-input, .eq-select, .eq-textarea {
+    width: 100%;
+    border: 1.5px solid rgba(60,52,137,0.18);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: #FAFAFE;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .eq-input:focus, .eq-select:focus, .eq-textarea:focus {
+    border-color: var(--purple-soft);
+    background: #FFFFFF;
+  }
+  .eq-textarea { min-height: 80px; resize: vertical; }
+  .eq-select option { color: var(--text-primary); }
+  .eq-prog-label {
+    background: var(--purple-pale);
+    border: 1.5px solid var(--purple-light);
+    border-radius: 8px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.85rem;
+    color: var(--purple-mid);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .eq-submit {
+    width: 100%;
+    background: var(--coral);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 0.9rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .eq-submit:hover { background: var(--coral-deep); transform: translateY(-1px); }
+  .eq-submit:active { transform: translateY(0); }
+  .eq-success {
+    display: none; text-align: center; padding: 2rem 1.5rem;
+  }
+  .eq-success-tick {
+    width: 56px; height: 56px;
+    background: var(--teal-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.6rem; color: var(--teal-deep);
+  }
+  .eq-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--purple-deep);
+    margin-bottom: 0.5rem;
+  }
+  .eq-success p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+  .eq-note {
+    font-size: 0.78rem; color: var(--text-muted);
+    margin-top: 0.75rem; line-height: 1.5;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    .eq-row-2 { grid-template-columns: 1fr; }
+    .enquiry-box { border-radius: 14px; }
+  }
+
+  /* ── STRIPE BUY BUTTONS ── */
+  .stripe-buy-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #635BFF;
+    color: #FFFFFF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 500;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .stripe-buy-btn:hover { background: #4F46E5; transform: translateY(-1px); }
+  .stripe-buy-btn svg { width: 14px; height: 14px; }
+
 </style>
 </head>
 <body>
@@ -795,7 +936,7 @@
       </div>
       <div style="padding:1rem 1.5rem;background:#1C2B4A;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div style="font-size:0.82rem;color:#B8C8E8;">Ready to bring this to your school?</div>
-        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The EmpowerED Teacher" style="display:inline-block;background:var(--coral);color:white;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;padding:0.55rem 1.25rem;border-radius:8px;text-decoration:none;">Enquire now →</a>
+        <button onclick="openEnquiry('The EmpowerED Teacher')" style="display:inline-block;background:var(--coral);color:white;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;padding:0.55rem 1.25rem;border-radius:8px;text-decoration:none;;border:none;cursor:pointer;">Enquire now →</button>
       </div>
     </div>
 
@@ -883,9 +1024,39 @@
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">physical journal</span>
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">girls circle</span>
       </div>
+
+      <!-- ONLINE PRODUCTS — STRIPE -->
+      <div style="background:#F5F4FF;border-top:1px solid var(--border);padding:1rem 1.5rem;">
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#534AB7;margin-bottom:0.85rem;">Purchase online instantly</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:stretch;">
+          <div style="background:white;border:1px solid #EEEDFE;border-radius:10px;padding:0.9rem 1.1rem;flex:1;min-width:200px;">
+            <div style="font-size:0.88rem;font-weight:500;color:#26215C;margin-bottom:3px;">Girl Code Compass — Online</div>
+            <div style="font-size:0.78rem;color:#534AB7;margin-bottom:0.65rem;">Self-paced · for girls who cannot access the group</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+              <span style="font-size:1.1rem;font-weight:500;color:#4A1942;">£67</span>
+              <a href="https://buy.stripe.com/REPLACE_WITH_GCC_LINK" target="_blank" class="stripe-buy-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                Buy now
+              </a>
+            </div>
+          </div>
+          <div style="background:white;border:1px solid #EEEDFE;border-radius:10px;padding:0.9rem 1.1rem;flex:1;min-width:200px;">
+            <div style="font-size:0.88rem;font-weight:500;color:#26215C;margin-bottom:3px;">EmpowerED Teacher Certification</div>
+            <div style="font-size:0.78rem;color:#534AB7;margin-bottom:0.65rem;">Self-paced · 6 modules · CPD hours · career credential</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+              <span style="font-size:1.1rem;font-weight:500;color:#1C2B4A;">£297</span>
+              <a href="https://buy.stripe.com/REPLACE_WITH_ET_LINK" target="_blank" class="stripe-buy-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                Buy now
+              </a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;">Secure checkout via Stripe. You will receive access within 24 hours of payment.</p>
+      </div>
       <div style="padding:1rem 1.5rem;background:#4A1942;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div style="font-size:0.82rem;color:#E8C4E0;">Book a group or taster session</div>
-        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The Girl Code Compass" style="display:inline-block;background:var(--coral);color:white;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;padding:0.55rem 1.25rem;border-radius:8px;text-decoration:none;">Enquire now →</a>
+        <button onclick="openEnquiry('The Girl Code Compass')" style="display:inline-block;background:var(--coral);color:white;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;padding:0.55rem 1.25rem;border-radius:8px;text-decoration:none;;border:none;cursor:pointer;">Enquire now →</button>
       </div>
     </div>
 
@@ -954,7 +1125,7 @@
         </div>
       <div style="padding:0.75rem 1.5rem;background:#085041;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
-        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The Inner Compass" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+        <button onclick="openEnquiry('The Inner Compass')" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);;border:none;cursor:pointer;">Enquire →</button>
       </div>
       </div>
 
@@ -1018,7 +1189,7 @@
         </div>
         <div style="padding:0.75rem 1.5rem;background:#5A3A6E;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
           <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
-          <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The Regulated Home" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+          <button onclick="openEnquiry('The Regulated Home')" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);;border:none;cursor:pointer;">Enquire →</button>
         </div>
       </div>
 
@@ -1082,7 +1253,7 @@
         </div>
       <div style="padding:0.75rem 1.5rem;background:#3C3489;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
-        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: EmpowerED Training" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+        <button onclick="openEnquiry('EmpowerED Training')" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);;border:none;cursor:pointer;">Enquire →</button>
       </div>
       </div>
 
@@ -1157,7 +1328,7 @@
         </div>
       <div style="padding:0.75rem 1.5rem;background:#0C447C;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
-        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: EmpowerED Wellbeing" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+        <button onclick="openEnquiry('EmpowerED Wellbeing')" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);;border:none;cursor:pointer;">Enquire →</button>
       </div>
       </div>
 
@@ -1403,7 +1574,7 @@
         <div class="cta-text-title">Ready to bring EmpowerED to your organisation?</div>
         <div class="cta-text-sub">Book a free discovery call with Sofia</div>
       </div>
-      <a href="mailto:sofia@empoweredbysofia.com?subject=Discovery Call Request" class="cta-btn">Book a discovery call →</a>
+      <button onclick="openEnquiry('Discovery call request')" class="cta-btn" style="border:none;cursor:pointer;">Book a discovery call →</button>
     </div>
 
   </div>
@@ -1460,6 +1631,173 @@
     }
   }
 
+
+  // ── ENQUIRY MODAL ──
+  function openEnquiry(programme) {
+    const modal = document.getElementById('enquiry-modal');
+    const display = document.getElementById('enquiry-prog-display');
+    const hidden = document.getElementById('eq-programme-hidden');
+    const select = document.getElementById('eq-programme-select');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (programme && programme !== 'General enquiry' && programme !== 'Discovery call request') {
+      display.textContent = programme;
+      hidden.value = programme;
+      // Try to match select option
+      for (let opt of select.options) {
+        if (opt.value.toLowerCase().includes(programme.toLowerCase().split(' ')[0])) {
+          select.value = opt.value; break;
+        }
+      }
+    } else {
+      display.textContent = 'EmpowerED by Sofia';
+    }
+  }
+
+  function closeEnquiryModal() {
+    document.getElementById('enquiry-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeEnquiry(e) {
+    if (e.target === document.getElementById('enquiry-modal')) closeEnquiryModal();
+  }
+
+  async function submitEnquiry(e) {
+    e.preventDefault();
+    const form = document.getElementById('enquiry-form');
+    const btn = form.querySelector('.eq-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('enquiry-form-wrap').style.display = 'none';
+        document.getElementById('eq-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Send enquiry →';
+        btn.disabled = false;
+        alert('Something went wrong — please email sofia@empoweredbysofia.com directly.');
+      }
+    } catch(err) {
+      btn.textContent = 'Send enquiry →';
+      btn.disabled = false;
+      alert('Could not connect — please email sofia@empoweredbysofia.com directly.');
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeEnquiryModal();
+  });
+
 </script>
+
+<!-- ══════════════ ENQUIRY MODAL ══════════════ -->
+<div id="enquiry-modal" onclick="closeEnquiry(event)">
+  <div class="enquiry-box" id="enquiry-box">
+    <div class="enquiry-header">
+      <div class="enquiry-header-top">
+        <div>
+          <div class="enquiry-title">Make an enquiry</div>
+          <div class="enquiry-sub" id="enquiry-prog-display">EmpowerED by Sofia</div>
+        </div>
+        <button class="enquiry-close" onclick="closeEnquiryModal()">×</button>
+      </div>
+    </div>
+    <div class="enquiry-body">
+      <div id="enquiry-form-wrap">
+        <form id="enquiry-form" action="https://formspree.io/f/xykonwpj" method="POST" onsubmit="submitEnquiry(event)">
+          <input type="hidden" name="Programme" id="eq-programme-hidden" value="" />
+
+          <div class="eq-row-2">
+            <div>
+              <label class="eq-label">Your name</label>
+              <input class="eq-input" type="text" name="Name" placeholder="First and last name" required />
+            </div>
+            <div>
+              <label class="eq-label">Your role</label>
+              <input class="eq-input" type="text" name="Role" placeholder="e.g. Head teacher, SENCO" required />
+            </div>
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Organisation</label>
+            <input class="eq-input" type="text" name="Organisation" placeholder="School, charity or company name" required />
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Email address</label>
+            <input class="eq-input" type="email" name="Email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Programme interested in</label>
+            <select class="eq-select" name="Programme interest" id="eq-programme-select" required>
+              <option value="" disabled selected>Select a programme</option>
+              <option>The EmpowerED Teacher — CPD Day</option>
+              <option>The EmpowerED Teacher — CPD Half Day Taster</option>
+              <option>The EmpowerED Teacher — School or MAT Licence</option>
+              <option>The Girl Code Compass — 6-week group</option>
+              <option>The Girl Code Compass — Single Taster Session</option>
+              <option>The Girl Code Compass — School Licence</option>
+              <option>The Inner Compass — Student Programme</option>
+              <option>The Regulated Home — Parent Programme</option>
+              <option>EmpowerED Training — Staff CPD</option>
+              <option>EmpowerED Wellbeing — Employer</option>
+              <option>SEND — Inner Compass Inclusion Edition</option>
+              <option>SEND — EmpowerED SEND &amp; Inclusion CPD</option>
+              <option>SEND — Regulated Home Additional Needs</option>
+              <option>The Full School Transformation Package</option>
+              <option>Certified Facilitator Programme</option>
+              <option>Not sure — please advise</option>
+            </select>
+          </div>
+
+          <div class="eq-row-2">
+            <div>
+              <label class="eq-label">Preferred date</label>
+              <input class="eq-input" type="date" name="Preferred date" />
+            </div>
+            <div>
+              <label class="eq-label">Alternative date</label>
+              <input class="eq-input" type="date" name="Alternative date" />
+            </div>
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Preferred timing</label>
+            <select class="eq-select" name="Preferred timing">
+              <option value="" disabled selected>Select a preference</option>
+              <option>Morning — 9am to 12pm</option>
+              <option>Afternoon — 12pm to 4pm</option>
+              <option>Full day</option>
+              <option>Two half days</option>
+              <option>Flexible — to be agreed</option>
+            </select>
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Anything else Sofia should know?</label>
+            <textarea class="eq-textarea" name="Additional notes" placeholder="Number of staff or students, specific needs, location, any questions…"></textarea>
+          </div>
+
+          <button type="submit" class="eq-submit">Send enquiry →</button>
+          <p class="eq-note">Sofia will respond within 48 hours with a tailored proposal. No obligation.</p>
+        </form>
+      </div>
+      <div class="eq-success" id="eq-success">
+        <div class="eq-success-tick">✓</div>
+        <h3>Enquiry received</h3>
+        <p>Thank you — Sofia will review your details and be in touch within 48 hours with a tailored proposal and pricing for your organisation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>
