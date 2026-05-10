@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The EmpowerED Teacher — Session Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate-deep: #1C2B4A;
+    --slate-mid: #2E4270;
+    --slate-blue: #5B7EC9;
+    --slate-light: #B8C8E8;
+    --slate-pale: #E8EDF8;
+    --coral: #D85A30;
+    --coral-deep: #993C1D;
+    --cream: #F0EEE8;
+    --white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a4a6a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #12102a; color: #E8E4FF; line-height: 1.6; }
+
+  /* Cover */
+  .cover {
+    min-height: 100vh;
+    background: var(--slate-deep);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 3rem 2rem;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .cover::before {
+    content: ''; position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(83,74,183,0.15);
+  }
+  .cover::after {
+    content: ''; position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(216,90,48,0.08);
+  }
+  .cover-content { position: relative; max-width: 640px; }
+  .cover-eyebrow { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 1rem; }
+  .cover-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: white; line-height: 1.15; margin-bottom: 0.5rem; font-weight: 500; }
+  .cover-title span { color: var(--coral); font-style: italic; }
+  .cover-tagline { font-size: 1rem; color: var(--slate-light); margin-bottom: 2rem; font-style: italic; }
+  .cover-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 2rem; }
+  .cover-pill { font-size: 0.72rem; font-weight: 500; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.18); color: var(--slate-light); }
+  .cover-pill.hot { background: var(--coral); border-color: var(--coral); color: white; }
+  .cover-promise { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-style: italic; line-height: 1.7; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.1); }
+
+  /* Sessions */
+  .session-page {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .session-top { padding: 2.5rem 3rem 2rem; position: relative; }
+  .session-badge { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+  .session-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 500; flex-shrink: 0; }
+  .session-num-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .session-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 0.5rem; font-weight: 500; }
+  .session-sub { font-size: 0.95rem; font-style: italic; font-weight: 300; margin-bottom: 2rem; opacity: 0.75; }
+  .session-body { flex: 1; padding: 0 3rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; align-items: start; }
+  .session-desc { font-size: 0.95rem; line-height: 1.8; opacity: 0.85; }
+  .activities { display: flex; flex-direction: column; gap: 10px; }
+  .act-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; opacity: 0.6; }
+  .act-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 10px; }
+  .act-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .act-text { font-size: 0.85rem; line-height: 1.5; }
+  .session-footer { padding: 1.25rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.08); }
+  .session-footer-brand { font-family: 'Playfair Display', serif; font-size: 0.85rem; opacity: 0.45; }
+  .session-footer-num { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.35; }
+
+  /* Closing */
+  .closing { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--slate-deep); padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
+  .contact-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 1.75rem 2rem; max-width: 480px; margin: 2rem auto 0; }
+
+  @media (max-width: 768px) {
+    .session-top { padding: 2rem 1.5rem 1.5rem; }
+    .session-body { grid-template-columns: 1fr; padding: 0 1.5rem 2rem; }
+    .session-footer { padding: 1rem 1.5rem; flex-direction: column; gap: 6px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════ COVER ══════ -->
+<div class="cover">
+  <div class="cover-content">
+    <div class="cover-eyebrow">EmpowerED by Sofia</div>
+    <div class="cover-title">The Empower<span>ED</span> Teacher</div>
+    <div class="cover-tagline">CPD session guide — full day or 2 × half days</div>
+    <div class="cover-pills">
+      <div class="cover-pill hot">CPD certified</div>
+      <div class="cover-pill">Up to 30 teachers</div>
+      <div class="cover-pill">All schools</div>
+      <div class="cover-pill">4 sessions</div>
+    </div>
+    <p class="cover-promise">"Teachers are not failing because they do not care. They are failing because nobody ever taught them how to navigate the emotional world of a young person."</p>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION AM1 ══════ -->
+<div class="session-page" style="background:#1a2038;">
+  <div class="session-top" style="background:var(--slate-deep);color:white;">
+    <div class="session-badge">
+      <div class="session-num" style="background:rgba(255,255,255,0.12);color:#B8C8E8;">AM1</div>
+      <div class="session-num-label" style="color:var(--slate-light);">Morning — Session One</div>
+    </div>
+    <div class="session-title" style="color:white;">What Is Actually Happening in Your Classroom</div>
+    <div class="session-sub" style="color:var(--slate-light);">The emotional reality that nobody talks about — and why it matters</div>
+    <div style="position:absolute;top:1rem;right:2rem;width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="15" r="13" stroke="#5B7EC9" stroke-width="1" opacity="0.5"/>
+        <circle cx="15" cy="15" r="3" fill="#5B7EC9" opacity="0.7"/>
+        <line x1="15" y1="4" x2="15" y2="11" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="26" y1="15" x2="19" y2="15" stroke="#5B7EC9" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+  <div class="session-body">
+    <div>
+      <p class="session-desc" style="color:#B8C8E8;">The emotional reality of a secondary school classroom. Hormones, home life, identity crises, social anxiety, trauma and the teacher caught in the middle of all of it — without a map.</p>
+      <br/>
+      <p class="session-desc" style="color:#B8C8E8;">This session gives teachers the map. They finally understand why students behave the way they do. Not to excuse behaviour — but to respond to it effectively. No blame. No shame. Just truth.</p>
+      <br/>
+      <p class="session-desc" style="color:var(--slate-light);font-style:italic;">Teachers leave this session with language they have never had before. The room shifts.</p>
+    </div>
+    <div>
+      <div class="act-label" style="color:var(--slate-blue);">What we cover</div>
+      <div class="activities">
+        <div class="act-item" style="background:#1C2B4A;">
+          <div class="act-dot" style="background:var(--slate-blue);"></div>
+          <div class="act-text" style="color:#B8C8E8;">The neuroscience of the teenage brain — what is actually happening</div>
+        </div>
+        <div class="act-item" style="background:#1C2B4A;">
+          <div class="act-dot" style="background:var(--slate-blue);"></div>
+          <div class="act-text" style="color:#B8C8E8;">Trauma, home life and identity — what students carry into the room</div>
+        </div>
+        <div class="act-item" style="background:#1C2B4A;">
+          <div class="act-dot" style="background:var(--slate-blue);"></div>
+          <div class="act-text" style="color:#B8C8E8;">Behaviour as communication — decoding what you are actually seeing</div>
+        </div>
+        <div class="act-item" style="background:#2A1C10;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#F0D8CC;">Activity: classroom emotional reality audit · student behaviour translation guide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="session-footer" style="border-color:rgba(255,255,255,0.08);">
+    <div class="session-footer-brand" style="color:#5B7EC9;">The EmpowerED Teacher · EmpowerED by Sofia</div>
+    <div class="session-footer-num" style="color:#5B7EC9;">AM Session 1 of 4</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION AM2 ══════ -->
+<div class="session-page" style="background:#1a2038;">
+  <div class="session-top" style="background:var(--slate-mid);color:white;">
+    <div class="session-badge">
+      <div class="session-num" style="background:rgba(255,255,255,0.12);color:#B8C8E8;">AM2</div>
+      <div class="session-num-label" style="color:var(--slate-light);">Morning — Session Two</div>
+    </div>
+    <div class="session-title" style="color:white;">You Bring Yourself Into That Room Too</div>
+    <div class="session-sub" style="color:var(--slate-light);">The teacher's own inner world — and why it matters as much as the student's</div>
+  </div>
+  <div class="session-body">
+    <div>
+      <p class="session-desc" style="color:#B8C8E8;">Teachers are human first. They carry their own triggers, histories and unmet needs into the classroom every single day. The teacher who dreads one particular student. The one who snaps under pressure. The one who tries too hard to be liked and wonders why it backfires.</p>
+      <br/>
+      <p class="session-desc" style="color:#B8C8E8;">This session names all of it — without blame, without shame. And then it gives teachers the tools to regulate themselves first, because a teacher cannot co-regulate a student from a dysregulated place.</p>
+      <br/>
+      <p class="session-desc" style="color:var(--slate-light);font-style:italic;">This is often the session teachers say changed them. Not just as professionals — as people.</p>
+    </div>
+    <div>
+      <div class="act-label" style="color:var(--slate-blue);">What we cover</div>
+      <div class="activities">
+        <div class="act-item" style="background:#2E4270;">
+          <div class="act-dot" style="background:#B8C8E8;"></div>
+          <div class="act-text" style="color:#B8C8E8;">Personal trigger mapping — what sets you off and why</div>
+        </div>
+        <div class="act-item" style="background:#2E4270;">
+          <div class="act-dot" style="background:#B8C8E8;"></div>
+          <div class="act-text" style="color:#B8C8E8;">The dread student exercise — naming and addressing the pattern</div>
+        </div>
+        <div class="act-item" style="background:#2E4270;">
+          <div class="act-dot" style="background:#B8C8E8;"></div>
+          <div class="act-text" style="color:#B8C8E8;">Sofia's reset method adapted for teachers in the classroom</div>
+        </div>
+        <div class="act-item" style="background:#2A1C10;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#F0D8CC;">Activity: teacher reset toolkit · what I say vs what I mean to say cards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="session-footer" style="border-color:rgba(255,255,255,0.08);">
+    <div class="session-footer-brand" style="color:#5B7EC9;">The EmpowerED Teacher · EmpowerED by Sofia</div>
+    <div class="session-footer-num" style="color:#5B7EC9;">AM Session 2 of 4</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION PM1 ══════ -->
+<div class="session-page" style="background:#1a2038;">
+  <div class="session-top" style="background:var(--slate-deep);color:white;">
+    <div class="session-badge">
+      <div class="session-num" style="background:rgba(216,90,48,0.25);color:var(--coral);">PM1</div>
+      <div class="session-num-label" style="color:var(--slate-light);">Afternoon — Session Three</div>
+    </div>
+    <div class="session-title" style="color:white;">The Art of the Real Connection</div>
+    <div class="session-sub" style="color:var(--slate-light);">What genuine teacher-student connection looks like — and what it does not</div>
+  </div>
+  <div class="session-body">
+    <div>
+      <p class="session-desc" style="color:#B8C8E8;">Why trying to be cool backfires. Why authority without relationship fails. Why the student who tests you most is often the one who needs you most. And how to earn genuine trust with a young person who has been let down by every adult in their life.</p>
+      <br/>
+      <p class="session-desc" style="color:#B8C8E8;">This session covers what connection actually looks like in practice — the language, the timing, the body language, the moments. It is practical and honest. Teachers leave knowing what to do differently from tomorrow morning.</p>
+      <br/>
+      <p class="session-desc" style="color:var(--slate-light);font-style:italic;">The student who makes you dread Mondays is often the one who needs the most consistent, boundaried connection.</p>
+    </div>
+    <div>
+      <div class="act-label" style="color:var(--coral);">What we cover</div>
+      <div class="activities">
+        <div class="act-item" style="background:#1C2B4A;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#B8C8E8;">Connection vs control — the difference and why it matters</div>
+        </div>
+        <div class="act-item" style="background:#1C2B4A;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#B8C8E8;">What students actually need from teachers — and what they do not</div>
+        </div>
+        <div class="act-item" style="background:#1C2B4A;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#B8C8E8;">What not to say — and what to say instead (real scenarios)</div>
+        </div>
+        <div class="act-item" style="background:#2A1C10;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#F0D8CC;">Activity: trust-building toolkit · language audit · relationship repair script</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="session-footer" style="border-color:rgba(255,255,255,0.08);">
+    <div class="session-footer-brand" style="color:#5B7EC9;">The EmpowerED Teacher · EmpowerED by Sofia</div>
+    <div class="session-footer-num" style="color:#5B7EC9;">PM Session 3 of 4</div>
+  </div>
+</div>
+
+
+<!-- ══════ SESSION PM2 ══════ -->
+<div class="session-page" style="background:#1a2038;">
+  <div class="session-top" style="background:var(--slate-mid);color:white;">
+    <div class="session-badge">
+      <div class="session-num" style="background:rgba(216,90,48,0.25);color:var(--coral);">PM2</div>
+      <div class="session-num-label" style="color:var(--slate-light);">Afternoon — Session Four</div>
+    </div>
+    <div class="session-title" style="color:white;">Reset the Room</div>
+    <div class="session-sub" style="color:var(--slate-light);">Building a classroom culture that actually works — from tomorrow</div>
+  </div>
+  <div class="session-body">
+    <div>
+      <p class="session-desc" style="color:#B8C8E8;">Teachers leave this session with a concrete, personal plan for changing the emotional culture of their classroom. What to say differently. How to handle the student who makes them mad. How to rebuild a relationship that has broken down. How to create a room where students can actually learn.</p>
+      <br/>
+      <p class="session-desc" style="color:#B8C8E8;">Sofia's reset method applied to the classroom — the tools, the language, the structure. Plus a 30-day classroom reset challenge that teachers commit to before leaving the room.</p>
+      <br/>
+      <p class="session-desc" style="color:var(--slate-light);font-style:italic;">The classroom culture you create is the most powerful intervention available to any teacher. This session shows you how to build it intentionally.</p>
+    </div>
+    <div>
+      <div class="act-label" style="color:var(--coral);">What we cover</div>
+      <div class="activities">
+        <div class="act-item" style="background:#2E4270;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#B8C8E8;">The classroom culture reset — what needs to change and how</div>
+        </div>
+        <div class="act-item" style="background:#2E4270;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#B8C8E8;">What to say instead — 20 real classroom scenarios with responses</div>
+        </div>
+        <div class="act-item" style="background:#2E4270;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#B8C8E8;">Relationship repair — rebuilding after breakdown</div>
+        </div>
+        <div class="act-item" style="background:#2A1C10;">
+          <div class="act-dot" style="background:var(--coral);"></div>
+          <div class="act-text" style="color:#F0D8CC;">Activity: personal classroom reset plan · 30-day challenge card · CPD certificate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="session-footer" style="border-color:rgba(255,255,255,0.08);">
+    <div class="session-footer-brand" style="color:#5B7EC9;">The EmpowerED Teacher · EmpowerED by Sofia</div>
+    <div class="session-footer-num" style="color:#5B7EC9;">PM Session 4 of 4</div>
+  </div>
+</div>
+
+
+<!-- ══════ CLOSING ══════ -->
+<div class="closing">
+  <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;background:rgba(46,66,112,0.3);"></div>
+  <div style="position:relative;max-width:560px;">
+    <div class="cover-eyebrow" style="margin-bottom:1rem;">EmpowerED by Sofia</div>
+    <div style="font-family:'Playfair Display',serif;font-size:2.2rem;color:white;font-weight:400;margin-bottom:0.5rem;">The teacher in the room</div>
+    <p style="font-size:1rem;color:var(--slate-light);margin-bottom:2rem;font-style:italic;">changes everything.</p>
+    <div class="contact-box">
+      <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-light);margin-bottom:1rem;">To bring The EmpowerED Teacher to your school</div>
+      <div style="font-size:0.9rem;color:white;margin-bottom:0.5rem;">sofia@empoweredbysofia.com</div>
+      <div style="font-size:0.82rem;color:var(--slate-light);">empoweredbysofia.github.io/eqquiz/organisations.html</div>
+    </div>
+    <div class="cover-pills" style="margin-top:1.5rem;">
+      <div class="cover-pill hot">CPD Day from £1,800</div>
+      <div class="cover-pill">Half day taster £700</div>
+      <div class="cover-pill">Online cert £297/teacher</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

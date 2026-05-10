@@ -546,6 +546,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 1.25rem;
+    align-items: start;
+  }
+  .prog-grid-2col .prog-band {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .prog-grid-2col .prog-body {
+    flex: 1;
   }
   .view-presentation-btn {
     display: inline-flex;
@@ -623,51 +632,6 @@
     </div>
   </div>
 
-  <div class="peek-link" onclick="openPeek()">Take a sneak peek at what's inside →</div>
-</div>
-
-<!-- ══════════════ SNEAK PEEK MODAL ══════════════ -->
-<div id="peek-modal">
-  <div class="peek-box">
-    <button class="peek-close" onclick="closePeek()">×</button>
-    <h3>Here's what's waiting for you</h3>
-    <p>Once approved, you'll get full access to programme details, pricing, packages and how to bring EmpowerED to your organisation.</p>
-    <div class="peek-items">
-      <div class="peek-item">
-        <div class="peek-item-dot" style="background:#1D9E75;"></div>
-        <div>
-          <div class="peek-item-text">The Inner Compass, student programme</div>
-          <div class="peek-item-sub">Yr 6–13 · single sessions from £300 · 6-week series · online licence · schools &amp; community orgs</div>
-        </div>
-      </div>
-      <div class="peek-item">
-        <div class="peek-item-dot" style="background:#534AB7;"></div>
-        <div>
-          <div class="peek-item-text">EmpowerED Training, staff &amp; CPD</div>
-          <div class="peek-item-sub">CPD certified · teacher training · staff wellbeing · corporate workshops · from £500</div>
-        </div>
-      </div>
-      <div class="peek-item">
-        <div class="peek-item-dot" style="background:#D85A30;"></div>
-        <div>
-          <div class="peek-item-text">Full school &amp; community packages</div>
-          <div class="peek-item-sub">Students + parents + staff combined · in-person &amp; online · from £2,500 per term</div>
-        </div>
-      </div>
-      <div class="peek-item">
-        <div class="peek-item-dot" style="background:#085041;"></div>
-        <div>
-          <div class="peek-item-text">Become a certified facilitator</div>
-          <div class="peek-item-sub">2-day train-the-trainer · deliver EmpowerED in your setting · quarterly cohorts · £1,200pp</div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:1.25rem;background:#EEEDFE;border-radius:10px;padding:0.85rem 1rem;">
-      <div style="font-size:0.8rem;font-weight:500;color:#3C3489;margin-bottom:0.3rem;">Why organisations choose EmpowerED</div>
-      <div style="font-size:0.78rem;color:#534AB7;line-height:1.6;">Delivered by Sofia in the Midlands · certified facilitators available nationally · CPD accredited · in-person &amp; online · Yr 6 to adult</div>
-    </div>
-    <p class="peek-cta">Fill in your details to request full access →</p>
-  </div>
 </div>
 
 <!-- ══════════════ MAIN PAGE ══════════════ -->
@@ -689,6 +653,23 @@
         <div class="chip">Corporate teams</div>
         <div class="chip">Train-the-trainer</div>
         <div class="chip chip-online">🌐 Available online</div>
+      </div>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.4rem;">🏫</span>
+            <div><div style="font-size:0.85rem;font-weight:500;color:#FFFFFF;">Schools &amp; MATs</div><div style="font-size:0.75rem;color:var(--purple-light);">Primary, secondary, academies, MATs</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.4rem;">🤝</span>
+            <div><div style="font-size:0.85rem;font-weight:500;color:#FFFFFF;">Community orgs</div><div style="font-size:0.75rem;color:var(--purple-light);">Charities, youth clubs, faith groups, councils</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.4rem;">💼</span>
+            <div><div style="font-size:0.85rem;font-weight:500;color:#FFFFFF;">Employers</div><div style="font-size:0.75rem;color:var(--purple-light);">SMEs, corporates, NHS, public sector</div></div>
+          </div>
+        </div>
+        <p style="font-size:0.82rem;color:var(--purple-light);margin-top:1rem;line-height:1.6;opacity:0.85;">All programmes delivered by Sofia in the Midlands or certified facilitators anywhere in the UK. In-person and online. Mix and match for your organisation.</p>
       </div>
     </div>
   </div>
@@ -742,7 +723,7 @@
       </div>
       <div class="prog-header" style="background:var(--slate-deep);">
         <div class="prog-header-left">
-          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-light);margin-bottom:4px;">Flagship · CPD Certified · B2B · Teachers</div>
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-light);margin-bottom:4px;">Flagship · CPD Certified</div>
           <div class="prog-name" style="color:#FFFFFF;font-size:1.35rem;">The EmpowerED Teacher</div>
           <div class="prog-tagline" style="color:var(--slate-light);font-style:italic;">Because the teacher in the room changes everything</div>
         </div>
@@ -753,6 +734,7 @@
         <span style="font-size:0.7rem;color:#FFFFFF;">All schools · Secondary focus · MATs · NQTs · PGCE programmes · College &amp; FE</span>
       </div>
       <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
+        <a href="empowered-teacher-sessions.html" target="_blank" class="view-presentation-btn" style="margin-bottom:0.75rem;display:inline-flex;background:#1C2B4A;border-color:rgba(91,126,201,0.3);color:#B8C8E8;">✦ View the session guide →</a>
         <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;font-style:italic;">"There's one student who makes me so mad, I dread it every day." Teachers are not failing because they do not care. They are failing because nobody ever taught them how to navigate the emotional world of a young person. The EmpowerED Teacher is the only programme in the UK that tackles this directly.</p>
       </div>
       <div class="prog-body">
@@ -825,17 +807,18 @@
       </div>
       <div class="prog-header" style="background:var(--mauve-deep);">
         <div class="prog-header-left">
-          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mauve-light);margin-bottom:4px;">Flagship · Girls · Yrs 11–18 · Group Programme</div>
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mauve-light);margin-bottom:4px;">Flagship · Girls · Ages 11–18 · Group Programme</div>
           <div class="prog-name" style="color:#FFFFFF;font-size:1.35rem;">The Girl Code Compass</div>
           <div class="prog-tagline" style="color:var(--mauve-light);font-style:italic;">She already knows. She just needs to remember.</div>
         </div>
-        <div class="prog-badge" style="background:var(--mauve-soft);color:#FFFFFF;">Yrs 11–18</div>
+        <div class="prog-badge" style="background:var(--mauve-soft);color:#FFFFFF;">Ages 11–18</div>
       </div>
       <div style="padding:0.6rem 1.5rem;background:var(--mauve-mid);display:flex;flex-wrap:wrap;gap:6px;">
         <span style="font-size:0.7rem;font-weight:500;color:var(--mauve-light);">Most suitable for:</span>
         <span style="font-size:0.7rem;color:#FFFFFF;">Secondary schools · Girls pastoral groups · SEND girls · Youth clubs · Faith groups · Community orgs</span>
       </div>
       <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
+        <a href="girl-code-compass-sessions.html" target="_blank" class="view-presentation-btn" style="margin-bottom:0.75rem;display:inline-flex;">✦ View the session guide →</a>
         <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;">Designed to support girls in navigating their inner world, their feelings, thoughts, identity and sense of worth, at one of the most complex and formative stages of their lives. In a safe, closed circle, girls are gently guided to understand the emotions beneath their behaviour: the shame that hides behind anger, the overwhelm that shows up as withdrawal, the longing to be seen that can pull them towards connections they are not yet ready for. This programme helps young women discover who they are beneath all the noise, so that when the world tries to define them, they already know themselves. Six sessions. One circle. A compass for life.</p>
       </div>
       <div class="prog-body">
@@ -872,37 +855,10 @@
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">physical journal</span>
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">girls circle</span>
       </div>
-      <div style="padding:0.85rem 1.5rem;background:#3A1235;">
-        <a href="girl-code-compass-sessions.html" target="_blank" class="view-presentation-btn">✦ View the session guide →</a>
-      </div>
     </div>
-
-    <!-- Who we work with, moved below flagships -->
-    <div class="section-label">Who we work with</div>
-    <div class="audience-grid">
-      <div class="audience-card">
-        <div class="audience-icon" style="background:var(--purple-pale);">🏫</div>
-        <div class="audience-title">Schools &amp; MATs</div>
-        <div class="audience-desc">Primary, secondary, academies, free schools and multi-academy trusts</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-icon" style="background:var(--teal-pale);">🤝</div>
-        <div class="audience-title">Community orgs</div>
-        <div class="audience-desc">Charities, youth clubs, faith groups, housing associations and councils</div>
-      </div>
-      <div class="audience-card">
-        <div class="audience-icon" style="background:var(--coral-pale);">💼</div>
-        <div class="audience-title">Employers</div>
-        <div class="audience-desc">SMEs, corporates, NHS trusts and public sector teams</div>
-      </div>
-    </div>
-
-    <!-- Programmes intro -->
-    <div class="section-label">All programmes</div>
-    <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7;max-width:680px;">All programmes are delivered by Sofia in the Midlands or by certified facilitators anywhere in the UK. Each is available in-person and online. Mix and match to build the right package for your organisation.</p>
 
     <!-- Side by side grid -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;align-items:stretch;">
 
       <!-- Programme A, The Inner Compass -->
       <div class="prog-band" style="margin-bottom:0;">
@@ -1364,29 +1320,33 @@
     </div>
 
     <!-- Facilitator -->
-    <div class="fac-section">
-      <div class="fac-eyebrow">Join the network</div>
-      <div class="fac-title">Apply to become a certified facilitator</div>
-      <div class="fac-desc">Are you a teacher, counsellor, youth worker or coach who wants to deliver the EmpowerED programme in your school or organisation? Join our certified facilitator network and be part of something that is changing young lives across the UK.</div>
-      <div class="fac-grid">
-        <div class="fac-card">
-          <div class="fac-card-title">What you get</div>
-          <div class="fac-card-desc">2-day certification with Sofia · full programme materials · CPD hours · ongoing support network · licensed to deliver in your setting</div>
+    <div style="background:var(--teal-pale);border:1px solid var(--teal-light);border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;">
+      <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:0.4rem;">Join the network</div>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;">
+        <div style="flex:1;min-width:220px;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--teal-deep);margin-bottom:0.4rem;">Apply to become a certified facilitator</div>
+          <p style="font-size:0.85rem;color:#1a4a3a;line-height:1.7;">Are you a teacher, counsellor, youth worker or coach who wants to deliver EmpowerED in your school or organisation? Join our certified facilitator network and change young lives across the UK.</p>
         </div>
-        <div class="fac-card">
-          <div class="fac-card-title">Who it is for</div>
-          <div class="fac-card-desc">Teachers, school counsellors, youth workers, social workers, coaches and community leaders working with young people aged 10–18</div>
+        <a href="mailto:sofia@empoweredbysofia.com?subject=Facilitator Application" style="display:inline-block;background:var(--teal-deep);color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;padding:0.8rem 1.75rem;border-radius:10px;text-decoration:none;white-space:nowrap;align-self:flex-start;">Apply now →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;">
+        <div style="background:white;border:1px solid var(--teal-light);border-radius:10px;padding:0.9rem 1rem;">
+          <div style="font-size:0.82rem;font-weight:500;color:var(--teal-deep);margin-bottom:0.25rem;">What you get</div>
+          <div style="font-size:0.78rem;color:#2a5a4a;line-height:1.5;">2-day certification · full materials · CPD hours · support network · licensed to deliver</div>
         </div>
-        <div class="fac-card">
-          <div class="fac-card-title">Investment</div>
-          <div class="fac-card-desc">£1,200 per person · all materials and certification included · payment plans available</div>
+        <div style="background:white;border:1px solid var(--teal-light);border-radius:10px;padding:0.9rem 1rem;">
+          <div style="font-size:0.82rem;font-weight:500;color:var(--teal-deep);margin-bottom:0.25rem;">Who it is for</div>
+          <div style="font-size:0.78rem;color:#2a5a4a;line-height:1.5;">Teachers, counsellors, youth workers, social workers and community leaders</div>
         </div>
-        <div class="fac-card">
-          <div class="fac-card-title">Next cohort</div>
-          <div class="fac-card-desc">Cohorts run quarterly · limited to 12 participants · Midlands in-person or online options available</div>
+        <div style="background:white;border:1px solid var(--teal-light);border-radius:10px;padding:0.9rem 1rem;">
+          <div style="font-size:0.82rem;font-weight:500;color:var(--teal-deep);margin-bottom:0.25rem;">Investment</div>
+          <div style="font-size:0.78rem;color:#2a5a4a;line-height:1.5;">£1,200 per person · all materials included · payment plans available</div>
+        </div>
+        <div style="background:white;border:1px solid var(--teal-light);border-radius:10px;padding:0.9rem 1rem;">
+          <div style="font-size:0.82rem;font-weight:500;color:var(--teal-deep);margin-bottom:0.25rem;">Next cohort</div>
+          <div style="font-size:0.78rem;color:#2a5a4a;line-height:1.5;">Quarterly · max 12 · Midlands in-person or online</div>
         </div>
       </div>
-      <a href="mailto:sofia@empoweredbysofia.com?subject=Facilitator Application" class="fac-btn">Apply to become a facilitator →</a>
     </div>
 
     <!-- CTA -->
@@ -1452,17 +1412,6 @@
     }
   }
 
-  function openPeek() {
-    document.getElementById('peek-modal').classList.add('open');
-  }
-
-  function closePeek() {
-    document.getElementById('peek-modal').classList.remove('open');
-  }
-
-  document.getElementById('peek-modal').addEventListener('click', function(e) {
-    if (e.target === this) closePeek();
-  });
 </script>
 </body>
 </html>
