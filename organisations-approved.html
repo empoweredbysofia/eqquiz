@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Organisations — EmpowerED by Sofia · Approved Access</title>
+<title>For Organisations, EmpowerED by Sofia</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -39,90 +39,12 @@
     --gold-pale: #F8F0D0;
   }
 
-
-  /* ── DARK MODE OVERRIDES ── */
-  :root {
-    --text-primary: #E8E4FF;
-    --text-secondary: #B8B4E8;
-    --text-muted: #8880CC;
-    --border: rgba(206,203,246,0.18);
-    --cream: #1a1630;
-    --white: #241e4a;
-  }
-
-  /* Cards and prog bands dark */
-  .audience-card,
-  .prog-band,
-  .featured-package,
-  .fac-section,
-  .fac-card {
-    background: #241e4a !important;
-    border-color: rgba(206,203,246,0.18) !important;
-  }
-
-  /* Programme body rows */
-  .prog-body .prog-row {
-    border-color: rgba(206,203,246,0.12) !important;
-  }
-
-  .prog-item-desc {
-    color: #B8B4E8 !important;
-  }
-
-  /* Tags row background */
-  .prog-tags {
-    background: #1a1630 !important;
-  }
-
-  /* Section label */
-  .section-label {
-    color: #8880CC !important;
-  }
-
-  /* Featured package */
-  .featured-package {
-    border-color: rgba(83,74,183,0.5) !important;
-  }
-
-  /* Audience cards */
-  .audience-title { color: #E8E4FF !important; }
-  .audience-desc { color: #B8B4E8 !important; }
-
-  /* Fac section override */
-  .fac-section {
-    background: #1e1840 !important;
-    border-color: rgba(206,203,246,0.18) !important;
-  }
-  .fac-card {
-    background: #241e4a !important;
-    border-color: rgba(206,203,246,0.2) !important;
-  }
-  .fac-desc { color: #B8B4E8 !important; }
-
-  /* Prog item name */
-  .prog-item-name { color: #E8E4FF !important; }
-
-  /* In-demand banner override for dark */
-  .featured-ribbon {
-    color: #FFFFFF !important;
-  }
-
-  /* Featured desc */
-  .featured-desc { color: #B8B4E8 !important; }
-  .featured-sub { color: #B8B4E8 !important; }
-
-  /* Container intro text */
-  .container p { color: #B8B4E8; }
-
-  /* footer */
-  footer { border-color: rgba(206,203,246,0.15) !important; }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: #1a1630;
-    color: #E8E4FF;
+    background: var(--cream);
+    color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
   }
@@ -318,10 +240,9 @@
   #main-page.visible { display: block; }
 
   header {
-    background: #12102a;
+    background: var(--purple-deep);
     padding: 1rem 2rem;
     display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid rgba(206,203,246,0.15);
   }
   .header-logo {
     font-family: 'Playfair Display', serif;
@@ -341,7 +262,7 @@
   }
 
   .hero {
-    background: #12102a;
+    background: var(--purple-mid);
     padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem);
     position: relative;
     overflow: hidden;
@@ -535,7 +456,7 @@
   .fac-card-desc { font-size: 0.8rem; color: #2a5a4a; line-height: 1.5; }
   .fac-btn {
     display: inline-block;
-    background: var(--coral);
+    background: var(--teal-deep);
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-size: 0.92rem;
@@ -547,7 +468,7 @@
     text-decoration: none;
     transition: background 0.2s, transform 0.15s;
   }
-  .fac-btn:hover { background: var(--coral-deep); transform: translateY(-1px); }
+  .fac-btn:hover { background: #0a6352; transform: translateY(-1px); }
 
   /* ── CTA ── */
   .cta-section {
@@ -587,8 +508,8 @@
     text-align: center;
     padding: 2rem;
     font-size: 0.8rem;
-    color: #8880CC;
-    border-top: 1px solid rgba(206,203,246,0.15);
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
     margin-top: 2rem;
   }
 
@@ -610,61 +531,122 @@
     width: 100%;
     height: 100%;
   }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .prog-grid-2col { grid-template-columns: 1fr !important; }
+    .featured-grid { grid-template-columns: 1fr !important; }
+    .cta-section { flex-direction: column; text-align: center; }
+    .cta-btn { width: 100%; text-align: center; }
+    .audience-grid { grid-template-columns: 1fr !important; }
+    .fac-grid { grid-template-columns: 1fr !important; }
+  }
+  .prog-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .view-presentation-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--mauve-deep, #4A1942);
+    color: #E8C4E0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(196,125,181,0.3);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.75rem;
+  }
+  .view-presentation-btn:hover {
+    background: #7B3B6E;
+    transform: translateY(-1px);
+  }
+
+
+  /* ── APPROVED PAGE DARK THEME ── */
+  body { background: #1a1630 !important; color: #E8E4FF !important; }
+  header { background: #12102a !important; border-bottom: 1px solid rgba(206,203,246,0.15) !important; }
+  .hero { background: #12102a !important; }
+  .audience-card, .prog-band, .featured-package, .fac-card {
+    background: #241e4a !important;
+    border-color: rgba(206,203,246,0.18) !important;
+  }
+  .fac-section { background: #1e1840 !important; border-color: rgba(206,203,246,0.18) !important; }
+  .prog-tags { background: #1a1630 !important; }
+  .prog-body .prog-row { border-color: rgba(206,203,246,0.12) !important; }
+  .prog-item-name { color: #E8E4FF !important; }
+  .prog-item-desc { color: #B8B4E8 !important; }
+  .audience-title { color: #E8E4FF !important; }
+  .audience-desc { color: #B8B4E8 !important; }
+  .section-label { color: #8880CC !important; }
+  .featured-desc, .featured-sub { color: #B8B4E8 !important; }
+  .fac-desc { color: #B8B4E8 !important; }
+  .container p { color: #B8B4E8; }
+  footer { border-color: rgba(206,203,246,0.15) !important; color: #8880CC !important; }
+  .prog-band { background: #241e4a !important; }
+  .prog-row:last-of-type { border-bottom: none !important; }
+
 </style>
 </head>
 <body>
 
-<!-- ══════════════ ACCESS GATE ══════════════ -->
+<!-- ══════════════ PASSWORD GATE ══════════════ -->
 <div id="gate">
   <div class="gate-logo">Empower<span>ED</span> by Sofia</div>
-  <div class="gate-tagline">Organisations Portal</div>
-
+  <div class="gate-tagline">Organisations Portal — Approved Access</div>
   <div class="gate-card">
-    <h2>Request access</h2>
-    <p>This page is for schools, community organisations and employers. Please share your details and Sofia will be in touch to approve your access.</p>
-
-    <div id="gate-form">
-      <div class="form-group">
-        <label>Your name</label>
-        <input type="text" id="f-name" placeholder="First and last name" />
-      </div>
-      <div class="form-group">
-        <label>Organisation</label>
-        <input type="text" id="f-org" placeholder="School, charity or company name" />
-      </div>
-      <div class="form-group">
-        <label>Your role</label>
-        <input type="text" id="f-role" placeholder="e.g. Head teacher, SENCO, HR Manager" />
-      </div>
-      <div class="form-group">
-        <label>Email address</label>
-        <input type="email" id="f-email" placeholder="your@email.com" />
-      </div>
-      <div class="form-group">
-        <label>Organisation type</label>
-        <select id="f-type">
-          <option value="" disabled selected>Select one</option>
-          <option>School, primary</option>
-          <option>School, secondary</option>
-          <option>Multi-Academy Trust</option>
-          <option>Community organisation / charity</option>
-          <option>Youth club / faith group</option>
-          <option>Corporate / employer</option>
-          <option>NHS / public sector</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <button class="gate-submit" onclick="submitGate()">Request access</button>
+    <h2>Enter your access code</h2>
+    <p>Sofia has approved your request. Enter the access code from her email to view the full organisations portal.</p>
+    <div class="form-group">
+      <label>Access code</label>
+      <input type="password" id="f-password" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')checkPassword()" />
     </div>
-
-    <div class="gate-success" id="gate-success">
-      <div class="tick">✓</div>
-      <h3>Request received</h3>
-      <p>Thank you, Sofia will review your details and send you a personal access link within 24 hours. Please check your inbox.</p>
-    </div>
+    <div id="pw-error" style="display:none;font-size:0.82rem;color:#F0997B;margin-bottom:0.75rem;">That code does not match — please check Sofia's email and try again.</div>
+    <button class="gate-submit" onclick="checkPassword()">Enter portal</button>
+    <div style="margin-top:1.25rem;font-size:0.8rem;color:var(--purple-light);text-align:center;">Do not have a code yet? <a href="organisations.html" style="color:var(--coral);text-decoration:underline;">Request access here</a></div>
   </div>
+</div>
 
-  <div class="peek-link" onclick="openPeek()">Take a sneak peek at what's inside →</div>
+        <div>
+          <div class="peek-item-text">The Inner Compass, student programme</div>
+          <div class="peek-item-sub">Yr 6–13 · single sessions from £300 · 6-week series · online licence · schools &amp; community orgs</div>
+        </div>
+      </div>
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#534AB7;"></div>
+        <div>
+          <div class="peek-item-text">EmpowerED Training, staff &amp; CPD</div>
+          <div class="peek-item-sub">CPD certified · teacher training · staff wellbeing · corporate workshops · from £500</div>
+        </div>
+      </div>
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#D85A30;"></div>
+        <div>
+          <div class="peek-item-text">Full school &amp; community packages</div>
+          <div class="peek-item-sub">Students + parents + staff combined · in-person &amp; online · from £2,500 per term</div>
+        </div>
+      </div>
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#085041;"></div>
+        <div>
+          <div class="peek-item-text">Become a certified facilitator</div>
+          <div class="peek-item-sub">2-day train-the-trainer · deliver EmpowerED in your setting · quarterly cohorts · £1,200pp</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem;background:#EEEDFE;border-radius:10px;padding:0.85rem 1rem;">
+      <div style="font-size:0.8rem;font-weight:500;color:#3C3489;margin-bottom:0.3rem;">Why organisations choose EmpowerED</div>
+      <div style="font-size:0.78rem;color:#534AB7;line-height:1.6;">Delivered by Sofia in the Midlands · certified facilitators available nationally · CPD accredited · in-person &amp; online · Yr 6 to adult</div>
+    </div>
+    <p class="peek-cta">Fill in your details to request full access →</p>
+  </div>
 </div>
 
 <!-- ══════════════ MAIN PAGE ══════════════ -->
@@ -693,7 +675,7 @@
   <div class="container">
 
     <!-- IN-DEMAND BANNER -->
-    <div style="background:#993C1D;border-radius:12px;padding:0.85rem 1.5rem;margin-bottom:1.5rem;border:1px solid rgba(216,90,48,0.4);display:flex;align-items:center;gap:12px;">
+    <div style="background:var(--coral);border-radius:12px;padding:0.85rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:12px;">
       <div style="font-size:1.2rem;">🔥</div>
       <div>
         <div style="font-size:0.82rem;font-weight:500;color:#FFFFFF;letter-spacing:0.04em;">High demand · Two new flagship programmes</div>
@@ -704,6 +686,7 @@
     <!-- Flagship Programmes, FIRST -->
     <div class="section-label">Flagship programmes</div>
 
+    <div class="prog-grid-2col">
     <!-- EmpowerED Teacher -->
     <div class="prog-band" style="margin-bottom:1rem;border-left:4px solid var(--slate-deep);">
       <div class="prog-illus" style="height:140px;overflow:hidden;">
@@ -748,7 +731,7 @@
         <span style="font-size:0.7rem;font-weight:500;color:var(--slate-light);">Most suitable for:</span>
         <span style="font-size:0.7rem;color:#FFFFFF;">All schools · Secondary focus · MATs · NQTs · PGCE programmes · College &amp; FE</span>
       </div>
-      <div style="padding:0.85rem 1.5rem;background:#1e1840;border-bottom:1px solid rgba(206,203,246,0.15);">
+      <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
         <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;font-style:italic;">"There's one student who makes me so mad, I dread it every day." Teachers are not failing because they do not care. They are failing because nobody ever taught them how to navigate the emotional world of a young person. The EmpowerED Teacher is the only programme in the UK that tackles this directly.</p>
       </div>
       <div class="prog-body">
@@ -831,7 +814,7 @@
         <span style="font-size:0.7rem;font-weight:500;color:var(--mauve-light);">Most suitable for:</span>
         <span style="font-size:0.7rem;color:#FFFFFF;">Secondary schools · Girls pastoral groups · SEND girls · Youth clubs · Faith groups · Community orgs</span>
       </div>
-      <div style="padding:0.85rem 1.5rem;background:#1e1840;border-bottom:1px solid rgba(206,203,246,0.15);">
+      <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
         <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;">Designed to support girls in navigating their inner world, their feelings, thoughts, identity and sense of worth, at one of the most complex and formative stages of their lives. In a safe, closed circle, girls are gently guided to understand the emotions beneath their behaviour: the shame that hides behind anger, the overwhelm that shows up as withdrawal, the longing to be seen that can pull them towards connections they are not yet ready for. This programme helps young women discover who they are beneath all the noise, so that when the world tries to define them, they already know themselves. Six sessions. One circle. A compass for life.</p>
       </div>
       <div class="prog-body">
@@ -868,6 +851,9 @@
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">physical journal</span>
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">girls circle</span>
       </div>
+      <div style="padding:0.85rem 1.5rem;background:#3A1235;">
+        <a href="girl-code-compass-sessions.html" target="_blank" class="view-presentation-btn">✦ View the session guide →</a>
+      </div>
     </div>
 
     <!-- Who we work with, moved below flagships -->
@@ -899,6 +885,28 @@
 
       <!-- Programme A, The Inner Compass -->
       <div class="prog-band" style="margin-bottom:0;">
+      <div class="prog-illus" style="height:140px;overflow:hidden;">
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="The Inner Compass student programme illustration">
+          <rect width="680" height="140" fill="#085041"/>
+          <circle cx="340" cy="70" r="60" fill="none" stroke="#1D9E75" stroke-width="0.5" opacity="0.5"/>
+          <circle cx="340" cy="70" r="45" fill="none" stroke="#1D9E75" stroke-width="0.5" opacity="0.55"/>
+          <circle cx="340" cy="70" r="30" fill="none" stroke="#9FE1CB" stroke-width="0.5" opacity="0.6"/>
+          <circle cx="340" cy="70" r="6" fill="#9FE1CB"/>
+          <polygon points="340,32 337,65 343,65" fill="white" opacity="0.9"/>
+          <polygon points="340,108 343,75 337,75" fill="#1D9E75" opacity="0.8"/>
+          <polygon points="302,70 335,66 335,74" fill="#D85A30" opacity="0.9"/>
+          <polygon points="378,70 345,74 345,66" fill="#9FE1CB" opacity="0.7"/>
+          <circle cx="190" cy="36" r="4" fill="#D85A30" opacity="0.6"/>
+          <circle cx="492" cy="32" r="3" fill="#9FE1CB" opacity="0.5"/>
+          <circle cx="165" cy="110" r="3" fill="#1D9E75" opacity="0.5"/>
+          <circle cx="515" cy="118" r="4" fill="#D85A30" opacity="0.4"/>
+          <circle cx="230" cy="122" r="2.5" fill="#9FE1CB" opacity="0.4"/>
+          <circle cx="450" cy="22" r="2.5" fill="#1D9E75" opacity="0.4"/>
+          <rect x="0" y="0" width="5" height="140" fill="#1D9E75"/>
+          <text x="24" y="30" font-family="Playfair Display,serif" font-size="18" fill="white" font-weight="500">The Inner <tspan fill="#9FE1CB">Compass</tspan></text>
+          <text x="24" y="48" font-family="DM Sans,sans-serif" font-size="11" fill="#9FE1CB">Students · <tspan fill="#D85A30">Yrs 6–13</tspan> · Schools &amp; community organisations</text>
+        </svg>
+      </div>
         <div class="prog-header" style="background:#E1F5EE;">
           <div class="prog-header-left">
             <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#0F6E56;margin-bottom:4px;">Programme A</div>
@@ -999,10 +1007,31 @@
 
       <!-- Programme C, EmpowerED Training -->
       <div class="prog-band" style="margin-bottom:0;">
+      <div class="prog-illus" style="height:140px;overflow:hidden;">
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="EmpowerED Training CPD illustration">
+          <rect width="680" height="140" fill="#3C3489"/>
+          <rect x="160" y="98" width="28" height="32" rx="3" fill="#534AB7" opacity="0.6"/>
+          <rect x="198" y="80" width="28" height="50" rx="3" fill="#534AB7" opacity="0.7"/>
+          <rect x="236" y="55" width="28" height="75" rx="3" fill="#7F77DD" opacity="0.8"/>
+          <rect x="274" y="32" width="28" height="98" rx="3" fill="#534AB7" opacity="0.9"/>
+          <rect x="312" y="12" width="28" height="118" rx="3" fill="#CECBF6" opacity="0.7"/>
+          <rect x="350" y="32" width="28" height="98" rx="3" fill="#534AB7" opacity="0.9"/>
+          <rect x="388" y="55" width="28" height="75" rx="3" fill="#7F77DD" opacity="0.8"/>
+          <rect x="426" y="80" width="28" height="50" rx="3" fill="#534AB7" opacity="0.7"/>
+          <rect x="464" y="98" width="28" height="32" rx="3" fill="#534AB7" opacity="0.6"/>
+          <path d="M155 115 L188 95 L226 70 L264 47 L312 27 L360 47 L398 70 L436 95 L469 115" stroke="#D85A30" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="312" cy="27" r="6" fill="#D85A30"/>
+          <rect x="550" y="12" width="112" height="22" rx="11" fill="#D85A30"/>
+          <text x="606" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="white">CPD certified</text>
+          <rect x="0" y="0" width="5" height="140" fill="#D85A30"/>
+          <text x="24" y="30" font-family="Playfair Display,serif" font-size="18" fill="white" font-weight="500">Empower<tspan fill="#D85A30">ED</tspan> Training</text>
+          <text x="24" y="48" font-family="DM Sans,sans-serif" font-size="11" fill="#CECBF6">Teachers &amp; school staff · <tspan fill="#D85A30">CPD certified</tspan> · train-the-trainer</text>
+        </svg>
+      </div>
         <div class="prog-header" style="background:#EEEDFE;">
           <div class="prog-header-left">
             <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#534AB7;margin-bottom:4px;">Programme C</div>
-            <div class="prog-name" style="color:#3C3489;">EmpowerED Training</div>
+            <div class="prog-name" style="color:#3C3489;">Empower<span style="color:#D85A30;">ED</span> Training</div>
             <div class="prog-tagline">Teachers &amp; school staff</div>
           </div>
           <div class="prog-badge" style="background:#CECBF6;color:#3C3489;">CPD certified</div>
@@ -1038,10 +1067,42 @@
 
       <!-- Programme D, EmpowerED Wellbeing -->
       <div class="prog-band" style="margin-bottom:0;">
+      <div class="prog-illus" style="height:140px;overflow:hidden;">
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="EmpowerED Wellbeing employer programme illustration">
+          <rect width="680" height="140" fill="#0C447C"/>
+          <line x1="0" y1="35" x2="680" y2="35" stroke="#185FA5" stroke-width="0.5" opacity="0.3"/>
+          <line x1="0" y1="70" x2="680" y2="70" stroke="#185FA5" stroke-width="0.5" opacity="0.3"/>
+          <line x1="0" y1="105" x2="680" y2="105" stroke="#185FA5" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="340" cy="70" r="55" fill="none" stroke="#185FA5" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="340" cy="70" r="40" fill="none" stroke="#B5D4F4" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="340" cy="70" r="7" fill="#B5D4F4" opacity="0.8"/>
+          <polygon points="340,20 337,63 343,63" fill="white" opacity="0.9"/>
+          <polygon points="340,120 343,77 337,77" fill="#378ADD" opacity="0.7"/>
+          <polygon points="290,70 333,66 333,74" fill="#B5D4F4" opacity="0.8"/>
+          <polygon points="390,70 347,74 347,66" fill="#378ADD" opacity="0.6"/>
+          <polygon points="340,20 325,38 355,38" fill="white" opacity="0.3"/>
+          <polygon points="340,120 355,102 325,102" fill="#378ADD" opacity="0.22"/>
+          <polygon points="290,70 308,56 308,84" fill="#B5D4F4" opacity="0.22"/>
+          <polygon points="390,70 372,84 372,56" fill="#378ADD" opacity="0.18"/>
+          <line x1="340" y1="16" x2="340" y2="5" stroke="#B5D4F4" stroke-width="0.75" opacity="0.5"/>
+          <line x1="340" y1="124" x2="340" y2="135" stroke="#378ADD" stroke-width="0.75" opacity="0.4"/>
+          <line x1="286" y1="70" x2="275" y2="70" stroke="#B5D4F4" stroke-width="0.75" opacity="0.4"/>
+          <line x1="394" y1="70" x2="405" y2="70" stroke="#378ADD" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="340" cy="5" r="3" fill="#B5D4F4" opacity="0.6"/>
+          <circle cx="340" cy="135" r="3" fill="#378ADD" opacity="0.5"/>
+          <circle cx="275" cy="70" r="3" fill="#B5D4F4" opacity="0.5"/>
+          <circle cx="405" cy="70" r="3" fill="#378ADD" opacity="0.5"/>
+          <rect x="0" y="0" width="5" height="140" fill="#1D9E75" opacity="0.8"/>
+          <text x="24" y="30" font-family="Playfair Display,serif" font-size="18" fill="white" font-weight="500">Empower<tspan fill="#D85A30">ED</tspan> Wellbeing</text>
+          <text x="24" y="48" font-family="DM Sans,sans-serif" font-size="11" fill="#B5D4F4">Employers · NHS · <tspan fill="#D85A30">Public sector</tspan> · Corporate teams</text>
+          <rect x="560" y="12" width="102" height="22" rx="11" fill="#185FA5" stroke="#B5D4F4" stroke-width="0.5"/>
+          <text x="611" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="white">Employers</text>
+        </svg>
+      </div>
         <div class="prog-header" style="background:#E6F1FB;">
           <div class="prog-header-left">
             <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#185FA5;margin-bottom:4px;">Programme D</div>
-            <div class="prog-name" style="color:#0C447C;">EmpowerED Wellbeing</div>
+            <div class="prog-name" style="color:#0C447C;">Empower<span style="color:#D85A30;">ED</span> Wellbeing</div>
             <div class="prog-tagline">Employers &amp; organisations</div>
           </div>
           <div class="prog-badge" style="background:#B5D4F4;color:#0C447C;">Employers</div>
@@ -1077,6 +1138,168 @@
 
     </div>
 
+    
+    <!-- SEND & Inclusion Programmes -->
+    <div class="section-label" style="margin-top:1.5rem;">SEND &amp; Inclusion programmes</div>
+    <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.7;max-width:680px;">Three adapted programmes for SEND students, their parents and the staff who support them. All funded through SEND budgets. All available in-person and online.</p>
+
+    <!-- SEND Programme E — Inner Compass Inclusion Edition -->
+    <div class="prog-band" style="margin-bottom:1rem;">
+      <div class="prog-illus" style="height:140px;overflow:hidden;">
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="Inner Compass Inclusion Edition SEND programme">
+          <rect width="680" height="140" fill="#5C2E5A"/>
+          <circle cx="340" cy="70" r="55" fill="none" stroke="#8C4A8A" stroke-width="0.75" stroke-dasharray="4 3" opacity="0.5"/>
+          <circle cx="340" cy="70" r="40" fill="none" stroke="#8C4A8A" stroke-width="0.5" opacity="0.35"/>
+          <circle cx="340" cy="70" r="7" fill="#D4A843"/>
+          <polygon points="340,22 337,63 343,63" fill="white" opacity="0.9"/>
+          <polygon points="340,118 343,77 337,77" fill="#D4A843" opacity="0.7"/>
+          <polygon points="293,70 333,66 333,74" fill="#D4A843" opacity="0.8"/>
+          <polygon points="387,70 347,74 347,66" fill="#D4A843" opacity="0.6"/>
+          <circle cx="260" cy="44" r="11" fill="#5C2E5A" stroke="#D4A843" stroke-width="1.5"/>
+          <rect x="408" y="36" width="20" height="20" rx="3" fill="#5C2E5A" stroke="#D4A843" stroke-width="1.5"/>
+          <polygon points="200,108 214,90 228,108" fill="none" stroke="#D4A843" stroke-width="1.5"/>
+          <polygon points="452,108 466,90 480,108" fill="none" stroke="#D4A843" stroke-width="1.5"/>
+          <circle cx="160" cy="70" r="8" fill="#5C2E5A" stroke="#8C4A8A" stroke-width="0.75" opacity="0.5"/>
+          <circle cx="520" cy="70" r="8" fill="#5C2E5A" stroke="#8C4A8A" stroke-width="0.75" opacity="0.5"/>
+          <rect x="0" y="0" width="5" height="140" fill="#D4A843"/>
+          <rect x="572" y="12" width="100" height="22" rx="11" fill="#D4A843"/>
+          <text x="622" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#5C2E5A">SEND · Yrs 3–13</text>
+          <text x="24" y="30" font-family="Playfair Display,serif" font-size="18" fill="white" font-weight="500">The Inner Compass — <tspan fill="#D4A843">Inclusion Edition</tspan></text>
+          <text x="24" y="48" font-family="DM Sans,sans-serif" font-size="11" fill="#D4B8D2">SEND students · <tspan fill="#D4A843">Yrs 3–13</tspan> · schools &amp; inclusion bases</text>
+        </svg>
+      </div>
+      <div class="prog-header" style="background:#5C2E5A;">
+        <div class="prog-header-left">
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#D4B8D2;margin-bottom:4px;">SEND Programme E · Inclusion Edition</div>
+          <div class="prog-name" style="color:#FFFFFF;">The Inner Compass — <span style="color:#D4A843;">Inclusion Edition</span></div>
+          <div class="prog-tagline" style="color:#D4B8D2;">SEND students · Yrs 3–13 · adapted delivery</div>
+        </div>
+        <div class="prog-badge" style="background:#D4A843;color:#5C2E5A;">SEND · Yrs 3–13</div>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:#452240;display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="font-size:0.7rem;font-weight:500;color:#D4A843;">Most suitable for:</span>
+        <span style="font-size:0.7rem;color:#E8D8F4;">SEND units · Inclusion bases · Alternative provision · Pupil referral units</span>
+      </div>
+      <div class="prog-body">
+        <div class="prog-row"><div><div class="prog-item-name">Inclusion Series</div><div class="prog-item-desc">6-week adapted programme · small groups up to 8</div></div><div class="prog-price" style="color:#5C2E5A;">£1,400</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Single Inclusion Session</div><div class="prog-item-desc">Adapted 90 mins · sensory-aware delivery</div></div><div class="prog-price" style="color:#5C2E5A;">£400</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SENCO Annual Licence</div><div class="prog-item-desc">Self-paced resources for SEND staff use</div></div><div class="prog-price" style="color:#5C2E5A;">£599/yr</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Materials Pack</div><div class="prog-item-desc">Visual tools, adapted workbooks per student</div></div><div class="prog-price" style="color:#5C2E5A;">£75/student</div></div>
+      </div>
+      <div class="prog-tags" style="background:#F5E8F3;">
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">sensory-aware</span>
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">visual tools</span>
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">small groups</span>
+        <span class="tag" style="background:#F8F0D0;color:#7A5C00;">SEND budget</span>
+        <span class="tag" style="background:#F8F0D0;color:#7A5C00;">adapted delivery</span>
+      </div>
+    </div>
+
+    <!-- SEND Programme F — EmpowerED SEND & Inclusion -->
+    <div class="prog-band" style="margin-bottom:1rem;">
+      <div class="prog-illus" style="height:140px;overflow:hidden;">
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="EmpowerED SEND and Inclusion CPD programme">
+          <rect width="680" height="140" fill="#5C2E5A"/>
+          <line x1="0" y1="35" x2="680" y2="35" stroke="#8C4A8A" stroke-width="0.5" opacity="0.3"/>
+          <line x1="0" y1="70" x2="680" y2="70" stroke="#8C4A8A" stroke-width="0.5" opacity="0.3"/>
+          <line x1="0" y1="105" x2="680" y2="105" stroke="#8C4A8A" stroke-width="0.5" opacity="0.3"/>
+          <rect x="182" y="98" width="28" height="32" rx="3" fill="#8C4A8A" opacity="0.6"/>
+          <rect x="220" y="80" width="28" height="50" rx="3" fill="#8C4A8A" opacity="0.7"/>
+          <rect x="258" y="55" width="28" height="75" rx="3" fill="#7A3A78" opacity="0.8"/>
+          <rect x="296" y="32" width="28" height="98" rx="3" fill="#8C4A8A" opacity="0.9"/>
+          <rect x="334" y="12" width="28" height="118" rx="3" fill="#D4B8D2" opacity="0.7"/>
+          <rect x="372" y="32" width="28" height="98" rx="3" fill="#8C4A8A" opacity="0.9"/>
+          <rect x="410" y="55" width="28" height="75" rx="3" fill="#7A3A78" opacity="0.8"/>
+          <rect x="448" y="80" width="28" height="50" rx="3" fill="#8C4A8A" opacity="0.7"/>
+          <rect x="486" y="98" width="28" height="32" rx="3" fill="#8C4A8A" opacity="0.6"/>
+          <path d="M177 115 L210 95 L248 70 L286 47 L334 27 L382 47 L420 70 L458 95 L491 115" stroke="#D85A30" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="334" cy="27" r="6" fill="#D85A30"/>
+          <rect x="0" y="0" width="5" height="140" fill="#D85A30"/>
+          <rect x="556" y="12" width="116" height="22" rx="11" fill="#D85A30"/>
+          <text x="614" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="white">SEND · CPD certified</text>
+          <text x="24" y="30" font-family="Playfair Display,serif" font-size="18" fill="white" font-weight="500">Empower<tspan fill="#D85A30">ED</tspan> SEND &amp; <tspan fill="#D85A30">Inclusion</tspan></text>
+          <text x="24" y="48" font-family="DM Sans,sans-serif" font-size="11" fill="#D4B8D2">SENCOs · TAs · Inclusion leads · <tspan fill="#D85A30">CPD certified</tspan></text>
+        </svg>
+      </div>
+      <div class="prog-header" style="background:#5C2E5A;">
+        <div class="prog-header-left">
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#D4B8D2;margin-bottom:4px;">SEND Programme F · CPD Certified</div>
+          <div class="prog-name" style="color:#FFFFFF;">Empower<span style="color:#D85A30;">ED</span> SEND &amp; Inclusion</div>
+          <div class="prog-tagline" style="color:#D4B8D2;">SENCOs · TAs · Inclusion leads · CPD certified</div>
+        </div>
+        <div class="prog-badge" style="background:#D85A30;color:#FFFFFF;">SEND · CPD</div>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:#452240;display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="font-size:0.7rem;font-weight:500;color:#D85A30;">Most suitable for:</span>
+        <span style="font-size:0.7rem;color:#E8D8F4;">Schools · SEND hubs · Alternative provision · Pupil referral units · LA SEND teams</span>
+      </div>
+      <div class="prog-body">
+        <div class="prog-row"><div><div class="prog-item-name">SEND CPD Full Day</div><div class="prog-item-desc">Up to 16 staff · SENCOs, TAs &amp; inclusion leads</div></div><div class="prog-price" style="color:#5C2E5A;">£1,800</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SEND CPD Half Day</div><div class="prog-item-desc">Intro session · any SEND team</div></div><div class="prog-price" style="color:#5C2E5A;">£600</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SENCO Network Session</div><div class="prog-item-desc">Cluster or LA-wide training</div></div><div class="prog-price" style="color:#5C2E5A;">£400</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Annual SEND Licence</div><div class="prog-item-desc">Organisation-wide access · renews annually</div></div><div class="prog-price" style="color:#5C2E5A;">£2,500/yr</div></div>
+      </div>
+      <div class="prog-tags" style="background:#F5E8F3;">
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">trauma-informed</span>
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">co-regulation</span>
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">EHCP integration</span>
+        <span class="tag" style="background:#FAECE7;color:#993C1D;">CPD certified</span>
+        <span class="tag" style="background:#FAECE7;color:#993C1D;">SEND budget</span>
+      </div>
+    </div>
+
+    <!-- SEND Programme G — Regulated Home Additional Needs -->
+    <div class="prog-band" style="margin-bottom:2rem;">
+      <div class="prog-illus" style="height:140px;overflow:hidden;">
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="Regulated Home Additional Needs SEND parent programme">
+          <rect width="680" height="140" fill="#5C2E5A"/>
+          <circle cx="340" cy="78" r="65" fill="#8C4A8A" opacity="0.06"/>
+          <circle cx="340" cy="78" r="45" fill="#8C4A8A" opacity="0.04"/>
+          <polygon points="340,24 268,76 412,76" fill="#452240" stroke="#E8C4E0" stroke-width="1.5" opacity="0.9"/>
+          <polygon points="340,32 278,76 402,76" fill="#5C2E5A" opacity="0.55"/>
+          <rect x="278" y="76" width="124" height="52" rx="2" fill="#452240" stroke="#E8C4E0" stroke-width="1" opacity="0.8"/>
+          <rect x="320" y="92" width="40" height="36" rx="2" fill="#5C2E5A" opacity="0.8"/>
+          <path d="M340 72 C340 72 320 59 320 49 C320 42 327 38 334 41.5 C337 43 340 47 340 47 C340 47 343 43 346 41.5 C353 38 360 42 360 49 C360 59 340 72 340 72Z" fill="#E8C4E0" opacity="0.85"/>
+          <circle cx="382" cy="62" r="5" fill="#E8C4E0" opacity="0.5"/>
+          <circle cx="386" cy="51" r="3" fill="#E8C4E0" opacity="0.35"/>
+          <circle cx="377" cy="53" r="2" fill="#E8C4E0" opacity="0.3"/>
+          <circle cx="175" cy="55" r="14" fill="#452240" stroke="#E8C4E0" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="505" cy="55" r="14" fill="#452240" stroke="#E8C4E0" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="155" cy="102" r="9" fill="#452240" stroke="#E8C4E0" stroke-width="0.75" opacity="0.3"/>
+          <circle cx="525" cy="102" r="9" fill="#452240" stroke="#E8C4E0" stroke-width="0.75" opacity="0.3"/>
+          <rect x="0" y="0" width="5" height="140" fill="#E8C4E0"/>
+          <rect x="552" y="12" width="120" height="22" rx="11" fill="#E8C4E0"/>
+          <text x="612" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#5C2E5A">SEND · Parents</text>
+          <text x="24" y="30" font-family="Playfair Display,serif" font-size="18" fill="white" font-weight="500">The Regulated Home — <tspan fill="#E8C4E0">Additional Needs</tspan></text>
+          <text x="24" y="48" font-family="DM Sans,sans-serif" font-size="11" fill="#D4B8D2">Parents and carers of children with <tspan fill="#E8C4E0">additional needs</tspan></text>
+        </svg>
+      </div>
+      <div class="prog-header" style="background:#5C2E5A;">
+        <div class="prog-header-left">
+          <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#D4B8D2;margin-bottom:4px;">SEND Programme G · Parents</div>
+          <div class="prog-name" style="color:#FFFFFF;">The Regulated Home — <span style="color:#E8C4E0;">Additional Needs</span></div>
+          <div class="prog-tagline" style="color:#D4B8D2;">Parents and carers of children with additional needs</div>
+        </div>
+        <div class="prog-badge" style="background:#E8C4E0;color:#5C2E5A;">SEND · Parents</div>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:#452240;display:flex;flex-wrap:wrap;gap:6px;">
+        <span style="font-size:0.7rem;font-weight:500;color:#E8C4E0;">Most suitable for:</span>
+        <span style="font-size:0.7rem;color:#E8D8F4;">Schools · SEND hubs · Parent carer forums · Community orgs · Housing associations</span>
+      </div>
+      <div class="prog-body">
+        <div class="prog-row"><div><div class="prog-item-name">4-Week Programme</div><div class="prog-item-desc">Small group up to 12 · adapted for SEND families</div></div><div class="prog-price" style="color:#5C2E5A;">£950</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Single Workshop</div><div class="prog-item-desc">90 mins · intro session · parents or carers</div></div><div class="prog-price" style="color:#5C2E5A;">£350</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Community Group</div><div class="prog-item-desc">Charities, parent forums, faith groups</div></div><div class="prog-price" style="color:#5C2E5A;">£300</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Online Licence</div><div class="prog-item-desc">Self-paced · SEND parents &amp; carers</div></div><div class="prog-price" style="color:#5C2E5A;">£299/yr</div></div>
+      </div>
+      <div class="prog-tags" style="background:#F5E8F3;">
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">SEND parenting</span>
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">regulation</span>
+        <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">behaviour understanding</span>
+        <span class="tag" style="background:#F8F0D0;color:#7A5C00;">SEND budget</span>
+      </div>
+    </div>
+
         <div class="section-label">Complete school transformation, all programmes combined</div>
     <div class="featured-package" style="margin-bottom:1.75rem;">
       <div class="featured-ribbon">Most popular for schools</div>
@@ -1101,7 +1324,7 @@
             <div class="featured-box-sub" style="color:#854F0B;">Parent programme</div>
           </div>
           <div class="featured-box" style="background:#EEEDFE;">
-            <div class="featured-box-title" style="color:#3C3489;">EmpowerED Training</div>
+            <div class="featured-box-title" style="color:#3C3489;">Empower<span style="color:#D85A30;">ED</span> Training</div>
             <div class="featured-box-sub" style="color:#534AB7;">Staff CPD</div>
           </div>
         </div>
@@ -1164,7 +1387,6 @@
 
 <script>
   const ACCESS_CODE = 'EmpowerED2025';
-
   function checkPassword() {
     const input = document.getElementById('f-password').value.trim();
     const error = document.getElementById('pw-error');
@@ -1180,17 +1402,14 @@
       document.getElementById('f-password').focus();
     }
   }
-
   if (sessionStorage.getItem('eb_access') === '1') {
     document.getElementById('gate').classList.add('hidden');
     const page = document.getElementById('main-page');
     page.classList.add('visible');
     page.style.display = 'block';
   }
-
-  function openPeek() {}
-  function closePeek() {}
-
+  function openPeek(){}
+  function closePeek(){}
   async function submitGate_unused() {
     const name = document.getElementById('f-name').value.trim();
     const org = document.getElementById('f-org').value.trim();
