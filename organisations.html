@@ -533,7 +533,29 @@
   }
 
   /* ── MOBILE RESPONSIVE ── */
+
+  .hero-audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .hero-audience-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .hero-audience-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .hero-audience-title { font-size: 0.88rem; font-weight: 500; color: #FFFFFF; margin-bottom: 3px; }
+  .hero-audience-sub { font-size: 0.75rem; color: var(--purple-light); line-height: 1.4; }
   @media (max-width: 680px) {
+    .hero-audience-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .prog-grid-2col { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 480px_SKIP) {
     .prog-grid-2col { grid-template-columns: 1fr !important; }
     .featured-grid { grid-template-columns: 1fr !important; }
     .cta-section { flex-direction: column; text-align: center; }
@@ -589,42 +611,24 @@
 
   <div class="gate-card">
     <h2>Request access</h2>
-    <p>This page is for schools, community organisations and employers. Please share your details and Sofia will be in touch to approve your access.</p>
-
+    <p>This page is for schools, community organisations and employers. Share your details below and Sofia will approve your access within 24 hours.</p>
     <div id="gate-form">
-      <div class="form-group">
-        <label>Your name</label>
-        <input type="text" id="f-name" placeholder="First and last name" />
-      </div>
-      <div class="form-group">
-        <label>Organisation</label>
-        <input type="text" id="f-org" placeholder="School, charity or company name" />
-      </div>
-      <div class="form-group">
-        <label>Your role</label>
-        <input type="text" id="f-role" placeholder="e.g. Head teacher, SENCO, HR Manager" />
-      </div>
-      <div class="form-group">
-        <label>Email address</label>
-        <input type="email" id="f-email" placeholder="your@email.com" />
-      </div>
+      <div class="form-group"><label>Your name</label><input type="text" id="f-name" placeholder="First and last name" /></div>
+      <div class="form-group"><label>Organisation</label><input type="text" id="f-org" placeholder="School, charity or company name" /></div>
+      <div class="form-group"><label>Your role</label><input type="text" id="f-role" placeholder="e.g. Head teacher, SENCO, HR Manager" /></div>
+      <div class="form-group"><label>Email address</label><input type="email" id="f-email" placeholder="your@email.com" /></div>
       <div class="form-group">
         <label>Organisation type</label>
         <select id="f-type">
           <option value="" disabled selected>Select one</option>
-          <option>School, primary</option>
-          <option>School, secondary</option>
-          <option>Multi-Academy Trust</option>
-          <option>Community organisation / charity</option>
-          <option>Youth club / faith group</option>
-          <option>Corporate / employer</option>
-          <option>NHS / public sector</option>
-          <option>Other</option>
+          <option>School — primary</option><option>School — secondary</option>
+          <option>Multi-Academy Trust</option><option>Community organisation / charity</option>
+          <option>Youth club / faith group</option><option>Corporate / employer</option>
+          <option>NHS / public sector</option><option>Other</option>
         </select>
       </div>
       <button class="gate-submit" onclick="submitGate()">Request access</button>
     </div>
-
     <div class="gate-success" id="gate-success">
       <div class="tick">✓</div>
       <h3>Request received</h3>
@@ -646,30 +650,35 @@
     <div class="hero-inner">
       <div class="hero-eyebrow">For organisations</div>
       <h1 class="hero-title">Empower<span class="accent">ED</span> by Sofia</h1>
-      <p class="hero-desc">Emotional intelligence programmes for schools, community organisations and employers. Delivered by Sofia in the Midlands or by certified facilitators anywhere in the UK. Now also available online.</p>
-      <div class="hero-chips">
-        <div class="chip">Schools &amp; MATs</div>
-        <div class="chip">Community orgs</div>
-        <div class="chip">Corporate teams</div>
-        <div class="chip">Train-the-trainer</div>
-        <div class="chip chip-online">🌐 Available online</div>
-      </div>
-      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
-        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:1.4rem;">🏫</span>
-            <div><div style="font-size:0.85rem;font-weight:500;color:#FFFFFF;">Schools &amp; MATs</div><div style="font-size:0.75rem;color:var(--purple-light);">Primary, secondary, academies, MATs</div></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:1.4rem;">🤝</span>
-            <div><div style="font-size:0.85rem;font-weight:500;color:#FFFFFF;">Community orgs</div><div style="font-size:0.75rem;color:var(--purple-light);">Charities, youth clubs, faith groups, councils</div></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;">
-            <span style="font-size:1.4rem;">💼</span>
-            <div><div style="font-size:0.85rem;font-weight:500;color:#FFFFFF;">Employers</div><div style="font-size:0.75rem;color:var(--purple-light);">SMEs, corporates, NHS, public sector</div></div>
+      <p class="hero-desc">Emotional intelligence programmes for schools, community organisations and employers. Delivered by Sofia in the Midlands or by certified facilitators anywhere in the UK. In-person and online.</p>
+      <div class="hero-audience-grid">
+        <div class="hero-audience-item">
+          <span class="hero-audience-icon">🏫</span>
+          <div>
+            <div class="hero-audience-title">Schools &amp; MATs</div>
+            <div class="hero-audience-sub">Primary, secondary, academies, free schools, multi-academy trusts</div>
           </div>
         </div>
-        <p style="font-size:0.82rem;color:var(--purple-light);margin-top:1rem;line-height:1.6;opacity:0.85;">All programmes delivered by Sofia in the Midlands or certified facilitators anywhere in the UK. In-person and online. Mix and match for your organisation.</p>
+        <div class="hero-audience-item">
+          <span class="hero-audience-icon">🤝</span>
+          <div>
+            <div class="hero-audience-title">Community orgs</div>
+            <div class="hero-audience-sub">Charities, youth clubs, faith groups, housing associations, councils</div>
+          </div>
+        </div>
+        <div class="hero-audience-item">
+          <span class="hero-audience-icon">💼</span>
+          <div>
+            <div class="hero-audience-title">Employers</div>
+            <div class="hero-audience-sub">SMEs, corporates, NHS trusts, public sector teams</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-chips" style="margin-top:1.25rem;">
+        <div class="chip">In-person · Midlands</div>
+        <div class="chip">Certified facilitators nationally</div>
+        <div class="chip">Train-the-trainer</div>
+        <div class="chip chip-online">🌐 Available online</div>
       </div>
     </div>
   </div>
@@ -733,9 +742,19 @@
         <span style="font-size:0.7rem;font-weight:500;color:var(--slate-light);">Most suitable for:</span>
         <span style="font-size:0.7rem;color:#FFFFFF;">All schools · Secondary focus · MATs · NQTs · PGCE programmes · College &amp; FE</span>
       </div>
-      <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
-        <a href="empowered-teacher-sessions.html" target="_blank" class="view-presentation-btn" style="margin-bottom:0.75rem;display:inline-flex;background:#1C2B4A;border-color:rgba(91,126,201,0.3);color:#B8C8E8;">✦ View the session guide →</a>
-        <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;font-style:italic;">"There's one student who makes me so mad, I dread it every day." Teachers are not failing because they do not care. They are failing because nobody ever taught them how to navigate the emotional world of a young person. The EmpowerED Teacher is the only programme in the UK that tackles this directly.</p>
+      <div style="padding:1rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
+        <a href="empowered-teacher-sessions.html" target="_blank" class="view-presentation-btn" style="margin-bottom:1rem;display:inline-flex;background:#1C2B4A;border-color:rgba(91,126,201,0.3);color:#B8C8E8;">✦ View the session guide →</a>
+        <div style="background:#F5F4FF;border-left:3px solid #5B7EC9;border-radius:0 8px 8px 0;padding:0.75rem 1rem;margin-bottom:1rem;">
+          <p style="font-size:0.82rem;color:#26215C;line-height:1.7;font-style:italic;">"There is one student who makes me so mad. I dread it every day."</p>
+          <p style="font-size:0.82rem;color:#26215C;line-height:1.7;font-style:italic;margin-top:0.4rem;">"I know I snap sometimes. I hate myself for it after."</p>
+          <p style="font-size:0.82rem;color:#26215C;line-height:1.7;font-style:italic;margin-top:0.4rem;">"I try so hard to connect with them. They just don't seem to respond."</p>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.75;margin-bottom:0.75rem;">Teachers are not failing because they do not care. They are failing because nobody ever taught them what is <strong style="color:#1C2B4A;">actually happening</strong> in their classroom. The hormones, the home life, the <strong style="color:#D85A30;">unprocessed trauma</strong>, the identity crises — all of it walks through the door every morning. And the teacher catches it all.</p>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.75;margin-bottom:0.75rem;">This programme gives teachers what they were never given: a <strong style="color:#1C2B4A;">map of the emotional world</strong> of the young people in front of them. And crucially — it helps them understand their <strong style="color:#D85A30;">own triggers</strong>, their own reactions, and how to <strong style="color:#1C2B4A;">regulate themselves first</strong>.</p>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.75;">A teacher who understands themselves changes the room. A teacher who understands their students changes lives. The EmpowerED Teacher is the only CPD programme in the UK that tackles this directly.</p>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:#E8EDF8;border-bottom:1px solid #D0D8F0;">
+        <span style="font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#2E4270;">Pricing</span>
       </div>
       <div class="prog-body">
         <div class="prog-row">
@@ -772,8 +791,11 @@
         <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">teacher wellbeing</span>
         <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">classroom culture</span>
         <span class="tag" style="background:var(--slate-pale);color:var(--slate-deep);">CPD certified</span>
-        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">online upsell</span>
         <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">PGCE</span>
+      </div>
+      <div style="padding:1rem 1.5rem;background:#1C2B4A;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:0.82rem;color:#B8C8E8;">Ready to bring this to your school?</div>
+        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The EmpowerED Teacher" style="display:inline-block;background:var(--coral);color:white;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;padding:0.55rem 1.25rem;border-radius:8px;text-decoration:none;">Enquire now →</a>
       </div>
     </div>
 
@@ -817,9 +839,15 @@
         <span style="font-size:0.7rem;font-weight:500;color:var(--mauve-light);">Most suitable for:</span>
         <span style="font-size:0.7rem;color:#FFFFFF;">Secondary schools · Girls pastoral groups · SEND girls · Youth clubs · Faith groups · Community orgs</span>
       </div>
-      <div style="padding:0.85rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
-        <a href="girl-code-compass-sessions.html" target="_blank" class="view-presentation-btn" style="margin-bottom:0.75rem;display:inline-flex;">✦ View the session guide →</a>
-        <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7;">Designed to support girls in navigating their inner world, their feelings, thoughts, identity and sense of worth, at one of the most complex and formative stages of their lives. In a safe, closed circle, girls are gently guided to understand the emotions beneath their behaviour: the shame that hides behind anger, the overwhelm that shows up as withdrawal, the longing to be seen that can pull them towards connections they are not yet ready for. This programme helps young women discover who they are beneath all the noise, so that when the world tries to define them, they already know themselves. Six sessions. One circle. A compass for life.</p>
+      <div style="padding:1rem 1.5rem;background:#FFFFFF;border-bottom:1px solid var(--border);">
+        <a href="girl-code-compass-sessions.html" target="_blank" class="view-presentation-btn" style="margin-bottom:1rem;display:inline-flex;">✦ View the session guide →</a>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.75;margin-bottom:0.75rem;">Designed to support girls aged 11 to 18 in navigating their <strong style="color:#4A1942;">inner world</strong> — their feelings, thoughts, identity and sense of worth — at one of the most complex stages of their lives.</p>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.75;margin-bottom:0.75rem;">In a safe, closed circle, girls are gently guided to understand the emotions beneath their behaviour: the <strong style="color:#D85A30;">shame that hides behind anger</strong>, the <strong style="color:#4A1942;">overwhelm that looks like not caring</strong>, the longing to be seen that can pull them towards connections they are not yet ready for.</p>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.75;margin-bottom:0.75rem;">This programme helps young women discover <strong style="color:#4A1942;">who they are beneath all the noise</strong> — so that when the world tries to define them, they already know themselves. So that they <strong style="color:#D85A30;">know their own worth</strong> before anyone else tries to give it to them.</p>
+        <p style="font-size:0.82rem;color:#7B3B6E;line-height:1.6;font-style:italic;border-top:1px solid #F5E8F3;padding-top:0.75rem;">Six sessions. One circle. A compass for life.</p>
+      </div>
+      <div style="padding:0.6rem 1.5rem;background:#F5E8F3;border-bottom:1px solid #E8C4E0;">
+        <span style="font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#4A1942;">Pricing</span>
       </div>
       <div class="prog-body">
         <div class="prog-row">
@@ -854,6 +882,10 @@
         <span class="tag" style="background:var(--mauve-pale);color:var(--mauve-deep);">values</span>
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">physical journal</span>
         <span class="tag" style="background:var(--gold-pale);color:#7A5C00;">girls circle</span>
+      </div>
+      <div style="padding:1rem 1.5rem;background:#4A1942;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:0.82rem;color:#E8C4E0;">Book a group or taster session</div>
+        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The Girl Code Compass" style="display:inline-block;background:var(--coral);color:white;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;padding:0.55rem 1.25rem;border-radius:8px;text-decoration:none;">Enquire now →</a>
       </div>
     </div>
 
@@ -920,6 +952,10 @@
           <span class="tag" style="background:#E1F5EE;color:#085041;">gratitude</span>
           <span class="tag" style="background:#E1F5EE;color:#085041;">values</span>
         </div>
+      <div style="padding:0.75rem 1.5rem;background:#085041;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
+        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The Inner Compass" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+      </div>
       </div>
 
       <!-- Programme B, The Regulated Home -->
@@ -979,6 +1015,10 @@
           <span class="tag" style="background:#FAEEDA;color:#633806;">respond not react</span>
           <span class="tag" style="background:#FAEEDA;color:#633806;">regulation</span>
           <span class="tag" style="background:#FAEEDA;color:#633806;">family wellbeing</span>
+        </div>
+        <div style="padding:0.75rem 1.5rem;background:#5A3A6E;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
+          <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: The Regulated Home" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
         </div>
       </div>
 
@@ -1040,6 +1080,10 @@
           <span class="tag" style="background:#EEEDFE;color:#26215C;">staff wellbeing</span>
           <span class="tag" style="background:#EEEDFE;color:#26215C;">train-the-trainer</span>
         </div>
+      <div style="padding:0.75rem 1.5rem;background:#3C3489;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
+        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: EmpowerED Training" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+      </div>
       </div>
 
       <!-- Programme D, EmpowerED Wellbeing -->
@@ -1111,6 +1155,10 @@
           <span class="tag" style="background:#E6F1FB;color:#0C447C;">leadership</span>
           <span class="tag" style="background:#E6F1FB;color:#0C447C;">NHS &amp; public sector</span>
         </div>
+      <div style="padding:0.75rem 1.5rem;background:#0C447C;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.8);">Enquire about this programme</div>
+        <a href="mailto:sofia@empoweredbysofia.com?subject=Enquiry: EmpowerED Wellbeing" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);">Enquire →</a>
+      </div>
       </div>
 
     </div>
