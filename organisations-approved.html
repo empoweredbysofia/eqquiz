@@ -850,9 +850,9 @@
   .sidebar-enquire:hover { background: var(--coral-deep); }
 
   .main-content {
-    flex: 1 1 0%;
+    flex: 1 1 auto;
     min-width: 0;
-    width: 0;
+    overflow: hidden;
     padding: 1.75rem 0;
   }
 
@@ -904,7 +904,7 @@
   /* Inline description text inside white areas */
   .prog-band p[style*="text-secondary"] { color: #B8B4E8 !important; }
   /* Card sizing — consistent max-width and padding */
-  .main-content { padding: 1.75rem 0 3rem; }
+  .main-content { padding: 1.75rem 0 3rem; flex: 1 1 auto !important; min-width: 0 !important; }
   /* Featured package dark */
   .featured-package { background: #241e4a !important; border-color: #534AB7 !important; }
   .featured-ribbon { background: #534AB7 !important; }
