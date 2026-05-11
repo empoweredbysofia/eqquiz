@@ -557,7 +557,7 @@
     .prog-grid-2col { grid-template-columns: 1fr !important; }
   }
 
-  @media (max-width: 480px_SKIP) {
+  @media (max-width: 480px) {
     .prog-grid-2col { grid-template-columns: 1fr !important; }
     .featured-grid { grid-template-columns: 1fr !important; }
     .cta-section { flex-direction: column; text-align: center; }
@@ -905,35 +905,6 @@
   </div>
 </div>
 
-  <div class="gate-card">
-    <h2>Request access</h2>
-    <p>This page is for schools, community organisations and employers. Share your details below and Sofia will approve your access within 24 hours.</p>
-    <div id="gate-form">
-      <div class="form-group"><label>Your name</label><input type="text" id="f-name" placeholder="First and last name" /></div>
-      <div class="form-group"><label>Organisation</label><input type="text" id="f-org" placeholder="School, charity or company name" /></div>
-      <div class="form-group"><label>Your role</label><input type="text" id="f-role" placeholder="e.g. Head teacher, SENCO, HR Manager" /></div>
-      <div class="form-group"><label>Email address</label><input type="email" id="f-email" placeholder="your@email.com" /></div>
-      <div class="form-group">
-        <label>Organisation type</label>
-        <select id="f-type">
-          <option value="" disabled selected>Select one</option>
-          <option>School — primary</option><option>School — secondary</option>
-          <option>Multi-Academy Trust</option><option>Community organisation / charity</option>
-          <option>Youth club / faith group</option><option>Corporate / employer</option>
-          <option>NHS / public sector</option><option>Other</option>
-        </select>
-      </div>
-      <button class="gate-submit" onclick="submitGate()">Request access</button>
-    </div>
-    <div class="gate-success" id="gate-success">
-      <div class="tick">✓</div>
-      <h3>Request received</h3>
-      <p>Thank you, Sofia will review your details and send you a personal access link within 24 hours. Please check your inbox.</p>
-    </div>
-  </div>
-
-</div>
-
 <!-- ══════════════ MAIN PAGE ══════════════ -->
 <div id="main-page">
 
@@ -1070,10 +1041,10 @@
     <!-- Flagship Programmes, FIRST -->
     <div class="section-label">Flagship programmes</div>
 
-    <div class="prog-grid-2col">
+    <div style="display:flex;flex-direction:column;gap:1.5rem;margin-bottom:1.25rem;">
     <div id="empowered-teacher" class="section-anchor"></div>
     <!-- EmpowerED Teacher -->
-    <div class="prog-band" style="margin-bottom:0;border-left:4px solid var(--slate-deep);">
+    <div class="prog-band" style="border-left:4px solid var(--slate-deep);">
       <div class="prog-illus" style="height:140px;overflow:hidden;">
         <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="The EmpowerED Teacher illustration">
           <rect width="680" height="140" fill="#1C2B4A"/>
@@ -1175,7 +1146,7 @@
 
     <div id="girl-code-compass" class="section-anchor"></div>
     <!-- Girl Code Compass -->
-    <div class="prog-band" style="margin-bottom:0;border-left:4px solid var(--mauve-deep);">
+    <div class="prog-band" style="border-left:4px solid var(--mauve-deep);">
       <div class="prog-illus" style="height:140px;overflow:hidden;">
         <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="The Girl Code Compass illustration">
           <rect width="680" height="140" fill="#4A1942"/>
@@ -1294,7 +1265,8 @@
       </div>
     </div>
 
-    <!-- Side by side grid -->
+    <!-- Core programmes grid -->
+    <div class="section-label" style="margin-top:1.75rem;">Core programmes</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;align-items:stretch;">
 
       <div id="inner-compass" class="section-anchor"></div>
