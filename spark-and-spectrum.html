@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spark & Spectrum CIC — Neurodiversity-Affirming Programmes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE7D9;
+    --gold: #C8962A;
+    --gold-light: #D4A843;
+    --gold-pale: #F5E8C0;
+    --purple: #7B6BB5;
+    --blue: #6BA8C8;
+    --teal: #5BBDB5;
+    --green: #8BBD6B;
+    --text: #2C2418;
+    --text-mid: #5C4F3A;
+    --text-light: #8C7D65;
+    --border: rgba(44,36,24,0.1);
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .header-logo .spark { color: var(--gold); }
+  .header-logo .amp { color: var(--text-light); font-size: 1rem; }
+  .header-logo .spectrum { 
+    background: linear-gradient(90deg, var(--purple), var(--blue), var(--teal), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header-star {
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin: 0 2px;
+  }
+
+  .header-badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--gold-pale);
+    color: var(--gold);
+    border: 1px solid rgba(200,150,42,0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--cream);
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,150,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-logo {
+    margin-bottom: 1.5rem;
+    line-height: 1.0;
+  }
+  .hero-logo .line1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    color: var(--gold);
+    display: block;
+    line-height: 1.0;
+  }
+  .hero-logo .star-char {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: var(--gold);
+    vertical-align: middle;
+    margin-left: 0.2em;
+  }
+  .hero-logo .line2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    display: block;
+    line-height: 1.0;
+  }
+  .s-purple { color: var(--purple); }
+  .s-blue { color: #7AB8D4; }
+  .s-teal1 { color: var(--teal); }
+  .s-teal2 { color: #6BBDAA; }
+  .s-green { color: var(--green); }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-style: italic;
+    color: var(--text-mid);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .chip {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--text-mid);
+    background: var(--white);
+  }
+
+  .hero-founders {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+  }
+  .founder-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── LAYOUT ── */
+  .page-layout {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 2rem;
+  }
+
+  .sidebar {
+    width: 210px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: 1.5rem 0;
+  }
+
+  .sidebar-heading {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    padding: 0 1rem 0.5rem;
+    display: block;
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    text-decoration: none;
+    border-radius: 8px;
+    border-left: 2px solid transparent;
+    transition: all 0.18s;
+  }
+  .sidebar-link:hover {
+    background: var(--gold-pale);
+    color: var(--gold);
+    border-left-color: var(--gold-light);
+  }
+  .sidebar-link.active {
+    background: var(--gold-pale);
+    color: var(--gold);
+    border-left-color: var(--gold);
+    font-weight: 500;
+  }
+  .sidebar-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sidebar-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0.75rem 1rem;
+  }
+  .sidebar-enquire {
+    margin: 0.75rem 1rem 0;
+    display: block;
+    background: var(--gold);
+    color: white;
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    transition: background 0.2s;
+    width: calc(100% - 2rem);
+  }
+  .sidebar-enquire:hover { background: #A87820; }
+
+  .main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 1.75rem 0 3rem;
+  }
+
+  .section-anchor { scroll-margin-top: 80px; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    margin-top: 1.75rem;
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* ── PHILOSOPHY BLOCK ── */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .philosophy-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem;
+  }
+  .philosophy-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .philosophy-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+  .philosophy-desc {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .quote-block {
+    background: linear-gradient(135deg, #2C1F00, #1C1535);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-block::before {
+    content: '✦';
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--gold-light);
+    opacity: 0.4;
+  }
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+  .quote-attr {
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── PROGRAMME BANDS ── */
+  .prog-band {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+
+  .prog-illus {
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+  }
+
+  .prog-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .prog-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .prog-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .prog-tagline {
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+  .prog-badge {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .prog-body { padding: 1.25rem 1.5rem; }
+  .prog-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  /* ── SESSION LIST ── */
+  .session-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .session-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+  }
+  .session-num {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+    min-width: 18px;
+  }
+  .session-name {
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── SPECTRUM AREAS ── */
+  .spectrum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .spectrum-item {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .spectrum-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── PROG FOOTER ── */
+  .prog-footer {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .prog-footer-text {
+    font-size: 0.82rem;
+  }
+  .enquire-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.55rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .enquire-btn:hover { background: #A87820; }
+
+  /* ── APPROACH BLOCK ── */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  .approach-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+  }
+  .approach-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .approach-desc {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+
+  /* ── TEAM ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+  .team-role {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .team-desc {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, #2C1F00, #1C1535);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+  .cta-sub {
+    font-size: 0.88rem;
+    color: rgba(245,240,232,0.7);
+  }
+  .cta-btn {
+    background: var(--gold);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #A87820; }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── ENQUIRY MODAL ── */
+  #enquiry-modal {
+    position: fixed; inset: 0; z-index: 3000;
+    background: rgba(44,31,0,0.75);
+    display: none; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+  }
+  #enquiry-modal.open { display: flex; }
+  .enquiry-box {
+    background: var(--white);
+    border-radius: 18px;
+    width: 100%; max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+  }
+  .enquiry-header {
+    background: linear-gradient(135deg, #2C1F00, #1C1535);
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-radius: 18px 18px 0 0;
+    position: sticky; top: 0; z-index: 1;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+  }
+  .enquiry-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+  }
+  .enquiry-sub { font-size: 0.8rem; color: var(--gold-light); margin-top: 0.2rem; }
+  .enquiry-close {
+    background: none; border: none;
+    font-size: 1.5rem; color: rgba(245,240,232,0.6);
+    cursor: pointer; padding: 0; flex-shrink: 0; line-height: 1;
+  }
+  .enquiry-close:hover { color: var(--cream); }
+  .enquiry-body { padding: 1.5rem 1.75rem 1.75rem; }
+  .eq-row { margin-bottom: 1rem; }
+  .eq-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+  .eq-label {
+    display: block; font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 0.35rem;
+  }
+  .eq-input, .eq-select, .eq-textarea {
+    width: 100%; border: 1.5px solid var(--border);
+    border-radius: 8px; padding: 0.6rem 0.85rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    color: var(--text); background: #FAFAF8; outline: none;
+    transition: border-color 0.2s;
+  }
+  .eq-input:focus, .eq-select:focus, .eq-textarea:focus { border-color: var(--gold); }
+  .eq-textarea { min-height: 80px; resize: vertical; }
+  .eq-submit {
+    width: 100%; background: var(--gold); color: white;
+    border: none; border-radius: 10px; padding: 0.9rem 1.5rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; margin-top: 0.5rem; transition: background 0.2s;
+  }
+  .eq-submit:hover { background: #A87820; }
+  .eq-note { font-size: 0.78rem; color: var(--text-light); margin-top: 0.75rem; text-align: center; line-height: 1.5; }
+  .eq-success { display: none; text-align: center; padding: 2rem 1.5rem; }
+  .eq-success-tick {
+    width: 56px; height: 56px; background: var(--gold-pale);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; font-size: 1.6rem; color: var(--gold);
+  }
+  .eq-success h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 0.5rem; }
+  .eq-success p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+
+  @media (max-width: 900px) {
+    .page-layout { flex-direction: column; padding: 0 1rem; }
+    .sidebar { display: none; }
+    .main-content { padding: 1.25rem 0; width: 100%; }
+  }
+  @media (max-width: 600px) {
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .session-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .eq-row-2 { grid-template-columns: 1fr; }
+    .cta-section { flex-direction: column; text-align: center; }
+    .cta-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-logo">
+    <span class="spark">Spark</span>
+    <span class="header-star">✦</span>
+    <span class="amp">&amp;</span>
+    <span class="spectrum">Spectrum</span>
+  </div>
+  <div class="header-badge">CIC · Neurodiversity</div>
+</header>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-eyebrow">A Community Interest Company</div>
+  <div class="hero-logo">
+    <span class="line1">Spark <span class="star-char">✦</span></span>
+    <span class="line2">
+      <span class="s-purple">S</span><span class="s-blue">pe</span><span class="s-teal1">ct</span><span class="s-teal2">ru</span><span class="s-green">m</span>
+    </span>
+  </div>
+  <p class="hero-tagline">Your brain is not broken. It is different.<br>And different has always been how the world moves forward.</p>
+  <p class="hero-sub">Neurodiversity-affirming programmes for individuals, families, schools and organisations. Delivered by Sofia Iqbal and Selina Afzal.</p>
+  <div class="hero-chips">
+    <div class="chip">🧠 Neurodiversity-affirming</div>
+    <div class="chip">🏫 Schools &amp; organisations</div>
+    <div class="chip">👨‍👩‍👧 Families &amp; parents</div>
+    <div class="chip">✦ CIC · Not for profit</div>
+  </div>
+  <div class="hero-founders">
+    <span class="founder-dot"></span>
+    <span>Sofia Iqbal &amp; Selina Afzal · Co-founders</span>
+    <span class="founder-dot" style="background:var(--purple);"></span>
+  </div>
+</div>
+
+<!-- ── PAGE LAYOUT ── -->
+<div class="page-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <nav class="sidebar">
+    <div style="margin-bottom:1.25rem;">
+      <span class="sidebar-heading">About</span>
+      <a href="#about" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--gold);"></span>
+        <span>Who we are</span>
+      </a>
+      <a href="#philosophy" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--purple);"></span>
+        <span>Our philosophy</span>
+      </a>
+      <a href="#approach" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--teal);"></span>
+        <span>Our approach</span>
+      </a>
+    </div>
+
+    <div style="margin-bottom:1.25rem;">
+      <span class="sidebar-heading">Programmes</span>
+      <a href="#understanding-your-spark" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--gold);"></span>
+        <span>Understanding Your Spark</span>
+      </a>
+      <a href="#being-a-parent" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--blue);"></span>
+        <span>Being a Parent</span>
+      </a>
+    </div>
+
+    <div style="margin-bottom:1.25rem;">
+      <span class="sidebar-heading">The spectrum</span>
+      <a href="#spectrum" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--green);"></span>
+        <span>Who we support</span>
+      </a>
+      <a href="#team" class="sidebar-link">
+        <span class="sidebar-dot" style="background:var(--purple);"></span>
+        <span>Meet the team</span>
+      </a>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <button onclick="openEnquiry()" class="sidebar-enquire">Make an enquiry →</button>
+  </nav>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="main-content">
+
+    <!-- QUOTE -->
+    <div class="quote-block">
+      <div class="quote-text">"Your brain is not broken. It is different.<br>And different has always been how the world moves forward."</div>
+      <div class="quote-attr">— Spark &amp; Spectrum CIC</div>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="section-anchor"></div>
+    <div class="section-label">Who we are</div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.25rem;">
+      <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;">Spark &amp; Spectrum is a <strong style="color:var(--text);">Community Interest Company</strong> founded by Sofia Iqbal and Selina Afzal. We create neurodiversity-affirming programmes that help neurodivergent individuals, their families and the people who support them understand, explore and celebrate the unique ways they think, process and experience the world.</p>
+      <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;">We work in schools, community settings and organisations — alongside <strong style="color:var(--text);">EmpowerED by Sofia</strong>'s wider SEND offer — to provide a joined-up, human-first approach to neurodivergent support.</p>
+      <p style="font-size:0.92rem;color:var(--text-mid);line-height:1.8;">Our programmes are not diagnostic tools. They are spaces for <strong style="color:var(--text);">gentle, reflective exploration</strong> — affirming, accessible and built around lived experience.</p>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <div id="philosophy" class="section-anchor"></div>
+    <div class="section-label">Our philosophy</div>
+    <div class="philosophy-grid">
+      <div class="philosophy-card">
+        <div class="philosophy-icon">🧬</div>
+        <div class="philosophy-title">Neurodivergence is natural</div>
+        <div class="philosophy-desc">Not a deficit, not a disorder. A natural variation in human neurology that brings its own strengths, perceptions and ways of being.</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="philosophy-icon">💛</div>
+        <div class="philosophy-title">Inherent value in every person</div>
+        <div class="philosophy-desc">Every individual has worth, gifts and a unique configuration of traits. Our work starts from that truth, not from what needs fixing.</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="philosophy-icon">🪞</div>
+        <div class="philosophy-title">Self-knowledge is the foundation</div>
+        <div class="philosophy-desc">Understanding yourself — how you think, feel and process — is the first step to wellbeing, confidence and connection.</div>
+      </div>
+      <div class="philosophy-card">
+        <div class="philosophy-icon">🌿</div>
+        <div class="philosophy-title">Gentle exploration over assessment</div>
+        <div class="philosophy-desc">We use reflective prompts, not clinical questions. Our spaces are non-pressured, affirming and designed to make space for every kind of response.</div>
+      </div>
+    </div>
+
+    <!-- APPROACH -->
+    <div id="approach" class="section-anchor"></div>
+    <div class="section-label">Our approach</div>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-title"><span>🎯</span> Reflective, not diagnostic</div>
+        <div class="approach-desc">Prompts that invite curiosity rather than clinical categories. We centre lived experience over external assessment.</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-title"><span>🕰️</span> Self-paced</div>
+        <div class="approach-desc">No time pressure. Participants engage at their own pace with space for written, visual or contemplative responses.</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-title"><span>🗣️</span> Affirming language</div>
+        <div class="approach-desc">Non-clinical, accessible language that validates without toxic positivity. We recognise systemic barriers and masking.</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-title"><span>🔀</span> Non-linear engagement</div>
+        <div class="approach-desc">Materials can be engaged with in any order. Options for participation include writing, drawing, talking or simply thinking.</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-title"><span>🤝</span> Agency &amp; self-determination</div>
+        <div class="approach-desc">We emphasise each person's right to understand and define their own experience — on their terms.</div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-title"><span>🌐</span> Intersectionality recognised</div>
+        <div class="approach-desc">We make space for individual variation, cultural context and the ways identity, race and neurodivergence intersect.</div>
+      </div>
+    </div>
+
+    <!-- PROGRAMMES -->
+    <div id="understanding-your-spark" class="section-anchor"></div>
+    <div class="section-label">Programmes</div>
+
+    <!-- Programme 1: Understanding Your Spark -->
+    <div class="prog-band" style="border-left:4px solid var(--gold);margin-bottom:1.25rem;">
+      <div class="prog-illus">
+        <svg width="100%" height="130" viewBox="0 0 680 130" preserveAspectRatio="xMidYMid slice">
+          <rect width="680" height="130" fill="#2C1F00"/>
+          <circle cx="340" cy="65" r="55" fill="none" stroke="#C8962A" stroke-width="0.75" stroke-dasharray="4 3" opacity="0.4"/>
+          <circle cx="340" cy="65" r="38" fill="none" stroke="#C8962A" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="340" cy="65" r="7" fill="#D4A843"/>
+          <polygon points="340,18 337,58 343,58" fill="white" opacity="0.9"/>
+          <polygon points="340,112 343,72 337,72" fill="#C8962A" opacity="0.7"/>
+          <polygon points="294,65 333,61 333,69" fill="#D4A843" opacity="0.8"/>
+          <polygon points="386,65 347,69 347,61" fill="#C8962A" opacity="0.6"/>
+          <circle cx="180" cy="30" r="3" fill="#D4A843" opacity="0.5"/>
+          <circle cx="500" cy="25" r="2.5" fill="#7B6BB5" opacity="0.5"/>
+          <circle cx="155" cy="100" r="2.5" fill="#5BBDB5" opacity="0.4"/>
+          <circle cx="520" cy="105" r="3" fill="#D4A843" opacity="0.4"/>
+          <text x="30" y="35" font-family="Playfair Display,serif" font-size="20" fill="#F5F0E8" font-weight="500" font-style="italic">Understanding Your Spark</text>
+          <text x="30" y="54" font-family="DM Sans,sans-serif" font-size="11" fill="#C8962A">Project One · Self-discovery for neurodivergent individuals</text>
+          <rect x="570" y="12" width="100" height="22" rx="11" fill="#C8962A"/>
+          <text x="620" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="white">Project One</text>
+        </svg>
+      </div>
+      <div class="prog-header" style="background:#2C1F00;">
+        <div class="prog-header-left">
+          <div class="prog-eyebrow" style="color:var(--gold-light);">Project One · Neurodivergent Self-Discovery</div>
+          <div class="prog-name" style="color:#F5F0E8;">Understanding Your Spark</div>
+          <div class="prog-tagline" style="color:rgba(245,240,232,0.7);">For neurodivergent individuals, young people and adults</div>
+        </div>
+        <div class="prog-badge" style="background:var(--gold);color:white;">Self-discovery</div>
+      </div>
+      <div class="prog-body">
+        <p class="prog-desc">The Spark is your unique configuration of traits, passions, perceptions and ways of being. This programme invites neurodivergent individuals to explore their cognitive patterns, sensory experiences, strengths and challenges — not through clinical assessment but through <strong>gentle, affirming self-inquiry</strong>.</p>
+        <p class="prog-desc" style="margin-bottom:1.25rem;">Delivered in schools, community groups, therapeutic contexts and peer support settings. Available as a workshop series, self-paced resource or facilitated programme.</p>
+
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.65rem;">Five areas of exploration</div>
+        <div class="session-grid" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:1.25rem;">
+          <div class="session-item">
+            <div class="session-num">01</div>
+            <div class="session-name">Cognitive Patterns</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num">02</div>
+            <div class="session-name">Sensory &amp; Embodied Experience</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num">03</div>
+            <div class="session-name">Strengths &amp; Gifts</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num">04</div>
+            <div class="session-name">Challenges &amp; Accommodations</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num">05</div>
+            <div class="session-name">Personal Narrative</div>
+          </div>
+        </div>
+
+        <div style="background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:0.85rem 1rem;margin-bottom:1rem;">
+          <p style="font-size:0.82rem;color:#5C4000;line-height:1.7;font-style:italic;">"Self-knowledge and self-compassion are essential to wellbeing. Understanding comes through gentle, reflective exploration — not clinical assessment."</p>
+        </div>
+
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.65rem;">Available in</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0;">
+          <span style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:var(--text-mid);">Schools &amp; SEND settings</span>
+          <span style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:var(--text-mid);">Therapeutic &amp; coaching</span>
+          <span style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:var(--text-mid);">Peer support groups</span>
+          <span style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:var(--text-mid);">Org neurodiversity training</span>
+          <span style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:0.78rem;color:var(--text-mid);">Self-paced individual use</span>
+        </div>
+      </div>
+      <div class="prog-footer" style="background:#2C1F00;">
+        <div class="prog-footer-text" style="color:rgba(245,240,232,0.7);">Enquire about Understanding Your Spark</div>
+        <button onclick="openEnquiry('Understanding Your Spark')" class="enquire-btn">Enquire now →</button>
+      </div>
+    </div>
+
+    <!-- Programme 2: Being a Parent -->
+    <div id="being-a-parent" class="section-anchor"></div>
+    <div class="prog-band" style="border-left:4px solid var(--blue);">
+      <div class="prog-illus">
+        <svg width="100%" height="130" viewBox="0 0 680 130" preserveAspectRatio="xMidYMid slice">
+          <rect width="680" height="130" fill="#1C2B4A"/>
+          <circle cx="340" cy="72" r="62" fill="#2E4270" opacity="0.15"/>
+          <polygon points="340,20 265,72 415,72" fill="#243858" opacity="0.7" stroke="#6BA8C8" stroke-width="1"/>
+          <rect x="272" y="72" width="136" height="50" rx="2" fill="#1C2B4A" stroke="#6BA8C8" stroke-width="0.75" opacity="0.6"/>
+          <rect x="318" y="88" width="44" height="34" rx="2" fill="#243858" opacity="0.8"/>
+          <path d="M340 67 C340 67 320 55 320 45 C320 38 327 34 334 37.5 C337 39 340 43 340 43 C340 43 343 39 346 37.5 C353 34 360 38 360 45 C360 55 340 67 340 67Z" fill="#6BA8C8" opacity="0.85"/>
+          <circle cx="230" cy="85" r="12" fill="#1C2B4A" stroke="#6BA8C8" stroke-width="0.75" opacity="0.5"/>
+          <circle cx="450" cy="85" r="12" fill="#1C2B4A" stroke="#6BA8C8" stroke-width="0.75" opacity="0.5"/>
+          <text x="30" y="35" font-family="Playfair Display,serif" font-size="20" fill="white" font-weight="500" font-style="italic">Being a Parent</text>
+          <text x="30" y="54" font-family="DM Sans,sans-serif" font-size="11" fill="#6BA8C8">For parents · Ages 2–11 · 8 sessions · Connection &amp; communication</text>
+          <rect x="556" y="12" width="114" height="22" rx="11" fill="#6BA8C8"/>
+          <text x="613" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="white">Ages 2–11 · Parents</text>
+        </svg>
+      </div>
+      <div class="prog-header" style="background:#1C2B4A;">
+        <div class="prog-header-left">
+          <div class="prog-eyebrow" style="color:#6BA8C8;">Reflective Parenting Programme · Ages 2–11</div>
+          <div class="prog-name" style="color:#FFFFFF;">Being a Parent</div>
+          <div class="prog-tagline" style="color:rgba(255,255,255,0.6);">Connection, communication and the everyday art of raising children</div>
+        </div>
+        <div class="prog-badge" style="background:#6BA8C8;color:white;">8 sessions</div>
+      </div>
+      <div class="prog-body">
+        <p class="prog-desc">A reflective parenting programme exploring the emotional landscape of raising children aged 2 to 11. Delivered by Sofia Iqbal and Selina Afzal, this programme supports parents in understanding their child's behaviour, building deeper connection and responding with confidence and compassion.</p>
+        <p class="prog-desc" style="margin-bottom:1.25rem;">Suitable for any parent, with particular depth for families navigating neurodivergent children, developmental differences or complex family dynamics.</p>
+
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.65rem;">8 programme sessions</div>
+        <div class="session-grid">
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">01</div>
+            <div class="session-name">Being a Parent</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">02</div>
+            <div class="session-name">Feelings</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">03</div>
+            <div class="session-name">Child-Led Play</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">04</div>
+            <div class="session-name">Valuing My Child</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">05</div>
+            <div class="session-name">Understanding Behaviour</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">06</div>
+            <div class="session-name">Discipline Strategies</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">07</div>
+            <div class="session-name">Listening Skills</div>
+          </div>
+          <div class="session-item">
+            <div class="session-num" style="color:var(--blue);">08</div>
+            <div class="session-name">Stress &amp; Anger Management</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:1rem;">
+          <span style="background:#E8EDF8;border-radius:20px;padding:4px 12px;font-size:0.78rem;color:#1C2B4A;">Schools</span>
+          <span style="background:#E8EDF8;border-radius:20px;padding:4px 12px;font-size:0.78rem;color:#1C2B4A;">Community organisations</span>
+          <span style="background:#E8EDF8;border-radius:20px;padding:4px 12px;font-size:0.78rem;color:#1C2B4A;">Faith groups</span>
+          <span style="background:#E8EDF8;border-radius:20px;padding:4px 12px;font-size:0.78rem;color:#1C2B4A;">Housing associations</span>
+          <span style="background:#E8EDF8;border-radius:20px;padding:4px 12px;font-size:0.78rem;color:#1C2B4A;">SEND families</span>
+        </div>
+      </div>
+      <div class="prog-footer" style="background:#1C2B4A;">
+        <div class="prog-footer-text" style="color:rgba(255,255,255,0.7);">Enquire about Being a Parent</div>
+        <button onclick="openEnquiry('Being a Parent (2–11 years)')" class="enquire-btn">Enquire now →</button>
+      </div>
+    </div>
+
+    <!-- WHO WE SUPPORT -->
+    <div id="spectrum" class="section-anchor"></div>
+    <div class="section-label">Who we support — the spectrum</div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;">
+      <p style="font-size:0.88rem;color:var(--text-mid);line-height:1.7;margin-bottom:1rem;">Spark &amp; Spectrum recognises neurodivergence as a spectrum that includes — but is not limited to — the following:</p>
+      <div class="spectrum-grid">
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--gold);"></span>Autism (ASC / ASD)</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--purple);"></span>ADHD / ADD</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--blue);"></span>Dyslexia</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--teal);"></span>Dyspraxia / DCD</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--green);"></span>Dyscalculia</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--gold);"></span>Tourette Syndrome</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--purple);"></span>OCD &amp; anxiety (co-occurring)</div>
+        <div class="spectrum-item"><span class="spectrum-dot" style="background:var(--teal);"></span>Sensory processing differences</div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6;margin-top:0.75rem;font-style:italic;">This is not a diagnostic service. Our programmes complement but do not replace professional support.</p>
+    </div>
+
+    <!-- TEAM -->
+    <div id="team" class="section-anchor"></div>
+    <div class="section-label">Meet the co-founders</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#C8962A,#D4A843);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:1rem;">S</div>
+        <div class="team-name">Sofia Iqbal</div>
+        <div class="team-role">Co-founder · Spark &amp; Spectrum CIC</div>
+        <div class="team-desc">Also the founder of EmpowerED by Sofia, Sofia brings her expertise in emotional intelligence, SEND and youth work to Spark &amp; Spectrum. She delivers programmes in schools and community settings across the Midlands.</div>
+      </div>
+      <div class="team-card">
+        <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:1rem;">S</div>
+        <div class="team-name">Selina Afzal</div>
+        <div class="team-role">Co-founder · Spark &amp; Spectrum CIC</div>
+        <div class="team-desc">Selina co-founded Spark &amp; Spectrum to bring neurodiversity-affirming practice into communities that need it most. She works alongside Sofia to deliver, develop and grow the CIC's programmes and reach.</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div>
+        <div class="cta-title">Work with Spark &amp; Spectrum</div>
+        <div class="cta-sub">Schools, organisations, community groups and families welcome</div>
+      </div>
+      <button onclick="openEnquiry()" class="cta-btn">Make an enquiry →</button>
+    </div>
+
+    <div style="text-align:center;padding:1rem 0 0.5rem;">
+      <a href="sparkandspectrum.co.uk" style="font-size:0.82rem;color:var(--text-light);text-decoration:underline;text-underline-offset:3px;">sparkandspectrum.co.uk</a>
+      <span style="color:var(--border);margin:0 0.75rem;">·</span>
+      <a href="mailto:hello@sparkandspectrum.co.uk" style="font-size:0.82rem;color:var(--text-light);text-decoration:underline;text-underline-offset:3px;">hello@sparkandspectrum.co.uk</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2025 Spark &amp; Spectrum CIC · Registered in England · Co-founded by Sofia Iqbal &amp; Selina Afzal
+</footer>
+
+<!-- ── ENQUIRY MODAL ── -->
+<div id="enquiry-modal" onclick="if(event.target===this)closeEnquiry()">
+  <div class="enquiry-box">
+    <div class="enquiry-header">
+      <div>
+        <div class="enquiry-title">Make an enquiry</div>
+        <div class="enquiry-sub" id="enquiry-prog-display">Spark &amp; Spectrum CIC</div>
+      </div>
+      <button class="enquiry-close" onclick="closeEnquiry()">×</button>
+    </div>
+    <div class="enquiry-body">
+      <div id="enquiry-form-wrap">
+        <form id="enquiry-form" action="https://formspree.io/f/xykonwpj" method="POST" onsubmit="submitEnquiry(event)">
+          <input type="hidden" name="Programme" id="eq-programme-hidden" value="Spark & Spectrum enquiry" />
+
+          <div class="eq-row-2">
+            <div>
+              <label class="eq-label">Your name</label>
+              <input class="eq-input" type="text" name="Name" placeholder="First and last name" required />
+            </div>
+            <div>
+              <label class="eq-label">Your role</label>
+              <input class="eq-input" type="text" name="Role" placeholder="e.g. Parent, SENCO, Teacher" required />
+            </div>
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Organisation (if applicable)</label>
+            <input class="eq-input" type="text" name="Organisation" placeholder="School, charity or company name" />
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Email address</label>
+            <input class="eq-input" type="email" name="Email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Programme interested in</label>
+            <select class="eq-select" name="Programme interest" id="eq-programme-select" required>
+              <option value="" disabled selected>Select a programme</option>
+              <option>Understanding Your Spark — self-discovery</option>
+              <option>Being a Parent (2–11 years)</option>
+              <option>Both programmes</option>
+              <option>Organisational neurodiversity training</option>
+              <option>Not sure — please advise</option>
+            </select>
+          </div>
+
+          <div class="eq-row">
+            <label class="eq-label">Anything else we should know?</label>
+            <textarea class="eq-textarea" name="Additional notes" placeholder="Number of participants, setting, any specific needs or questions…"></textarea>
+          </div>
+
+          <button type="submit" class="eq-submit">Send enquiry →</button>
+          <p class="eq-note">Sofia or Selina will respond within 48 hours. No obligation.</p>
+        </form>
+      </div>
+      <div class="eq-success" id="eq-success">
+        <div class="eq-success-tick">✦</div>
+        <h3>Enquiry received</h3>
+        <p>Thank you — Sofia or Selina will be in touch within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openEnquiry(programme) {
+    const modal = document.getElementById('enquiry-modal');
+    const display = document.getElementById('enquiry-prog-display');
+    const hidden = document.getElementById('eq-programme-hidden');
+    const select = document.getElementById('eq-programme-select');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (programme) {
+      display.textContent = programme;
+      hidden.value = programme;
+      for (let opt of select.options) {
+        if (opt.value.toLowerCase().includes(programme.toLowerCase().split(' ')[0])) {
+          select.value = opt.value; break;
+        }
+      }
+    }
+  }
+
+  function closeEnquiry() {
+    document.getElementById('enquiry-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  async function submitEnquiry(e) {
+    e.preventDefault();
+    const form = document.getElementById('enquiry-form');
+    const btn = form.querySelector('.eq-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        document.getElementById('enquiry-form-wrap').style.display = 'none';
+        document.getElementById('eq-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Send enquiry →'; btn.disabled = false;
+        alert('Something went wrong — please email hello@sparkandspectrum.co.uk directly.');
+      }
+    } catch(err) {
+      btn.textContent = 'Send enquiry →'; btn.disabled = false;
+      alert('Could not connect — please email hello@sparkandspectrum.co.uk directly.');
+    }
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEnquiry(); });
+
+  // Sidebar scroll spy
+  (function() {
+    const links = document.querySelectorAll('.sidebar-link');
+    const anchors = ['about','philosophy','approach','understanding-your-spark','being-a-parent','spectrum','team'];
+    function getActive() {
+      const scrollY = window.scrollY + 120;
+      let current = anchors[0];
+      for (const id of anchors) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      }
+      return current;
+    }
+    function updateActive() {
+      const active = getActive();
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === '#' + active);
+      });
+    }
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  })();
+</script>
+
+</body>
+</html>
