@@ -757,7 +757,9 @@
   }
   .sidebar {
     width: 220px;
-    flex-shrink: 0;
+    min-width: 220px;
+    max-width: 220px;
+    flex: 0 0 220px;
     position: sticky;
     top: 1.5rem;
     max-height: calc(100vh - 3rem);
@@ -848,8 +850,9 @@
   .sidebar-enquire:hover { background: var(--coral-deep); }
 
   .main-content {
-    flex: 1;
+    flex: 1 1 0%;
     min-width: 0;
+    width: 0;
     padding: 1.75rem 0;
   }
 
