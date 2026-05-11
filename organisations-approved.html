@@ -865,6 +865,7 @@
   }
 
 
+  /* ── DARK THEME ── */
   body { background: #1a1630 !important; color: #E8E4FF !important; }
   header { background: #12102a !important; border-bottom: 1px solid rgba(206,203,246,0.15) !important; }
   .hero { background: #12102a !important; }
@@ -886,6 +887,27 @@
   .eq-label { color: #8880CC !important; }
   .enquiry-box { background: #241e4a !important; }
   .enquiry-body { background: #241e4a !important; }
+  /* ── PRICING: readable bright colours on dark backgrounds ── */
+  .prog-price { color: #CECBF6 !important; font-weight: 600 !important; }
+  /* Programme-specific price accent colours */
+  .prog-price[style*="coral"] { color: #F0997B !important; }
+  .prog-price[style*="gold"] { color: #D4A843 !important; }
+  /* Card body backgrounds for readability */
+  .prog-body { background: #241e4a !important; }
+  /* Ensure card content areas with white bg get dark treatment */
+  .prog-band > div[style*="background:#FFFFFF"],
+  .prog-band > div[style*="background: #FFFFFF"],
+  .prog-band > div[style*="background:white"] { background: #2d2660 !important; }
+  /* Inline description text inside white areas */
+  .prog-band p[style*="text-secondary"] { color: #B8B4E8 !important; }
+  /* Card sizing — consistent max-width and padding */
+  .main-content { padding: 1.75rem 0 3rem; }
+  /* Featured package dark */
+  .featured-package { background: #241e4a !important; border-color: #534AB7 !important; }
+  .featured-ribbon { background: #534AB7 !important; }
+  .featured-title { color: #E8E4FF !important; }
+  .featured-price { color: #CECBF6 !important; }
+  .featured-price-note { color: #8880CC !important; }
 
 </style>
 </head>
@@ -1050,10 +1072,10 @@
     <!-- Flagship Programmes, FIRST -->
     <div class="section-label">Flagship programmes</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:1.5rem;margin-bottom:1.25rem;">
     <div id="empowered-teacher" class="section-anchor"></div>
     <!-- EmpowerED Teacher -->
-    <div class="prog-band" style="margin-bottom:0;border-left:4px solid var(--slate-deep);border-radius:14px;">
+    <div class="prog-band" style="margin-bottom:0;border-left:4px solid var(--slate-deep);">
       <div class="prog-illus" style="height:140px;overflow:hidden;">
         <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="The EmpowerED Teacher illustration">
           <rect width="680" height="140" fill="#1C2B4A"/>
@@ -1113,15 +1135,15 @@
       <div class="prog-body">
         <div class="prog-row">
           <div><div class="prog-item-name">CPD Day, Sofia delivers</div><div class="prog-item-desc">Full day · up to 30 teachers · in-person · Midlands</div></div>
-          <div class="prog-price" style="color:var(--slate-mid);">£1,800</div>
+          <div class="prog-price" style="color:var(--slate-deep);">£1,800</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">CPD Day, certified facilitator</div><div class="prog-item-desc">Full day · up to 30 teachers · nationally available</div></div>
-          <div class="prog-price" style="color:var(--slate-mid);">£1,500</div>
+          <div class="prog-price" style="color:var(--slate-deep);">£1,500</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">CPD Half Day, taster</div><div class="prog-item-desc">Up to 30 teachers · ideal for INSET intro</div></div>
-          <div class="prog-price" style="color:var(--slate-mid);">£700</div>
+          <div class="prog-price" style="color:var(--slate-deep);">£700</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">Certification Programme, online</div><div class="prog-item-desc">Self-paced · 6 modules · CPD hours · career credential · upsell from CPD day</div></div>
@@ -1129,11 +1151,11 @@
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">School certification licence</div><div class="prog-item-desc">Up to 20 staff · annual · CPD tracking</div></div>
-          <div class="prog-price" style="color:var(--slate-mid);">£2,500/yr</div>
+          <div class="prog-price" style="color:var(--slate-deep);">£2,500/yr</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">MAT licence</div><div class="prog-item-desc">Up to 5 schools · trust-wide access</div></div>
-          <div class="prog-price" style="color:var(--slate-mid);">£6,000/yr</div>
+          <div class="prog-price" style="color:var(--slate-deep);">£6,000/yr</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">PGCE / teacher training provider</div><div class="prog-item-desc">Embed into initial teacher training · annual recurring</div></div>
@@ -1155,7 +1177,7 @@
 
     <div id="girl-code-compass" class="section-anchor"></div>
     <!-- Girl Code Compass -->
-    <div class="prog-band" style="margin-bottom:0;border-left:4px solid var(--mauve-deep);border-radius:14px;">
+    <div class="prog-band" style="margin-bottom:0;border-left:4px solid var(--mauve-deep);">
       <div class="prog-illus" style="height:140px;overflow:hidden;">
         <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="xMidYMid slice" aria-label="The Girl Code Compass illustration">
           <rect width="680" height="140" fill="#4A1942"/>
@@ -1207,19 +1229,19 @@
       <div class="prog-body">
         <div class="prog-row">
           <div><div class="prog-item-name">6-week group programme, Sofia delivers</div><div class="prog-item-desc">Up to 12 girls · closed safe circle · in-person</div></div>
-          <div class="prog-price" style="color:var(--mauve-mid);">£1,400</div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£1,400</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">6-week programme, certified facilitator</div><div class="prog-item-desc">Nationally available · facilitator trained by Sofia</div></div>
-          <div class="prog-price" style="color:var(--mauve-mid);">£1,200</div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£1,200</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">Single taster session</div><div class="prog-item-desc">90 mins · up to 20 girls · intro to the programme</div></div>
-          <div class="prog-price" style="color:var(--mauve-mid);">£400</div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£400</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">School annual licence</div><div class="prog-item-desc">Run multiple cohorts in-house · certified staff deliver</div></div>
-          <div class="prog-price" style="color:var(--mauve-mid);">£2,000/yr</div>
+          <div class="prog-price" style="color:var(--mauve-deep);">£2,000/yr</div>
         </div>
         <div class="prog-row">
           <div><div class="prog-item-name">Online self-paced version</div><div class="prog-item-desc">For girls who cannot access the group · individual purchase</div></div>
@@ -1597,10 +1619,10 @@
         <span style="font-size:0.7rem;color:#E8D8F4;">SEND units · Inclusion bases · Alternative provision · Pupil referral units</span>
       </div>
       <div class="prog-body">
-        <div class="prog-row"><div><div class="prog-item-name">Inclusion Series</div><div class="prog-item-desc">6-week adapted programme · small groups up to 8</div></div><div class="prog-price" style="color:#8C4A8A;">£1,400</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">Single Inclusion Session</div><div class="prog-item-desc">Adapted 90 mins · sensory-aware delivery</div></div><div class="prog-price" style="color:#8C4A8A;">£400</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">SENCO Annual Licence</div><div class="prog-item-desc">Self-paced resources for SEND staff use</div></div><div class="prog-price" style="color:#8C4A8A;">£599/yr</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">Materials Pack</div><div class="prog-item-desc">Visual tools, adapted workbooks per student</div></div><div class="prog-price" style="color:#8C4A8A;">£75/student</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Inclusion Series</div><div class="prog-item-desc">6-week adapted programme · small groups up to 8</div></div><div class="prog-price" style="color:#5C2E5A;">£1,400</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Single Inclusion Session</div><div class="prog-item-desc">Adapted 90 mins · sensory-aware delivery</div></div><div class="prog-price" style="color:#5C2E5A;">£400</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SENCO Annual Licence</div><div class="prog-item-desc">Self-paced resources for SEND staff use</div></div><div class="prog-price" style="color:#5C2E5A;">£599/yr</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Materials Pack</div><div class="prog-item-desc">Visual tools, adapted workbooks per student</div></div><div class="prog-price" style="color:#5C2E5A;">£75/student</div></div>
       </div>
       <div class="prog-tags" style="background:#F5E8F3;">
         <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">sensory-aware</span>
@@ -1651,10 +1673,10 @@
         <span style="font-size:0.7rem;color:#E8D8F4;">Schools · SEND hubs · Alternative provision · Pupil referral units · LA SEND teams</span>
       </div>
       <div class="prog-body">
-        <div class="prog-row"><div><div class="prog-item-name">SEND CPD Full Day</div><div class="prog-item-desc">Up to 16 staff · SENCOs, TAs &amp; inclusion leads</div></div><div class="prog-price" style="color:#8C4A8A;">£1,800</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">SEND CPD Half Day</div><div class="prog-item-desc">Intro session · any SEND team</div></div><div class="prog-price" style="color:#8C4A8A;">£600</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">SENCO Network Session</div><div class="prog-item-desc">Cluster or LA-wide training</div></div><div class="prog-price" style="color:#8C4A8A;">£400</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">Annual SEND Licence</div><div class="prog-item-desc">Organisation-wide access · renews annually</div></div><div class="prog-price" style="color:#8C4A8A;">£2,500/yr</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SEND CPD Full Day</div><div class="prog-item-desc">Up to 16 staff · SENCOs, TAs &amp; inclusion leads</div></div><div class="prog-price" style="color:#5C2E5A;">£1,800</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SEND CPD Half Day</div><div class="prog-item-desc">Intro session · any SEND team</div></div><div class="prog-price" style="color:#5C2E5A;">£600</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">SENCO Network Session</div><div class="prog-item-desc">Cluster or LA-wide training</div></div><div class="prog-price" style="color:#5C2E5A;">£400</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Annual SEND Licence</div><div class="prog-item-desc">Organisation-wide access · renews annually</div></div><div class="prog-price" style="color:#5C2E5A;">£2,500/yr</div></div>
       </div>
       <div class="prog-tags" style="background:#F5E8F3;">
         <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">trauma-informed</span>
@@ -1705,10 +1727,10 @@
         <span style="font-size:0.7rem;color:#E8D8F4;">Schools · SEND hubs · Parent carer forums · Community orgs · Housing associations</span>
       </div>
       <div class="prog-body">
-        <div class="prog-row"><div><div class="prog-item-name">4-Week Programme</div><div class="prog-item-desc">Small group up to 12 · adapted for SEND families</div></div><div class="prog-price" style="color:#8C4A8A;">£950</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">Single Workshop</div><div class="prog-item-desc">90 mins · intro session · parents or carers</div></div><div class="prog-price" style="color:#8C4A8A;">£350</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">Community Group</div><div class="prog-item-desc">Charities, parent forums, faith groups</div></div><div class="prog-price" style="color:#8C4A8A;">£300</div></div>
-        <div class="prog-row"><div><div class="prog-item-name">Online Licence</div><div class="prog-item-desc">Self-paced · SEND parents &amp; carers</div></div><div class="prog-price" style="color:#8C4A8A;">£299/yr</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">4-Week Programme</div><div class="prog-item-desc">Small group up to 12 · adapted for SEND families</div></div><div class="prog-price" style="color:#5C2E5A;">£950</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Single Workshop</div><div class="prog-item-desc">90 mins · intro session · parents or carers</div></div><div class="prog-price" style="color:#5C2E5A;">£350</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Community Group</div><div class="prog-item-desc">Charities, parent forums, faith groups</div></div><div class="prog-price" style="color:#5C2E5A;">£300</div></div>
+        <div class="prog-row"><div><div class="prog-item-name">Online Licence</div><div class="prog-item-desc">Self-paced · SEND parents &amp; carers</div></div><div class="prog-price" style="color:#5C2E5A;">£299/yr</div></div>
       </div>
       <div class="prog-tags" style="background:#F5E8F3;">
         <span class="tag" style="background:#F5E8F3;color:#5C2E5A;">SEND parenting</span>
@@ -1763,7 +1785,7 @@
 
     <div id="facilitator" class="section-anchor"></div>
     <!-- Facilitator -->
-    <div style="background:var(--teal-pale);border:1px solid var(--teal-light);border-radius:16px;padding:2.5rem 2rem;margin-bottom:1.5rem;">
+    <div style="background:var(--teal-pale);border:1px solid var(--teal-light);border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;">
       <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:0.4rem;">Join the network</div>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;">
         <div style="flex:1;min-width:220px;">
@@ -1820,7 +1842,7 @@
     </div>
 
     <!-- CTA -->
-    <div class="cta-section" style="border-radius:16px;padding:2.5rem 2rem;">
+    <div class="cta-section">
       <div>
         <div class="cta-text-title">Ready to bring EmpowerED to your organisation?</div>
         <div class="cta-text-sub">Book a free discovery call with Sofia</div>
