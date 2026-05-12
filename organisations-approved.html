@@ -236,8 +236,8 @@
   }
 
   /* ── MAIN PAGE ── */
-  #main-page { display: none; }
-  #main-page.visible { display: block; }
+  #main-page { display: none; width: 100%; overflow-x: hidden; }
+  #main-page.visible { display: block; width: 100%; }
 
   header {
     background: var(--purple-deep);
@@ -513,6 +513,9 @@
     color: var(--text-muted);
     border-top: 1px solid var(--border);
     margin-top: 2rem;
+    clear: both;
+    width: 100%;
+    display: block;
   }
 
   @media (max-width: 600px) {
@@ -750,10 +753,12 @@
     display: flex;
     align-items: flex-start;
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
     padding: 2rem 1.5rem;
     gap: 2.5rem;
     position: relative;
+    box-sizing: border-box;
   }
   .sidebar {
     width: 220px;
