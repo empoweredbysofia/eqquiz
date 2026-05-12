@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work with Selina — Spark & Spectrum CIC · Organisations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F0ECE3;--cream-mid:#EAE4D9;--gold:#B8914A;--gold-light:#D4A95A;
+  --gold-pale:#F5EDDA;--purple:#6B5EA8;--purple-deep:#3D2F7A;--purple-pale:#EEEAF8;
+  --teal:#4A9E8E;--teal-deep:#2B6B5F;--teal-pale:#E0F2EE;
+  --ink:#2A2520;--ink-mid:#4A4540;--ink-light:#8A857E;
+  --border:rgba(90,75,50,0.13);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.65rem 2.5rem;background:rgba(240,236,227,0.96);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-brand{font-family:var(--serif);font-size:19px;font-weight:500;display:flex;align-items:center;gap:0;position:relative;}
+.nb-spark{color:var(--gold);position:relative;display:inline-block;}
+.nb-spark-gem{position:absolute;top:-0.52em;right:-0.38em;line-height:0;}
+.nb-amp{color:var(--ink-light);font-weight:300;margin:0 3px 0 10px;}
+.nb-spectrum{background:linear-gradient(90deg,var(--purple) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-pill{font-size:10px;letter-spacing:.1em;font-weight:500;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);border:0.5px solid rgba(184,145,74,.25);padding:4px 12px;border-radius:100px;}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none;}
+.nav-links a{font-size:13px;font-weight:400;color:var(--ink-mid);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--ink)!important;color:#fff!important;padding:.4rem 1.1rem;border-radius:100px;font-size:12px!important;}
+
+/* HERO */
+.hero{min-height:auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(184,145,74,.06) 0%,transparent 70%);pointer-events:none;}
+.hero-diamond-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);opacity:.05;pointer-events:none;}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-light);margin-bottom:1rem;position:relative;z-index:1;}
+.hero-title{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.01em;position:relative;z-index:1;margin-bottom:.75rem;display:flex;flex-direction:column;align-items:center;}
+.hero-spark-row{display:flex;align-items:baseline;gap:.2em;}
+.hero-spark{font-size:clamp(2.8rem,7vw,5rem);color:var(--gold);display:inline-block;position:relative;}
+.hero-spark-gem{position:absolute;top:-0.48em;right:-0.42em;line-height:0;}
+.hero-amp{font-size:clamp(2rem,5vw,3.5rem);color:var(--ink-light);font-weight:300;font-style:italic;}
+.hero-spectrum{font-size:clamp(2.8rem,7vw,5rem);display:block;margin-top:.05em;background:linear-gradient(90deg,var(--purple) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:14px;font-weight:300;color:var(--ink-light);max-width:440px;margin:.75rem auto 2rem;line-height:1.8;position:relative;z-index:1;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:1rem;position:relative;z-index:1;}
+.chip{font-size:11.5px;font-weight:400;color:var(--ink-mid);background:#fff;border:0.5px solid var(--border);padding:5px 14px;border-radius:100px;}
+.founders-chip{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-mid);background:#fff;border:0.5px solid var(--border);padding:6px 18px;border-radius:100px;position:relative;z-index:1;}
+.fdot{width:7px;height:7px;border-radius:50%;}
+.fdot.gold{background:var(--gold);}
+.fdot.purple{background:var(--purple);}
+.hero-cta{margin-top:1.5rem;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+
+/* BUTTONS */
+.btn{font-family:var(--sans);font-size:13px;font-weight:500;padding:.65rem 1.6rem;border-radius:100px;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:opacity .2s,transform .15s;}
+.btn:hover{opacity:.85;transform:translateY(-1px);}
+.btn-dark{background:var(--ink);color:#fff;}
+.btn-outline{background:transparent;color:var(--ink-mid);border:0.5px solid rgba(42,37,32,.25);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-teal{background:var(--teal-deep);color:#fff;}
+.btn-purple{background:var(--purple-deep);color:#fff;}
+
+/* QUOTE BAND */
+.divider{height:0.5px;background:var(--border);}
+.quote-band{background:var(--ink);padding:4rem 2.5rem;text-align:center;}
+.quote-band blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.8vw,2.1rem);font-weight:300;color:rgba(255,255,255,.9);max-width:700px;margin:0 auto 1rem;line-height:1.5;}
+.quote-band cite{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);}
+
+/* SECTIONS */
+section{padding:6rem 2.5rem;}
+.section-inner{max-width:1060px;margin:0 auto;}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.6rem;display:flex;align-items:center;gap:6px;}
+.eyebrow.gold{color:var(--gold);}
+.eyebrow.white{color:rgba(255,255,255,.4);}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--ink);line-height:1.12;margin-bottom:1.25rem;letter-spacing:-.01em;}
+.section-title em{font-style:italic;color:var(--gold);}
+.section-title em.purple{color:var(--purple);}
+.section-title em.teal{color:var(--teal);}
+.section-title.white{color:#fff;}
+
+/* ABOUT */
+.about-section{background:var(--cream);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-text p{font-size:15px;font-weight:300;color:var(--ink-mid);line-height:1.85;margin-bottom:1rem;}
+.about-text p strong{color:var(--ink);font-weight:500;}
+.about-diamond{display:flex;justify-content:center;}
+
+/* PHILOSOPHY — 6 equal boxes */
+.phil-section{background:var(--cream-mid);}
+.phil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:18px;overflow:hidden;margin-top:3rem;}
+.phil-card{background:var(--cream);padding:1.75rem 1.5rem;}
+.phil-icon{width:26px;height:26px;margin-bottom:.8rem;flex-shrink:0;display:block;}
+.phil-card h3{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);margin-bottom:.35rem;line-height:1.2;}
+.phil-card p{font-size:13px;font-weight:300;color:var(--ink-light);line-height:1.7;}
+
+/* TWO TRACKS */
+.tracks-section{background:#fff;}
+.tracks-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.track-card{border:0.5px solid var(--border);border-radius:20px;overflow:hidden;}
+.track-header{padding:2rem 2rem 1.5rem;display:flex;flex-direction:column;gap:.75rem;}
+.track-header.gold-bg{background:var(--ink);}
+.track-header.teal-bg{background:var(--teal-deep);}
+.track-label{font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;}
+.track-label.gold-lbl{background:rgba(184,145,74,.2);color:var(--gold-light);}
+.track-label.teal-lbl{background:rgba(74,158,142,.2);color:var(--teal-pale);}
+.track-header h3{font-family:var(--serif);font-size:clamp(1.4rem,2vw,1.9rem);font-weight:300;color:#fff;line-height:1.15;}
+.track-header h3 em{font-style:italic;}
+.track-body{background:var(--cream);padding:1.75rem 2rem 2rem;}
+.track-body p{font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.8;margin-bottom:1.25rem;}
+.track-items{display:flex;flex-direction:column;gap:5px;margin-bottom:1.25rem;}
+.track-item{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-mid);padding:7px 10px;background:#fff;border-radius:7px;border:0.5px solid var(--border);}
+
+/* PROGRAMMES */
+.prog-section{background:var(--cream-mid);}
+.prog-card{display:grid;grid-template-columns:340px 1fr;border:0.5px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:2.5rem;background:var(--cream);}
+.prog-card.flip{grid-template-columns:1fr 340px;}
+.prog-card.flip .prog-vis{order:2;}
+.prog-vis{display:flex;align-items:center;justify-content:center;padding:3rem;min-height:380px;}
+.prog-vis.gold-bg{background:var(--ink);}
+.prog-vis.teal-bg{background:var(--teal-deep);}
+.prog-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:center;}
+.prog-eyebrow{font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:1.1rem;width:fit-content;display:inline-flex;align-items:center;gap:6px;}
+.prog-eyebrow.gold-tag{background:var(--gold-pale);color:var(--gold);}
+.prog-eyebrow.teal-tag{background:var(--teal-pale);color:var(--teal-deep);}
+.prog-body h2{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.5rem);font-weight:300;line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:.35rem;}
+.prog-body h2 em.gold{font-style:italic;color:var(--gold);}
+.prog-body h2 em.teal{font-style:italic;color:var(--teal);}
+.prog-subtitle{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-light);margin-bottom:1.1rem;}
+.prog-body > p{font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.8;margin-bottom:1.3rem;}
+.barcode-callout{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin-bottom:1.3rem;display:flex;gap:10px;align-items:flex-start;}
+.barcode-callout p{font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.65;margin:0;}
+.areas{display:flex;flex-direction:column;gap:5px;margin-bottom:1.3rem;}
+.area-row{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:400;color:var(--ink-mid);padding:6px 12px;background:#fff;border-radius:7px;border:0.5px solid var(--border);}
+.area-gem{width:10px;height:10px;flex-shrink:0;}
+.sessions{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:1.3rem;}
+.sess-row{display:flex;gap:8px;align-items:baseline;font-size:12.5px;font-weight:300;color:var(--ink-mid);}
+.sess-num{font-family:var(--serif);font-size:12px;font-weight:600;color:var(--teal);min-width:22px;flex-shrink:0;}
+.delivery{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.3rem;}
+.dtag{font-size:11px;font-weight:400;color:var(--ink-light);background:#fff;border:0.5px solid var(--border);padding:4px 10px;border-radius:6px;}
+
+/* SPECTRUM */
+.spectrum-section{background:var(--ink);}
+.spec-note{font-size:13px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:2rem;}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:0.5px;background:rgba(255,255,255,.07);border:0.5px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;}
+.spec-item{background:rgba(42,37,32,.5);padding:1.1rem 1.25rem;display:flex;align-items:center;gap:9px;transition:background .2s;}
+.spec-item:hover{background:rgba(107,94,168,.18);}
+.spec-gem{width:9px;height:9px;flex-shrink:0;}
+.spec-item span{font-size:13px;font-weight:300;color:rgba(255,255,255,.8);}
+.spec-disclaimer{font-size:11px;color:rgba(255,255,255,.3);margin-top:1.25rem;text-align:center;}
+
+/* TEAM */
+.team-section{background:var(--cream-mid);}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:3rem;}
+.team-card{background:var(--cream);border:0.5px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;gap:1.1rem;align-items:flex-start;}
+.team-gem{width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.team-card h3{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.team-card .role{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+.team-card p{font-size:13px;font-weight:300;color:var(--ink-light);line-height:1.7;}
+
+/* CTA */
+.cta-section{background:var(--ink);text-align:center;}
+.cta-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.55);max-width:420px;margin:.75rem auto 2.5rem;}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{background:#1A1710;padding:2.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-brand{font-family:var(--serif);font-size:17px;color:rgba(255,255,255,.4);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:12px;font-weight:300;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:rgba(255,255,255,.7);}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.2);width:100%;text-align:center;border-top:0.5px solid rgba(255,255,255,.06);padding-top:1rem;margin-top:.25rem;}
+
+/* MODAL */
+.modal-wrap{display:none;position:fixed;inset:0;background:rgba(26,23,16,.72);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.modal-wrap.open{display:flex;}
+.modal{background:var(--cream);border-radius:20px;padding:2.25rem;max-width:470px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+.modal-close{position:absolute;top:.85rem;right:.85rem;background:none;border:none;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--ink-light);font-size:17px;}
+.modal h2{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:.2rem;}
+.modal-org{font-size:11px;letter-spacing:.08em;color:var(--ink-light);margin-bottom:1.5rem;}
+.ff{margin-bottom:.85rem;}
+.ff label{display:block;font-size:11px;font-weight:500;letter-spacing:.04em;color:var(--ink-mid);margin-bottom:5px;}
+.ff input,.ff select,.ff textarea{width:100%;background:#fff;border:0.5px solid rgba(42,37,32,.18);border-radius:9px;padding:.55rem .85rem;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--ink);outline:none;transition:border-color .2s;appearance:none;}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--gold);}
+.ff textarea{resize:vertical;min-height:75px;}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;}
+.modal-note{font-size:11px;font-weight:300;color:var(--ink-light);text-align:center;margin-top:.65rem;}
+.form-success{display:none;text-align:center;padding:2rem 0;}
+.form-success h3{font-family:var(--serif);font-size:22px;color:var(--ink);margin-bottom:.5rem;}
+.form-success p{font-size:13px;font-weight:300;color:var(--ink-light);}
+
+/* ANIMS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow,.hero-title,.hero-sub,.hero-chips,.founders-chip,.hero-cta{animation:fadeUp .65s ease both;}
+.hero-title{animation-delay:.1s;}.hero-sub{animation-delay:.2s;}.hero-chips{animation-delay:.27s;}.founders-chip{animation-delay:.32s;}.hero-cta{animation-delay:.37s;}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  nav{padding:.75rem 1.25rem;}.nav-links{display:none;}
+  section{padding:4rem 1.25rem;}
+  .about-grid,.tracks-grid,.team-grid{grid-template-columns:1fr;}
+  .about-diamond{display:none;}
+  .phil-grid{grid-template-columns:repeat(2,1fr);}
+  .prog-card,.prog-card.flip{grid-template-columns:1fr;}
+  .prog-card.flip .prog-vis{order:unset;}
+  .prog-vis{min-height:220px;}
+  .sessions{grid-template-columns:1fr;}
+  .hero{padding:5rem 1.25rem 2.5rem;}
+  footer{padding:1.75rem 1.25rem;}
+}
+@media(max-width:500px){.phil-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- SVG DEFS: reusable concave diamond path -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="cdiamond" viewBox="0 0 10 10">
+      <path d="M5,.5 C4.2,2.8 2.8,3.5 .5,5 C2.8,6.5 4.2,7.2 5,9.5 C5.8,7.2 7.2,6.5 9.5,5 C7.2,3.5 5.8,2.8 5,.5Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <a style="font-size:12px;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;" href="index.html">← All of Spark &amp; Spectrum</a>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-brand">
+      <span class="nb-spark">Spark<span class="nb-spark-gem">
+        <svg width="14" height="14" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".82"/></svg>
+      </span></span>
+      <span class="nb-amp">&</span>
+      <span class="nb-spectrum">Spectrum</span>
+    </span>
+  </a>
+  <span class="nav-pill">CIC · Neurodiversity</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#philosophy">What we believe</a></li>
+    <li><a href="#work-with-us">Work with us</a></li>
+    <li><a href="#programmes">Programmes</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Make an enquiry</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-diamond-bg">
+    <svg viewBox="0 0 500 500" width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M250,16 C226,102 142,140 16,250 C142,360 226,398 250,484 C274,398 358,360 484,250 C358,140 274,102 250,16Z" fill="#B8914A"/>
+    </svg>
+  </div>
+
+  <p class="hero-eyebrow">For Organisations · Spark &amp; Spectrum CIC</p>
+
+  <h1 class="hero-title">
+    <div class="hero-spark-row">
+      <span class="hero-spark">Spark<span class="hero-spark-gem">
+        <svg width="22" height="22" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".8"/></svg>
+      </span></span>
+      <span class="hero-amp">&amp;</span>
+    </div>
+    <span class="hero-spectrum">Spectrum</span>
+  </h1>
+
+  <p class="hero-sub">Programme delivery, staff training and partnership for schools, charities, NHS teams and community organisations. Co-founded and delivered by Sofia Iqbal and Selina Afzal.</p>
+
+  <div class="hero-chips">
+    <span class="chip">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      Neurodiversity-affirming
+    </span>
+    <span class="chip">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8"/></svg>
+      Vision loss &amp; medical needs
+    </span>
+    <span class="chip">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>
+      Schools &amp; organisations
+    </span>
+    <span class="chip">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      CIC · Not for profit
+    </span>
+  </div>
+
+  <div class="founders-chip">
+    <span class="fdot gold"></span>
+    Sofia Iqbal &amp; Selina Afzal · Co-founders
+    <span class="fdot purple"></span>
+  </div>
+
+  <div class="hero-cta">
+    <a class="btn btn-dark" href="#programmes">Explore programmes</a>
+    <a class="btn btn-outline" href="#about">Who we are</a>
+    <a class="btn btn-gold" href="#work-with-us">Partner with us</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <blockquote>"Your brain is not broken. It is different. And different has always been how the world moves forward."</blockquote>
+  <cite>Spark &amp; Spectrum CIC</cite>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="eyebrow gold">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+          Who we are
+        </p>
+        <h2 class="section-title">A community built on <em>lived experience</em></h2>
+        <p>Spark &amp; Spectrum is a <strong>Community Interest Company</strong> founded by Selina Afzal and Sofia Iqbal. We create programmes for neurodivergent individuals, those with special and medical needs including vision loss, their families and the people who support them.</p>
+        <p>We work in schools, community settings and organisations to deliver a human-first approach grounded in lived experience, compassionate practice and affirming exploration.</p>
+        <p>Our programmes are not diagnostic tools. They are spaces for <strong>gentle, reflective exploration</strong> — affirming, accessible and built around the whole person.</p>
+      </div>
+      <div class="about-diamond">
+        <svg viewBox="0 0 240 240" width="240" height="240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,8 C117,48 87,65 8,120 C87,175 117,192 120,232 C123,192 153,175 232,120 C153,65 123,48 120,8Z" fill="none" stroke="rgba(184,145,74,.2)" stroke-width="1"/>
+          <path d="M120,24 C116,62 90,78 24,120 C90,162 116,178 120,216 C124,178 150,162 216,120 C150,78 124,62 120,24Z" fill="var(--gold-pale)"/>
+          <path d="M120,52 C117,80 100,90 64,120 C100,150 117,160 120,188 C123,160 140,150 176,120 C140,90 123,80 120,52Z" fill="rgba(184,145,74,.22)"/>
+          <path d="M120,80 C118,96 108,103 88,120 C108,137 118,144 120,160 C122,144 132,137 152,120 C132,103 122,96 120,80Z" fill="var(--gold)"/>
+          <circle cx="120" cy="10" r="2.5" fill="rgba(184,145,74,.4)"/>
+          <circle cx="120" cy="230" r="2.5" fill="rgba(184,145,74,.4)"/>
+          <circle cx="10" cy="120" r="2.5" fill="rgba(184,145,74,.4)"/>
+          <circle cx="230" cy="120" r="2.5" fill="rgba(184,145,74,.4)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programmes" class="prog-section">
+  <div class="section-inner">
+    <p class="eyebrow gold">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      Programmes
+    </p>
+    <h2 class="section-title">Six <em>programmes</em> and workshops</h2>
+
+    <!-- Understanding Your Spark -->
+    <div class="prog-card" style="margin-top:3rem;">
+      <div class="prog-vis gold-bg">
+        <svg viewBox="0 0 240 280" width="200" height="234" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="bc"><path d="M120,78 C118,96 106,104 82,120 C106,136 118,144 120,162 C122,144 134,136 158,120 C134,104 122,96 120,78Z"/></clipPath></defs>
+          <path d="M120,10 C116,56 84,76 10,120 C84,164 116,184 120,230 C124,184 156,164 230,120 C156,76 124,56 120,10Z" fill="none" stroke="rgba(184,145,74,.3)" stroke-width="0.8"/>
+          <path d="M120,28 C115,68 86,86 22,120 C86,154 115,172 120,212 C125,172 154,154 218,120 C154,86 125,68 120,28Z" fill="rgba(184,145,74,.12)"/>
+          <path d="M120,52 C116,82 98,95 60,120 C98,145 116,158 120,188 C124,158 142,145 180,120 C142,95 124,82 120,52Z" fill="rgba(184,145,74,.22)"/>
+          <path d="M120,78 C118,96 106,104 82,120 C106,136 118,144 120,162 C122,144 134,136 158,120 C134,104 122,96 120,78Z" fill="rgba(184,145,74,.45)"/>
+          <g clip-path="url(#bc)">
+            <line x1="100" y1="107" x2="100" y2="133" stroke="rgba(255,255,255,.65)" stroke-width="2"/><line x1="103.5" y1="107" x2="103.5" y2="133" stroke="rgba(255,255,255,.38)" stroke-width="1"/><line x1="106.5" y1="107" x2="106.5" y2="133" stroke="rgba(255,255,255,.75)" stroke-width="2.5"/><line x1="110" y1="107" x2="110" y2="133" stroke="rgba(255,255,255,.38)" stroke-width="1"/><line x1="113" y1="107" x2="113" y2="133" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/><line x1="116" y1="107" x2="116" y2="133" stroke="rgba(255,255,255,.32)" stroke-width="1"/><line x1="120" y1="107" x2="120" y2="133" stroke="rgba(255,255,255,.75)" stroke-width="2"/><line x1="124" y1="107" x2="124" y2="133" stroke="rgba(255,255,255,.42)" stroke-width="1.5"/><line x1="127" y1="107" x2="127" y2="133" stroke="rgba(255,255,255,.65)" stroke-width="2.5"/><line x1="130" y1="107" x2="130" y2="133" stroke="rgba(255,255,255,.32)" stroke-width="1"/><line x1="133.5" y1="107" x2="133.5" y2="133" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/><line x1="137" y1="107" x2="137" y2="133" stroke="rgba(255,255,255,.38)" stroke-width="1"/><line x1="140" y1="107" x2="140" y2="133" stroke="rgba(255,255,255,.75)" stroke-width="2"/>
+          </g>
+          <circle cx="120" cy="12" r="2" fill="rgba(184,145,74,.5)"/><circle cx="120" cy="228" r="2" fill="rgba(184,145,74,.5)"/><circle cx="12" cy="120" r="2" fill="rgba(184,145,74,.5)"/><circle cx="228" cy="120" r="2" fill="rgba(184,145,74,.5)"/>
+          <text x="120" y="255" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(184,145,74,.5)" letter-spacing="2">PROJECT ONE</text>
+        </svg>
+      </div>
+      <div class="prog-body">
+        <span class="prog-eyebrow gold-tag">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+          Neurodivergent &amp; Special Needs · Self-Discovery
+        </span>
+        <h2>Understanding Your <em class="gold">Spark</em></h2>
+        <p class="prog-subtitle">For neurodivergent individuals and those with special or medical needs</p>
+        <div class="barcode-callout">
+          <svg width="20" height="20" viewBox="0 0 20 20" style="flex-shrink:0;margin-top:1px"><line x1="2" y1="2" x2="2" y2="18" stroke="#B8914A" stroke-width="2"/><line x1="5" y1="2" x2="5" y2="18" stroke="#B8914A" stroke-width="1"/><line x1="7.5" y1="2" x2="7.5" y2="18" stroke="#B8914A" stroke-width="2.5"/><line x1="10" y1="2" x2="10" y2="18" stroke="#B8914A" stroke-width="1"/><line x1="12.5" y1="2" x2="12.5" y2="18" stroke="#B8914A" stroke-width="2"/><line x1="15" y1="2" x2="15" y2="18" stroke="#B8914A" stroke-width="1"/><line x1="17.5" y1="2" x2="17.5" y2="18" stroke="#B8914A" stroke-width="1.5"/></svg>
+          <p>Being neurodivergent is special, like having your own barcode. Every barcode is individual. No two are the same. Yours carries your own unique frequency, your own way of reading the world.</p>
+        </div>
+        <div class="areas">
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Cognitive Patterns</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Sensory &amp; Embodied Experience</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Strengths &amp; Gifts</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Challenges &amp; Accommodations</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Personal Narrative</div>
+        </div>
+        <div class="delivery">
+          <span class="dtag">Schools &amp; SEND</span><span class="dtag">Vision loss</span><span class="dtag">Medical needs</span><span class="dtag">Therapeutic</span><span class="dtag">Self-paced</span>
+        </div>
+        <a class="btn btn-gold" href="#" onclick="openModal('Understanding Your Spark');return false;">Enquire about this programme</a>
+      </div>
+    </div>
+
+    <!-- Becoming the Parent They Need -->
+    <div class="prog-card flip">
+      <div class="prog-body">
+        <span class="prog-eyebrow teal-tag">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+          Flagship Programme · 12 Sessions
+        </span>
+        <h2>Becoming the <em class="teal">Parent They Need</em></h2>
+        <p class="prog-subtitle">Raise them as they are, not as you expected</p>
+        <p>A reflective programme exploring the emotional landscape of raising a child with neurodivergent, special or medical needs. Supporting parents to understand their child's world, connect more deeply, and respond with confidence and compassion.</p>
+        <div class="sessions">
+          <div class="sess-row"><span class="sess-num">01</span>Raise them as they are, not as you expected</div>
+          <div class="sess-row"><span class="sess-num">02</span>Becoming the Parent They Need</div>
+          <div class="sess-row"><span class="sess-num">03</span>The Happy Brain | Natural Brain Chemicals</div>
+          <div class="sess-row"><span class="sess-num">04</span>Emotional Reset | Overwhelm Trigger Awareness</div>
+          <div class="sess-row"><span class="sess-num">05</span>Emotional Reset | Ending Negative Thoughts</div>
+          <div class="sess-row"><span class="sess-num">06</span>Connecting with what you feel</div>
+          <div class="sess-row"><span class="sess-num">07</span>Playing Their Way</div>
+          <div class="sess-row"><span class="sess-num">08</span>Acknowledging their spark</div>
+          <div class="sess-row"><span class="sess-num">09</span>Seeing Beyond the Surface</div>
+          <div class="sess-row"><span class="sess-num">10</span>Shaping Their Safe Space</div>
+          <div class="sess-row"><span class="sess-num">11</span>Being Truly Present | Opening Your Ears and Heart</div>
+          <div class="sess-row"><span class="sess-num">12</span>Carrying It Forward | Where we go from now</div>
+        </div>
+        <div class="delivery">
+          <span class="dtag">Schools</span><span class="dtag">Community orgs</span><span class="dtag">Faith groups</span><span class="dtag">SEND families</span><span class="dtag">Vision loss families</span><span class="dtag">Housing assoc.</span>
+        </div>
+        <a class="btn btn-teal" href="#" onclick="openModal('Becoming the Parent They Need');return false;">Enquire about this programme</a>
+      </div>
+      <div class="prog-vis teal-bg">
+        <svg viewBox="0 0 240 280" width="200" height="234" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,10 C116,56 84,76 10,120 C84,164 116,184 120,230 C124,184 156,164 230,120 C156,76 124,56 120,10Z" fill="none" stroke="rgba(74,158,142,.3)" stroke-width="0.8"/>
+          <path d="M120,28 C115,68 86,86 22,120 C86,154 115,172 120,212 C125,172 154,154 218,120 C154,86 125,68 120,28Z" fill="rgba(74,158,142,.12)"/>
+          <path d="M120,52 C116,82 98,95 60,120 C98,145 116,158 120,188 C124,158 142,145 180,120 C142,95 124,82 120,52Z" fill="rgba(74,158,142,.22)"/>
+          <path d="M120,78 C118,96 106,104 82,120 C106,136 118,144 120,162 C122,144 134,136 158,120 C134,104 122,96 120,78Z" fill="rgba(74,158,142,.5)"/>
+          <circle cx="110" cy="112" r="9" fill="rgba(4,52,44,.9)"/>
+          <path d="M98,134 C98,122 122,122 122,134 L122,142 L98,142Z" fill="rgba(4,52,44,.9)"/>
+          <circle cx="132" cy="115" r="7" fill="rgba(43,107,95,.9)"/>
+          <path d="M122,134 C122,124 144,124 144,134 L144,142 L122,142Z" fill="rgba(43,107,95,.9)"/>
+          <path d="M107,108 Q120,102 128,110" fill="none" stroke="rgba(74,158,142,.6)" stroke-width="1.2"/>
+          <circle cx="120" cy="12" r="2" fill="rgba(74,158,142,.5)"/><circle cx="120" cy="228" r="2" fill="rgba(74,158,142,.5)"/><circle cx="12" cy="120" r="2" fill="rgba(74,158,142,.5)"/><circle cx="228" cy="120" r="2" fill="rgba(74,158,142,.5)"/>
+          <text x="120" y="255" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(74,158,142,.5)" letter-spacing="2">12 SESSIONS</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Managing Your Spark -->
+    <div class="prog-card" style="margin-top:2rem;">
+      <div class="prog-vis" style="background:#3D2F7A;min-height:300px;">
+        <svg viewBox="0 0 240 240" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,10 C116,50 84,68 10,120 C84,172 116,190 120,230 C124,190 156,172 230,120 C156,68 124,50 120,10Z" fill="none" stroke="rgba(107,94,168,.4)" stroke-width="0.8"/>
+          <path d="M120,30 C115,62 88,78 24,120 C88,162 115,178 120,210 C125,178 152,162 216,120 C152,78 125,62 120,30Z" fill="rgba(107,94,168,.15)"/>
+          <path d="M120,55 C116,80 100,92 62,120 C100,148 116,160 120,185 C124,160 140,148 178,120 C140,92 124,80 120,55Z" fill="rgba(107,94,168,.3)"/>
+          <path d="M120,82 C118,98 108,106 84,120 C108,134 118,142 120,158 C122,142 132,134 156,120 C132,106 122,98 120,82Z" fill="#6B5EA8"/>
+          <!-- upward arrow / growth mark -->
+          <line x1="120" y1="138" x2="120" y2="104" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="113,112 120,104 127,112" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="120" cy="12" r="2" fill="rgba(107,94,168,.5)"/>
+          <circle cx="120" cy="228" r="2" fill="rgba(107,94,168,.5)"/>
+          <circle cx="12" cy="120" r="2" fill="rgba(107,94,168,.5)"/>
+          <circle cx="228" cy="120" r="2" fill="rgba(107,94,168,.5)"/>
+          <text x="120" y="220" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8.5" fill="rgba(107,94,168,.6)" letter-spacing="2">PROGRAMME 3</text>
+        </svg>
+      </div>
+      <div class="prog-body">
+        <span class="prog-eyebrow" style="background:#EEEAF8;color:#6B5EA8;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:1.1rem;width:fit-content;">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+          Self-Development · Follow-on Programme
+        </span>
+        <h2>Managing Your <em style="font-style:italic;color:#6B5EA8;">Spark</em></h2>
+        <p class="prog-subtitle">Tools, strategies and self-understanding for everyday life</p>
+        <p>A follow-on programme for those who have completed Understanding Your Spark. Moves from exploration into action — equipping individuals with practical strategies to manage their unique cognitive and sensory profile in work, education and daily life.</p>
+        <div class="areas">
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8"/></svg>Executive Function Strategies</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8"/></svg>Sensory Regulation Toolkit</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8"/></svg>Communication and Masking</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8"/></svg>Advocacy and Self-Accommodation</div>
+        </div>
+        <div class="delivery">
+          <span class="dtag">Schools &amp; colleges</span><span class="dtag">Young adults</span><span class="dtag">Workplace settings</span><span class="dtag">Post-diagnosis support</span>
+        </div>
+        <a class="btn" style="background:#6B5EA8;color:#fff;" href="#pricing">View pricing</a>
+      </div>
+    </div>
+
+    <!-- Growing With Your Spark -->
+    <div class="prog-card flip" style="margin-top:2rem;">
+      <div class="prog-body">
+        <span class="prog-eyebrow" style="background:#E0F2EE;color:#2B6B5F;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:1.1rem;width:fit-content;">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+          Progression Programme · Young People
+        </span>
+        <h2>Growing With Your <em class="teal">Spark</em></h2>
+        <p class="prog-subtitle">For neurodivergent young people moving through transition and change</p>
+        <p>Designed for young people navigating the transitions of adolescence, education change or diagnosis — Growing With Your Spark builds identity, resilience and self-belief. A compassionate space to explore who they are becoming.</p>
+        <div class="areas">
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Identity and Self-Belief</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Navigating Change and Transition</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Friendships and Belonging</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Futures and Aspirations</div>
+        </div>
+        <div class="delivery">
+          <span class="dtag">Secondary schools</span><span class="dtag">SEND teams</span><span class="dtag">Alternative provision</span><span class="dtag">Youth groups</span>
+        </div>
+        <a class="btn btn-teal" href="#pricing">View pricing</a>
+      </div>
+      <div class="prog-vis" style="background:#2B6B5F;min-height:300px;">
+        <svg viewBox="0 0 240 240" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,10 C116,50 84,68 10,120 C84,172 116,190 120,230 C124,190 156,172 230,120 C156,68 124,50 120,10Z" fill="none" stroke="rgba(74,158,142,.4)" stroke-width="0.8"/>
+          <path d="M120,30 C115,62 88,78 24,120 C88,162 115,178 120,210 C125,178 152,162 216,120 C152,78 125,62 120,30Z" fill="rgba(74,158,142,.15)"/>
+          <path d="M120,55 C116,80 100,92 62,120 C100,148 116,160 120,185 C124,160 140,148 178,120 C140,92 124,80 120,55Z" fill="rgba(74,158,142,.28)"/>
+          <path d="M120,82 C118,98 108,106 84,120 C108,134 118,142 120,158 C122,142 132,134 156,120 C132,106 122,98 120,82Z" fill="#4A9E8E"/>
+          <!-- small sprouting marks -->
+          <line x1="120" y1="140" x2="108" y2="108" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="120" y1="140" x2="132" y2="108" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="120" y1="140" x2="120" y2="104" stroke="rgba(255,255,255,.75)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="120" cy="12" r="2" fill="rgba(74,158,142,.5)"/>
+          <circle cx="120" cy="228" r="2" fill="rgba(74,158,142,.5)"/>
+          <circle cx="12" cy="120" r="2" fill="rgba(74,158,142,.5)"/>
+          <circle cx="228" cy="120" r="2" fill="rgba(74,158,142,.5)"/>
+          <text x="120" y="220" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8.5" fill="rgba(74,158,142,.6)" letter-spacing="2">PROGRAMME 4</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Workshop 5: Early Puberty -->
+    <div class="prog-card" style="margin-top:2rem;">
+      <div class="prog-vis" style="background:#1A1710;min-height:240px;">
+        <svg viewBox="0 0 240 220" width="180" height="165" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,10 C116,46 86,62 12,110 C86,158 116,174 120,210 C124,174 154,158 228,110 C154,62 124,46 120,10Z" fill="none" stroke="rgba(184,145,74,.35)" stroke-width="0.8"/>
+          <path d="M120,30 C116,60 92,74 28,110 C92,146 116,160 120,190 C124,160 148,146 212,110 C148,74 124,60 120,30Z" fill="rgba(184,145,74,.1)"/>
+          <path d="M120,55 C117,76 103,86 68,110 C103,134 117,144 120,165 C123,144 137,134 172,110 C137,86 123,76 120,55Z" fill="rgba(184,145,74,.22)"/>
+          <path d="M120,80 C118,94 110,101 88,110 C110,119 118,126 120,140 C122,126 130,119 152,110 C130,101 122,94 120,80Z" fill="#B8914A"/>
+          <!-- bloom marks -->
+          <circle cx="120" cy="76" r="3" fill="rgba(255,255,255,.6)"/>
+          <circle cx="107" cy="82" r="2" fill="rgba(255,255,255,.4)"/>
+          <circle cx="133" cy="82" r="2" fill="rgba(255,255,255,.4)"/>
+          <circle cx="100" cy="94" r="1.5" fill="rgba(255,255,255,.3)"/>
+          <circle cx="140" cy="94" r="1.5" fill="rgba(255,255,255,.3)"/>
+          <circle cx="120" cy="12" r="2" fill="rgba(184,145,74,.5)"/>
+          <circle cx="120" cy="208" r="2" fill="rgba(184,145,74,.5)"/>
+          <circle cx="14" cy="110" r="2" fill="rgba(184,145,74,.5)"/>
+          <circle cx="226" cy="110" r="2" fill="rgba(184,145,74,.5)"/>
+          <text x="120" y="200" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8.5" fill="rgba(184,145,74,.5)" letter-spacing="2">WORKSHOP 5</text>
+        </svg>
+      </div>
+      <div class="prog-body">
+        <span class="prog-eyebrow gold-tag">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+          Half-Day Workshop · Ages 8 to 13
+        </span>
+        <h2>Before the <em class="gold">Bloom</em></h2>
+        <p class="prog-subtitle">An early puberty workshop for neurodivergent and SEND young people</p>
+        <p>A sensitive, age-appropriate half-day workshop exploring puberty through a neurodivergent lens. Because body changes, hormones and social shifts hit differently when your brain works differently — and young people deserve honest, affirming preparation.</p>
+        <div class="areas">
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Body changes, explained simply and honestly</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Emotions, sensory changes and overwhelm</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Social pressures and staying safe</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A"/></svg>Talking to trusted adults</div>
+        </div>
+        <div class="delivery">
+          <span class="dtag">Primary schools</span><span class="dtag">SEND settings</span><span class="dtag">Years 4 to 8</span><span class="dtag">Separate or mixed groups</span>
+        </div>
+        <a class="btn btn-gold" href="#pricing">View pricing</a>
+      </div>
+    </div>
+
+    <!-- Workshop 6: Impact on the Home -->
+    <div class="prog-card flip" style="margin-top:2rem;">
+      <div class="prog-body">
+        <span class="prog-eyebrow teal-tag">
+          <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+          Half-Day Workshop · Families
+        </span>
+        <h2>When Home <em class="teal">Feels Like a Storm</em></h2>
+        <p class="prog-subtitle">Understanding the impact of neurodivergence on the whole family</p>
+        <p>A grounding workshop for families navigating the daily impact of neurodivergent or special needs behaviours at home. Explores meltdowns, demand avoidance, sibling dynamics, parental burnout and the small shifts that restore calm.</p>
+        <div class="areas">
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Understanding behaviour at home</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Meltdowns, shutdowns and demand avoidance</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Sibling and family impact</div>
+          <div class="area-row"><svg class="area-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Parental wellbeing and preventing burnout</div>
+        </div>
+        <div class="delivery">
+          <span class="dtag">Parent groups</span><span class="dtag">Schools</span><span class="dtag">SEND &amp; family teams</span><span class="dtag">Community orgs</span>
+        </div>
+        <a class="btn btn-teal" href="#pricing">View pricing</a>
+      </div>
+      <div class="prog-vis teal-bg" style="min-height:240px;">
+        <svg viewBox="0 0 240 220" width="180" height="165" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120,10 C116,46 86,62 12,110 C86,158 116,174 120,210 C124,174 154,158 228,110 C154,62 124,46 120,10Z" fill="none" stroke="rgba(74,158,142,.4)" stroke-width="0.8"/>
+          <path d="M120,30 C116,60 92,74 28,110 C92,146 116,160 120,190 C124,160 148,146 212,110 C148,74 124,60 120,30Z" fill="rgba(74,158,142,.12)"/>
+          <path d="M120,55 C117,76 103,86 68,110 C103,134 117,144 120,165 C123,144 137,134 172,110 C137,86 123,76 120,55Z" fill="rgba(74,158,142,.25)"/>
+          <path d="M120,80 C118,94 110,101 88,110 C110,119 118,126 120,140 C122,126 130,119 152,110 C130,101 122,94 120,80Z" fill="#4A9E8E"/>
+          <!-- house outline -->
+          <polyline points="104,120 104,134 136,134 136,120" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="100,122 120,108 140,122" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="115" y="124" width="10" height="10" rx="1" fill="rgba(255,255,255,.4)"/>
+          <circle cx="120" cy="12" r="2" fill="rgba(74,158,142,.5)"/>
+          <circle cx="120" cy="208" r="2" fill="rgba(74,158,142,.5)"/>
+          <circle cx="14" cy="110" r="2" fill="rgba(74,158,142,.5)"/>
+          <circle cx="226" cy="110" r="2" fill="rgba(74,158,142,.5)"/>
+          <text x="120" y="200" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="8.5" fill="rgba(74,158,142,.5)" letter-spacing="2">WORKSHOP 6</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:#fff;padding:6rem 2.5rem;">
+  <div class="section-inner">
+    <p class="eyebrow gold">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      Investment
+    </p>
+    <h2 class="section-title">Transparent <em>pricing</em></h2>
+    <p style="font-size:14px;font-weight:300;color:var(--ink-light);max-width:600px;margin-bottom:3rem;line-height:1.8;">All prices are for delivery within the UK. Bespoke quotes available for larger cohorts, multi-programme packages or ongoing partnership. Sofia Iqbal and Selina Afzal both deliver; enquire for availability.</p>
+
+    <!-- Pricing grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:18px;overflow:hidden;">
+
+      <!-- Becoming the Parent They Need -->
+      <div style="background:var(--cream);padding:2rem 1.75rem;border-top:3px solid var(--teal);">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem;display:flex;align-items:center;gap:5px;">
+          <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>Flagship · 12 Sessions
+        </p>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.1rem;line-height:1.2;">Becoming the Parent They Need</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Group delivery (up to 15)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">from £1,800</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Per-participant licence</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£110 per person</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--teal-pale);border-radius:8px;border:0.5px solid rgba(74,158,142,.2);">
+            <span style="font-size:13px;color:var(--teal-deep);">Annual site licence (self-facilitate)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--teal-deep);font-family:var(--serif);">£750 / year</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Train the trainer (full cohort)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">POA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Understanding Your Spark -->
+      <div style="background:var(--cream);padding:2rem 1.75rem;border-top:3px solid var(--gold);">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:5px;">
+          <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>Self-Discovery · 5 Areas
+        </p>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.1rem;line-height:1.2;">Understanding Your Spark</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Group delivery (up to 12)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">from £1,200</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Individual licence (self-paced)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£85 per person</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--gold-pale);border-radius:8px;border:0.5px solid rgba(184,145,74,.2);">
+            <span style="font-size:13px;color:var(--gold);">Annual school site licence</span>
+            <span style="font-size:14px;font-weight:500;color:var(--gold);font-family:var(--serif);">£550 / year</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Multi-year licence</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">POA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Managing Your Spark -->
+      <div style="background:var(--cream);padding:2rem 1.75rem;border-top:3px solid #6B5EA8;">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#6B5EA8;margin-bottom:.5rem;display:flex;align-items:center;gap:5px;">
+          <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>Follow-on Programme
+        </p>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.1rem;line-height:1.2;">Managing Your Spark</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Group delivery (up to 12)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">from £950</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Individual licence</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£75 per person</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#EEEAF8;border-radius:8px;border:0.5px solid rgba(107,94,168,.2);">
+            <span style="font-size:13px;color:#6B5EA8;">Bundle with Understanding Your Spark</span>
+            <span style="font-size:14px;font-weight:500;color:#6B5EA8;font-family:var(--serif);">£1,600</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Growing With Your Spark -->
+      <div style="background:var(--cream);padding:2rem 1.75rem;border-top:3px solid var(--teal);">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem;display:flex;align-items:center;gap:5px;">
+          <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>Young People · Transition
+        </p>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.1rem;line-height:1.2;">Growing With Your Spark</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Group delivery (up to 12)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">from £1,100</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Individual licence</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£85 per person</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--teal-pale);border-radius:8px;border:0.5px solid rgba(74,158,142,.2);">
+            <span style="font-size:13px;color:var(--teal-deep);">School annual licence</span>
+            <span style="font-size:14px;font-weight:500;color:var(--teal-deep);font-family:var(--serif);">£480 / year</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before the Bloom -->
+      <div style="background:var(--cream);padding:2rem 1.75rem;border-top:3px solid var(--gold-light);">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.5rem;display:flex;align-items:center;gap:5px;">
+          <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>Half-Day Workshop
+        </p>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.1rem;line-height:1.2;">Before the Bloom</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Single school session (half day)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£420</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">With parent/carer session (full day)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£680</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--gold-pale);border-radius:8px;border:0.5px solid rgba(184,145,74,.2);">
+            <span style="font-size:13px;color:var(--gold);">Annual licence (repeat delivery)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--gold);font-family:var(--serif);">£320 / year</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- When Home Feels Like a Storm -->
+      <div style="background:var(--cream);padding:2rem 1.75rem;border-top:3px solid var(--teal-deep);">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:.5rem;display:flex;align-items:center;gap:5px;">
+          <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>Half-Day Workshop
+        </p>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);margin-bottom:1.1rem;line-height:1.2;">When Home Feels Like a Storm</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">Single group session (half day)</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£380</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:#fff;border-radius:8px;border:0.5px solid var(--border);">
+            <span style="font-size:13px;color:var(--ink-mid);">With follow-up Q&A session</span>
+            <span style="font-size:14px;font-weight:500;color:var(--ink);font-family:var(--serif);">£520</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.6rem .85rem;background:var(--teal-pale);border-radius:8px;border:0.5px solid rgba(74,158,142,.2);">
+            <span style="font-size:13px;color:var(--teal-deep);">Bundle with Becoming the Parent They Need</span>
+            <span style="font-size:14px;font-weight:500;color:var(--teal-deep);font-family:var(--serif);">£2,050</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Licensing note -->
+    <div style="margin-top:2rem;background:var(--cream-mid);border-radius:14px;padding:1.5rem 1.75rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <div>
+        <p style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.5rem;">About licensing</p>
+        <p style="font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.7;">Site licences allow your staff to deliver programmes independently across your setting without a per-session fee. All licensed settings receive access to our facilitator guides, slides and resources. Train the Trainer pricing available on request.</p>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:.5rem;">Charitable &amp; community rates</p>
+        <p style="font-size:13px;font-weight:300;color:var(--ink-mid);line-height:1.7;">Reduced rates are available for registered charities, community interest companies, housing associations and faith groups. Please mention this when you enquire and we will always find a way to make it work.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem;text-align:center;">
+      <a class="btn btn-gold" href="#" onclick="openModal('Pricing');return false;" style="font-family:var(--sans);font-size:13px;font-weight:500;padding:.65rem 1.6rem;border-radius:100px;text-decoration:none;background:var(--gold);color:#fff;display:inline-flex;align-items:center;gap:7px;">
+        <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#fff"/></svg>
+        Request a bespoke quote
+      </a>
+      <p style="font-size:12px;color:var(--ink-light);margin-top:.75rem;">Sofia Iqbal and Selina Afzal respond to all enquiries personally within 48 hours.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- PHILOSOPHY — 6 equal boxes -->
+<section id="philosophy" class="phil-section">
+  <div class="section-inner">
+    <p class="eyebrow">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+      Our philosophy
+    </p>
+    <h2 class="section-title">What we <em class="purple">believe</em></h2>
+    <div class="phil-grid">
+
+      <div class="phil-card" style="border-top:3px solid var(--gold);">
+        <svg class="phil-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".7"/></svg>
+        <h3>Difference is natural</h3>
+        <p>Not a deficit. A natural variation in neurology and physiology that brings its own strengths, perceptions and ways of being.</p>
+      </div>
+
+      <div class="phil-card" style="border-top:3px solid var(--purple);">
+        <svg class="phil-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8" opacity=".7"/></svg>
+        <h3>Inherent value in every person</h3>
+        <p>Every individual has worth, gifts and a unique configuration of traits. Our work starts from that truth. Not from what needs fixing.</p>
+      </div>
+
+      <div class="phil-card" style="border-top:3px solid var(--teal);">
+        <svg class="phil-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E" opacity=".7"/></svg>
+        <h3>Self-knowledge is the foundation</h3>
+        <p>Understanding yourself, how you think, feel and process, is the first step to wellbeing, confidence and connection.</p>
+      </div>
+
+      <div class="phil-card" style="border-top:3px solid var(--gold-light);">
+        <svg class="phil-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A" opacity=".7"/></svg>
+        <h3>Gentle exploration over assessment</h3>
+        <p>Reflective prompts, not clinical questions. Non-pressured spaces for every kind of response.</p>
+      </div>
+
+      <div class="phil-card" style="border-top:3px solid var(--purple);">
+        <svg class="phil-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8" opacity=".7"/></svg>
+        <h3>Inclusive of medical needs</h3>
+        <p>We extend beyond neurodivergence to include vision loss, complex medical needs and acquired conditions, with the same affirming, human-first lens.</p>
+      </div>
+
+      <div class="phil-card" style="border-top:3px solid var(--teal);">
+        <svg class="phil-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E" opacity=".7"/></svg>
+        <h3>Community before clinic</h3>
+        <p>We go where people are. Delivered in schools, community spaces, faith settings and families — accessible, not gatekept.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORK WITH US — two tracks -->
+<section id="work-with-us" class="tracks-section">
+  <div class="section-inner">
+    <p class="eyebrow gold">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      Work with us
+    </p>
+    <h2 class="section-title">Partnering with <em class="teal">organisations</em> that want to do better</h2>
+    <div class="tracks-grid">
+
+      <!-- ORGANISATIONS -->
+      <div class="track-card">
+        <div class="track-header teal-bg">
+          <span class="track-label teal-lbl">
+            <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+            For organisations
+          </span>
+          <h3>Bring us into <em>your setting</em></h3>
+        </div>
+        <div class="track-body">
+          <p>We partner with schools, colleges, NHS teams, charities, housing associations and community groups to deliver our programmes, train your staff and build a more affirming environment for everyone you support.</p>
+          <div class="track-items">
+            <div class="track-item">
+              <svg width="10" height="10" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>
+              Programme delivery in your setting
+            </div>
+            <div class="track-item">
+              <svg width="10" height="10" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>
+              Staff awareness and training
+            </div>
+            <div class="track-item">
+              <svg width="10" height="10" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>
+              Ongoing partnership and consultation
+            </div>
+            <div class="track-item">
+              <svg width="10" height="10" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>
+              Bespoke programme development
+            </div>
+          </div>
+          <a class="btn btn-teal" href="#" onclick="openModal('Organisations');return false;">Enquire for your organisation</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SPECTRUM -->
+<section id="spectrum" class="spectrum-section">
+  <div class="section-inner">
+    <p class="eyebrow white">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.4)"/></svg>
+      Who we support
+    </p>
+    <h2 class="section-title white">The <em>spectrum</em></h2>
+    <p class="spec-note">Spark &amp; Spectrum supports neurodivergence, vision loss, special and medical needs including but not limited to the following.</p>
+    <div class="spec-grid">
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>Autism (ASC / ASD)</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>ADHD / ADD</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>Dyslexia</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>Dyspraxia / DCD</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>Dyscalculia</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>Tourette Syndrome</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>OCD &amp; anxiety (co-occurring)</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.3)"/></svg><span>Sensory processing differences</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(184,145,74,.6)"/></svg><span>Vision loss</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(184,145,74,.6)"/></svg><span>Complex medical needs</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(184,145,74,.6)"/></svg><span>Developmental differences</span></div>
+      <div class="spec-item"><svg class="spec-gem" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(184,145,74,.6)"/></svg><span>Genetic &amp; chromosomal conditions</span></div>
+    </div>
+    <p class="spec-disclaimer">This is not a diagnostic service. Our programmes complement but do not replace professional support.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team-section">
+  <div class="section-inner">
+    <p class="eyebrow gold">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      Meet the team
+    </p>
+    <h2 class="section-title">The <em>co-founders</em></h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-gem">
+          <svg viewBox="0 0 46 46" width="46" height="46" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23,2 C20.5,10.5 13,14.5 2,23 C13,31.5 20.5,35.5 23,44 C25.5,35.5 33,31.5 44,23 C33,14.5 25.5,10.5 23,2Z" fill="var(--gold-pale)"/>
+            <text x="23" y="27" text-anchor="middle" font-size="11" font-family="Cormorant Garamond,serif" fill="var(--gold)" font-weight="500">SA</text>
+          </svg>
+        </div>
+        <div>
+          <h3>Selina Afzal</h3>
+          <p class="role">Co-founder · Spark &amp; Spectrum CIC</p>
+          <p>Selina co-founded Spark &amp; Spectrum to bring neurodiversity-affirming and special needs practice into communities that need it most. She works to deliver, develop and grow the CIC's reach.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-gem">
+          <svg viewBox="0 0 46 46" width="46" height="46" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23,2 C20.5,10.5 13,14.5 2,23 C13,31.5 20.5,35.5 23,44 C25.5,35.5 33,31.5 44,23 C33,14.5 25.5,10.5 23,2Z" fill="var(--teal-pale)"/>
+            <text x="23" y="27" text-anchor="middle" font-size="11" font-family="Cormorant Garamond,serif" fill="var(--teal)" font-weight="500">SI</text>
+          </svg>
+        </div>
+        <div>
+          <h3>Sofia Iqbal</h3>
+          <p class="role" style="color:var(--teal);">Co-founder · Spark &amp; Spectrum CIC</p>
+          <p>Sofia brings expertise in emotional intelligence, SEND and youth work to Spark &amp; Spectrum, delivering programmes in schools and community settings across the Midlands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SELINA CONTACT -->
+<section style="background:#fff;padding:6rem 2.5rem;">
+  <div class="section-inner">
+    <p class="eyebrow gold">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>
+      Contact Selina directly
+    </p>
+    <h2 class="section-title">Reach out to <em>Selina</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;">
+      <div style="background:var(--cream);border:0.5px solid var(--border);border-radius:16px;padding:2rem;">
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--ink);margin-bottom:.25rem;">Selina Afzal</h3>
+        <p style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;font-weight:500;">Co-founder · Spark &amp; Spectrum CIC</p>
+        <a href="mailto:selina@sparkandspectrum.co.uk" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:300;color:var(--ink-mid);text-decoration:none;padding:.65rem 0;border-bottom:0.5px solid var(--border);">
+          <div style="width:32px;height:32px;border-radius:8px;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#B8914A" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="#B8914A" stroke-width="1.5"/></svg>
+          </div>
+          selina@sparkandspectrum.co.uk
+        </a>
+        <a href="https://wa.me/447XXXXXXXXX" target="_blank" style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:300;color:var(--ink-mid);text-decoration:none;padding:.65rem 0;">
+          <div style="width:32px;height:32px;border-radius:8px;background:#25D366;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="15" height="15" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.45z" fill="#fff"/></svg>
+          </div>
+          WhatsApp Selina
+        </a>
+      </div>
+      <div style="background:var(--cream-mid);border:0.5px solid var(--border);border-radius:16px;padding:2rem;">
+        <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--ink);margin-bottom:1rem;">Send an enquiry</h3>
+        <div id="org-form">
+          <div style="margin-bottom:.75rem;"><label style="display:block;font-size:11px;font-weight:500;color:var(--ink-mid);margin-bottom:5px;letter-spacing:.04em;">Your name &amp; organisation</label><input type="text" placeholder="Name, School / Charity / NHS Trust" style="width:100%;background:#fff;border:0.5px solid rgba(42,37,32,.15);border-radius:9px;padding:.55rem .85rem;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;"></div>
+          <div style="margin-bottom:.75rem;"><label style="display:block;font-size:11px;font-weight:500;color:var(--ink-mid);margin-bottom:5px;letter-spacing:.04em;">Email address</label><input type="email" placeholder="you@organisation.co.uk" style="width:100%;background:#fff;border:0.5px solid rgba(42,37,32,.15);border-radius:9px;padding:.55rem .85rem;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;"></div>
+          <div style="margin-bottom:.75rem;"><label style="display:block;font-size:11px;font-weight:500;color:var(--ink-mid);margin-bottom:5px;letter-spacing:.04em;">What are you looking for?</label><textarea placeholder="Programme delivery, staff training, consultation..." style="width:100%;background:#fff;border:0.5px solid rgba(42,37,32,.15);border-radius:9px;padding:.55rem .85rem;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;min-height:80px;resize:vertical;"></textarea></div>
+          <button onclick="submitOrg()" style="width:100%;justify-content:center;background:var(--teal-deep);color:#fff;font-family:var(--sans);font-size:13px;font-weight:500;padding:.65rem 1.6rem;border-radius:100px;border:none;cursor:pointer;">Send to Selina</button>
+        </div>
+        <div id="org-success" style="display:none;text-align:center;padding:1.5rem 0;">
+          <p style="font-family:var(--serif);font-size:1.2rem;color:var(--ink);">Enquiry received.</p>
+          <p style="font-size:13px;color:var(--ink-light);">Selina will respond within 48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner" style="display:flex;flex-direction:column;align-items:center;">
+    <p class="eyebrow white" style="justify-content:center;">
+      <svg width="7" height="7" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.35)"/></svg>
+      Get involved
+    </p>
+    <h2 class="section-title white" style="text-align:center;">Schools, organisations, families, <em>all welcome</em></h2>
+    <p class="cta-sub">Make an enquiry and Selina or Sofia will respond within 48 hours. No obligation.</p>
+    <div class="cta-row">
+      <button class="btn btn-gold" onclick="openModal()">Make an enquiry</button>
+      <a class="btn btn-outline" style="color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.2);" href="mailto:hello@sparkandspectrum.co.uk">hello@sparkandspectrum.co.uk</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Spark &amp; Spectrum CIC</span>
+  <div class="footer-links">
+    <a href="#">sparkandspectrum.co.uk</a>
+    <a href="mailto:hello@sparkandspectrum.co.uk">hello@sparkandspectrum.co.uk</a>
+  </div>
+  <p class="footer-copy">2025 Spark &amp; Spectrum CIC · Co-founded by Sofia Iqbal and Selina Afzal · <a href="individuals.html" style="color:inherit;">Individuals: work with Sofia</a></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-wrap" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">x</button>
+    <div id="form-wrap">
+      <h2>Make an enquiry</h2>
+      <p class="modal-org">Spark &amp; Spectrum CIC</p>
+      <div class="ff-row">
+        <div class="ff"><label>Your name</label><input type="text" placeholder="Full name"></div>
+        <div class="ff"><label>Your role</label><input type="text" placeholder="e.g. Teacher, Parent"></div>
+      </div>
+      <div class="ff"><label>Organisation (if applicable)</label><input type="text" placeholder="School, charity, etc."></div>
+      <div class="ff"><label>Email address</label><input type="email" placeholder="you@example.com"></div>
+      <div class="ff">
+        <label>How can we help?</label>
+        <select id="f-prog">
+          <option value="">Select an option</option>
+          <option>Understanding Your Spark (self-discovery)</option>
+          <option>Becoming the Parent They Need</option>
+          <option>Both programmes</option>
+          <option>Organisation partnership or delivery</option>
+          <option>Staff training or awareness</option>
+          <option>Not sure, please advise</option>
+        </select>
+      </div>
+      <div class="ff"><label>Anything else we should know?</label><textarea placeholder="Any context, questions or preferences..."></textarea></div>
+      <button class="btn btn-dark" style="width:100%;justify-content:center;" onclick="submitForm()">Send enquiry</button>
+      <p class="modal-note">Selina or Sofia will respond within 48 hours. No obligation.</p>
+    </div>
+    <div class="form-success" id="form-success">
+      <h3>Enquiry received</h3>
+      <p>Selina or Sofia will be in touch within 48 hours.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function submitOrg(){
+  document.getElementById("org-form").style.display="none";
+  document.getElementById("org-success").style.display="block";
+}
+function openModal(p){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';if(p){var s=document.getElementById('f-prog');for(var i=0;i<s.options.length;i++){if(s.options[i].value.indexOf(p)!==-1){s.selectedIndex=i;break;}}}}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function submitForm(){document.getElementById('form-wrap').style.display='none';document.getElementById('form-success').style.display='block';}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>

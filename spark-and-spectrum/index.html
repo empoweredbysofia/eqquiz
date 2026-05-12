@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spark & Spectrum CIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F0ECE3;--cream-mid:#EAE4D9;--gold:#B8914A;--gold-light:#D4A95A;
+  --gold-pale:#F5EDDA;--purple:#6B5EA8;--teal:#4A9E8E;--teal-deep:#2B6B5F;--teal-pale:#E0F2EE;
+  --ink:#2A2520;--ink-mid:#4A4540;--ink-light:#8A857E;
+  --border:rgba(90,75,50,0.13);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.65rem 2.5rem;background:rgba(240,236,227,0.96);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
+.nav-brand{font-family:var(--serif);font-size:19px;font-weight:500;display:flex;align-items:center;gap:0;text-decoration:none;}
+.nb-spark{color:var(--gold);position:relative;display:inline-block;}
+.nb-spark-gem{position:absolute;top:-0.52em;right:-0.38em;line-height:0;}
+.nb-amp{color:var(--ink-light);font-weight:300;margin:0 3px 0 10px;}
+.nb-spectrum{background:linear-gradient(90deg,var(--purple) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-pill{font-size:10px;letter-spacing:.1em;font-weight:500;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);border:0.5px solid rgba(184,145,74,.25);padding:4px 12px;border-radius:100px;}
+
+/* MAIN SPLIT LAYOUT */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:52px;}
+
+.panel{
+  position:relative;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:4rem 3rem;text-align:center;
+  cursor:pointer;overflow:hidden;
+  transition:flex .4s ease;
+  min-height:calc(100vh - 52px);
+  text-decoration:none;color:inherit;
+}
+.panel:hover{flex:1.15;}
+.panel-org{background:var(--ink);}
+.panel-ind{background:var(--cream);}
+
+/* faint diamond bg */
+.panel-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.06;}
+
+/* photo placeholder */
+.photo-wrap{position:relative;margin-bottom:1.75rem;}
+.photo-circle{
+  width:140px;height:140px;border-radius:50%;
+  overflow:hidden;border:3px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto;
+  transition:transform .3s;
+}
+.panel:hover .photo-circle{transform:scale(1.04);}
+.photo-circle.gold-border{border-color:rgba(184,145,74,.4);}
+.photo-circle img{width:100%;height:100%;object-fit:cover;}
+.photo-initials{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:rgba(255,255,255,.5);}
+.photo-initials.dark{color:var(--gold);opacity:.7;}
+
+/* gem on photo */
+.photo-gem{position:absolute;bottom:-6px;right:calc(50% - 76px);background:var(--gold);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:2px solid var(--cream);}
+.photo-gem.teal-gem{background:var(--teal-deep);}
+
+.panel-eyebrow{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;justify-content:center;gap:6px;}
+.panel-eyebrow.light{color:rgba(255,255,255,.45);}
+.panel-eyebrow.gold{color:var(--gold);}
+
+.panel-name{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;margin-bottom:.4rem;}
+.panel-name.white{color:#fff;}
+.panel-name.ink{color:var(--ink);}
+
+.panel-role{font-size:12px;font-weight:400;letter-spacing:.06em;margin-bottom:1rem;}
+.panel-role.light{color:rgba(255,255,255,.45);}
+.panel-role.mid{color:var(--ink-light);}
+
+.panel-bio{font-size:14px;font-weight:300;line-height:1.75;max-width:340px;margin:0 auto 1.75rem;}
+.panel-bio.light{color:rgba(255,255,255,.65);}
+.panel-bio.mid{color:var(--ink-mid);}
+
+.panel-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:1.75rem;}
+.ptag{font-size:11px;font-weight:400;padding:4px 12px;border-radius:100px;}
+.ptag.light-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);}
+.ptag.gold-tag{background:var(--gold-pale);color:var(--gold);}
+
+.panel-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:13px;font-weight:500;
+  padding:.65rem 1.6rem;border-radius:100px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:opacity .2s,transform .15s;
+}
+.panel-btn:hover{opacity:.85;transform:translateY(-1px);}
+.panel-btn.white-btn{background:#fff;color:var(--ink);}
+.panel-btn.gold-btn{background:var(--gold);color:#fff;}
+
+/* centre divider */
+.split-label{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:10;background:var(--cream);
+  border:0.5px solid var(--border);
+  border-radius:100px;padding:6px 18px;
+  font-size:11px;letter-spacing:.1em;font-weight:500;
+  color:var(--ink-light);text-transform:uppercase;
+  pointer-events:none;
+}
+
+/* bottom brand strip */
+.bottom-strip{
+  position:fixed;bottom:0;left:0;right:0;z-index:10;
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  padding:.6rem 2rem;background:rgba(240,236,227,0.94);
+  backdrop-filter:blur(8px);border-top:0.5px solid var(--border);
+  font-size:11px;color:var(--ink-light);
+}
+.bottom-strip a{color:var(--ink-light);text-decoration:none;transition:color .2s;}
+.bottom-strip a:hover{color:var(--gold);}
+
+@media(max-width:700px){
+  .split{grid-template-columns:1fr;grid-template-rows:1fr 1fr;}
+  .split-label{display:none;}
+  nav{padding:.65rem 1.25rem;}
+  .panel{padding:3rem 1.5rem;min-height:50vh;}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="cdiamond" viewBox="0 0 10 10">
+      <path d="M5,.5 C4.2,2.8 2.8,3.5 .5,5 C2.8,6.5 4.2,7.2 5,9.5 C5.8,7.2 7.2,6.5 9.5,5 C7.2,3.5 5.8,2.8 5,.5Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav>
+  <a class="nav-brand" href="#">
+    <span class="nb-spark">Spark<span class="nb-spark-gem">
+      <svg width="13" height="13" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".82"/></svg>
+    </span></span>
+    <span class="nb-amp">&</span>
+    <span class="nb-spectrum">Spectrum</span>
+  </a>
+  <span class="nav-pill">CIC · Neurodiversity &amp; Special Needs</span>
+</nav>
+
+<!-- "or" divider -->
+<div class="split-label">or</div>
+
+<div class="split">
+
+  <!-- LEFT: ORGANISATIONS (Selina) -->
+  <a class="panel panel-org" href="organisations.html">
+    <div class="panel-bg">
+      <svg viewBox="0 0 400 400" width="400" height="400">
+        <path d="M200,20 C184,88 112,120 20,200 C112,280 184,312 200,380 C216,312 288,280 380,200 C288,120 216,88 200,20Z" fill="#4A9E8E"/>
+      </svg>
+    </div>
+
+    <div class="photo-wrap">
+      <div class="photo-circle">
+        <!-- REPLACE src with Selina's actual image -->
+        <span class="photo-initials">SA</span>
+      </div>
+      <div class="photo-gem teal-gem">
+        <svg width="14" height="14" viewBox="0 0 10 10"><use href="#cdiamond" fill="#fff"/></svg>
+      </div>
+    </div>
+
+    <p class="panel-eyebrow light">
+      <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+      For organisations
+    </p>
+    <h2 class="panel-name white">Work with<br><em style="font-style:italic;color:var(--teal);">Selina</em></h2>
+    <p class="panel-role light">Co-founder · Spark &amp; Spectrum CIC</p>
+    <p class="panel-bio light">Bringing neurodiversity-affirming and special needs programmes into schools, charities, NHS teams and community settings. Partnership, training and bespoke delivery.</p>
+    <div class="panel-tags">
+      <span class="ptag light-tag">Schools</span>
+      <span class="ptag light-tag">NHS &amp; health</span>
+      <span class="ptag light-tag">Community orgs</span>
+      <span class="ptag light-tag">Staff training</span>
+    </div>
+    <span class="panel-btn white-btn">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="var(--ink)"/></svg>
+      Explore partnership
+    </span>
+  </a>
+
+  <!-- RIGHT: INDIVIDUALS (Sofia) -->
+  <a class="panel panel-ind" href="individuals.html">
+    <div class="panel-bg">
+      <svg viewBox="0 0 400 400" width="400" height="400">
+        <path d="M200,20 C184,88 112,120 20,200 C112,280 184,312 200,380 C216,312 288,280 380,200 C288,120 216,88 200,20Z" fill="#B8914A"/>
+      </svg>
+    </div>
+
+    <div class="photo-wrap">
+      <div class="photo-circle gold-border">
+        <!-- REPLACE src with Sofia's actual image -->
+        <span class="photo-initials dark">SI</span>
+      </div>
+      <div class="photo-gem">
+        <svg width="14" height="14" viewBox="0 0 10 10"><use href="#cdiamond" fill="#fff"/></svg>
+      </div>
+    </div>
+
+    <p class="panel-eyebrow gold">
+      <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+      For individuals &amp; families
+    </p>
+    <h2 class="panel-name ink">Work with<br><em style="font-style:italic;color:var(--gold);">Sofia</em></h2>
+    <p class="panel-role mid">Co-founder · Spark &amp; Spectrum CIC</p>
+    <p class="panel-bio mid">Personal support for neurodivergent individuals, those with vision loss or medical needs, and the parents raising them. Reflective, affirming and built around you.</p>
+    <div class="panel-tags">
+      <span class="ptag gold-tag">Self-discovery</span>
+      <span class="ptag gold-tag">Parent support</span>
+      <span class="ptag gold-tag">Vision loss</span>
+      <span class="ptag gold-tag">Medical needs</span>
+    </div>
+    <span class="panel-btn gold-btn">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#fff"/></svg>
+      Get support
+    </span>
+  </a>
+
+</div>
+
+<div class="bottom-strip">
+  <span>Spark &amp; Spectrum CIC</span>
+  <span style="opacity:.4;">·</span>
+  <a href="mailto:hello@sparkandspectrum.co.uk">hello@sparkandspectrum.co.uk</a>
+  <span style="opacity:.4;">·</span>
+  <span>Selina Afzal &amp; Sofia Iqbal</span>
+</div>
+
+</body>
+</html>
