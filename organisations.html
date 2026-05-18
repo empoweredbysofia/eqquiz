@@ -3,954 +3,871 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spark & Spectrum CIC — Programmes for Organisations</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Cinzel:wght@400&display=swap" rel="stylesheet">
+<title>For Organisations — EmpowerED by Sofia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream:        #F5F0E8;
-    --cream-deep:   #EDE6D6;
-    --cream-border: rgba(44,36,24,0.12);
-    --gold:         #C8962A;
-    --gold-light:   #D4A843;
-    --gold-pale:    #F5E8C0;
-    --text:         #2C2418;
-    --text-mid:     #5C4F3A;
-    --text-light:   #8C7D65;
-    --ss-purple:    #7B6BB5;
-    --ss-blue:      #5B9EC8;
-    --ss-teal:      #3BADB5;
-    --ss-green:     #6BAD5B;
-    --em-coral:     #D85A30;
-    --em-coral-deep:#993C1D;
-    --em-purple:    #3C3489;
-    --em-purple-light:#CECBF6;
-    --white:        #FFFFFF;
+    --purple-deep: #26215C;
+    --purple-mid: #3C3489;
+    --purple-soft: #534AB7;
+    --purple-light: #CECBF6;
+    --purple-pale: #EEEDFE;
+    --teal-deep: #085041;
+    --teal-mid: #1D9E75;
+    --teal-light: #9FE1CB;
+    --teal-pale: #E1F5EE;
+    --coral: #D85A30;
+    --coral-deep: #993C1D;
+    --coral-pale: #FAECE7;
+    --cream: #FAF9F6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #8888aa;
+    --border: rgba(60,52,137,0.15);
+    --white: #ffffff;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--cream);
-    color: var(--text);
+    color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(245,240,232,0.94);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--cream-border);
-    padding: 0.9rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem; color: var(--text);
-    text-decoration: none;
-    display: flex; align-items: center; gap: 5px;
-  }
-  .nav-spark { color: var(--gold); }
-  .nav-amp   { color: var(--text-light); font-size: 1.1rem; font-family: 'Cinzel', serif; font-style: normal; opacity: 0.65; font-weight: 400; }
-  .nav-spectrum {
-    background: linear-gradient(90deg, var(--ss-purple), var(--ss-blue), var(--ss-teal), var(--ss-green));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .nav-cic {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.65rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--text-light); margin-left: 0.35rem;
-  }
-  .nav-btn {
-    background: var(--gold); color: var(--white);
-    font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
-    padding: 0.42rem 1.1rem; border-radius: 7px;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: background 0.2s;
-  }
-  .nav-btn:hover { background: #a87820; }
-
-  /* ── HERO ── */
-  .hero {
     min-height: 100vh;
+  }
+
+  /* ── ACCESS GATE ── */
+  #gate {
+    position: fixed; inset: 0; z-index: 1000;
+    background: var(--purple-deep);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
+    padding: 2rem;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+  #gate.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  .gate-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--purple-pale);
+    margin-bottom: 0.25rem;
     text-align: center;
-    padding: 7rem 1.5rem 2.5rem;
-    position: relative; overflow: hidden;
-    background: var(--cream);
   }
-
-  /* Subtle texture circles */
-  .hero::before {
-    content: '';
-    position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
-    width: 900px; height: 600px;
-    background: radial-gradient(ellipse, rgba(200,150,42,0.08) 0%, transparent 65%);
-    pointer-events: none;
+  .gate-logo span { color: var(--coral); }
+  .gate-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 2.5rem;
+    text-align: center;
   }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -60px; right: -60px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(91,158,200,0.07) 0%, transparent 65%);
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.68rem; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem;
-  }
-
-  .hero-cic-tag {
-    display: inline-block;
-    background: var(--gold-pale);
-    border: 1px solid rgba(200,150,42,0.3);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-  }
-
-  .hero-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 0.2rem;
-  }
-  .hero-logo .spark  { color: var(--gold); }
-  .hero-sub-brands {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    margin-bottom: 1.1rem;
-    letter-spacing: 0.02em;
-  }
-  .hero-logo .amp {
-    color: var(--text-light);
-    font-size: 0.55em;
-    font-family: 'Cinzel', serif;
-    font-weight: 400;
-    opacity: 0.6;
-    vertical-align: middle;
-    font-style: normal;
-  }
-  /* All & signs — Cinzel */
-  .amp { font-family: 'Cinzel', serif; font-style: normal; font-size: 0.75em; color: var(--text-light); opacity: 0.65; vertical-align: middle; }
-  .hero-logo .spectrum {
-    background: linear-gradient(90deg, var(--ss-purple), var(--ss-blue), var(--ss-teal), var(--ss-green));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-with {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(0.95rem, 2vw, 1.2rem);
-    color: var(--text-light); font-style: italic;
-    margin-bottom: 0.2rem;
-  }
-  .hero-em {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
-    color: var(--em-coral);
-    margin-bottom: 1.75rem;
-  }
-  .hero-em span { color: var(--em-purple); }
-
-  .hero-desc {
-    font-size: 0.95rem; color: var(--text-mid);
-    line-height: 1.8; max-width: 640px;
-    margin: 0 auto 1.25rem;
-  }
-
-  /* Audience chips — cream style */
-  .chips {
-    display: flex; flex-wrap: wrap; gap: 7px;
-    justify-content: center; margin-bottom: 1.5rem;
-  }
-  .chip {
-    font-size: 0.73rem; font-weight: 500;
-    padding: 4px 13px; border-radius: 20px;
-    border: 1px solid var(--cream-border);
-    color: var(--text-mid);
-    background: var(--white);
-  }
-  .chip-gold { background: var(--gold-pale); border-color: rgba(200,150,42,0.3); color: #7a5800; }
-  .chip-coral { background: #FAECE7; border-color: rgba(216,90,48,0.25); color: #993C1D; }
-  .chip-navy  { background: rgba(28,43,74,0.08); border-color: rgba(28,43,74,0.2); color: #1C2B4A; }
-
-  .cta-row {
-    display: flex; flex-wrap: wrap; gap: 0.85rem;
-    justify-content: center; margin-bottom: 1.75rem;
-  }
-  .btn-gold {
-    background: var(--gold); color: var(--white);
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
-    padding: 0.8rem 1.9rem; border-radius: 10px;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-gold:hover { background: #a87820; transform: translateY(-1px); }
-  .btn-outline {
-    background: transparent; color: var(--text);
-    border: 1.5px solid var(--cream-border);
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
-    padding: 0.8rem 1.9rem; border-radius: 10px;
-    text-decoration: none; cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .btn-outline:hover { background: var(--cream-deep); border-color: rgba(44,36,24,0.2); }
-
-  .stats {
-    display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;
-  }
-  .stat { text-align: center; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; color: var(--gold); display: block;
-  }
-  .stat-label { font-size: 0.72rem; color: var(--text-light); }
-
-  /* ── SHARED SECTION STYLES ── */
-  .section { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
-  .divider { height: 1px; background: var(--cream-border); }
-
-  .s-eye {
-    font-size: 0.68rem; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 0.55rem;
-  }
-  .s-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    color: var(--text); line-height: 1.2; margin-bottom: 0.65rem;
-  }
-  .s-title em { font-style: italic; color: var(--gold); }
-  .s-title .spectrum-text {
-    background: linear-gradient(90deg, var(--ss-purple), var(--ss-blue), var(--ss-teal));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .s-desc {
-    font-size: 0.9rem; color: var(--text-mid);
-    line-height: 1.8; max-width: 600px; margin-bottom: 1.25rem;
-  }
-
-  /* ── SIDE BY SIDE BRAND BLOCK ── */
-  .brand-pair {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1rem; margin-bottom: 1.25rem;
-  }
-  .brand-three { grid-template-columns: 1fr 1fr 1fr; }
-  .brand-soa { background: var(--white); border-color: var(--cream-border); }
-  .brand-soa .brand-card-sub { color: var(--text-mid); }
-  .brand-soa .brand-card-founders { color: var(--text-light); }
-  @media (max-width: 900px) { .brand-three { grid-template-columns: 1fr 1fr; } }
-  .brand-card {
-    border-radius: 18px; padding: 2rem;
-    border: 1px solid var(--cream-border);
-  }
-  .brand-card-eye {
-    font-size: 0.62rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .brand-card-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
-  .brand-card-sub {
-    font-size: 0.82rem; line-height: 1.6; margin-bottom: 1.25rem;
-  }
-  .brand-card-founders {
-    font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.05em; opacity: 0.65;
-  }
-
-  /* SS card — cream with gold */
-  .brand-ss {
-    background: var(--white);
-  }
-  .brand-ss .brand-card-eye { color: var(--gold); }
-  .brand-ss .brand-card-name .spark  { color: var(--gold); }
-  .brand-ss .brand-card-name .spectrum {
-    background: linear-gradient(90deg, var(--ss-purple), var(--ss-blue), var(--ss-teal), var(--ss-green));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .brand-ss .brand-card-sub { color: var(--text-mid); }
-  .brand-ss .brand-card-founders { color: var(--text); }
-
-  /* EM card — deep purple */
-  .brand-em {
-    background: var(--white);
-    border-color: var(--cream-border);
-  }
-  .brand-em .brand-card-eye { color: var(--em-coral); font-weight:600; }
-  .brand-em .brand-card-name { color: var(--text); }
-  .brand-em .brand-card-name span { color: var(--em-coral); }
-  .brand-em .brand-card-sub { color: var(--text-mid); }
-  .brand-em .brand-card-founders { color: var(--text-light); }
-
-  /* ── FOCUS AREAS ── */
-  .focus-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 0.75rem;
-  }
-  .focus-card {
-    background: var(--white);
-    border: 1px solid var(--cream-border);
-    border-radius: 13px; padding: 1.2rem 1.15rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .focus-card:hover {
-    border-color: rgba(200,150,42,0.3);
-    box-shadow: 0 4px 18px rgba(200,150,42,0.08);
-  }
-  .focus-icon { font-size: 1.3rem; margin-bottom: 0.5rem; }
-  .focus-title { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
-  .focus-desc { font-size: 0.76rem; color: var(--text-light); line-height: 1.5; }
-
-  /* ── PROGRAMME SECTIONS ── */
-  .prog-block {
-    border-radius: 18px; overflow: hidden;
-    border: 1px solid var(--cream-border);
-    margin-bottom: 1.5rem;
-  }
-
-  /* SS programme block header */
-  .prog-block-header-ss {
-    background: var(--white);
-    border-bottom: 1px solid var(--cream-border);
-    padding: 1.75rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .pb-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; }
-  .pb-logo .spark  { color: var(--gold); }
-  .pb-logo .spectrum {
-    background: linear-gradient(90deg, var(--ss-purple), var(--ss-blue), var(--ss-teal), var(--ss-green));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .pb-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
-  .pb-tag {
-    background: var(--gold-pale); border: 1px solid rgba(200,150,42,0.28);
-    border-radius: 20px; padding: 3px 11px;
-    font-size: 0.68rem; font-weight: 500; color: #7a5800;
-  }
-
-  /* EM programme block header */
-  .prog-block-header-em {
-    background: #2A3850;
-    border-bottom: 1px solid rgba(206,203,246,0.12);
-    padding: 1.75rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .pb-em-logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #EEEDFE; }
-  .pb-em-logo span { color: var(--em-coral); }
-  .pb-em-tag {
-    background: rgba(216,90,48,0.18); border: 1px solid rgba(216,90,48,0.3);
-    border-radius: 20px; padding: 3px 11px;
-    font-size: 0.68rem; font-weight: 500; color: #F0997B;
-  }
-
-  /* Programme cards grid inside block */
-  .prog-cards {
-    background: var(--cream);
-    padding: 1.5rem;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 0.85rem;
-  }
-  .prog-cards-dark {
-    background: #F0EDE8;
-    padding: 1.5rem;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 0.85rem;
-  }
-  .prog-card {
-    background: var(--white);
-    border: 1px solid var(--cream-border);
-    border-radius: 12px; padding: 1.1rem 1.2rem;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .prog-card:hover { box-shadow: 0 4px 16px rgba(200,150,42,0.1); transform: translateY(-2px); }
-  .prog-card-dark {
-    background: var(--white);
-    border: 1px solid rgba(42,56,80,0.15);
-    border-radius: 12px; padding: 1.1rem 1.2rem;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .prog-card-dark:hover { background: #F7F5F0; border-color:rgba(42,56,80,0.25); transform: translateY(-2px); }
-
-  .pc-eye { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; }
-  .pc-name { font-family: 'Playfair Display', serif; font-size: 0.98rem; margin-bottom: 0.25rem; }
-  .pc-sub { font-size: 0.75rem; line-height: 1.45; }
-
-  /* SS card colours */
-  .prog-card .pc-eye  { color: var(--gold); }
-  .prog-card .pc-name { color: var(--text); }
-  .prog-card .pc-sub  { color: var(--text-light); }
-
-  /* EM card colours */
-  .prog-card-dark .pc-eye  { color: var(--em-coral); }
-  .prog-card-dark .pc-name { color: #1C2B4A; }
-  .prog-card-dark .pc-sub  { color: var(--text-light); }
-
-  .prog-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--cream-border); }
-  .prog-card-tags-dark { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid rgba(44,36,24,0.1); }
-  .ptag { font-size: 0.66rem; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
-  .ptag-ss { background: var(--gold-pale); color: #7a5800; }
-  .ptag-em { background: rgba(28,43,74,0.1); color: #1C2B4A; }
-
-  /* Block footer CTA */
-  .prog-block-foot {
-    padding: 1.1rem 1.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 0.75rem;
-    border-top: 1px solid var(--cream-border);
-    background: var(--white);
-  }
-  .prog-block-foot-dark {
-    padding: 1.1rem 1.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 0.75rem;
-    border-top: 1px solid rgba(44,36,24,0.1);
-    background: #2A3850;
-  }
-  .pbf-text { font-size: 0.82rem; color: var(--text-mid); }
-  .pbf-text-dark { font-size: 0.82rem; color: rgba(255,255,255,0.75); }
-  .pbf-btn-ss {
-    background: var(--gold); color: var(--white);
-    font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
-    padding: 0.5rem 1.2rem; border-radius: 8px;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: background 0.2s;
-  }
-  .pbf-btn-ss:hover { background: #a87820; }
-  .pbf-btn-em {
-    background: var(--em-coral); color: var(--white);
-    font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
-    padding: 0.5rem 1.2rem; border-radius: 8px;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: background 0.2s;
-  }
-  .pbf-btn-em:hover { background: var(--em-coral-deep); }
-
-  /* ── DELIVERY FORMATS ── */
-  .formats-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-    gap: 0.85rem;
-  }
-  .fmt-card {
-    background: var(--white);
-    border: 1px solid var(--cream-border);
-    border-radius: 12px; padding: 1.1rem 1rem; text-align: center;
-    transition: border-color 0.2s;
-  }
-  .fmt-card:hover { border-color: rgba(200,150,42,0.3); }
-  .fmt-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
-  .fmt-title { font-size: 0.84rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
-  .fmt-sub { font-size: 0.71rem; color: var(--text-light); line-height: 1.4; }
-
-  /* ── PORTAL / PASSWORD GATE ── */
-  .portal-section {
-    background: var(--cream-deep);
-    border-top: 1px solid var(--cream-border);
-  }
-  .portal-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 2.5rem 1.5rem;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center;
-  }
-  .portal-left p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem; }
-  .portal-left ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-  .portal-left li { font-size: 0.83rem; color: var(--text-mid); display: flex; align-items: center; gap: 9px; }
-  .portal-left li::before { content: '✓'; color: var(--gold); font-size: 0.95rem; flex-shrink: 0; }
 
   .gate-card {
-    background: var(--white);
-    border: 1px solid var(--cream-border);
-    border-radius: 18px; padding: 2.25rem 2rem;
-    box-shadow: 0 8px 40px rgba(44,36,24,0.08);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    width: 100%; max-width: 420px;
   }
-  .gate-card h3 {
-    font-family: 'Playfair Display', serif; font-size: 1.2rem;
-    color: var(--text); margin-bottom: 0.4rem;
+
+  .gate-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--purple-pale);
+    margin-bottom: 0.5rem;
   }
-  .gate-card p { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.65; }
-  .form-group { margin-bottom: 0.85rem; }
+  .gate-card p {
+    font-size: 0.85rem;
+    color: var(--purple-light);
+    margin-bottom: 1.75rem;
+    line-height: 1.6;
+  }
+
+  .form-group { margin-bottom: 1rem; }
   .form-group label {
-    display: block; font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.07em; text-transform: uppercase;
-    color: var(--text-light); margin-bottom: 0.38rem;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 0.4rem;
   }
-  .form-group input {
-    width: 100%; background: var(--cream);
-    border: 1.5px solid var(--cream-border); border-radius: 9px;
-    padding: 0.7rem 1rem; font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem; color: var(--text); outline: none;
-    transition: border-color 0.2s, background 0.2s;
+  .form-group input, .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
   }
-  .form-group input::placeholder { color: var(--text-light); }
-  .form-group input:focus {
-    border-color: var(--gold);
-    background: var(--white);
+  .form-group input::placeholder { color: rgba(255,255,255,0.35); }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--purple-light);
   }
-  #pw-error { font-size: 0.78rem; color: var(--em-coral); margin-bottom: 0.7rem; display: none; }
+  .form-group select option { background: var(--purple-deep); color: var(--white); }
+
   .gate-submit {
-    width: 100%; background: var(--gold); color: var(--white);
-    border: none; border-radius: 9px; padding: 0.85rem 1.5rem;
-    font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 500;
-    cursor: pointer; transition: background 0.2s, transform 0.15s;
+    width: 100%;
+    background: var(--coral);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.15s;
   }
-  .gate-submit:hover { background: #a87820; transform: translateY(-1px); }
-  .gate-foot {
-    margin-top: 1.2rem; font-size: 0.74rem;
-    color: var(--text-light); text-align: center; line-height: 1.6;
-  }
-  .gate-foot a { color: var(--gold); }
+  .gate-submit:hover { background: var(--coral-deep); transform: translateY(-1px); }
+  .gate-submit:active { transform: translateY(0); }
 
-  /* ── FOOTER ── */
+  .gate-success {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .gate-success .tick {
+    width: 48px; height: 48px;
+    background: var(--teal-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.4rem;
+    color: var(--teal-deep);
+  }
+  .gate-success h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--purple-pale);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .gate-success p { font-size: 0.85rem; color: var(--purple-light); }
+
+  .peek-link {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--purple-light);
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .peek-link:hover { opacity: 1; }
+
+  /* ── SNEAK PEEK MODAL ── */
+  #peek-modal {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(20,18,50,0.85);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  #peek-modal.open { display: flex; }
+  .peek-box {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px; width: 100%;
+    position: relative;
+  }
+  .peek-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; font-size: 1.4rem;
+    cursor: pointer; color: var(--text-muted);
+    line-height: 1;
+  }
+  .peek-close:hover { color: var(--text-primary); }
+  .peek-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--purple-mid);
+    margin-bottom: 0.5rem;
+  }
+  .peek-box p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+  .peek-items { display: flex; flex-direction: column; gap: 0.6rem; }
+  .peek-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: var(--purple-pale);
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+  }
+  .peek-item-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 4px;
+  }
+  .peek-item-text { font-size: 0.85rem; color: var(--purple-deep); font-weight: 500; }
+  .peek-item-sub { font-size: 0.78rem; color: var(--purple-soft); margin-top: 1px; }
+  .peek-cta {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── MAIN PAGE ── */
+  #main-page { display: none; }
+  #main-page.visible { display: block; }
+
+  header {
+    background: var(--purple-deep);
+    padding: 1rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .header-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--purple-pale);
+  }
+  .header-logo span { color: var(--coral); }
+  .header-badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.12);
+    color: var(--purple-light);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .hero {
+    background: var(--purple-mid);
+    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(83,74,183,0.25);
+  }
+  .hero-inner { max-width: 720px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--purple-pale);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero-title .accent { color: var(--coral); }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--purple-light);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 1.75rem;
+  }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 13px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--purple-pale);
+  }
+  .chip-online {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: var(--white);
+  }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  /* ── WHO WE WORK WITH ── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .audience-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .audience-card:hover { transform: translateY(-2px); border-color: var(--purple-light); }
+  .audience-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+  .audience-title { font-size: 0.95rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.3rem; }
+  .audience-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ── PROGRAMME BANDS ── */
+  .prog-band {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+  .prog-header {
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .prog-header-left { flex: 1; }
+  .prog-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .prog-tagline { font-size: 0.82rem; color: var(--text-secondary); }
+  .prog-badge {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .prog-body { padding: 0 1.5rem; }
+  .prog-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .prog-row:last-of-type { border-bottom: none; }
+  .prog-item-name { font-size: 0.9rem; font-weight: 500; color: var(--text-primary); }
+  .prog-item-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+  .prog-price { font-size: 0.9rem; font-weight: 500; white-space: nowrap; padding-left: 1rem; }
+  .prog-tags { padding: 0.9rem 1.5rem; background: var(--cream); display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  /* ── FEATURED PACKAGE ── */
+  .featured-package {
+    background: var(--white);
+    border: 2px solid var(--purple-soft);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .featured-ribbon {
+    background: var(--purple-soft);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    display: inline-block;
+  }
+  .featured-body { padding: 1.25rem 1.5rem; }
+  .featured-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem; }
+  .featured-sub { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem; }
+  .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+  .featured-box { border-radius: 10px; padding: 0.85rem 1rem; }
+  .featured-box-title { font-size: 0.9rem; font-weight: 500; }
+  .featured-box-sub { font-size: 0.78rem; margin-top: 2px; }
+  .featured-price { font-size: 1.5rem; font-weight: 500; color: var(--purple-mid); margin-bottom: 0.25rem; }
+  .featured-price-note { font-size: 0.78rem; color: var(--text-secondary); }
+  .featured-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ── FACILITATOR ── */
+  .fac-section {
+    background: var(--teal-pale);
+    border: 1px solid var(--teal-light);
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .fac-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 0.5rem;
+  }
+  .fac-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--teal-deep);
+    margin-bottom: 0.6rem;
+  }
+  .fac-desc { font-size: 0.9rem; color: #1a4a3a; line-height: 1.7; margin-bottom: 1.5rem; }
+  .fac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem; margin-bottom: 1.5rem; }
+  .fac-card {
+    background: var(--white);
+    border: 1px solid var(--teal-light);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+  }
+  .fac-card-title { font-size: 0.88rem; font-weight: 500; color: var(--teal-deep); margin-bottom: 0.3rem; }
+  .fac-card-desc { font-size: 0.8rem; color: #2a5a4a; line-height: 1.5; }
+  .fac-btn {
+    display: inline-block;
+    background: var(--teal-deep);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .fac-btn:hover { background: #0a6352; transform: translateY(-1px); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--purple-deep);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .cta-text-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--purple-pale);
+    margin-bottom: 0.3rem;
+  }
+  .cta-text-sub { font-size: 0.88rem; color: var(--purple-light); }
+  .cta-btn {
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.85rem 2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover { background: var(--coral-deep); transform: translateY(-1px); }
+
   footer {
-    border-top: 1px solid var(--cream-border);
-    padding: 2rem 1.5rem; text-align: center;
-    font-size: 0.76rem; color: var(--text-light);
-    background: var(--cream-deep);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
   }
-  footer a { color: var(--text-light); text-decoration: underline; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 780px) {
-    .brand-pair { grid-template-columns: 1fr; }
-    .portal-inner { grid-template-columns: 1fr !important; gap: 2.5rem; }
-  }
-  @media (max-width: 640px) {
-    .hero { padding: 6rem 1rem 3rem; }
-    .section { padding: 2rem 1rem; }
-    .stats { gap: 1.5rem; }
-    .cta-row { flex-direction: column; align-items: center; }
-    .btn-gold, .btn-outline { width: 100%; text-align: center; }
-    .prog-block-foot, .prog-block-foot-dark { flex-direction: column; }
+  @media (max-width: 600px) {
+    .featured-grid { grid-template-columns: 1fr; }
+    .cta-section { flex-direction: column; text-align: center; }
+    .cta-btn { width: 100%; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <span class="nav-spark">Spar<span style="position:relative;">k<span style="position:absolute;top:10px;right:-2px;font-size:4px;color:var(--gold);">✦</span></span></span>
-    <span class="nav-amp">&amp;</span>
-    <span class="nav-spectrum">Spectrum</span>
-    <span class="nav-cic">CIC</span>
-    <span style="color:var(--cream-border);margin:0 0.4rem;">|</span>
-    <span style="font-family:'Playfair Display',serif;font-size:1rem;"><span style="color:#1C2B4A;">Empower</span><span style="color:#D85A30;font-style:normal;">ED</span><span style="color:#1C2B4A;"> Minds</span></span>
-    <span style="color:var(--cream-border);margin:0 0.3rem;">·</span>
-    <span style="font-family:'Playfair Display',serif;font-size:0.95rem;"><span style="color:#2B5FA5;">S</span><span style="color:#D42B2B;">c</span><span style="color:#2E7D32;">h</span><span style="color:#F5A623;">o</span><span style="color:#2B5FA5;">o</span><span style="color:#D42B2B;">l</span> <span style="color:#0E0A0F;">of</span> <span style="color:#D42B2B;">A</span><span style="color:#F5A623;">u</span><span style="color:#2E7D32;">t</span><span style="color:#F5A623;">i</span><span style="color:#2B5FA5;">s</span><span style="color:#D42B2B;">m</span></span>
-  </a>
-  <button class="nav-btn" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">Access portal →</button>
-</nav>
+<!-- ══════════════ ACCESS GATE ══════════════ -->
+<div id="gate">
+  <div class="gate-logo">Empower<span>ED</span> by Sofia</div>
+  <div class="gate-tagline">Organisations Portal</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-cic-tag">Community Interest Company</div>
-  <h1 class="hero-logo">
-    <span class="spark">Spar<span style="position:relative;">k<span style="position:absolute;top:10px;right:-12px;font-size:20px;color:var(--gold);">✦</span></span></span><span class="amp"> &amp; </span><span class="spectrum">Spectrum</span>
-  </h1>
-  <div class="hero-sub-brands">
-    <span style="color:#2B5FA5;font-family:'Playfair Display',serif;font-size:1rem;">S</span><span style="color:#D42B2B;font-family:'Playfair Display',serif;font-size:1rem;">c</span><span style="color:#2E7D32;font-family:'Playfair Display',serif;font-size:1rem;">h</span><span style="color:#F5A623;font-family:'Playfair Display',serif;font-size:1rem;">o</span><span style="color:#2B5FA5;font-family:'Playfair Display',serif;font-size:1rem;">o</span><span style="color:#D42B2B;font-family:'Playfair Display',serif;font-size:1rem;">l</span><span style="color:#0E0A0F;font-family:'Playfair Display',serif;font-size:1rem;"> of </span><span style="color:#D42B2B;font-family:'Playfair Display',serif;font-size:1rem;">A</span><span style="color:#F5A623;font-family:'Playfair Display',serif;font-size:1rem;">u</span><span style="color:#2E7D32;font-family:'Playfair Display',serif;font-size:1rem;">t</span><span style="color:#F5A623;font-family:'Playfair Display',serif;font-size:1rem;">i</span><span style="color:#2B5FA5;font-family:'Playfair Display',serif;font-size:1rem;">s</span><span style="color:#D42B2B;font-family:'Playfair Display',serif;font-size:1rem;">m</span>
-    <span style="color:var(--text-light);margin:0 0.5rem;font-size:0.8rem;">·</span>
-    <span style="color:#1C2B4A;font-family:'Playfair Display',serif;font-size:1rem;">Empower</span><span style="color:#D85A30;font-family:'Playfair Display',serif;font-size:1rem;">ED</span><span style="color:#1C2B4A;font-family:'Playfair Display',serif;font-size:1rem;"> Minds</span>
-  </div>
+  <div class="gate-card">
+    <h2>Request access</h2>
+    <p>This page is for schools, community organisations and employers. Please share your details and Sofia will be in touch to approve your access.</p>
 
-  <p class="hero-desc"><span style="color:#2B5FA5;font-weight:500;">School of Autism</span> programmes and <span style="color:#1C2B4A;font-weight:500;">Empower</span><span style="color:#D85A30;font-weight:500;">ED</span><span style="color:#1C2B4A;font-weight:500;"> Minds</span>, a sub-brand of <strong>Empowered By Sofia</strong> (Reset Internally and Rise Externally), come together under <span style="color:var(--gold);font-weight:500;">Spark <span style="font-size:0.8em;opacity:0.6;">&amp;</span> Spectrum CIC</span> — bringing emotional resilience, neurodiverse minds, medical needs (including vision loss), empowerment and more for teachers, students, community organisations, councils and workspaces. Specialising in schools with CPD-certified programmes, workshops, online delivery and supporting materials.</p>
-
-  <div class="chips">
-    <span class="chip">🏫 Schools <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> MATs</span>
-    <span class="chip">🤝 Community Orgs</span>
-    <span class="chip">🏛️ Councils</span>
-    <span class="chip">💼 Workspaces</span>
-    <span class="chip chip-gold">CPD Certified</span>
-    <span class="chip chip-gold">SEND · Neurodiversity</span>
-    <span class="chip">Medical Needs</span>
-    <span class="chip">👁️ Vision Loss</span>
-    <span class="chip chip-navy">Specialist <span style="color:#1C2B4A;">Empower</span><span style="color:#D85A30;">ED</span><span style="color:#1C2B4A;"> Minds</span> EQ Programmes</span>
-  </div>
-
-  <div class="cta-row">
-    <button class="btn-gold" onclick="document.getElementById('programmes').scrollIntoView({behavior:'smooth'})">View all programmes ↓</button>
-    <button class="btn-outline" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">Access full portal →</button>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><span class="stat-num">9+</span><span class="stat-label">Programmes <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> workshops</span></div>
-    <div class="stat"><span class="stat-num">CPD</span><span class="stat-label">Certified delivery</span></div>
-    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Expert Leaders</span></div>
-    <div class="stat"><span class="stat-num">🌐</span><span class="stat-label">In-person <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> online</span></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- WHO WE ARE — SIDE BY SIDE BRANDS -->
-<section class="section">
-  <div class="s-eye">Two organisations, one mission</div>
-  <h2 class="s-title">Working <em>together</em> for schools and communities</h2>
-  <p class="s-desc">Spark <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Spectrum CIC is the umbrella organisation through which EmpowerED Minds and School of Autism programmes are delivered, bringing together neurodiversity, SEND, medical needs (including vision loss), emotional intelligence and empowerment under one shared mission.</p>
-
-  <div class="brand-pair brand-three">
-    <div class="brand-card brand-ss">
-      <div class="brand-card-eye" style="color:var(--gold);">Community Interest Company</div>
-      <div class="brand-card-name">
-        <span class="spark" style="color:var(--gold);">Spar<span style="position:relative;">k<span style="position:absolute;top:10px;right:-3px;font-size:6px;color:var(--gold);">✦</span></span></span> <span style="font-family:'Cinzel',serif;font-style:normal;color:var(--text-light);font-size:0.75em;opacity:0.65;vertical-align:middle;">&amp;</span> <span class="spectrum">Spectrum</span>
-      </div>
-      <div class="brand-card-sub">Neurodiversity-affirming, lived-experience led programmes for neurodivergent individuals, those with special and medical needs, their families and the organisations that support them.</div>
-      <div class="brand-card-founders">Co-founded by Sofia Iqbal <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.95em;opacity:0.65;">&amp;</span> Selina Afzal</div>
-    </div>
-    <div class="brand-card brand-em">
-      <div class="brand-card-eye">Emotional Intelligence Programmes</div>
-      <div style="margin-bottom:0.6rem;">
-        <img src="https://empoweredbysofia.github.io/eqquiz/logo.png" alt="Empowered By Sofia" style="height:36px;object-fit:contain;display:block;" onerror="this.style.display='none'">
-        <div style="font-size:0.65rem;letter-spacing:0.15em;color:var(--text-light);margin-top:3px;text-transform:uppercase;">Reset Internally · Rise Externally</div>
-      </div>
-      <div class="brand-card-name"><span style="color:#1C2B4A;">Empower</span><span style="color:#D85A30;font-style:normal;">ED</span><span style="color:#1C2B4A;"> Minds</span></div>
-      <div class="brand-card-sub">CPD-certified emotional intelligence, resilience and empowerment programmes using EQ, NLP and a trauma-informed approach. Working with teachers, women, parents, young girls and children across schools, employers and community organisations. Specialising in vision loss and complex medical needs.</div>
-      <div class="brand-card-founders">Founded by Sofia Iqbal</div>
-    </div>
-    <div class="brand-card brand-soa">
-      <div class="brand-card-eye" style="color:#5B9EC8;">Specialist Education</div>
-      <div style="margin-bottom:0.6rem;">
-        <img src="https://empoweredbysofia.github.io/eqquiz/school-of-autism-logo.png" alt="School of Autism" style="height:40px;object-fit:contain;display:block;" onerror="this.style.display='none'">
-      </div>
-      <div class="brand-card-name">
-        <span style="color:#2B5FA5;">S</span><span style="color:#D42B2B;">c</span><span style="color:#2E7D32;">h</span><span style="color:#F5A623;">o</span><span style="color:#2B5FA5;">o</span><span style="color:#D42B2B;">l</span>
-        <span style="color:#0E0A0F;"> of </span>
-        <span style="color:#D42B2B;">A</span><span style="color:#F5A623;">u</span><span style="color:#2E7D32;">t</span><span style="color:#F5A623;">i</span><span style="color:#2B5FA5;">s</span><span style="color:#D42B2B;">m</span>
-      </div>
-      <div class="brand-card-sub">Specialist autism education, therapeutic support and family programmes, delivered under the Spark <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.9em;opacity:0.65;">&amp;</span> Spectrum CIC umbrella with a neurodiversity-affirming, strengths-based approach.</div>
-      <div class="brand-card-founders" style="color:#2B5FA5;">Founded by Selina Afzal</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- FOCUS AREAS -->
-<section class="section">
-  <div class="s-eye">What we cover</div>
-  <h2 class="s-title">Every programme starts with <em>the whole person</em></h2>
-  <p class="s-desc">Our work spans emotional resilience, identity, neurodiverse minds, medical needs and empowerment, delivered where people are, not where it is convenient.</p>
-  <div class="focus-grid">
-    <div class="focus-card">
-      <div class="focus-icon">🧠</div>
-      <div class="focus-title">Emotional Resilience</div>
-      <div class="focus-desc">Understanding and regulating emotions, building inner resources and learning to respond rather than react.</div>
-    </div>
-    <div class="focus-card">
-      <div class="focus-icon">🧬</div>
-      <div class="focus-title">Neurodiverse Minds</div>
-      <div class="focus-desc">Affirming, strengths-based programmes for neurodivergent individuals and the people who support them.</div>
-    </div>
-    <div class="focus-card">
-      <div class="focus-icon">🏥</div>
-      <div class="focus-title">Medical &amp; Complex Needs</div>
-      <div class="focus-desc">Inclusive delivery for those with vision loss, complex medical needs and acquired conditions.</div>
-    </div>
-    <div class="focus-card">
-      <div class="focus-icon">✨</div>
-      <div class="focus-title">Empowerment</div>
-      <div class="focus-desc">Identity, self-worth, values and purpose for young women, students, parents and professionals.</div>
-    </div>
-    <div class="focus-card">
-      <div class="focus-icon">🔄</div>
-      <div class="focus-title">Rewire Your Mind</div>
-      <div class="focus-desc">Shifting patterns, triggers and automatic responses through practical EQ tools and honest self-knowledge.</div>
-    </div>
-    <div class="focus-card">
-      <div class="focus-icon">🏆</div>
-      <div class="focus-title">CPD &amp; Staff Development</div>
-      <div class="focus-desc">Certified professional development for teachers, SENCOs, TAs, leaders and community practitioners.</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ALL PROGRAMMES -->
-<section class="section" id="programmes">
-  <div class="s-eye">All programmes — Spark <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Spectrum CIC</div>
-  <h2 class="s-title"><span style="color:var(--gold);">Spar<span style="position:relative;">k<span style="position:absolute;top:10px;right:-6px;font-size:10px;color:var(--gold);">✦</span></span></span> <span style="font-family:'Cinzel',serif;font-style:normal;color:var(--text-light);font-size:0.6em;opacity:0.65;vertical-align:middle;">&amp;</span> <span class="spectrum-text">Spectrum</span></h2>
-  <p class="s-desc">Both organisations deliver in-person across the Midlands and online nationally. Certified facilitators available UK-wide.</p>
-
-  <!-- SPARK & SPECTRUM PROGRAMMES -->
-  <div class="prog-block">
-    <div class="prog-block-header-ss">
-      <div>
-        <div class="pb-eyebrow">SEND · Neurodiversity · Medical Needs</div>
-        <div class="pb-logo"><span class="spark">Spar<span style="position:relative;">k<span style="position:absolute;top:10px;right:-3px;font-size:5px;color:var(--gold);">✦</span></span></span> <span style="font-family:'Cinzel',serif;font-style:normal;color:var(--text-light);font-size:0.75em;opacity:0.65;vertical-align:middle;">&amp;</span> <span class="spectrum">Spectrum</span></div>
-      </div>
-      <span class="pb-tag">CIC · Not for profit</span>
-    </div>
-    <div class="prog-cards">
-      <div class="prog-card">
-        <div class="pc-eye">Programme 1 · Self-Discovery</div>
-        <div class="pc-name">Understanding Your Spark</div>
-        <div class="pc-sub">For neurodivergent individuals and those with special or medical needs. Cognitive patterns, strengths, sensory experience and personal narrative.</div>
-        <div class="prog-card-tags">
-          <span class="ptag ptag-ss">Schools <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> SEND</span><span class="ptag ptag-ss">Vision loss</span><span class="ptag ptag-ss">Self-paced</span>
-        </div>
-      </div>
-      <div class="prog-card">
-        <div class="pc-eye">Flagship · 12 Sessions</div>
-        <div class="pc-name">Becoming the Parent They Need</div>
-        <div class="pc-sub">A reflective programme for parents of children with neurodivergent or special needs. Emotional reset, connection and compassionate response.</div>
-        <div class="prog-card-tags">
-          <span class="ptag ptag-ss">Schools</span><span class="ptag ptag-ss">Faith groups</span><span class="ptag ptag-ss">Community orgs</span>
-        </div>
-      </div>
-      <div class="prog-card">
-        <div class="pc-eye">Programme 3 · Follow-on</div>
-        <div class="pc-name">Managing Your Spark</div>
-        <div class="pc-sub">Practical strategies for everyday life: executive function, sensory regulation, communication and self-advocacy.</div>
-        <div class="prog-card-tags">
-          <span class="ptag ptag-ss">Young adults</span><span class="ptag ptag-ss">Workplace</span><span class="ptag ptag-ss">Post-diagnosis</span>
-        </div>
-      </div>
-      <div class="prog-card">
-        <div class="pc-eye">Programme 4 · Young People</div>
-        <div class="pc-name">Growing With Your Spark</div>
-        <div class="pc-sub">For neurodivergent young people navigating transitions, including identity, resilience, belonging and futures.</div>
-        <div class="prog-card-tags">
-          <span class="ptag ptag-ss">Secondary schools</span><span class="ptag ptag-ss">SEND teams</span><span class="ptag ptag-ss">Youth groups</span>
-        </div>
-      </div>
-      <div class="prog-card">
-        <div class="pc-eye">Workshop 5 · Ages 8–13</div>
-        <div class="pc-name">Before the Bloom</div>
-        <div class="pc-sub">Early puberty workshop through a neurodivergent lens. Body changes, emotions, sensory shifts and staying safe.</div>
-        <div class="prog-card-tags">
-          <span class="ptag ptag-ss">Primary schools</span><span class="ptag ptag-ss">SEND settings</span><span class="ptag ptag-ss">Half day</span>
-        </div>
-      </div>
-      <div class="prog-card">
-        <div class="pc-eye">Workshop 6 · Families</div>
-        <div class="pc-name">When Home Feels Like a Storm</div>
-        <div class="pc-sub">For families navigating neurodivergent behaviours at home. Meltdowns, demand avoidance, sibling impact and parental wellbeing.</div>
-        <div class="prog-card-tags">
-          <span class="ptag ptag-ss">Parent groups</span><span class="ptag ptag-ss">Schools</span><span class="ptag ptag-ss">Community orgs</span>
-        </div>
-      </div>
-    </div>
-    <div class="prog-block-foot">
-      <span class="pbf-text">Transparent pricing available · enquiries responded to within 48 hours</span>
-      <button class="pbf-btn-ss" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">View pricing →</button>
-    </div>
-  </div>
-
-  <div class="prog-block" style="border-color:rgba(42,56,80,0.25);">
-    <div class="prog-block-header-em">
-      <div>
-        <div class="pb-eyebrow" style="color:rgba(255,255,255,0.85);font-weight:600;">Emotional Intelligence · CPD Certified · Part of Spark <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Spectrum CIC</div>
-        <div class="pb-em-logo" style="color:#FFFFFF;"><span style="color:#FFFFFF;">Empower</span><span style="color:#F0997B;font-style:normal;">ED</span><span style="color:#FFFFFF;"> Minds</span></div>
-      </div>
-      <span class="pb-em-tag">CPD Certified</span>
-    </div>
-    <div class="prog-cards-dark">
-      <div class="prog-card-dark">
-        <div class="pc-eye">Flagship · CPD Certified</div>
-        <div class="pc-name">The EmpowerED Teacher</div>
-        <div class="pc-sub">Because the teacher in the room changes everything. Relationship intelligence, self-regulation and NLP-informed communication for educators, using a trauma-informed approach.</div>
-        <div class="prog-card-tags-dark">
-          <span class="ptag ptag-em">Schools <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> MATs</span><span class="ptag ptag-em">NQTs <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> PGCE</span><span class="ptag ptag-em">CPD certified</span><span class="ptag ptag-em">NLP · Trauma-Informed</span>
-        </div>
-      </div>
-      <div class="prog-card-dark">
-        <div class="pc-eye">Flagship · Ages 11–18 · Women · Parents</div>
-        <div class="pc-name">The Girl Code Compass</div>
-        <div class="pc-sub">She already knows. She just needs to remember. Identity, worth and emotional resilience for young girls, children, women and parents navigating their inner world.</div>
-        <div class="prog-card-tags-dark">
-          <span class="ptag ptag-em">Young girls <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> children</span><span class="ptag ptag-em">Women <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> parents</span><span class="ptag ptag-em">6-week group</span><span class="ptag ptag-em">Online available</span>
-        </div>
-      </div>
-      <div class="prog-card-dark">
-        <div class="pc-eye">Employers <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Organisations</div>
-        <div class="pc-name">EmpowerED Wellbeing</div>
-        <div class="pc-sub">EQ at work, leadership and staff wellbeing for corporates, NHS, public sector and SMEs. Includes the Regulated Home programme for parents and carers.</div>
-        <div class="prog-card-tags-dark">
-          <span class="ptag ptag-em">Workplace EQ</span><span class="ptag ptag-em">NHS <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.75em;color:var(--text-light);opacity:0.7;vertical-align:middle;">&amp;</span> public sector</span><span class="ptag ptag-em">Leadership</span><span class="ptag ptag-em">Regulated Home</span>
-        </div>
-      </div>
-    </div>
-    <div class="prog-block-foot-dark">
-      <span class="pbf-text-dark">Full pricing, session guides and Stripe links in the portal</span>
-      <button class="pbf-btn-em" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">Access full portal →</button>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PSYCHOLOGY & MODALITIES -->
-<section class="section">
-  <div class="s-eye">Psychology <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> modalities</div>
-  <h2 class="s-title">Grounded in <em>evidence</em>, delivered with humanity</h2>
-  <p class="s-desc">Our programmes draw from a blend of established psychological frameworks and therapeutic modalities, thoughtfully woven together, never used in isolation, always person-first.</p>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.85rem;margin-bottom:1.5rem;">
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Foundation</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Emotional Intelligence (EQ)</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">The core of everything we do, recognising, understanding and managing emotions in self and others. Based on the Salovey–Mayer and Goleman models.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Framework</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Cognitive Behavioural Approaches</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Identifying thought patterns, challenging unhelpful beliefs and building healthier responses. Used within resilience and rewire programmes.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Regulation</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Polyvagal <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Nervous System Informed</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Understanding the body's stress responses and how to regulate from the inside out. Central to co-regulation, SEND and parenting programmes.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Trauma-Informed</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Trauma-Informed Practice</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Safety, trust and choice at the centre of every session. Recognising how adverse experiences shape behaviour, without retraumatising.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Identity</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Strengths-Based <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Narrative Approaches</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Rewriting limiting stories, finding the person beneath the diagnosis or behaviour. Used throughout neurodiversity and empowerment programmes.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Neurodiversity</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Double Empathy <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Affirmative Practice</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Replacing deficit-based models with identity-affirming frameworks. Rooted in the social model of disability and lived-experience research.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Mindfulness</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Mindfulness <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Somatic Awareness</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Body-based techniques that build present-moment awareness and reduce reactivity. Adapted for sensory differences and neurodivergent participants.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Positive Psychology</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Values, Meaning <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Flourishing</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Drawing from Seligman's PERMA model, building wellbeing from what's working, not only from what's wrong. Used in student and workplace programmes.</div>
-    </div>
-
-    <div style="background:var(--white);border:1px solid var(--cream-border);border-radius:13px;padding:1.2rem 1.25rem;">
-      <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;">Attachment</div>
-      <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--text);margin-bottom:0.3rem;">Attachment Theory <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Relational Safety</div>
-      <div style="font-size:0.75rem;color:var(--text-light);line-height:1.5;">Understanding how early relational experiences shape behaviour in school, home and work. Especially relevant in The EmpowerED Teacher and parenting programmes.</div>
-    </div>
-
-  </div>
-
-  <p style="font-size:0.8rem;color:var(--text-light);line-height:1.7;max-width:680px;font-style:italic;">Our facilitators do not apply these as rigid clinical protocols. They are lenses, held lightly, combined thoughtfully, and always led by what the person in the room needs.</p>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- DELIVERY FORMATS -->
-<section class="section">
-  <div class="s-eye">How we deliver</div>
-  <h2 class="s-title">Programmes, workshops <em>&amp;</em> materials</h2>
-  <p class="s-desc">Flexible delivery designed around your setting, your staff and your community.</p>
-  <div class="formats-grid">
-    <div class="fmt-card"><div class="fmt-icon">🏫</div><div class="fmt-title">In-Person</div><div class="fmt-sub">Midlands delivery · certified facilitators nationally</div></div>
-    <div class="fmt-card"><div class="fmt-icon">🌐</div><div class="fmt-title">Online</div><div class="fmt-sub">Live sessions and self-paced programmes available</div></div>
-    <div class="fmt-card"><div class="fmt-icon">📋</div><div class="fmt-title">Workshops</div><div class="fmt-sub">Half-day and full-day standalone sessions</div></div>
-    <div class="fmt-card"><div class="fmt-icon">📗</div><div class="fmt-title">Journals</div><div class="fmt-sub">Physical branded take-home materials for participants</div></div>
-    <div class="fmt-card"><div class="fmt-icon">🎓</div><div class="fmt-title">Train-the-Trainer</div><div class="fmt-sub">Certify your staff to deliver in-house</div></div>
-    <div class="fmt-card"><div class="fmt-icon">📄</div><div class="fmt-title">Site Licences</div><div class="fmt-sub">Annual licences for self-facilitated delivery</div></div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PORTAL / PASSWORD GATE -->
-<div class="portal-section">
-  <div class="portal-inner" id="portal">
-    <div class="portal-left">
-      <div class="s-eye"><span style="color:#1C2B4A;">Empower</span><span style="color:#D85A30;font-style:normal;">ED</span><span style="color:#1C2B4A;"> Minds</span> full portal</div>
-      <h2 class="s-title" style="font-size:clamp(1.6rem,3.5vw,2.2rem);">Full pricing, detailed programmes <em>&amp;</em> enquiry</h2>
-      <p>The EmpowerED Minds portal contains detailed programme outlines, session guides, transparent pricing for every delivery format, Stripe links for online products and the enquiry form to book directly.</p>
-      <ul>
-        <li>Transparent pricing for all programmes</li>
-        <li>Session guides and facilitator details</li>
-        <li>Online purchase via Stripe (selected products)</li>
-        <li>Direct enquiry form · response within 48 hours</li>
-      </ul>
-    </div>
-    <div class="gate-card">
-      <h3>Enter your access code</h3>
-      <p>Enter the access code provided to view full programme details, pricing and the enquiry portal.</p>
+    <div id="gate-form">
       <div class="form-group">
-        <label>Access code</label>
-        <input type="password" id="f-password" placeholder="Enter your access code" onkeydown="if(event.key==='Enter')checkPassword()" autocomplete="off" />
+        <label>Your name</label>
+        <input type="text" id="f-name" placeholder="First and last name" />
       </div>
-      <div id="pw-error">That code does not match. Please try again.</div>
-      <button class="gate-submit" onclick="checkPassword()">Enter portal →</button>
-      <p class="gate-foot">
-        Do not have a code yet? Email <a href="mailto:sofia@empoweredbysofia.com">sofia@empoweredbysofia.com</a> to request access.
-      </p>
+      <div class="form-group">
+        <label>Organisation</label>
+        <input type="text" id="f-org" placeholder="School, charity or company name" />
+      </div>
+      <div class="form-group">
+        <label>Your role</label>
+        <input type="text" id="f-role" placeholder="e.g. Head teacher, SENCO, HR Manager" />
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" id="f-email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Organisation type</label>
+        <select id="f-type">
+          <option value="" disabled selected>Select one</option>
+          <option>School — primary</option>
+          <option>School — secondary</option>
+          <option>Multi-Academy Trust</option>
+          <option>Community organisation / charity</option>
+          <option>Youth club / faith group</option>
+          <option>Corporate / employer</option>
+          <option>NHS / public sector</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button class="gate-submit" onclick="submitGate()">Request access</button>
+    </div>
+
+    <div class="gate-success" id="gate-success">
+      <div class="tick">✓</div>
+      <h3>Request received</h3>
+      <p>Thank you — Sofia will review your details and be in touch within 24 hours to confirm your access.</p>
     </div>
   </div>
+
+  <div class="peek-link" onclick="openPeek()">Take a sneak peek at what's inside →</div>
 </div>
 
-
-<!-- CONTACT THE FOUNDERS -->
-<div style="background:var(--cream-deep);border-top:1px solid var(--cream-border);padding:2.5rem 1.5rem;text-align:center;">
-  <div style="max-width:560px;margin:0 auto;">
-    <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--text);margin-bottom:1rem;">Contact the founders to see how they can support you as an individual.</div>
-    <a href="https://empoweredbysofia.github.io/eqquiz/individuals.html#sofia-form" style="display:inline-block;background:var(--gold);color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:500;padding:0.8rem 2rem;border-radius:10px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#a87820'" onmouseout="this.style.background='var(--gold)'">Contact the founders →</a>
+<!-- ══════════════ SNEAK PEEK MODAL ══════════════ -->
+<div id="peek-modal">
+  <div class="peek-box">
+    <button class="peek-close" onclick="closePeek()">×</button>
+    <h3>What's inside</h3>
+    <p>Once approved, you'll get full access to programme details, pricing and how to bring EmpowerED to your organisation.</p>
+    <div class="peek-items">
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#1D9E75;"></div>
+        <div>
+          <div class="peek-item-text">The Inner Compass — student programme</div>
+          <div class="peek-item-sub">Yr 6–13 · workshops, 6-week series, community sessions</div>
+        </div>
+      </div>
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#534AB7;"></div>
+        <div>
+          <div class="peek-item-text">EmpowerED Training — staff & CPD</div>
+          <div class="peek-item-sub">Teacher CPD, staff wellbeing, corporate workshops</div>
+        </div>
+      </div>
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#D85A30;"></div>
+        <div>
+          <div class="peek-item-text">Full school & community packages</div>
+          <div class="peek-item-sub">Students + parents + staff combined · online & in-person</div>
+        </div>
+      </div>
+      <div class="peek-item">
+        <div class="peek-item-dot" style="background:#085041;"></div>
+        <div>
+          <div class="peek-item-text">Become a certified facilitator</div>
+          <div class="peek-item-sub">Train-the-trainer · deliver EmpowerED in your setting</div>
+        </div>
+      </div>
+    </div>
+    <p class="peek-cta">Fill in your details to request full access →</p>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 <span style="color:#1C2B4A;">Empower</span><span style="color:#D85A30;font-style:normal;">ED</span><span style="color:#1C2B4A;"> Minds</span> &nbsp;·&nbsp; <a href="index.html"><span style="color:#1C2B4A;">Empower</span><span style="color:#D85A30;">ED</span><span style="color:#1C2B4A;"> by Sofia</span></a> &nbsp;·&nbsp; Spark <span style="font-family:'Cinzel',serif;font-style:normal;font-size:0.8em;color:var(--text-light);opacity:0.65;vertical-align:middle;">&amp;</span> Spectrum CIC &nbsp;·&nbsp; <span style="color:#2B5FA5;">S</span><span style="color:#D42B2B;">c</span><span style="color:#2E7D32;">h</span><span style="color:#F5A623;">o</span><span style="color:#2B5FA5;">o</span><span style="color:#D42B2B;">l</span> <span style="color:#0E0A0F;">of</span> <span style="color:#D42B2B;">A</span><span style="color:#F5A623;">u</span><span style="color:#2E7D32;">t</span><span style="color:#F5A623;">i</span><span style="color:#2B5FA5;">s</span><span style="color:#D42B2B;">m</span> &nbsp;·&nbsp; All rights reserved
-</footer>
+<!-- ══════════════ MAIN PAGE ══════════════ -->
+<div id="main-page">
+
+  <header>
+    <div class="header-logo">Empower<span>ED</span> by Sofia</div>
+    <div class="header-badge">Organisations portal</div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">For organisations</div>
+      <h1 class="hero-title">Empower<span class="accent">ED</span> by Sofia</h1>
+      <p class="hero-desc">Emotional intelligence programmes for schools, community organisations and employers. Delivered by Sofia in the Midlands — or by certified facilitators anywhere in the UK. Now also available online.</p>
+      <div class="hero-chips">
+        <div class="chip">Schools &amp; MATs</div>
+        <div class="chip">Community orgs</div>
+        <div class="chip">Corporate teams</div>
+        <div class="chip">Train-the-trainer</div>
+        <div class="chip chip-online">🌐 Available online</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Who we work with -->
+    <div class="section-label">Who we work with</div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-icon" style="background:var(--purple-pale);">🏫</div>
+        <div class="audience-title">Schools &amp; MATs</div>
+        <div class="audience-desc">Primary, secondary, academies, free schools and multi-academy trusts</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon" style="background:var(--teal-pale);">🤝</div>
+        <div class="audience-title">Community orgs</div>
+        <div class="audience-desc">Charities, youth clubs, faith groups, housing associations and councils</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon" style="background:var(--coral-pale);">💼</div>
+        <div class="audience-title">Employers</div>
+        <div class="audience-desc">SMEs, corporates, NHS trusts and public sector teams</div>
+      </div>
+    </div>
+
+    <!-- Programme A -->
+    <div class="section-label">Programme A — The Inner Compass</div>
+    <div class="prog-band" style="margin-bottom:1.25rem;">
+      <div class="prog-header">
+        <div class="prog-header-left">
+          <div class="prog-name" style="color:var(--teal-deep);">The Inner Compass</div>
+          <div class="prog-tagline">Student, young people &amp; community-facing · Years 6–13</div>
+        </div>
+        <div class="prog-badge" style="background:var(--teal-pale);color:var(--teal-deep);">Yrs 6 – 13</div>
+      </div>
+      <div class="prog-body">
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Compass Session</div>
+            <div class="prog-item-desc">1 workshop · 90 mins · up to 30 young people</div>
+          </div>
+          <div class="prog-price" style="color:var(--teal-deep);">£350</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Compass Programme</div>
+            <div class="prog-item-desc">6-week series · weekly sessions</div>
+          </div>
+          <div class="prog-price" style="color:var(--teal-deep);">£1,200</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Community Group Session</div>
+            <div class="prog-item-desc">Youth clubs, faith groups, charities · 90 mins</div>
+          </div>
+          <div class="prog-price" style="color:var(--teal-deep);">£300</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Parent Reset Workshop</div>
+            <div class="prog-item-desc">Half day · up to 30 parents</div>
+          </div>
+          <div class="prog-price" style="color:var(--teal-deep);">£600</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Online Annual Licence</div>
+            <div class="prog-item-desc">Self-paced access for students &amp; parents · delivered anywhere in the UK</div>
+          </div>
+          <div class="prog-price" style="color:var(--teal-deep);">£499/yr</div>
+        </div>
+      </div>
+      <div class="prog-tags">
+        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">emotional reset</span>
+        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">confidence</span>
+        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">gratitude</span>
+        <span class="tag" style="background:var(--teal-pale);color:var(--teal-deep);">values</span>
+        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">in-person &amp; online</span>
+        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">schools &amp; community</span>
+      </div>
+    </div>
+
+    <!-- Programme B -->
+    <div class="section-label">Programme B — EmpowerED Training</div>
+    <div class="prog-band" style="margin-bottom:3rem;">
+      <div class="prog-header">
+        <div class="prog-header-left">
+          <div class="prog-name" style="color:var(--purple-mid);">EmpowerED Training</div>
+          <div class="prog-tagline">Staff, teachers, managers &amp; organisation leaders</div>
+        </div>
+        <div class="prog-badge" style="background:var(--purple-pale);color:var(--purple-mid);">CPD certified</div>
+      </div>
+      <div class="prog-body">
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Staff Wellbeing Session</div>
+            <div class="prog-item-desc">Half day · up to 20 staff · any organisation</div>
+          </div>
+          <div class="prog-price" style="color:var(--purple-mid);">£500</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Teacher Training CPD</div>
+            <div class="prog-item-desc">Full day · emotional intelligence in the classroom</div>
+          </div>
+          <div class="prog-price" style="color:var(--purple-mid);">£1,500</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Corporate Wellbeing Workshop</div>
+            <div class="prog-item-desc">Half to full day · teams &amp; managers · online or in-person</div>
+          </div>
+          <div class="prog-price" style="color:var(--purple-mid);">£1,200</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Certified Facilitator Programme</div>
+            <div class="prog-item-desc">2-day train-the-trainer · licensed to deliver in your organisation</div>
+          </div>
+          <div class="prog-price" style="color:var(--purple-mid);">£1,200pp</div>
+        </div>
+        <div class="prog-row">
+          <div>
+            <div class="prog-item-name">Annual Organisation Licence</div>
+            <div class="prog-item-desc">Your certified staff deliver the programme in-house</div>
+          </div>
+          <div class="prog-price" style="color:var(--purple-mid);">£2,000/yr</div>
+        </div>
+      </div>
+      <div class="prog-tags">
+        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">staff wellbeing</span>
+        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">teacher CPD</span>
+        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">corporate</span>
+        <span class="tag" style="background:var(--purple-pale);color:var(--purple-deep);">train-the-trainer</span>
+        <span class="tag" style="background:var(--coral-pale);color:var(--coral-deep);">in-person &amp; online</span>
+      </div>
+    </div>
+
+    <!-- Full Package -->
+    <div class="section-label">Complete school &amp; community partnership</div>
+    <div class="featured-package" style="margin-bottom:3rem;">
+      <div class="featured-ribbon">Most popular</div>
+      <div class="featured-body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:0.5rem;">
+          <div>
+            <div class="featured-title">The Full Partnership Package</div>
+            <div class="featured-sub">Both programmes combined · students + parents + staff</div>
+          </div>
+          <div>
+            <div class="featured-price">from £2,500</div>
+            <div class="featured-price-note">per term</div>
+          </div>
+        </div>
+        <div class="featured-grid">
+          <div class="featured-box" style="background:var(--teal-pale);">
+            <div class="featured-box-title" style="color:var(--teal-deep);">The Inner Compass</div>
+            <div class="featured-box-sub" style="color:var(--teal-mid);">Yr 6–13 student programme</div>
+          </div>
+          <div class="featured-box" style="background:var(--purple-pale);">
+            <div class="featured-box-title" style="color:var(--purple-mid);">EmpowerED Training</div>
+            <div class="featured-box-sub" style="color:var(--purple-soft);">CPD staff training included</div>
+          </div>
+        </div>
+        <div class="featured-desc">Includes student workshops, parent session, staff CPD day and termly review. Sofia delivers in person across the Midlands. Certified facilitators available nationally for all other locations.</div>
+      </div>
+    </div>
+
+    <!-- Facilitator -->
+    <div class="fac-section">
+      <div class="fac-eyebrow">Join the network</div>
+      <div class="fac-title">Apply to become a certified facilitator</div>
+      <div class="fac-desc">Are you a teacher, counsellor, youth worker or coach who wants to deliver the EmpowerED programme in your school or organisation? Join our certified facilitator network and be part of something that is changing young lives across the UK.</div>
+      <div class="fac-grid">
+        <div class="fac-card">
+          <div class="fac-card-title">What you get</div>
+          <div class="fac-card-desc">2-day certification with Sofia · full programme materials · CPD hours · ongoing support network · licensed to deliver in your setting</div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-card-title">Who it is for</div>
+          <div class="fac-card-desc">Teachers, school counsellors, youth workers, social workers, coaches and community leaders working with young people aged 10–18</div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-card-title">Investment</div>
+          <div class="fac-card-desc">£1,200 per person · all materials and certification included · payment plans available</div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-card-title">Next cohort</div>
+          <div class="fac-card-desc">Cohorts run quarterly · limited to 12 participants · Midlands in-person or online options available</div>
+        </div>
+      </div>
+      <a href="mailto:sofia@empoweredbysofia.com?subject=Facilitator Application" class="fac-btn">Apply to become a facilitator →</a>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div>
+        <div class="cta-text-title">Ready to bring EmpowerED to your organisation?</div>
+        <div class="cta-text-sub">Book a free discovery call with Sofia</div>
+      </div>
+      <a href="mailto:sofia@empoweredbysofia.com?subject=Discovery Call Request" class="cta-btn">Book a discovery call →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 EmpowerED by Sofia · All programmes delivered in-person across the Midlands and online nationally
+  </footer>
+
+</div>
 
 <script>
-  const ACCESS_CODE = 'EmpowerED2025';
-
-  if (sessionStorage.getItem('eb_access') === '1') {
-    window.location.replace('organisations-approved.html');
-  }
-
-  function checkPassword() {
-    const val = document.getElementById('f-password').value.trim();
-    if (val === ACCESS_CODE) {
-      sessionStorage.setItem('eb_access', '1');
-      window.location.replace('organisations-approved.html');
-    } else {
-      document.getElementById('pw-error').style.display = 'block';
-      document.getElementById('f-password').value = '';
-      document.getElementById('f-password').focus();
+  function submitGate() {
+    const name = document.getElementById('f-name').value.trim();
+    const org = document.getElementById('f-org').value.trim();
+    const role = document.getElementById('f-role').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const type = document.getElementById('f-type').value;
+    if (!name || !org || !role || !email || !type) {
+      alert('Please fill in all fields before requesting access.');
+      return;
     }
+    document.getElementById('gate-form').style.display = 'none';
+    document.getElementById('gate-success').style.display = 'block';
+    // In production: send form data to your backend/email here
+    // e.g. fetch('/api/gate', { method:'POST', body: JSON.stringify({name,org,role,email,type}) })
+    // For now, auto-approve after 3 seconds for demo
+    setTimeout(() => {
+      document.getElementById('gate').classList.add('hidden');
+      const page = document.getElementById('main-page');
+      page.classList.add('visible');
+      page.style.display = 'block';
+    }, 3000);
   }
+
+  function openPeek() {
+    document.getElementById('peek-modal').classList.add('open');
+  }
+
+  function closePeek() {
+    document.getElementById('peek-modal').classList.remove('open');
+  }
+
+  document.getElementById('peek-modal').addEventListener('click', function(e) {
+    if (e.target === this) closePeek();
+  });
 </script>
 </body>
 </html>
