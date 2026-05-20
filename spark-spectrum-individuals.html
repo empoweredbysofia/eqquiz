@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work with us — Spark & Spectrum CIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F0ECE3;--cream-mid:#EAE4D9;--gold:#B8914A;--gold-light:#D4A95A;
+  --gold-pale:#F5EDDA;--purple:#6B5EA8;--teal:#4A9E8E;--teal-deep:#2B6B5F;--teal-pale:#E0F2EE;
+  --ink:#2A2520;--ink-mid:#4A4540;--ink-light:#8A857E;
+  --border:rgba(90,75,50,0.13);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.65rem 2.5rem;background:rgba(240,236,227,0.96);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
+.nav-left{display:flex;align-items:center;gap:1.25rem;}
+.back{font-size:12px;color:var(--ink-light);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s;}
+.back:hover{color:var(--gold);}
+.nav-brand{font-family:var(--serif);font-size:18px;font-weight:500;display:flex;align-items:center;gap:0;text-decoration:none;}
+.nb-spark{color:var(--gold);position:relative;display:inline-block;}
+.nb-spark-gem{position:absolute;top:-0.52em;right:-0.38em;line-height:0;}
+.nb-amp{color:var(--ink-light);font-weight:300;margin:0 3px 0 10px;}
+.nb-spectrum{background:linear-gradient(90deg,var(--purple) 0%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* HERO */
+.hero{padding:6rem 2rem 4rem;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(184,145,74,.07) 0%,transparent 70%);pointer-events:none;}
+.hero-diamond-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);opacity:.045;pointer-events:none;}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.6rem;display:flex;align-items:center;justify-content:center;gap:6px;}
+.eyebrow.gold{color:var(--gold);}
+.eyebrow.white{color:rgba(255,255,255,.4);}
+.eyebrow.mid{color:var(--ink-light);}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,6vw,4rem);font-weight:300;color:var(--ink);line-height:1.1;margin-bottom:.5rem;letter-spacing:-.01em;position:relative;z-index:1;}
+.hero h1 em.gold{font-style:italic;color:var(--gold);}
+.hero h1 em.teal{font-style:italic;color:var(--teal);}
+.hero-sub{font-size:15px;font-weight:300;color:var(--ink-light);max-width:520px;margin:.75rem auto 2.5rem;line-height:1.8;position:relative;z-index:1;}
+
+/* BUTTONS */
+.btn{font-family:var(--sans);font-size:13px;font-weight:500;padding:.65rem 1.6rem;border-radius:100px;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:opacity .2s,transform .15s;}
+.btn:hover{opacity:.85;transform:translateY(-1px);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-teal{background:var(--teal-deep);color:#fff;}
+.btn-wa-gold{background:#25D366;color:#fff;}
+.btn-wa-teal{background:#1a9e52;color:#fff;}
+.btn-outline{background:transparent;color:var(--ink-mid);border:0.5px solid rgba(42,37,32,.25);}
+
+/* FOUNDER CARDS */
+section{padding:6rem 2.5rem;}
+.section-inner{max-width:1040px;margin:0 auto;}
+.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--ink);line-height:1.12;margin-bottom:1.25rem;letter-spacing:-.01em;}
+.section-title em{font-style:italic;color:var(--gold);}
+
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+
+.founder-card{border-radius:22px;overflow:hidden;border:0.5px solid var(--border);}
+
+/* card header strip */
+.fc-header{padding:2.5rem 2.5rem 0;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.fc-header.gold-head{background:var(--ink);}
+.fc-header.teal-head{background:var(--teal-deep);}
+
+.fc-photo{
+  width:130px;height:130px;border-radius:50%;
+  overflow:hidden;margin:0 auto 1.25rem;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.fc-photo.gold-ring{border:3px solid rgba(184,145,74,.5);background:rgba(184,145,74,.12);}
+.fc-photo.teal-ring{border:3px solid rgba(74,158,142,.5);background:rgba(74,158,142,.12);}
+.fc-photo img{width:100%;height:100%;object-fit:cover;}
+.fc-initials{font-family:var(--serif);font-size:2.6rem;font-weight:300;}
+.fc-initials.gold-txt{color:rgba(184,145,74,.7);}
+.fc-initials.teal-txt{color:rgba(74,158,142,.7);}
+
+.fc-gem{
+  position:absolute;bottom:-4px;right:-4px;
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--ink);
+}
+.fc-gem.gold-gem{background:var(--gold);}
+.fc-gem.teal-gem{background:var(--teal-deep);border-color:var(--teal-deep);}
+
+.fc-name{font-family:var(--serif);font-size:1.7rem;font-weight:300;color:#fff;line-height:1.1;margin-bottom:.2rem;}
+.fc-role{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);padding-bottom:2rem;}
+
+/* card body */
+.fc-body{background:var(--cream);padding:2rem 2.5rem;}
+.fc-tagline{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.55;}
+.fc-bio{font-size:13.5px;font-weight:300;color:var(--ink-mid);line-height:1.8;margin-bottom:1.25rem;}
+.fc-strengths{display:flex;flex-direction:column;gap:5px;margin-bottom:1.5rem;}
+.fc-strength{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-mid);padding:6px 10px;background:#fff;border-radius:7px;border:0.5px solid var(--border);}
+
+.fc-contact{border-top:0.5px solid var(--border);padding-top:1.25rem;display:flex;flex-direction:column;gap:8px;}
+.fc-contact-link{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:400;color:var(--ink-mid);text-decoration:none;padding:.5rem .75rem;border-radius:9px;border:0.5px solid var(--border);background:#fff;transition:border-color .2s,color .2s;}
+.fc-contact-link:hover{color:var(--gold);border-color:rgba(184,145,74,.35);}
+.fc-contact-link.teal-link:hover{color:var(--teal-deep);border-color:rgba(74,158,142,.35);}
+.fc-contact-icon{width:28px;height:28px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.ci-email-gold{background:var(--gold-pale);}
+.ci-email-teal{background:var(--teal-pale);}
+.ci-wa{background:#25D366;}
+.fc-cta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;}
+
+/* WHAT WE OFFER */
+.offer-section{background:#fff;}
+.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:18px;overflow:hidden;margin-top:2.5rem;}
+.offer-card{background:var(--cream);padding:1.6rem 1.5rem;}
+.offer-icon{width:24px;height:24px;margin-bottom:.75rem;display:block;}
+.offer-card h3{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink);margin-bottom:.3rem;line-height:1.2;}
+.offer-card p{font-size:12.5px;font-weight:300;color:var(--ink-light);line-height:1.7;}
+
+/* CONTACT BOTTOM */
+.contact-bottom{background:var(--ink);}
+.contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
+.cc-card{background:rgba(255,255,255,.05);border:0.5px solid rgba(255,255,255,.1);border-radius:16px;padding:2rem;}
+.cc-name{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:#fff;margin-bottom:.15rem;}
+.cc-role{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.25rem;}
+.cc-link{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:300;color:rgba(255,255,255,.75);text-decoration:none;padding:.6rem 0;border-bottom:0.5px solid rgba(255,255,255,.07);transition:color .2s;}
+.cc-link:last-of-type{border-bottom:none;}
+.cc-link:hover{color:var(--gold);}
+.cc-link.teal-hover:hover{color:var(--teal);}
+.cc-icon{width:30px;height:30px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+
+/* forms */
+.cf-form{background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.09);border-radius:16px;padding:2rem;}
+.ff{margin-bottom:.7rem;}
+.ff label{display:block;font-size:11px;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.45);margin-bottom:4px;}
+.ff input,.ff select,.ff textarea{width:100%;background:rgba(255,255,255,.07);border:0.5px solid rgba(255,255,255,.11);border-radius:8px;padding:.52rem .8rem;font-family:var(--sans);font-size:13px;font-weight:300;color:#fff;outline:none;transition:border-color .2s;appearance:none;}
+.ff input::placeholder,.ff textarea::placeholder{color:rgba(255,255,255,.28);}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--gold);}
+.ff textarea{resize:vertical;min-height:70px;}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.form-note{font-size:11px;color:rgba(255,255,255,.28);text-align:center;margin-top:.5rem;}
+.form-success{display:none;text-align:center;padding:1.5rem 0;}
+.form-success p{font-size:13px;color:rgba(255,255,255,.5);}
+.form-success h3{font-family:var(--serif);font-size:1.3rem;color:#fff;margin-bottom:.4rem;}
+
+/* FOOTER */
+footer{background:#1A1710;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-brand{font-family:var(--serif);font-size:16px;color:rgba(255,255,255,.4);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:rgba(255,255,255,.7);}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.2);width:100%;text-align:center;border-top:0.5px solid rgba(255,255,255,.06);padding-top:1rem;margin-top:.25rem;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero>*{animation:fadeUp .65s ease both;}
+.hero h1{animation-delay:.1s;}.hero-sub{animation-delay:.18s;}
+
+@media(max-width:820px){
+  nav{padding:.65rem 1.25rem;}
+  section{padding:4rem 1.25rem;}
+  .founders-grid,.contact-cols{grid-template-columns:1fr;}
+  .hero{padding:5.5rem 1.25rem 3rem;}
+  footer{padding:1.75rem 1.25rem;}
+  .fc-cta-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="cdiamond" viewBox="0 0 10 10">
+      <path d="M5,.5 C4.2,2.8 2.8,3.5 .5,5 C2.8,6.5 4.2,7.2 5,9.5 C5.8,7.2 7.2,6.5 9.5,5 C7.2,3.5 5.8,2.8 5,.5Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav>
+  <div class="nav-left">
+    <a class="back" href="index.html">
+      <svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+      All of Spark &amp; Spectrum
+    </a>
+  </div>
+  <a class="nav-brand" href="index.html">
+    <span class="nb-spark">Spark<span class="nb-spark-gem">
+      <svg width="13" height="13" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".82"/></svg>
+    </span></span>
+    <span class="nb-amp">&</span>
+    <span class="nb-spectrum">Spectrum</span>
+  </a>
+  <a class="btn btn-gold" href="#contact" style="font-size:12px;padding:.4rem 1.1rem;">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-diamond-bg">
+    <svg viewBox="0 0 400 400" width="400" height="400">
+      <path d="M200,16 C180,82 114,112 16,200 C114,288 180,318 200,384 C220,318 286,288 384,200 C286,112 220,82 200,16Z" fill="#B8914A"/>
+    </svg>
+  </div>
+  <p class="eyebrow gold">
+    <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+    For individuals &amp; families
+  </p>
+  <h1>Meet <em class="gold">Sofia</em> &amp; <em class="teal">Selina</em></h1>
+  <p class="hero-sub">Two co-founders. One shared mission. Personal, reflective support for neurodivergent individuals, those living with vision loss or medical needs, and the parents walking this journey alongside them.</p>
+</section>
+
+<!-- FOUNDER CARDS -->
+<section style="background:#fff;padding:4rem 2.5rem 6rem;">
+  <div class="section-inner">
+    <p class="eyebrow mid" style="justify-content:center;">
+      <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+      Choose who to work with
+    </p>
+    <h2 class="section-title" style="text-align:center;">Two people, <em>one approach</em></h2>
+    <p style="font-size:14px;font-weight:300;color:var(--ink-light);text-align:center;max-width:480px;margin:0 auto 0;line-height:1.8;">Sofia and Selina both deliver the same programmes with the same values. Choose whoever feels right for you, or reach out to both.</p>
+
+    <div class="founders-grid">
+
+      <!-- SOFIA -->
+      <div class="founder-card">
+        <div class="fc-header gold-head">
+          <div class="fc-photo gold-ring" style="position:relative;">
+            <!-- REPLACE: <img src="sofia.jpg" alt="Sofia Iqbal"> -->
+            <span class="fc-initials gold-txt">SI</span>
+            <div class="fc-gem gold-gem">
+              <svg width="12" height="12" viewBox="0 0 10 10"><use href="#cdiamond" fill="#fff"/></svg>
+            </div>
+          </div>
+          <h2 class="fc-name">Sofia Iqbal</h2>
+          <p class="fc-role">Co-founder · Spark &amp; Spectrum CIC</p>
+        </div>
+        <div class="fc-body">
+          <p class="fc-tagline">"Every person carries something extraordinary. My job is to help them see it."</p>
+          <p class="fc-bio">Sofia co-founded Spark &amp; Spectrum with a clear purpose: to make affirming, human-first support available to individuals and families who often feel unseen. With a background in emotional intelligence, SEND and youth work, she brings warmth, honesty and deep knowledge of neurodivergent experience to every session.</p>
+          <p class="fc-bio">Sofia delivers programmes face to face across the Midlands and remotely by video. She works with individuals, parents, young people and groups.</p>
+          <div class="fc-strengths">
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>Self-discovery and Understanding Your Spark</div>
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>Becoming the Parent They Need</div>
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>Vision loss and medical needs support</div>
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A"/></svg>One-to-one and peer group facilitation</div>
+          </div>
+          <div class="fc-contact">
+            <a class="fc-contact-link" href="mailto:sofia@sparkandspectrum.co.uk">
+              <div class="fc-contact-icon ci-email-gold">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#B8914A" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="#B8914A" stroke-width="1.5"/></svg>
+              </div>
+              sofia@sparkandspectrum.co.uk
+            </a>
+            <a class="fc-contact-link" href="https://wa.me/447XXXXXXXXX" target="_blank">
+              <div class="fc-contact-icon ci-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.45z" fill="#fff"/></svg>
+              </div>
+              WhatsApp Sofia
+            </a>
+          </div>
+          <div class="fc-cta-row">
+            <a class="btn btn-gold" href="#sofia-form">Message Sofia</a>
+            <a class="btn btn-outline" href="mailto:sofia@sparkandspectrum.co.uk">Email directly</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SELINA -->
+      <div class="founder-card">
+        <div class="fc-header teal-head">
+          <div class="fc-photo teal-ring" style="position:relative;">
+            <!-- REPLACE: <img src="selina.jpg" alt="Selina Afzal"> -->
+            <span class="fc-initials teal-txt">SA</span>
+            <div class="fc-gem teal-gem">
+              <svg width="12" height="12" viewBox="0 0 10 10"><use href="#cdiamond" fill="#fff"/></svg>
+            </div>
+          </div>
+          <h2 class="fc-name">Selina Afzal</h2>
+          <p class="fc-role">Co-founder · Spark &amp; Spectrum CIC</p>
+        </div>
+        <div class="fc-body">
+          <p class="fc-tagline" style="color:var(--teal-deep);">"Understanding how you work is the beginning of everything. I walk that journey with you."</p>
+          <p class="fc-bio">Selina co-founded Spark &amp; Spectrum to bring neurodiversity-affirming practice into communities that are often left behind by mainstream services. She works with individuals and families navigating neurodivergence, special needs and the complex terrain of raising a child who experiences the world differently.</p>
+          <p class="fc-bio">Selina delivers face to face across the Midlands and remotely, with particular experience supporting families in faith and community settings.</p>
+          <div class="fc-strengths">
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Becoming the Parent They Need</div>
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Growing With Your Spark (young people)</div>
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>When Home Feels Like a Storm (families)</div>
+            <div class="fc-strength"><svg width="9" height="9" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E"/></svg>Community and faith group facilitation</div>
+          </div>
+          <div class="fc-contact">
+            <a class="fc-contact-link teal-link" href="mailto:selina@sparkandspectrum.co.uk">
+              <div class="fc-contact-icon ci-email-teal">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#4A9E8E" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="#4A9E8E" stroke-width="1.5"/></svg>
+              </div>
+              selina@sparkandspectrum.co.uk
+            </a>
+            <a class="fc-contact-link teal-link" href="https://wa.me/447YYYYYYYYY" target="_blank">
+              <div class="fc-contact-icon ci-wa">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.45z" fill="#fff"/></svg>
+              </div>
+              WhatsApp Selina
+            </a>
+          </div>
+          <div class="fc-cta-row">
+            <a class="btn btn-teal" href="#selina-form">Message Selina</a>
+            <a class="btn btn-outline" href="mailto:selina@sparkandspectrum.co.uk">Email directly</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="offer-section">
+  <div class="section-inner">
+    <p class="eyebrow mid" style="justify-content:center;">
+      <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="currentColor"/></svg>
+      What we offer
+    </p>
+    <h2 class="section-title" style="text-align:center;">Support for <em>every kind</em> of journey</h2>
+    <div class="offer-grid">
+      <div class="offer-card" style="border-top:3px solid var(--gold);">
+        <svg class="offer-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".7"/></svg>
+        <h3>Understanding Your Spark</h3>
+        <p>A self-discovery journey for neurodivergent individuals. Five areas of gentle, affirming exploration at your own pace.</p>
+      </div>
+      <div class="offer-card" style="border-top:3px solid var(--purple);">
+        <svg class="offer-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#6B5EA8" opacity=".7"/></svg>
+        <h3>Becoming the Parent They Need</h3>
+        <p>Twelve reflective sessions for parents raising a neurodivergent, special needs or medical needs child.</p>
+      </div>
+      <div class="offer-card" style="border-top:3px solid var(--gold-light);">
+        <svg class="offer-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#D4A95A" opacity=".7"/></svg>
+        <h3>Managing Your Spark</h3>
+        <p>Follow-on support for those who have completed Understanding Your Spark. Practical strategies for everyday life.</p>
+      </div>
+      <div class="offer-card" style="border-top:3px solid var(--teal);">
+        <svg class="offer-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E" opacity=".7"/></svg>
+        <h3>Growing With Your Spark</h3>
+        <p>For neurodivergent young people in transition. Identity, resilience and self-belief through change.</p>
+      </div>
+      <div class="offer-card" style="border-top:3px solid var(--gold);">
+        <svg class="offer-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#B8914A" opacity=".7"/></svg>
+        <h3>Vision Loss &amp; Medical Needs</h3>
+        <p>Affirming support for individuals and families navigating vision loss, developmental differences or complex medical needs.</p>
+      </div>
+      <div class="offer-card" style="border-top:3px solid var(--teal);">
+        <svg class="offer-icon" viewBox="0 0 10 10"><use href="#cdiamond" fill="#4A9E8E" opacity=".7"/></svg>
+        <h3>When Home Feels Like a Storm</h3>
+        <p>For families impacted by neurodivergent or special needs behaviour at home. Meltdowns, demand avoidance, siblings and parental wellbeing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — two separate forms side by side -->
+<section id="contact" class="contact-bottom">
+  <div class="section-inner">
+    <p class="eyebrow white" style="justify-content:center;">
+      <svg width="6" height="6" viewBox="0 0 10 10"><use href="#cdiamond" fill="rgba(255,255,255,.4)"/></svg>
+      Reach out
+    </p>
+    <h2 class="section-title" style="color:#fff;text-align:center;">Get in touch with <em>Sofia</em> or <em>Selina</em></h2>
+    <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,.45);text-align:center;max-width:460px;margin:.5rem auto 2.5rem;line-height:1.8;">No pressure, no obligation. Each message goes directly to Sofia or Selina personally.</p>
+
+    <div class="contact-cols">
+
+      <!-- SOFIA contact -->
+      <div>
+        <div class="cc-card" style="margin-bottom:1rem;">
+          <p class="cc-name">Sofia Iqbal</p>
+          <p class="cc-role">Co-founder · for individuals &amp; families</p>
+          <a class="cc-link" href="mailto:sofia@sparkandspectrum.co.uk">
+            <div class="cc-icon ci-email-gold" style="background:var(--gold-pale);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#B8914A" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="#B8914A" stroke-width="1.5"/></svg>
+            </div>
+            sofia@sparkandspectrum.co.uk
+          </a>
+          <a class="cc-link" href="https://wa.me/447XXXXXXXXX" target="_blank">
+            <div class="cc-icon ci-wa">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.45z" fill="#fff"/></svg>
+            </div>
+            WhatsApp Sofia
+          </a>
+        </div>
+        <div class="cf-form" id="sofia-form">
+          <p style="font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:300;margin-bottom:1rem;">Message Sofia</p>
+          <div id="sofia-fields">
+            <div class="ff-row">
+              <div class="ff"><label>Your name</label><input type="text" placeholder="Full name"></div>
+              <div class="ff"><label>Email or WhatsApp</label><input type="text" placeholder="How to reach you"></div>
+            </div>
+            <div class="ff">
+              <label>What do you need support with?</label>
+              <select style="width:100%;background:rgba(255,255,255,.07);border:0.5px solid rgba(255,255,255,.11);border-radius:8px;padding:.52rem .8rem;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.7);outline:none;appearance:none;">
+                <option value="">Select an option</option>
+                <option>Understanding Your Spark</option>
+                <option>Becoming the Parent They Need</option>
+                <option>Managing Your Spark</option>
+                <option>Vision loss or medical needs support</option>
+                <option>One-to-one sessions</option>
+                <option>Not sure, please advise</option>
+              </select>
+            </div>
+            <div class="ff"><label>A little about your situation</label><textarea placeholder="Whatever you feel comfortable sharing..."></textarea></div>
+            <button class="btn btn-gold" style="width:100%;justify-content:center;" onclick="submitForm('sofia')">Send to Sofia</button>
+            <p class="form-note">Sofia reads every message personally and responds within 48 hours.</p>
+          </div>
+          <div class="form-success" id="sofia-success">
+            <h3>Message received</h3>
+            <p>Sofia will be in touch within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SELINA contact -->
+      <div>
+        <div class="cc-card" style="margin-bottom:1rem;">
+          <p class="cc-name">Selina Afzal</p>
+          <p class="cc-role">Co-founder · for individuals, families &amp; community</p>
+          <a class="cc-link teal-hover" href="mailto:selina@sparkandspectrum.co.uk">
+            <div class="cc-icon" style="background:var(--teal-pale);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#4A9E8E" stroke-width="1.5"/><path d="M2 8l10 6 10-6" stroke="#4A9E8E" stroke-width="1.5"/></svg>
+            </div>
+            selina@sparkandspectrum.co.uk
+          </a>
+          <a class="cc-link teal-hover" href="https://wa.me/447YYYYYYYYY" target="_blank">
+            <div class="cc-icon ci-wa">
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.45z" fill="#fff"/></svg>
+            </div>
+            WhatsApp Selina
+          </a>
+        </div>
+        <div class="cf-form" id="selina-form">
+          <p style="font-family:var(--serif);font-size:1.2rem;color:#fff;font-weight:300;margin-bottom:1rem;">Message Selina</p>
+          <div id="selina-fields">
+            <div class="ff-row">
+              <div class="ff"><label>Your name</label><input type="text" placeholder="Full name"></div>
+              <div class="ff"><label>Email or WhatsApp</label><input type="text" placeholder="How to reach you"></div>
+            </div>
+            <div class="ff">
+              <label>What do you need support with?</label>
+              <select style="width:100%;background:rgba(255,255,255,.07);border:0.5px solid rgba(255,255,255,.11);border-radius:8px;padding:.52rem .8rem;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.7);outline:none;appearance:none;">
+                <option value="">Select an option</option>
+                <option>Becoming the Parent They Need</option>
+                <option>Growing With Your Spark</option>
+                <option>When Home Feels Like a Storm</option>
+                <option>Community or faith group support</option>
+                <option>Not sure, please advise</option>
+              </select>
+            </div>
+            <div class="ff"><label>A little about your situation</label><textarea placeholder="Whatever you feel comfortable sharing..."></textarea></div>
+            <button class="btn btn-teal" style="width:100%;justify-content:center;" onclick="submitForm('selina')">Send to Selina</button>
+            <p class="form-note">Selina reads every message personally and responds within 48 hours.</p>
+          </div>
+          <div class="form-success" id="selina-success">
+            <h3>Message received</h3>
+            <p>Selina will be in touch within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-brand">Spark &amp; Spectrum CIC</span>
+  <div class="footer-links">
+    <a href="index.html">Back to Spark &amp; Spectrum</a>
+    <a href="organisations.html">For organisations</a>
+  </div>
+  <p class="footer-copy">2025 Spark &amp; Spectrum CIC · Co-founded by Sofia Iqbal and Selina Afzal</p>
+</footer>
+
+<script>
+function submitForm(who){
+  document.getElementById(who+'-fields').style.display='none';
+  document.getElementById(who+'-success').style.display='block';
+}
+</script>
+</body>
+</html>
