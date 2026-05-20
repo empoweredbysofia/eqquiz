@@ -6,17 +6,17 @@
 <title>The EQ Audit — Empowered by Sofia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FAF8F5;
+    --obsidian: #0E0A0F;
     --crimson: #6B1020;
     --plum: #2E0D3A;
     --gold: #C9943A;
     --gold-light: #E8B85A;
-    --text: #2E0D3A;
-    --crimson-dark: #4A0B16;
-    --crimson-mid: #6B1020;
+    --ivory: #F5EDD8;
+    --emerald: #0D3D2E;
+    --emerald-bright: #1A6B4E;
     /* Motif colours from reference image */
     --cat-body: #7B4FB5;
     --cat-head: #D4547A;
@@ -32,8 +32,8 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
-    background: #FAF8F5;
-    color: var(--text);
+    background: var(--obsidian);
+    color: var(--ivory);
     font-family: 'Cormorant Garamond', serif;
     min-height: 100vh;
     overflow-x: hidden;
@@ -66,21 +66,21 @@
 
   /* Every screen gets obsidian base */
   .screen {
-    background-color: #FAF8F5;
+    background-color: #0E0A0F;
   }
 
   /* Plum glow — top-right corner, bleeds off-screen */
   .glow-plum-tr {
-    background-color: #FAF8F5;
-    background-image: radial-gradient(circle at top right, rgba(46,13,58,0.08), transparent 60%);
+    background-color: #0E0A0F;
+    background-image: radial-gradient(circle at top right, rgba(46,13,58,0.6), transparent 60%);
   }
 
   /* Both glows — landing, results, upsell screens */
   .glow-both {
-    background-color: #FAF8F5;
+    background-color: #0E0A0F;
     background-image:
-      radial-gradient(circle at top right,  rgba(46,13,58,0.08),  transparent 60%),
-      radial-gradient(circle at bottom left, rgba(107,16,32,0.07), transparent 60%);
+      radial-gradient(circle at top right,  rgba(46,13,58,0.6),  transparent 60%),
+      radial-gradient(circle at bottom left, rgba(107,16,32,0.5), transparent 60%);
   }
 
   /* Legacy ::before/::after kept for interstitial screens that use them */
@@ -88,14 +88,14 @@
     content: ''; position: absolute;
     top: -80px; right: -80px;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(46,13,58,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(46,13,58,0.6) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   .glow-crimson-bl::after {
     content: ''; position: absolute;
     bottom: -80px; left: -80px;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(107,16,32,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(107,16,32,0.5) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   /* Ensure content sits above pseudo-element glows */
@@ -104,12 +104,12 @@
   /* ─── TYPOGRAPHY ─── */
   .brand-logo { text-align: center; margin-bottom: 8px; }
   .brand-empowered {
-    font-family: 'Crimson Pro', serif; font-weight: 700;
-    font-size: clamp(28px,6vw,42px); color: var(--text);
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(28px,6vw,42px); color: var(--ivory);
     display: block; letter-spacing: 0.08em;
   }
   .brand-bysofia {
-    font-family: 'Crimson Pro', serif; font-style: italic;
+    font-family: 'Playfair Display', serif; font-style: italic;
     font-size: clamp(18px,4vw,26px); color: var(--gold); display: block;
   }
   .tagline {
@@ -118,20 +118,20 @@
     text-transform: uppercase; margin-bottom: 32px;
   }
   .headline {
-    font-family: 'Crimson Pro', serif;
+    font-family: 'Playfair Display', serif;
     font-size: clamp(22px,5vw,34px); color: var(--gold);
     text-align: center; line-height: 1.3; margin-bottom: 16px;
   }
   .subheadline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(17px,3.5vw,22px); color: var(--text);
+    font-size: clamp(17px,3.5vw,22px); color: var(--ivory);
     text-align: center; line-height: 1.5;
     margin-bottom: 32px; max-width: 560px;
   }
 
   /* ─── BUTTONS ─── */
   .btn-gold {
-    background: var(--gold); color: #FAF8F5; border: none;
+    background: var(--gold); color: var(--obsidian); border: none;
     padding: 16px 36px; font-family: 'Cormorant Garamond', serif;
     font-size: 18px; font-weight: 700; letter-spacing: 0.05em;
     cursor: pointer; width: 100%; max-width: 480px;
@@ -146,23 +146,23 @@
     transition: all 0.2s; border-radius: 2px;
   }
   .btn-outline-gold:hover { background: rgba(201,148,58,0.1); }
-  .btn-crimson {
-    background: var(--crimson); color: #fff; border: none;
+  .btn-emerald {
+    background: var(--emerald); color: #fff; border: none;
     padding: 16px 36px; font-family: 'Cormorant Garamond', serif;
     font-size: 18px; font-weight: 700; cursor: pointer;
     width: 100%; max-width: 480px; transition: background 0.2s; border-radius: 2px;
   }
-  .btn-crimson:hover { background: var(--crimson-mid); }
+  .btn-emerald:hover { background: var(--emerald-bright); }
 
   .social-proof-line {
-    font-size: 14px; color: rgba(46,13,58,0.5);
+    font-size: 14px; color: rgba(245,237,216,0.55);
     text-align: center; margin-top: 16px; letter-spacing: 0.03em;
   }
 
   /* ─── PROGRESS BAR ─── */
   .progress-bar-wrap {
     width: 100%; max-width: 480px; height: 4px;
-    background: rgba(46,13,58,0.1); border-radius: 2px;
+    background: rgba(245,237,216,0.15); border-radius: 2px;
     margin-bottom: 20px; overflow: hidden;
   }
   .progress-bar-fill {
@@ -172,7 +172,7 @@
 
   /* ─── DOMAIN PILL ─── */
   .domain-pill {
-    background: var(--plum); color: var(--text);
+    background: var(--plum); color: var(--ivory);
     font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
     padding: 4px 14px; border-radius: 20px;
     display: inline-block; margin-bottom: 12px;
@@ -185,7 +185,7 @@
   /* ─── QUIZ ─── */
   .question-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px,4vw,24px); color: var(--text);
+    font-size: clamp(18px,4vw,24px); color: var(--ivory);
     text-align: center; line-height: 1.45;
     margin-bottom: 18px; max-width: 540px;
   }
@@ -194,7 +194,7 @@
   }
   .question-counter {
     font-size: 12px; letter-spacing: 0.1em;
-    color: rgba(46,13,58,0.4); text-transform: uppercase; margin-bottom: 8px;
+    color: rgba(245,237,216,0.45); text-transform: uppercase; margin-bottom: 8px;
   }
   .answer-pills {
     display: flex; flex-direction: column;
@@ -202,14 +202,14 @@
   }
   .answer-pill {
     background: transparent; border: 1px solid rgba(201,148,58,0.35);
-    color: var(--text); padding: 12px 18px;
+    color: var(--ivory); padding: 12px 18px;
     font-family: 'Cormorant Garamond', serif; font-size: 16px;
     letter-spacing: 0.03em; cursor: pointer; border-radius: 2px;
     transition: all 0.2s; text-align: left;
     display: flex; align-items: center; gap: 12px;
   }
   .answer-pill:hover { border-color: var(--gold); background: rgba(201,148,58,0.08); }
-  .answer-pill.selected { background: var(--gold); color: #FAF8F5; border-color: var(--gold); font-weight: 700; }
+  .answer-pill.selected { background: var(--gold); color: var(--obsidian); border-color: var(--gold); font-weight: 700; }
   .answer-pill.gold-pulse { animation: goldPulse 1.2s ease-in-out infinite; }
   @keyframes goldPulse {
     0%,100% { border-color: rgba(201,148,58,0.35); }
@@ -235,7 +235,7 @@
   }
   @media(min-width:480px){ .life-area-grid { grid-template-columns: 1fr 1fr 1fr; } }
   .life-area-card {
-    border: 1.5px solid rgba(245,237,216,0.25); background: #FAF8F5;
+    border: 1.5px solid rgba(245,237,216,0.25); background: var(--obsidian);
     padding: 18px 14px; cursor: pointer; border-radius: 2px;
     transition: all 0.2s; text-align: center;
   }
@@ -243,16 +243,16 @@
   .life-area-card.selected { border-color: var(--gold); background: var(--plum); }
   .life-area-card.selected .la-title { color: var(--gold); }
   .la-icon { font-size: 26px; margin-bottom: 6px; }
-  .la-title { font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--text); margin-bottom: 4px; }
-  .la-desc { font-size: 12px; color: rgba(46,13,58,0.5); line-height: 1.4; }
+  .la-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--ivory); margin-bottom: 4px; }
+  .la-desc { font-size: 12px; color: rgba(245,237,216,0.55); line-height: 1.4; }
   .la-tick { display: none; color: var(--gold); font-size: 14px; }
   .life-area-card.selected .la-tick { display: inline; }
 
   /* ─── STAT CARDS ─── */
   .stat-cards { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 480px; margin-bottom: 28px; }
   .stat-card { border: 1px solid var(--gold); padding: 18px 20px; border-radius: 2px; text-align: center; }
-  .stat-number { font-family: 'Crimson Pro', serif; font-size: 32px; color: var(--gold); display: block; }
-  .stat-label { font-size: 15px; color: var(--text); line-height: 1.4; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); display: block; }
+  .stat-label { font-size: 15px; color: var(--ivory); line-height: 1.4; }
 
   /* ─── SOFIA QUOTE ─── */
   .sofia-quote {
@@ -282,7 +282,7 @@
     padding: 14px 16px; border-radius: 2px;
   }
   .eq-card-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-  .eq-card-text { font-size: 15px; color: var(--text); line-height: 1.45; }
+  .eq-card-text { font-size: 15px; color: var(--ivory); line-height: 1.45; }
 
   /* ─── TESTIMONIAL CARDS ─── */
   .testimonial-card {
@@ -290,7 +290,7 @@
     background: rgba(46,13,58,0.25); width: 100%; max-width: 480px; margin-bottom: 16px;
   }
   .testi-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-  .testi-name { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--text); }
+  .testi-name { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ivory); }
   .testi-tag {
     font-size: 11px; letter-spacing: 0.1em; color: var(--gold);
     text-transform: uppercase; background: rgba(201,148,58,0.1);
@@ -306,16 +306,16 @@
     padding: 12px 16px; border-bottom: 1px solid rgba(245,237,216,0.08);
     filter: blur(3px); opacity: 0.7;
   }
-  .tier-item-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--gold); }
+  .tier-item-name { font-family: 'Pinyon Script', cursive; font-size: 22px; color: var(--gold); }
   .tier-lock { font-size: 14px; color: var(--gold); }
-  .tier-tease-label { font-size: 12px; letter-spacing: 0.15em; color: rgba(46,13,58,0.4); text-transform: uppercase; text-align: center; margin-top: 8px; }
+  .tier-tease-label { font-size: 12px; letter-spacing: 0.15em; color: rgba(245,237,216,0.45); text-transform: uppercase; text-align: center; margin-top: 8px; }
 
   /* ─── CONTACT FORM ─── */
   .form-field { width: 100%; max-width: 480px; margin-bottom: 14px; position: relative; }
   .form-field label { display: block; font-size: 12px; letter-spacing: 0.12em; color: rgba(245,237,216,0.6); text-transform: uppercase; margin-bottom: 6px; }
   .form-field input, .form-field textarea, .form-field select {
     width: 100%; background: rgba(245,237,216,0.06);
-    border: 1px solid rgba(245,237,216,0.2); color: var(--text);
+    border: 1px solid rgba(245,237,216,0.2); color: var(--ivory);
     font-family: 'Cormorant Garamond', serif; font-size: 17px;
     padding: 13px 16px; border-radius: 2px; outline: none; transition: border-color 0.2s;
   }
@@ -336,7 +336,7 @@
   }
   .domain-reveal-item.visible { opacity: 1; transform: none; }
   .domain-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
-  .domain-name { font-size: 17px; color: var(--text); letter-spacing: 0.04em; }
+  .domain-name { font-size: 17px; color: var(--ivory); letter-spacing: 0.04em; }
   .pulse-ring {
     width: 100px; height: 100px; border-radius: 50%;
     border: 2px solid var(--gold); margin: 0 auto 24px;
@@ -354,18 +354,18 @@
 
   /* ─── PROFILE CARD ─── */
   .eq-profile-card {
-    background: #FAF8F5; color: #FAF8F5;
+    background: var(--ivory); color: var(--obsidian);
     border-radius: 4px; width: 100%; max-width: 480px;
     overflow: hidden; margin: 16px 0;
   }
-  .profile-card-header { background: #FAF8F5; padding: 20px 24px; text-align: center; border-bottom: 2px solid var(--gold); }
-  .profile-card-title { font-family: 'Crimson Pro', serif; font-size: 20px; color: var(--text); }
+  .profile-card-header { background: var(--obsidian); padding: 20px 24px; text-align: center; border-bottom: 2px solid var(--gold); }
+  .profile-card-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--ivory); }
   .profile-row { display: flex; border-bottom: 1px solid rgba(14,10,15,0.08); border-left: 3px solid var(--gold); }
   .profile-row:nth-child(even) { background: rgba(201,148,58,0.07); }
   .profile-label { padding: 13px 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); width: 45%; flex-shrink: 0; font-weight: 500; }
-  .profile-value { padding: 13px 16px; font-size: 15px; color: #FAF8F5; line-height: 1.4; }
+  .profile-value { padding: 13px 16px; font-size: 15px; color: var(--obsidian); line-height: 1.4; }
   .profile-stage-display { text-align: center; padding: 20px; border-top: 2px solid rgba(201,148,58,0.2); }
-  .profile-stage-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 42px; color: var(--gold); display: block; line-height: 1.2; }
+  .profile-stage-name { font-family: 'Pinyon Script', cursive; font-size: 42px; color: var(--gold); display: block; line-height: 1.2; }
   .profile-stage-sub { font-size: 13px; color: rgba(14,10,15,0.55); font-style: italic; margin-top: 4px; }
 
   /* ─── RESULTS ─── */
@@ -374,14 +374,14 @@
   .score-ring-track { fill: none; stroke: rgba(245,237,216,0.1); stroke-width: 10; }
   .score-ring-fill { fill: none; stroke: var(--gold); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 408; stroke-dashoffset: 408; transition: stroke-dashoffset 2s ease; }
   .score-ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-  .score-ring-tier { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--gold); line-height: 1.2; padding: 0 12px; }
-  .score-ring-pct { font-family: 'Crimson Pro', serif; font-size: 22px; color: var(--text); }
+  .score-ring-tier { font-family: 'Pinyon Script', cursive; font-size: 15px; color: var(--gold); line-height: 1.2; padding: 0 12px; }
+  .score-ring-pct { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ivory); }
 
   .tier-description-block { width: 100%; max-width: 540px; text-align: center; margin-bottom: 28px; }
-  .tier-big-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 52px; color: var(--gold); line-height: 1.1; margin-bottom: 8px; }
-  .tier-code { font-style: italic; font-size: 16px; color: var(--text); margin-bottom: 16px; opacity: 0.7; }
+  .tier-big-name { font-family: 'Pinyon Script', cursive; font-size: 52px; color: var(--gold); line-height: 1.1; margin-bottom: 8px; }
+  .tier-code { font-style: italic; font-size: 16px; color: var(--ivory); margin-bottom: 16px; opacity: 0.7; }
   .tier-quote-text { font-style: italic; font-size: 20px; color: var(--gold); line-height: 1.55; margin-bottom: 16px; }
-  .tier-desc-text { font-size: 17px; color: var(--text); line-height: 1.65; opacity: 0.9; }
+  .tier-desc-text { font-size: 17px; color: var(--ivory); line-height: 1.65; opacity: 0.9; }
 
   .transformation-block { display: flex; align-items: center; justify-content: center; gap: 16px; width: 100%; max-width: 480px; margin: 20px 0; }
   .transform-side { text-align: center; flex: 1; }
@@ -404,7 +404,7 @@
     padding: 18px 20px; border-bottom: 1px solid rgba(201,148,58,0.15);
   }
   .step-card-icon { font-size: 28px; flex-shrink: 0; }
-  .step-card-title { font-family: 'Crimson Pro', serif; font-size: 18px; color: var(--gold); margin-bottom: 3px; }
+  .step-card-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); margin-bottom: 3px; }
   .step-card-subtitle { font-size: 13px; color: rgba(245,237,216,0.6); }
   .step-card-body { padding: 14px 20px; }
   .step-card-body p { font-size: 15px; color: rgba(245,237,216,0.8); line-height: 1.5; margin-bottom: 14px; }
@@ -412,10 +412,10 @@
   /* ─── APPLICATION FORM ─── */
   .apply-form { display: none; padding: 0 20px 20px; border-top: 1px solid rgba(201,148,58,0.15); }
   .apply-form.open { display: block; }
-  .apply-form h4 { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--gold); margin: 16px 0 14px; }
+  .apply-form h4 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); margin: 16px 0 14px; }
   .form-success { text-align: center; padding: 20px; }
   .form-success .success-icon { font-size: 40px; margin-bottom: 12px; }
-  .form-success p { font-size: 16px; color: var(--text); line-height: 1.5; }
+  .form-success p { font-size: 16px; color: var(--ivory); line-height: 1.5; }
 
   /* screen14 background handled by .glow-both class */
 
@@ -437,7 +437,7 @@
 
   /* ─── AVATARS ─── */
   .avatars-row { display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
-  .avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #FAF8F5; background: linear-gradient(135deg, var(--plum), var(--crimson)); margin-left: -8px; }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--obsidian); background: linear-gradient(135deg, var(--plum), var(--crimson)); margin-left: -8px; }
   .avatar:first-child { margin-left: 0; }
 
   /* ─── AFFIRM HIGHLIGHT ─── */
@@ -584,7 +584,7 @@
     <p style="font-size:11px;letter-spacing:0.1em;color:rgba(245,237,216,0.35);text-align:center;margin-top:-20px;margin-bottom:24px;text-transform:uppercase;">A free 2-minute Emotional Intelligence quiz</p>
 
     <!-- HEADLINE -->
-    <h1 style="font-family:'Crimson Pro',serif;font-size:clamp(21px,5vw,32px);color:var(--text);text-align:center;line-height:1.35;margin-bottom:10px;font-weight:700;">"Your emotions are not the problem.<br>Nobody taught you what to do with them."</h1>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(21px,5vw,32px);color:var(--ivory);text-align:center;line-height:1.35;margin-bottom:10px;font-weight:700;">"Your emotions are not the problem.<br>Nobody taught you what to do with them."</h1>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,3.2vw,19px);color:rgba(245,237,216,0.65);text-align:center;line-height:1.5;margin-bottom:22px;max-width:500px;">Discover exactly where you are — and the stage you are rising toward.</p>
 
     <!-- CTA — prominent, high up -->
@@ -593,12 +593,12 @@
     <!-- TWO STAT BOXES -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:480px;margin-bottom:18px;">
       <div style="border:1.5px solid var(--gold);border-radius:3px;padding:18px 14px;text-align:center;background:rgba(46,13,58,0.3);">
-        <div style="font-family:'Crimson Pro',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;">200+</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--text);line-height:1.4;margin-top:7px;">Women have begun their transformation</div>
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;">200+</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--ivory);line-height:1.4;margin-top:7px;">Women have begun their transformation</div>
       </div>
       <div style="border:1.5px solid var(--gold);border-radius:3px;padding:18px 14px;text-align:center;background:rgba(46,13,58,0.3);">
-        <div style="font-family:'Crimson Pro',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;">5</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--text);line-height:1.4;margin-top:7px;">EQ stages mapped to your real life</div>
+        <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;">5</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--ivory);line-height:1.4;margin-top:7px;">EQ stages mapped to your real life</div>
       </div>
     </div>
 
@@ -703,7 +703,7 @@
       </svg>
 
       <div style="text-align:left;">
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--gold);line-height:1.1;">The Free Butterfly</p>
+        <p style="font-family:'Pinyon Script',cursive;font-size:24px;color:var(--gold);line-height:1.1;">The Free Butterfly</p>
         <p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,237,216,0.38);margin-top:4px;">Your destination</p>
       </div>
     </div>
@@ -723,7 +723,7 @@
 
     <div class="divider"></div>
 
-    <p style="font-size:16px;color:var(--text);text-align:center;line-height:1.6;max-width:500px;margin-bottom:28px;"><strong style="color:var(--gold);">Emotional Intelligence (EQ)</strong> is your ability to understand, name and work with your emotions, so they work for you rather than against you.</p>
+    <p style="font-size:16px;color:var(--ivory);text-align:center;line-height:1.6;max-width:500px;margin-bottom:28px;"><strong style="color:var(--gold);">Emotional Intelligence (EQ)</strong> is your ability to understand, name and work with your emotions, so they work for you rather than against you.</p>
 
     <div class="stat-cards">
       <div class="stat-card"><span class="stat-number">90%</span><span class="stat-label">of top performers attribute their success to emotional intelligence</span></div>
@@ -891,11 +891,11 @@
 
     <!-- COLOURED AVATAR DOTS — matching Image 2 reference (coloured circles, no SVG caterpillar) -->
     <div style="display:flex;align-items:center;justify-content:center;gap:0;margin:24px 0 6px;">
-      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F07090,#C03060);border:2.5px solid #FAF8F5;margin-left:0;box-shadow:0 0 6px rgba(192,48,96,0.4);"></div>
-      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#D04060,#8B1030);border:2.5px solid #FAF8F5;margin-left:-10px;box-shadow:0 0 6px rgba(139,16,48,0.4);"></div>
-      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#C03050,#7B1020);border:2.5px solid #FAF8F5;margin-left:-10px;box-shadow:0 0 6px rgba(123,16,32,0.4);"></div>
-      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E07830,#B04010);border:2.5px solid #FAF8F5;margin-left:-10px;box-shadow:0 0 6px rgba(176,64,16,0.4);"></div>
-      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2090A0,#106070);border:2.5px solid #FAF8F5;margin-left:-10px;box-shadow:0 0 6px rgba(16,96,112,0.4);"></div>
+      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F07090,#C03060);border:2.5px solid var(--obsidian);margin-left:0;box-shadow:0 0 6px rgba(192,48,96,0.4);"></div>
+      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#D04060,#8B1030);border:2.5px solid var(--obsidian);margin-left:-10px;box-shadow:0 0 6px rgba(139,16,48,0.4);"></div>
+      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#C03050,#7B1020);border:2.5px solid var(--obsidian);margin-left:-10px;box-shadow:0 0 6px rgba(123,16,32,0.4);"></div>
+      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E07830,#B04010);border:2.5px solid var(--obsidian);margin-left:-10px;box-shadow:0 0 6px rgba(176,64,16,0.4);"></div>
+      <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2090A0,#106070);border:2.5px solid var(--obsidian);margin-left:-10px;box-shadow:0 0 6px rgba(16,96,112,0.4);"></div>
     </div>
     <div style="text-align:center;margin-bottom:20px;">
       <p class="social-proof-line">200+ women have begun their transformation</p>
@@ -1074,8 +1074,8 @@
     <div class="divider"></div>
 
     <!-- CTA to next step screen — prominent, no scroll required for upsell -->
-    <p style="font-family:'Crimson Pro',serif;font-size:22px;color:var(--gold);text-align:center;margin-bottom:10px;">You have seen where you are.</p>
-    <p style="font-size:17px;color:var(--text);text-align:center;line-height:1.5;margin-bottom:24px;max-width:420px;">Now let's talk about where you are going. Choose the step that feels right for you.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);text-align:center;margin-bottom:10px;">You have seen where you are.</p>
+    <p style="font-size:17px;color:var(--ivory);text-align:center;line-height:1.5;margin-bottom:24px;max-width:420px;">Now let's talk about where you are going. Choose the step that feels right for you.</p>
     <button class="btn-gold" onclick="show('screen14')" style="font-size:20px;padding:18px 36px;">Show me how →</button>
 
     <div style="height:40px;"></div>
@@ -1120,9 +1120,9 @@
         <div class="step-card-body">
           <p>A guided journey through your emotional patterns — practical tools to regulate, reset and rise. Start whenever you are ready.</p>
           <ul style="list-style:none;margin-bottom:16px;">
-            <li style="padding:5px 0;font-size:15px;color:var(--text);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);margin-top:3px;">✦</span>Understand the patterns running your life</li>
-            <li style="padding:5px 0;font-size:15px;color:var(--text);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);margin-top:3px;">✦</span>Practical nervous system regulation tools</li>
-            <li style="padding:5px 0;font-size:15px;color:var(--text);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);margin-top:3px;">✦</span>Begin the reset that changes everything</li>
+            <li style="padding:5px 0;font-size:15px;color:var(--ivory);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);margin-top:3px;">✦</span>Understand the patterns running your life</li>
+            <li style="padding:5px 0;font-size:15px;color:var(--ivory);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);margin-top:3px;">✦</span>Practical nervous system regulation tools</li>
+            <li style="padding:5px 0;font-size:15px;color:var(--ivory);display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--gold);margin-top:3px;">✦</span>Begin the reset that changes everything</li>
           </ul>
           <a href="https://buy.stripe.com/00w4gy7ka20L6zygmS5c402" target="_blank" style="text-decoration:none;display:block;">
             <button class="btn-gold" style="max-width:100%;">Begin your reset — £12</button>
@@ -1142,7 +1142,7 @@
         <div class="step-card-body">
           <p>A private space for women navigating the same journey. Weekly insights, live conversations and a community that truly gets it.</p>
           <a href="https://chat.whatsapp.com/D6qYf6tFUhMCrC1FkEu4Ce?mode=gi_t" target="_blank" style="text-decoration:none;display:block;">
-            <button class="btn-crimson" style="max-width:100%;display:flex;align-items:center;justify-content:center;gap:10px;"><span>💬</span>Join on WhatsApp</button>
+            <button class="btn-emerald" style="max-width:100%;display:flex;align-items:center;justify-content:center;gap:10px;"><span>💬</span>Join on WhatsApp</button>
           </a>
         </div>
       </div>
@@ -1218,7 +1218,7 @@
           <!-- Success state (hidden until submitted) -->
           <div id="apply-success" style="display:none;" class="form-success">
             <div class="success-icon">🦋</div>
-            <p style="font-family:'Crimson Pro',serif;font-size:20px;color:var(--gold);margin-bottom:10px;">Your application has been received.</p>
+            <p style="font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);margin-bottom:10px;">Your application has been received.</p>
             <p>Sofia will read this personally and be in touch within 48 hours. In the meantime, join the community on WhatsApp — she is in there too.</p>
           </div>
         </div>
@@ -1316,7 +1316,7 @@
       <div style="border:1px solid rgba(201,148,58,0.2);border-radius:3px;padding:16px 18px;background:rgba(46,13,58,0.3);width:100%;max-width:480px;text-align:center;margin-bottom:24px;">
         <p style="font-size:14px;color:rgba(245,237,216,0.6);margin-bottom:12px;">While you wait — join the community</p>
         <a href="https://chat.whatsapp.com/D6qYf6tFUhMCrC1FkEu4Ce?mode=gi_t" target="_blank" style="text-decoration:none;display:block;">
-          <button class="btn-crimson" style="max-width:100%;display:flex;align-items:center;justify-content:center;gap:10px;">
+          <button class="btn-emerald" style="max-width:100%;display:flex;align-items:center;justify-content:center;gap:10px;">
             <span>💬</span> Join Sofia's WhatsApp Community
           </button>
         </a>
@@ -1326,10 +1326,10 @@
     <!-- Success state -->
     <div id="apply15-success" style="display:none;text-align:center;padding:20px 0;">
       <div style="font-size:52px;margin-bottom:16px;">🦋</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:42px;color:var(--gold);margin-bottom:12px;">Application received.</p>
-      <p style="font-size:17px;color:var(--text);line-height:1.6;max-width:400px;margin:0 auto 24px;">Sofia will read this personally and be in touch within 48 hours. In the meantime — you belong in the community.</p>
+      <p style="font-family:'Pinyon Script',cursive;font-size:42px;color:var(--gold);margin-bottom:12px;">Application received.</p>
+      <p style="font-size:17px;color:var(--ivory);line-height:1.6;max-width:400px;margin:0 auto 24px;">Sofia will read this personally and be in touch within 48 hours. In the meantime — you belong in the community.</p>
       <a href="https://chat.whatsapp.com/D6qYf6tFUhMCrC1FkEu4Ce?mode=gi_t" target="_blank" style="text-decoration:none;display:block;">
-        <button class="btn-crimson" style="max-width:100%;display:flex;align-items:center;justify-content:center;gap:10px;">
+        <button class="btn-emerald" style="max-width:100%;display:flex;align-items:center;justify-content:center;gap:10px;">
           <span>💬</span> Join Sofia's WhatsApp Community
         </button>
       </a>
